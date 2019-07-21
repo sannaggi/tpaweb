@@ -1,7 +1,24 @@
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.8em 18px 0.8em 18px;
+  cursor: pointer; }
+
 .bnbLogo {
-  width: 50px;
-  height: 50px;
-  margin: 0.8em 15px; }
+  width: 33px;
+  height: 33px; }
+
+.arrowDown {
+  display: none;
+  width: 10px;
+  margin-left: 7px; }
 
 .header {
   display: -webkit-box;
@@ -76,6 +93,33 @@
     display: inline-block;
     color: #3b3b3b;
     font-weight: 500;
-    padding: 30px 15px; }
+    padding: 30px 15px;
+    border-bottom: 2px solid white;
+    -webkit-transition: border 0.5s;
+    -o-transition: border 0.5s;
+    transition: border 0.5s; }
     .navbar-link a:hover {
       border-bottom: 2px solid black; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  padding: 0 1em; }
+
+.dropdown-link {
+  display: block;
+  padding: 1.5em 0;
+  border-bottom: 1px solid #dfdfdf; }
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    padding-right: 7px; }
+  .arrowDown {
+    display: block; }
+  .navbar-link {
+    display: none; } }
+
+@media screen and (max-width: 750px) {
+  .searchBox input, .searchBox input:focus {
+    width: calc(100vw - 150px); } }

@@ -1,10 +1,19 @@
 @import 'mixins';
 @import 'variables';
 
+.logo{
+    @include flexFullCenter;
+    padding: 0.8em 18px 0.8em 18px;
+    cursor: pointer;
+}
 .bnbLogo {
-    width: 50px;
-    height: 50px;
-    margin: 0.8em 15px;
+    width: 33px;
+    height: 33px;
+}
+.arrowDown {
+    display: none;
+    width: 10px;
+    margin-left: 7px;
 }
 .header {
     display: flex;
@@ -49,8 +58,41 @@
         color: $darkGrey;
         font-weight: 500;
         padding: 30px 15px;
+        border-bottom: 2px solid white;
+        transition: border 0.5s;
         &:hover {
             border-bottom: 2px solid black;
+        }
+    }
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    padding: 0 1em;
+}
+.dropdown-link {
+    display: block;
+    padding: 1.5em 0;
+    border-bottom: 1px solid $superLightGrey;
+}
+
+@include mQ(1200px) {
+    .logo {
+        padding-right: 7px;
+    }
+    .arrowDown {
+        display: block;
+    }
+    .navbar-link {
+        display: none;
+    }
+}
+
+@include mQ(750px) {
+    .searchBox {
+        input, input:focus{
+            width: calc(100vw - 150px);
         }
     }
 }

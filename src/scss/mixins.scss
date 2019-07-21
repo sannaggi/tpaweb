@@ -3,3 +3,8 @@
     justify-content: center;
     align-items: center;
 }
+@mixin mQ($arg){
+    @media screen and (max-width: $arg){
+        @content;
+    }
+}
