@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import NavBar from './Navbar'
 import ArrowDown from '../../images/arrow-down.png'
 import aivlogo from '../../images/aivbnblogo.png'
+import { TABLETWIDTH , MOBILEWIDTH } from '../Specification'
 
 function Header() {
 
@@ -22,13 +23,15 @@ function Header() {
                 width: window.innerWidth,
                 height: window.innerHeight
             })
+            if(window.innerWidth > MOBILEWIDTH) setVisible(true)
+            if(window.innerWidth > TABLETWIDTH) setClick(false)
         })
     }, [])
 
     function onClick() {
-        if(screen.width <= 1200) {
+        if(screen.width <= TABLETWIDTH) {
             setClick(!click);
-            if(screen.width <= 750){
+            if(screen.width <= MOBILEWIDTH){
                 setVisible(!visible);
             }
         }
@@ -61,7 +64,7 @@ function Header() {
     }
 
     function checkScreen() {
-        if(screen.width > 1200) return <Link to="/aa">{returnLogo()}</Link>;
+        if(screen.width > TABLETWIDTH) return <Link to="/aa">{returnLogo()}</Link>;
         return <div>
             {returnLogo()}
             <nav className="dropdown-content" style={getStyle()}>

@@ -43,6 +43,7 @@
         border: none;
         font-size: 17px;
         transition: 0.6s width;
+        font-weight: 600;
         &:focus {
             width: 500px;
         }
