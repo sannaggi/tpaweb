@@ -100,7 +100,7 @@ header {
 @include mQ(750px) {
     .searchBox {
         input, input:focus{
-            width: calc(100vw - 150px);
+            width: calc(100vw - 200px);
         }
     }
 }

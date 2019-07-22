@@ -133,4 +133,4 @@ header {
 
 @media screen and (max-width: 750px) {
   .searchBox input, .searchBox input:focus {
-    width: calc(100vw - 150px); } }
+    width: calc(100vw - 200px); } }

@@ -5,7 +5,7 @@
   z-index: 5;
   padding: 2em;
   background-color: white;
-  width: 500px;
+  width: 510px;
   border-radius: 4px;
   -webkit-box-shadow: 0px 0px 25px -9px #333333;
   box-shadow: 0px 0px 25px -9px #333333; }
@@ -31,18 +31,87 @@
     .quickCard input:focus {
       border-color: #0d8d78; }
   .quickCard input[type="submit"] {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
     width: auto;
     background: #ff2f13;
     margin-top: 1em;
-    font-weight: 600;
     color: white;
     float: right;
     padding: 15px 27px;
     border-radius: 6px; }
     .quickCard input[type="submit"]:hover {
       cursor: pointer; }
+  .quickCard input[type="date"] {
+    color: #3b3b3b; }
+  .quickCard .guestInput {
+    background: white; }
+    .quickCard .guestInput:hover {
+      cursor: pointer; }
 
 .quickCardTitle {
   font-weight: 700;
   font-size: 36px; }
+
+.guestContainer {
+  width: auto; }
+
+.guestInputContent {
+  position: absolute;
+  background: #fff;
+  width: calc(100% - 4em);
+  padding: 2em;
+  -webkit-box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75); }
+
+.typeTitle {
+  font-size: 18px;
+  font-weight: 600; }
+
+.guestType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 1em 0; }
+
+.counter {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 26px; }
+
+.counterBtn {
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #0d8d78;
+  border: 1.2px solid #0d8d78;
+  cursor: pointer; }
+
+.apply {
+  font-size: 18px;
+  font-weight: 600;
+  float: right;
+  color: #0e6137; }
+  .apply:hover {
+    text-decoration: underline;
+    cursor: pointer; }
