@@ -1,0 +1,13 @@
+.profilePage {
+  height: 650px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 3em; }
+  .profilePage > div {
+    margin: 2em; }
+  .profilePage #profileInformation {
+    width: 800px; }

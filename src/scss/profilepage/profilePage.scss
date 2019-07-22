@@ -1,0 +1,12 @@
+.profilePage{
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    padding: 3em;
+    >div{
+        margin: 2em;
+    }
+    #profileInformation{
+        width: 800px;
+    }
+}

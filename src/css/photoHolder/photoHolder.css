@@ -1,0 +1,16 @@
+.photoHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px; }
+  .photoHolder img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: inherit;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
