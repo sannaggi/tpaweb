@@ -1,5 +1,16 @@
 @import 'imageSlider';
+@import '../mixins';
 
 .quickCardContainer {
     height: 800px;
+}
+@include mQ(750px) {
+    .quickCard {
+        width: 100%;
+        top: 300px;
+        left: 0;
+    }
+    .slidesContainer {
+        height: 300px;
+    }
 }

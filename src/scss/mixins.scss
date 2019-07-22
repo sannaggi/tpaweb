@@ -15,6 +15,18 @@
         color: $darkGrey;
     }
 }
+@mixin input($arg){
+    font-size: $arg;
+    padding: 0.7em;
+    border: 0.8px solid $superLightGrey;
+    &:focus {
+        border-color: rgb(13, 141, 120);
+    }
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
 @mixin mQ($arg){
     @media screen and (max-width: $arg){
         @content;
