@@ -1,0 +1,36 @@
+@import 'variables';
+@import 'mixins';
+
+footer {
+    border-top: 0.5px solid $superLightGrey;
+    border-bottom: 0.5px solid $superLightGrey;
+    width: 100vw;
+    padding: 1.8em 12vw;
+    display: flex;
+    flex-direction: column;
+}
+.footer-content {
+    padding: 1em 0;
+    .title {
+        display: inline-block;
+        margin-bottom: 1em;
+    }
+    li {
+        margin-bottom: 4px;
+    }
+    a {
+        @include basicLink;
+    }
+}
+.copyright {
+    padding: 1em 0;
+    border-top: 0.5px solid $superLightGrey;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+        width: 20px;
+        height: 20px;
+        margin: 0 8px;
+    }
+}

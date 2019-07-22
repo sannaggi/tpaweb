@@ -1,7 +1,19 @@
+@import 'variables';
+
 @mixin flexFullCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@mixin basicLink {
+    border: 0.4px;
+    border-bottom: transparent $darkGrey;
+    &:hover {
+        border-bottom-style: solid;
+    }
+    &:active {
+        color: $darkGrey;
+    }
 }
 @mixin mQ($arg){
     @media screen and (max-width: $arg){

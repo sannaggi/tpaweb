@@ -1,5 +1,5 @@
 import React from 'react'
-import searchIcon from '../../images/search-icon.png';
+import searchIcon from '../../../images/search-icon.png';
 
 function SearchBox() {
     return (

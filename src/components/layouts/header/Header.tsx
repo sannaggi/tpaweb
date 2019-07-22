@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import '../../css/header.css'
+import '../../../css/header.css'
 import SearchBox from './SearchBox'
 import { Link } from 'react-router-dom'
 import NavBar from './Navbar'
-import ArrowDown from '../../images/arrow-down.png'
-import aivlogo from '../../images/aivbnblogo.png'
-import { TABLETWIDTH , MOBILEWIDTH } from '../Specification'
+import ArrowDown from '../../../images/arrow-down.png'
+import aivlogo from '../../../images/aivbnblogo.png'
+import { TABLETWIDTH , MOBILEWIDTH } from '../../Specification'
 
 function Header() {
 
@@ -49,7 +49,7 @@ function Header() {
     function getStyle() {
         if(click)
             return {
-                display: 'block',
+                height: '210px',
             }
     }
 
@@ -76,7 +76,7 @@ function Header() {
     }
 
     return (
-        <div className="header">
+        <header>
             <div className="header-content">
                 {checkScreen()}
                 <div className="searchContainer" style={getVisible()}>
@@ -86,7 +86,7 @@ function Header() {
             <div className="header-content">
                 <NavBar />
             </div>
-        </div>
+        </header>
     )
 }
 

@@ -3,7 +3,11 @@
   margin: 0;
   box-sizing: border-box;
   outline: none;
+  color: rgb(59, 59, 59);
 }
 a {
     text-decoration: none;
+}
+li {
+    list-style-type: none;
 }
