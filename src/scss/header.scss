@@ -16,9 +16,13 @@
     margin-left: 7px;
 }
 header {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     border-bottom: 0.6px solid $lightGrey;
+    z-index: 1;
     .header-component {
         display: flex;
         justify-content: space-evenly;

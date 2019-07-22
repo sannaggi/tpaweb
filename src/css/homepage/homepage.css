@@ -1,0 +1,25 @@
+.slidesContainer {
+  height: 100%;
+  width: 100vw;
+  overflow: hidden; }
+
+.slides {
+  height: 100%;
+  width: 100%;
+  -webkit-animation: fade 1.5s ease-in-out;
+  animation: fade 1.5s ease-in-out; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.2; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: 0.2; }
+  to {
+    opacity: 1; } }
+
+.quickCardContainer {
+  height: 800px; }

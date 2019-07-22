@@ -1,0 +1,20 @@
+.slidesContainer {
+  width: 100vw;
+  position: absolute; }
+
+.slides {
+  width: 100%;
+  -webkit-animation: fade 1.5s ease-in-out;
+  animation: fade 1.5s ease-in-out; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.2; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: 0.2; }
+  to {
+    opacity: 1; } }
