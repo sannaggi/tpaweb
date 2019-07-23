@@ -2,6 +2,10 @@
   "name": "tpaweb",
   "version": "0.1.0",
   "private": true,
+  "engine": {
+    "npm": "6.9.0",
+    "node": "10.16.0"
+  },
   "dependencies": {
     "@types/jest": "24.0.15",
     "@types/node": "12.6.8",

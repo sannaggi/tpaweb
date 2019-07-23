@@ -64,7 +64,7 @@ function Header() {
     }
 
     function checkScreen() {
-        if(screen.width > TABLETWIDTH) return <Link to="/aa">{returnLogo()}</Link>;
+        if(screen.width > TABLETWIDTH) return <Link to="/">{returnLogo()}</Link>;
         return <div>
             {returnLogo()}
             <nav className="dropdown-content" style={getStyle()}>
