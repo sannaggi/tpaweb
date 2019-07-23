@@ -1,7 +1,7 @@
 import React from "react"
 import PhotoHolder from "../PhotoHolder";
 import {USERINFORMATION} from "../../Specification.js"
-import "../../../css/profilepage/profileCard.css"
+import "../../../css/profileCard.css"
 
 function ProfileCard(){
     return(

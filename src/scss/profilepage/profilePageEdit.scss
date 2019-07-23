@@ -1,4 +1,5 @@
 @import '../variables.scss';
+@import '../mixins';
 
 #profileEdit{
     >div{
@@ -15,9 +16,14 @@
     }
 }
 ul{
+    li{
+        >div{
+            width: 100%;
+        }
+    }
     .inp{
         position: relative;
-        margin: 3% 0;
+        margin: 5px 0;
         width: 100%;
         display: flex;
         .gpd{
@@ -30,6 +36,9 @@ ul{
             padding-right: 5%;
         }
         #address{
+            +div{
+                top: -100px;
+            }
             resize: none;
             height: 100px;
         }
@@ -44,7 +53,7 @@ ul{
         padding-left: 2%;
     }
     .inpLabel{
-        position: relative;
+        position: relative; 
         top: -35px;
         left: 9px;
         font-size: 16px;
@@ -73,7 +82,7 @@ ul{
         border: 1px solid $darkGrey;
         border-radius: 5px;
         background: none;
-        color: #223254;
+        color: $darkGrey;
         transition: all .15s ease;
         &:focus{
             + div{
@@ -82,7 +91,7 @@ ul{
         }
         &:not(:placeholder-shown){
             + div{
-                color: #5A667F;
+                color: $blueGreen;
                 transform: translateY(-17px) scale(.75);
             }
         }
@@ -93,4 +102,8 @@ ul{
             }
         }
     }
+}
+
+@include mQ(750px){
+    
 }

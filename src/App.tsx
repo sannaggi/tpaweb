@@ -5,6 +5,7 @@ import Header from './components/layouts/header/Header'
 import Footer from './components/layouts/footer/Footer'
 import Homepage from './components/homepage/Homepage'
 import Profilepage from './components/profile/Profilepage';
+import ProfileCard from './components/profile/profile card/ProfileCard';
 
 const App: React.FC = () => {
   return (

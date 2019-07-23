@@ -1,5 +1,5 @@
-@import '../mixins';
-@import '../variables';
+@import './mixins';
+@import './variables';
 
 .profileCard{
     border: 1px solid $lightGrey;
@@ -8,13 +8,11 @@
     align-items: center;
     width: 20em;
     padding: 1em;
-    height: fit-content;
     a{
-        @include basicLink;
         color: $blueGreen;
     }
     div{
-        margin: 6px;
+        margin: 3px;
         display: flex;
         justify-content: center;
     }
