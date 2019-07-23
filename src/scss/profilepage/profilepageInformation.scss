@@ -71,22 +71,24 @@
 }
 
 @include mQ(1100px){
-    #setLeftRight{
-        display: flex;
-        #forLeft{
+    #userInformation{
+        #setLeftRight{
             display: flex;
-            flex-direction: column;
-            width: 100%;
-            #birthDate{
-                padding-right: 5%;
-            }
-            div{
+            #forLeft{
+                display: flex;
+                flex-direction: column;
                 width: 100%;
+                #birthDate{
+                    padding-right: 5%;
+                }
+                div{
+                    width: 100%;
+                }
             }
-        }
-        #forRight{
-            #addressOut{
-                height: 100%;
+            #forRight{
+                #addressOut{
+                    height: 100%;
+                }
             }
         }
     }
@@ -95,6 +97,7 @@
 @include mQ(750px){
     
     #userInformation{
+        div{width: 100vw;}
         .setColumn{
             display: flex;
             flex-direction: column;
@@ -105,7 +108,7 @@
         #setLeftRight{
             display: flex;
             flex-direction: column;
-            width: 100%;
+            width: 100vw;
         }
     }
 }

@@ -1,5 +1,5 @@
 @import '../variables.scss';
-@import '../mixins';
+@import '../mixins.scss';
 
 #profileEdit{
     >div{
@@ -104,6 +104,34 @@ ul{
     }
 }
 
+@include mQ(1100px){
+    #forLeft{
+        display: flex;
+        flex-direction: column;
+        >div{
+            width: 100%;
+        }
+        #gender, #phoneNumber{
+            padding-right: 0%;
+        }
+    }
+}
+
 @include mQ(750px){
     
+    #profileEdit{
+        // >div{width: 100vw;}
+        .setColumn{
+            display: flex;
+            flex-direction: column;
+            #lastName, #firstName{
+                padding: 0;
+            }
+        }
+        #setLeftRight{
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+        }
+    }
 }

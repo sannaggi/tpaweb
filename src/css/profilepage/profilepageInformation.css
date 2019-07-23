@@ -66,11 +66,11 @@
   transform: scale(0.75); }
 
 @media screen and (max-width: 1100px) {
-  #setLeftRight {
+  #userInformation #setLeftRight {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    #setLeftRight #forLeft {
+    #userInformation #setLeftRight #forLeft {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -79,14 +79,16 @@
       -ms-flex-direction: column;
       flex-direction: column;
       width: 100%; }
-      #setLeftRight #forLeft #birthDate {
+      #userInformation #setLeftRight #forLeft #birthDate {
         padding-right: 5%; }
-      #setLeftRight #forLeft div {
+      #userInformation #setLeftRight #forLeft div {
         width: 100%; }
-    #setLeftRight #forRight #addressOut {
+    #userInformation #setLeftRight #forRight #addressOut {
       height: 100%; } }
 
 @media screen and (max-width: 750px) {
+  #userInformation div {
+    width: 100vw; }
   #userInformation .setColumn {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -105,4 +107,4 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 100%; } }
+    width: 100vw; } }
