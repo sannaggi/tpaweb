@@ -1,0 +1,46 @@
+#profileInformation > div {
+  margin: 15px 0; }
+
+#profileInformation .name {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+#profileInformation .hr {
+  border: 1px solid silver;
+  width: inherit;
+  height: 1px; }
+
+#profileInformation .information {
+  border-bottom: 1px solid silver;
+  font-size: 20px;
+  width: 100%; }
+
+#profileInformation li {
+  position: relative;
+  margin: 0.5% 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+#profileInformation .label {
+  position: relative;
+  top: -35px;
+  left: 9px;
+  font-size: 16px;
+  color: #3b3b3b;
+  font-weight: 500;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  background-color: white;
+  padding: 3px;
+  pointer-events: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; }

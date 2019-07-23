@@ -1,0 +1,37 @@
+.profileCard {
+  border: 1px solid silver;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 20em;
+  padding: 1em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
+  .profileCard a {
+    border: 0.4px;
+    border-bottom: transparent #3b3b3b;
+    color: #008489; }
+    .profileCard a:hover {
+      border-bottom-style: solid; }
+    .profileCard a:active {
+      color: #3b3b3b; }
+  .profileCard div {
+    margin: 6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .profileCard #hr {
+    width: 100%;
+    height: 1px;
+    background-color: silver; }

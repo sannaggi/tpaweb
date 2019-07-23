@@ -10,38 +10,33 @@
   width: 100%;
   padding: 3px; }
 
-#profileEdit ul li > div {
-  width: 100%; }
-
-#profileEdit ul .inp {
+ul .inp {
   position: relative;
-  margin: 0.5% 0;
+  margin: 3% 0;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
-  #profileEdit ul .inp .gpd {
+  ul .inp .gpd {
     width: 40%; }
-  #profileEdit ul .inp #gender {
+  ul .inp #gender {
     padding-right: 5%; }
-  #profileEdit ul .inp #phoneNumber {
+  ul .inp #phoneNumber {
     padding-right: 5%; }
-  #profileEdit ul .inp #address {
+  ul .inp #address {
     resize: none;
     height: 100px; }
-    #profileEdit ul .inp #address + div {
-      top: -100px; }
 
-#profileEdit ul .name {
+ul .name {
   width: 50%; }
 
-#profileEdit ul #firstName {
+ul #firstName {
   padding-right: 2%; }
 
-#profileEdit ul #lastName {
+ul #lastName {
   padding-left: 2%; }
 
-#profileEdit ul .inpLabel {
+ul .inpLabel {
   position: relative;
   top: -35px;
   left: 9px;
@@ -61,13 +56,13 @@
   width: -moz-fit-content;
   width: fit-content; }
 
-#profileEdit ul input::-webkit-input-placeholder, #profileEdit ul textarea::-webkit-input-placeholder {
+ul input::-webkit-input-placeholder, ul textarea::-webkit-input-placeholder {
   color: transparent; }
 
-#profileEdit ul input:focus::-webkit-input-placeholder, #profileEdit ul textarea:focus::-webkit-input-placeholder {
+ul input:focus::-webkit-input-placeholder, ul textarea:focus::-webkit-input-placeholder {
   color: silver; }
 
-#profileEdit ul input, #profileEdit ul select, #profileEdit ul #address {
+ul input, ul select, ul #address {
   -webkit-appearance: none;
   width: 100%;
   font-family: inherit;
@@ -81,16 +76,16 @@
   -webkit-transition: all .15s ease;
   -o-transition: all .15s ease;
   transition: all .15s ease; }
-  #profileEdit ul input:focus + div, #profileEdit ul select:focus + div, #profileEdit ul #address:focus + div {
+  ul input:focus + div, ul select:focus + div, ul #address:focus + div {
     -webkit-transform: translateY(-17px) scale(0.75);
     -ms-transform: translateY(-17px) scale(0.75);
     transform: translateY(-17px) scale(0.75); }
-  #profileEdit ul input:not(:placeholder-shown) + div, #profileEdit ul select:not(:placeholder-shown) + div, #profileEdit ul #address:not(:placeholder-shown) + div {
+  ul input:not(:placeholder-shown) + div, ul select:not(:placeholder-shown) + div, ul #address:not(:placeholder-shown) + div {
     color: #5A667F;
     -webkit-transform: translateY(-17px) scale(0.75);
     -ms-transform: translateY(-17px) scale(0.75);
     transform: translateY(-17px) scale(0.75); }
-  #profileEdit ul input:hover, #profileEdit ul select:hover, #profileEdit ul #address:hover {
+  ul input:hover, ul select:hover, ul #address:hover {
     border-color: #008489; }
-    #profileEdit ul input:hover + div, #profileEdit ul select:hover + div, #profileEdit ul #address:hover + div {
+    ul input:hover + div, ul select:hover + div, ul #address:hover + div {
       color: #008489; }

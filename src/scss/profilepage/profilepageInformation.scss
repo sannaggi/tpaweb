@@ -1,0 +1,41 @@
+@import "../variables.scss";
+
+#profileInformation{
+    >div{
+        margin: 15px 0;
+    }
+    .name{
+        width: 50%;
+        display: flex;
+    }
+    .hr{
+        border: 1px solid $lightGrey;
+        width: inherit;
+        height: 1px;
+    }
+    .information{
+        border-bottom: 1px solid $lightGrey;
+        font-size: 20px;
+        width: 100%;
+    }
+    li{
+        position: relative;
+        margin: 0.5% 0;
+        width: 100%;
+        display: flex;
+    }
+    .label{
+        position: relative;
+        top: -35px;
+        left: 9px;
+        font-size: 16px;
+        color: $darkGrey;
+        font-weight: 500;
+        transform-origin: 0 0;
+        transition: all .2s ease;
+        background-color: white;
+        padding: 3px;
+        pointer-events: none;
+        width: fit-content;
+    }
+}

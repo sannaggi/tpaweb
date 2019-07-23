@@ -19,10 +19,8 @@ export default function ProfilepageEdit(){
                     </div>
                 </li>
                 <li className="inp">
-                    <div>
-                        <input type="text" name="emailAddress" id="emailAddress" placeholder={USERINFORMATION.EmailAddress}/>
-                        <div className="inpLabel" aria-hidden="true">Email Address</div>
-                    </div>
+                    <input type="text" name="emailAddress" id="emailAddress" placeholder={USERINFORMATION.EmailAddress}/>
+                    <div className="inpLabel" aria-hidden="true">Email Address</div>
                 </li>
                 <li className="inp">
                     <div className="gpd" id="gender">
@@ -42,10 +40,8 @@ export default function ProfilepageEdit(){
                     </div>
                 </li>
                 <li className="inp">
-                    <div>
-                        <textarea name="" id="address" placeholder={USERINFORMATION.Address}></textarea>
-                        <div className="inpLabel">Address</div>
-                    </div>
+                    <textarea name="" id="address" placeholder={USERINFORMATION.Address}></textarea>
+                    <div className="inpLabel">Address</div>
                 </li>
             </ul>
         </div>
