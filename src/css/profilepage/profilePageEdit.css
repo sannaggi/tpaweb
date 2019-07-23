@@ -1,0 +1,96 @@
+#profileEdit > div {
+  margin: 15px 0; }
+
+#profileEdit .hr {
+  border: 1px solid silver;
+  width: inherit;
+  height: 1px; }
+
+#profileEdit > input {
+  width: 100%;
+  padding: 3px; }
+
+#profileEdit ul li > div {
+  width: 100%; }
+
+#profileEdit ul .inp {
+  position: relative;
+  margin: 0.5% 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  #profileEdit ul .inp .gpd {
+    width: 40%; }
+  #profileEdit ul .inp #gender {
+    padding-right: 5%; }
+  #profileEdit ul .inp #phoneNumber {
+    padding-right: 5%; }
+  #profileEdit ul .inp #address {
+    resize: none;
+    height: 100px; }
+    #profileEdit ul .inp #address + div {
+      top: -100px; }
+
+#profileEdit ul .name {
+  width: 50%; }
+
+#profileEdit ul #firstName {
+  padding-right: 2%; }
+
+#profileEdit ul #lastName {
+  padding-left: 2%; }
+
+#profileEdit ul .inpLabel {
+  position: relative;
+  top: -35px;
+  left: 9px;
+  font-size: 16px;
+  color: #3b3b3b;
+  font-weight: 500;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  background-color: white;
+  padding: 3px;
+  pointer-events: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; }
+
+#profileEdit ul input::-webkit-input-placeholder, #profileEdit ul textarea::-webkit-input-placeholder {
+  color: transparent; }
+
+#profileEdit ul input:focus::-webkit-input-placeholder, #profileEdit ul textarea:focus::-webkit-input-placeholder {
+  color: silver; }
+
+#profileEdit ul input, #profileEdit ul select, #profileEdit ul #address {
+  -webkit-appearance: none;
+  width: 100%;
+  font-family: inherit;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #3b3b3b;
+  border-radius: 5px;
+  background: none;
+  color: #223254;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease; }
+  #profileEdit ul input:focus + div, #profileEdit ul select:focus + div, #profileEdit ul #address:focus + div {
+    -webkit-transform: translateY(-17px) scale(0.75);
+    -ms-transform: translateY(-17px) scale(0.75);
+    transform: translateY(-17px) scale(0.75); }
+  #profileEdit ul input:not(:placeholder-shown) + div, #profileEdit ul select:not(:placeholder-shown) + div, #profileEdit ul #address:not(:placeholder-shown) + div {
+    color: #5A667F;
+    -webkit-transform: translateY(-17px) scale(0.75);
+    -ms-transform: translateY(-17px) scale(0.75);
+    transform: translateY(-17px) scale(0.75); }
+  #profileEdit ul input:hover, #profileEdit ul select:hover, #profileEdit ul #address:hover {
+    border-color: #008489; }
+    #profileEdit ul input:hover + div, #profileEdit ul select:hover + div, #profileEdit ul #address:hover + div {
+      color: #008489; }

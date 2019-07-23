@@ -1,0 +1,104 @@
+@import '../variables.scss';
+
+#profileEdit{
+    >div{
+        margin: 15px 0;
+    }
+    .hr{
+        border: 1px solid $lightGrey;
+        width: inherit;
+        height: 1px;
+    }
+    >input{
+        width: 100%;
+        padding: 3px;
+    }
+    ul{
+        li{
+            >div{
+                width: 100%;
+            }
+        }
+        .inp{
+            position: relative;
+            margin: 0.5% 0;
+            width: 100%;
+            display: flex;
+            .gpd{
+                width: 40%;
+            }
+            #gender{
+                padding-right: 5%;
+            }
+            #phoneNumber{
+                padding-right: 5%;
+            }
+            #address{
+                +div{
+                    top: -100px;
+                }
+                resize: none;
+                height: 100px;
+            }
+        }
+        .name{
+            width: 50%;
+        }
+        #firstName{
+            padding-right: 2%;
+        }
+        #lastName{
+            padding-left: 2%;
+        }
+        .inpLabel{
+            position: relative;
+            top: -35px;
+            left: 9px;
+            font-size: 16px;
+            color: $darkGrey;
+            font-weight: 500;
+            transform-origin: 0 0;
+            transition: all .2s ease;
+            background-color: white;
+            padding: 3px;
+            pointer-events: none;
+            width: fit-content;
+        }
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
+            color: transparent;
+        }
+        input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder{
+            color: $lightGrey;
+        }
+        input, select, #address{
+            -webkit-appearance: none;
+            width: 100%;
+            font-family: inherit;
+            padding: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid $darkGrey;
+            border-radius: 5px;
+            background: none;
+            color: #223254;
+            transition: all .15s ease;
+            &:focus{
+                + div{
+                    transform: translateY(-17px) scale(.75);
+                }
+            }
+            &:not(:placeholder-shown){
+                + div{
+                    color: #5A667F;
+                    transform: translateY(-17px) scale(.75);
+                }
+            }
+            &:hover{
+                border-color: $blueGreen;
+                + div{
+                    color: $blueGreen;
+                }
+            }
+        }
+    }
+}
