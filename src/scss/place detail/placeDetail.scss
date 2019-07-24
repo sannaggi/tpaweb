@@ -1,0 +1,60 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.placeDetail{
+    width: 100vw;
+    .placePhoto{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+        background-color: #202020;
+        >div{
+            width: calc(100% / 3);
+            height: 300px;
+            overflow: hidden;
+            border: 1px inset $superLightGrey;
+            animation: fade-out 0.5s;
+            opacity: 1;
+        }
+    }
+    .placePhoto:hover>div:not(:hover){
+        animation: fade-in 0.5s;
+        opacity: 0.6;
+    }
+}
+
+@keyframes fade-out{
+    from {opacity: 0.6}
+    to {opacity: 1}
+}
+
+@keyframes fade-in{
+    from {opacity: 1}
+    to {opacity: 0.6s}
+}
+
+@include mQ(1100px){
+    .placeDetail{
+        .placePhoto{
+            >div{
+                width: calc(100% / 2);
+                height: 350px;
+            }
+        }
+    }
+}
+
+@include mQ(750px){
+    .placeDetail{
+        .placePhoto{
+            >div{
+                width: 100%;
+                height: 350px;
+            }
+            #id5, #id6{
+                display: none;
+            }
+        }
+    }
+}

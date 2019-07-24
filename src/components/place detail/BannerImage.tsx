@@ -1,12 +1,9 @@
 import React from 'react';
+import "../../css/place detail/bannerImage.css";
 
 export default function BannerImage(props: any){
-    var imgUrl: any = import(props.url);
 
     return(
-        <div className="bannerImage">
-            {props.url}
-            <img src={imgUrl} alt=""/>
-        </div>  
+        <img src={process.env.PUBLIC_URL + props.url} alt={props.alt}/>
     )
 }
