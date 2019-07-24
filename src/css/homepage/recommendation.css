@@ -4,17 +4,16 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
   width: 100%; }
 
 .cards {
   width: 24%;
-  margin: 8px 0 !important; }
+  margin: 8px 0.5% !important; }
   .cards img {
     width: 100%;
-    height: 200px; }
+    height: 60%; }
 
 .recomContainer {
   margin: 2em 4em; }
@@ -36,3 +35,13 @@
   .recomContainer span {
     color: #0d8d78;
     font-size: 17px; }
+
+@media screen and (max-width: 1100px) {
+  .cards {
+    width: 32%;
+    height: 70%; } }
+
+@media screen and (max-width: 750px) {
+  .cards {
+    width: 49%;
+    height: 80%; } }

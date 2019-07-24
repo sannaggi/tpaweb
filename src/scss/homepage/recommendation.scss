@@ -4,15 +4,15 @@
 .cardsContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    flex-flow: wrap;
     width: 100%;
 }
 .cards {
     width: 24%;
-    margin: 8px 0 !important;
+    margin: 8px 0.5% !important;
     img {
         width: 100%;
-        height: 200px;
+        height: 60%;
     }
 }
 .recomContainer {
@@ -41,5 +41,17 @@
     span {
         color: $blueGreen2;
         font-size: 17px;
+    }
+}
+@include mQ(1100px) {
+    .cards {
+        width: 32%;
+        height: 70%;
+    }
+}
+@include mQ(750px) {
+    .cards {
+        width: 49%;
+        height: 80%;
     }
 }
