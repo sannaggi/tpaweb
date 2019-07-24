@@ -6,6 +6,7 @@ import Footer from './components/layouts/footer/Footer'
 import Homepage from './components/homepage/Homepage'
 import { Provider } from 'react-redux'
 import store from './store'
+import PlaceDetail from './components/place detail/PlaceDetail';
 
 const App: React.FC = () => {
   return (
@@ -14,7 +15,11 @@ const App: React.FC = () => {
         <div className="App">
           <Header />
           <Route exact path="/" component={Homepage}/>
+<<<<<<< HEAD
           <Route path="/places/:id"/>          
+=======
+          <Route path="/rooms/:id" component={PlaceDetail} />
+>>>>>>> place-slider
           <Footer />
         </div>
       </Router>
