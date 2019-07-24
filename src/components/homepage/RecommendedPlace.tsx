@@ -15,16 +15,14 @@ function RecommendedPlace({places, fetchAllPlace} : {places:any, fetchAllPlace:a
             <h2>Recommended place to stay</h2>
             <div className="cardsContainer">
                 {places.map((place:any) => (
-                    <div className="cards" key={place.name}>
-                        <Link to={"/places/1"}>
-                            <img src="https://via.placeholder.com/100x80" alt=""/>
+                    <div className="cards" key={place.id}>
+                        <Link to={"/places/" + place.id}>
+                            <img src={place.images[0]} alt=""/>
                             <br/>
-                            {place.category.toUpperCase()}
-                            {/* {place.name} */}
-                            {/* {place.price} */}
-                            {/* {place.averagerating} */}
-                            {/* {place.ratingcount} */}
-                            {/* {place.hostid} */}
+                            <div className="card-category">{place.category.toUpperCase()}</div>
+                            <div className="card-name">{place.name}</div>
+                            <div className="card-price">${place.price}/night</div>
+                            <div className="card-review"><span> &#9733;</span><strong>{place.averagerating}</strong>({place.ratingcount}) - NoobHost</div>
                         </Link>
                     </div>
                 ))}
