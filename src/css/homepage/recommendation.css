@@ -1,0 +1,38 @@
+.cardsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%; }
+
+.cards {
+  width: 24%;
+  margin: 8px 0 !important; }
+  .cards img {
+    width: 100%;
+    height: 200px; }
+
+.recomContainer {
+  margin: 2em 4em; }
+  .recomContainer h2 {
+    margin-bottom: 1em; }
+  .recomContainer div {
+    margin: 2px 0; }
+  .recomContainer .card-category {
+    font-size: 13px;
+    font-weight: 600; }
+  .recomContainer .card-name {
+    word-wrap: break-word;
+    font-size: 18px;
+    font-weight: 600; }
+  .recomContainer .card-price {
+    font-size: 16px; }
+  .recomContainer .card-review {
+    font-size: 15px; }
+  .recomContainer span {
+    color: #0d8d78;
+    font-size: 17px; }
