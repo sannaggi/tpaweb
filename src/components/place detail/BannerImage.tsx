@@ -1,22 +1,12 @@
 import React from 'react';
 
-interface IState {
-    url: string | ""
-}
+export default function BannerImage(props: any){
+    var imgUrl: any = import(props.url);
 
-export default class BannerImage extends React.Component<{}, IState>{
-    constructor(props: any){
-        super(props)
-        this.state = {
-            url: props.url,
-        }
-        
-    }
-    render(){
-        return(
-            <div className="bannerImage">
-                <img src={this.state.url} alt=""/>
-            </div>
-        )
-    }
+    return(
+        <div className="bannerImage">
+            {props.url}
+            <img src={imgUrl} alt=""/>
+        </div>  
+    )
 }
