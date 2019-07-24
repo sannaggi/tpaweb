@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     border-bottom: 0.6px solid $lightGrey;
-    z-index: 1;
+    z-index: 10;
     .header-component {
         display: flex;
         justify-content: space-evenly;
@@ -100,7 +100,7 @@ header {
 @include mQ(750px) {
     .searchBox {
         input, input:focus{
-            width: calc(100vw - 150px);
+            width: calc(100vw - 200px);
         }
     }
 }

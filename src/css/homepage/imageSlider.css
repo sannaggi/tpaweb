@@ -1,20 +1,23 @@
 .slidesContainer {
-  width: 100vw;
-  position: absolute; }
+  z-index: -5;
+  height: 100%;
+  width: 100vw; }
 
 .slides {
+  z-index: inherit;
+  height: 100%;
   width: 100%;
-  -webkit-animation: fade 1.5s ease-in-out;
-  animation: fade 1.5s ease-in-out; }
+  -webkit-animation: fade 1.5s;
+  animation: fade 1.5s; }
 
 @-webkit-keyframes fade {
   from {
-    opacity: 0.2; }
+    opacity: 0.4; }
   to {
     opacity: 1; } }
 
 @keyframes fade {
   from {
-    opacity: 0.2; }
+    opacity: 0.4; }
   to {
     opacity: 1; } }

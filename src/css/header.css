@@ -32,7 +32,7 @@ header {
   -ms-flex-pack: justify;
   justify-content: space-between;
   border-bottom: 0.6px solid silver;
-  z-index: 1; }
+  z-index: 10; }
   header .header-component {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -133,4 +133,4 @@ header {
 
 @media screen and (max-width: 750px) {
   .searchBox input, .searchBox input:focus {
-    width: calc(100vw - 150px); } }
+    width: calc(100vw - 200px); } }

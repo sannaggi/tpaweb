@@ -1,14 +1,15 @@
 .slidesContainer {
+    z-index: -5;
     height: 100%;
     width: 100vw;
-    overflow: hidden;
 }
 .slides {
+    z-index: inherit;
     height: 100%;
     width: 100%;
-    animation: fade 1.5s ease-in-out;
+    animation: fade 1.5s;
 }
 @keyframes fade {
-    from {opacity: 0.2}
+    from {opacity: 0.4}
     to {opacity: 1}
 }

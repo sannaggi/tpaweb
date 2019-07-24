@@ -1,0 +1,156 @@
+.quickCard {
+  position: absolute;
+  top: 10em;
+  left: 4em;
+  z-index: 5;
+  padding: 2em;
+  background-color: white;
+  width: 510px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 25px -9px #333333;
+  box-shadow: 0px 0px 25px -9px #333333; }
+  .quickCard .title {
+    font-weight: 600;
+    margin-bottom: 0.6em; }
+  .quickCard .input {
+    display: inline-block;
+    margin: 1em 0;
+    width: 100%; }
+  .quickCard .half {
+    width: 50% !important; }
+  .quickCard input {
+    font-size: 1em;
+    padding: 0.7em;
+    border: 0.8px solid #dfdfdf;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 100%;
+    font-size: 20px; }
+    .quickCard input:focus {
+      border-color: #0d8d78; }
+  .quickCard input[disabled] {
+    width: 95%;
+    border: none; }
+  .quickCard input[type="submit"] {
+    font-size: 18px;
+    font-weight: 600;
+    width: auto;
+    background: #ff2f13;
+    margin-top: 1em;
+    color: white;
+    float: right;
+    padding: 15px 27px;
+    border-radius: 6px; }
+    .quickCard input[type="submit"]:hover {
+      cursor: pointer; }
+  .quickCard input[type="date"] {
+    color: #3b3b3b; }
+  .quickCard .guestInput {
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1em;
+    padding: 0.7em;
+    border: 0.8px solid #dfdfdf;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 0em; }
+    .quickCard .guestInput:focus {
+      border-color: #0d8d78; }
+    .quickCard .guestInput:hover {
+      cursor: pointer; }
+    .quickCard .guestInput input {
+      background: #fff; }
+      .quickCard .guestInput input:hover {
+        cursor: pointer; }
+
+.quickCardTitle {
+  font-weight: 700;
+  font-size: 36px; }
+
+.guestContainer {
+  width: auto; }
+
+.guestInputContent {
+  position: absolute;
+  background: #fff;
+  width: calc(100% - 4em);
+  -webkit-box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s; }
+
+.typeTitle {
+  font-size: 18px;
+  font-weight: 600; }
+
+.guestType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 1em 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.counter {
+  font-size: 18px;
+  font-weight: 600;
+  width: 55px;
+  display: inline-block;
+  text-align: center; }
+
+.counterBtn {
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #0d8d78;
+  border: 1.2px solid #0d8d78;
+  cursor: pointer; }
+
+.apply {
+  font-size: 18px;
+  font-weight: 600;
+  float: right;
+  color: #0d8d78;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .apply:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+
+#arrow {
+  font-size: 20px; }
