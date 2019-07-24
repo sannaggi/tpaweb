@@ -15,11 +15,7 @@ const App: React.FC = () => {
         <div className="App">
           <Header />
           <Route exact path="/" component={Homepage}/>
-<<<<<<< HEAD
-          <Route path="/places/:id"/>          
-=======
-          <Route path="/rooms/:id" component={PlaceDetail} />
->>>>>>> place-slider
+          <Route path="/places/:id" component={PlaceDetail} />
           <Footer />
         </div>
       </Router>

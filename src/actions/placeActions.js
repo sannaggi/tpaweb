@@ -1,1 +1,24 @@
-"use strict";function takeData(t){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(e){return[2,new Promise(function(e){e(t.data)})]})})}function fetchAllPlace(){return function(t){axios_1.default.get("https://aivbnbapi.herokuapp.com/api/places",{method:"GET",headers:{"content-type":"application/json"}}).then(takeData).then(function(e){return t({type:types_1.FETCH_ALL_PLACE,payload:e})})}}var __awaiter=this&&this.__awaiter||function(o,i,u,c){return new(u||(u=Promise))(function(e,t){function n(e){try{a(c.next(e))}catch(e){t(e)}}function r(e){try{a(c.throw(e))}catch(e){t(e)}}function a(t){t.done?e(t.value):new u(function(e){e(t.value)}).then(n,r)}a((c=c.apply(o,i||[])).next())})},__generator=this&&this.__generator||function(n,r){function e(t){return function(e){return function(t){if(a)throw new TypeError("Generator is already executing.");for(;u;)try{if(a=1,o&&(i=o[2&t[0]?"return":t[0]?"throw":"next"])&&!(i=i.call(o,t[1])).done)return i;switch(o=0,i&&(t=[0,i.value]),t[0]){case 0:case 1:i=t;break;case 4:return u.label++,{value:t[1],done:!1};case 5:u.label++,o=t[1],t=[0];continue;case 7:t=u.ops.pop(),u.trys.pop();continue;default:if(!(i=0<(i=u.trys).length&&i[i.length-1])&&(6===t[0]||2===t[0])){u=0;continue}if(3===t[0]&&(!i||t[1]>i[0]&&t[1]<i[3])){u.label=t[1];break}if(6===t[0]&&u.label<i[1]){u.label=i[1],i=t;break}if(i&&u.label<i[2]){u.label=i[2],u.ops.push(t);break}i[2]&&u.ops.pop(),u.trys.pop();continue}t=r.call(n,u)}catch(e){t=[6,e],o=0}finally{a=i=0}if(5&t[0])throw t[1];return{value:t[0]?t[1]:void 0,done:!0}}([t,e])}}var a,o,i,t,u={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return t={next:e(0),throw:e(1),return:e(2)},"function"==typeof Symbol&&(t[Symbol.iterator]=function(){return this}),t};Object.defineProperty(exports,"__esModule",{value:!0});var types_1=require("./types"),axios_1=require("axios");exports.fetchAllPlace=fetchAllPlace;
+import { FETCH_ALL_PLACE } from "./types";
+import axios from 'axios'
+
+async function takeData(data) {
+    return new Promise((resolve) => {
+        resolve(data.data);
+    })
+}
+
+export function fetchAllPlace() {
+    return function (dispatch) {
+        axios.get("https://aivbnbapi.herokuapp.com/api/places", {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(takeData)
+        .then(data => dispatch({
+            type: FETCH_ALL_PLACE,
+            payload: data
+        }))
+    }
+}
