@@ -1,8 +1,10 @@
 .slidesContainer {
+  height: 100%;
   width: 100vw;
-  position: absolute; }
+  overflow: hidden; }
 
 .slides {
+  height: 100%;
   width: 100%;
   -webkit-animation: fade 1.5s ease-in-out;
   animation: fade 1.5s ease-in-out; }

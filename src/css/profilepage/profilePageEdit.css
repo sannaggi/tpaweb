@@ -106,7 +106,7 @@ ul input, ul select, ul #address {
     flex-direction: column; }
     #forLeft > div {
       width: 100%; }
-    #forLeft #gender, #forLeft #phoneNumber {
+    #forLeft #gender, #forLeft #phoneNumbergit {
       padding-right: 0%; } }
 
 @media screen and (max-width: 750px) {
