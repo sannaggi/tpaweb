@@ -7,11 +7,11 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 100%;
-  margin-top: 20px; }
+  width: 100%; }
 
 .cards {
-  width: 24%; }
+  width: 24%;
+  margin: 10px 0; }
   .cards img {
     width: 100%; }
 
