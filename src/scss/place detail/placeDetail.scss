@@ -16,6 +16,16 @@
             border: 1px inset $superLightGrey;
             animation: fade-out 0.5s;
             opacity: 1;
+            img{
+                width: 100%;
+                height: inherit;
+                transition: all 0.5s;
+            }
+            
+            img:hover{
+                transform: scale(1.15)
+            }
+            
         }
     }
     .placePhoto:hover>div:not(:hover){

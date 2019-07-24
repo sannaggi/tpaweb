@@ -20,6 +20,16 @@
       -webkit-animation: fade-out 0.5s;
       animation: fade-out 0.5s;
       opacity: 1; }
+      .placeDetail .placePhoto > div img {
+        width: 100%;
+        height: inherit;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s; }
+      .placeDetail .placePhoto > div img:hover {
+        -webkit-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        transform: scale(1.15); }
   .placeDetail .placePhoto:hover > div:not(:hover) {
     -webkit-animation: fade-in 0.5s;
     animation: fade-in 0.5s;
