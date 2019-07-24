@@ -13,6 +13,7 @@ function ImageSlider() {
 
     function showSlides() {
         var slides = document.getElementsByClassName('slides');
+        if(slides.length === 0) return;
         for (let i = 0; i < slides.length; i++) {
             slides[i].setAttribute("style", "display: none");
         }
