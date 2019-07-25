@@ -1,0 +1,60 @@
+@import '../mixins';
+@import '../variables';
+
+.expContainer {
+    width: 100%;
+    a{
+        margin: 0 5px;
+        width: 15.5%;
+    }
+}
+.recomTitleContainer { 
+    margin: 1em !important;
+}
+.expCard {
+    width: 100%;
+    div {
+        margin: 3px 0;
+    }
+    .cardImage {
+        width: 100%;
+        height: 20vw;
+        background-position: center;
+        background-size: cover;
+        display: block;
+        margin-bottom: 0.65em;
+    }
+    .card-category {
+        font-size: 14px;
+        color: $mediumGrey;
+        font-weight: 600;
+    }
+    .card-name {
+        font-size: 16.5px;
+        font-weight: 700;
+    }
+    .card-price {
+        font-size: 16px;
+        font-family: Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 300;
+    }
+    .card-review {
+        font-size: 14px;
+        span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+}
+
+@include mQ(1100px) {
+    .expContainer {
+        a{
+            margin: 0 5px;
+            width: 30%;
+        }
+        .cardImage {
+            height: 30vw;
+        }
+    }
+}

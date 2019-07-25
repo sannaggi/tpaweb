@@ -15,10 +15,11 @@
     width: 100%;
     height: 60%; }
 
+.place h2 {
+  margin-bottom: 1em; }
+
 .recomContainer {
-  margin: 2em 4em; }
-  .recomContainer h2 {
-    margin-bottom: 1em; }
+  margin: 2em 4.5em; }
   .recomContainer div {
     margin: 2px 0; }
   .recomContainer .card-category {

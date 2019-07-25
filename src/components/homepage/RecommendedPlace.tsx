@@ -11,7 +11,7 @@ function RecommendedPlace({places, fetchAllPlace} : {places:any, fetchAllPlace:a
     }, [fetchAllPlace])
 
     return (            
-        <div className="recomContainer">
+        <div className="recomContainer place">
             <h2>Recommended place to stay</h2>
             <div className="cardsContainer">
                 {places.map((place:any) => (
