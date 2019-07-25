@@ -7,30 +7,51 @@
         z-index: 10;
         padding: 10px;
         position: fixed;
+        width: calc(100vw / 5);
         >div, >ul{
             @include circleShape;
             margin: 10px;
+            transition: all 0.5s ease-out;
+        }
+        >div:hover{
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
         }
         #shareBtn{
-            background-color: rgb(158, 242, 248);
+            background-color: white;
             @include centeredImageBG("https://image.flaticon.com/icons/png/512/14/14539.png");
             background-size: 40px;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             @include flexFullCenter;
             >div{
-                transition: all 0.5s ease;
+                z-index: -1;
+                transition: all 0.35s ease-out 0.75s;
                 border-radius: 50%;
                 position: absolute;
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 opacity: 0;
             }
             &:hover{
                 >div{
+                    transition: all 0.35s ease-out 0s;
                     @include circleShape;
-                    animation: fade-out 1s;
                     opacity: 1;
+                }
+                >div:hover{
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
+                }
+                #firstSC{
+                    background-color: cyan;
+                    transform: translateX(+64px) translateY(-35px)
+                }
+                #secondSC{
+                    background-color: cyan;
+                    transform: translateX(+68px) translateY(+15px)
+                }
+                #thirdSC{
+                    background-color: cyan;
+                    transform: translateX(+42px) translateY(+61px)
                 }
             }
         }

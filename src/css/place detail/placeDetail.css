@@ -3,20 +3,27 @@
   .placeDetail #btn {
     z-index: 10;
     padding: 10px;
-    position: fixed; }
+    position: fixed;
+    width: calc(100vw / 5); }
     .placeDetail #btn > div, .placeDetail #btn > ul {
       border-radius: 50%;
       -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
-      margin: 10px; }
+      margin: 10px;
+      -webkit-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out; }
+    .placeDetail #btn > div:hover {
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62); }
     .placeDetail #btn #shareBtn {
-      background-color: #9ef2f8;
+      background-color: white;
       background-image: url("https://image.flaticon.com/icons/png/512/14/14539.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: 40px;
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -27,21 +34,41 @@
       -ms-flex-align: center;
       align-items: center; }
       .placeDetail #btn #shareBtn > div {
-        -webkit-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+        z-index: -1;
+        -webkit-transition: all 0.35s ease-out 0.75s;
+        -o-transition: all 0.35s ease-out 0.75s;
+        transition: all 0.35s ease-out 0.75s;
         border-radius: 50%;
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         opacity: 0; }
       .placeDetail #btn #shareBtn:hover > div {
+        -webkit-transition: all 0.35s ease-out 0s;
+        -o-transition: all 0.35s ease-out 0s;
+        transition: all 0.35s ease-out 0s;
         border-radius: 50%;
         -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
-        -webkit-animation: fade-out 1s;
-        animation: fade-out 1s;
         opacity: 1; }
+      .placeDetail #btn #shareBtn:hover > div:hover {
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62); }
+      .placeDetail #btn #shareBtn:hover #firstSC {
+        background-color: cyan;
+        -webkit-transform: translateX(64px) translateY(-35px);
+        -ms-transform: translateX(64px) translateY(-35px);
+        transform: translateX(64px) translateY(-35px); }
+      .placeDetail #btn #shareBtn:hover #secondSC {
+        background-color: cyan;
+        -webkit-transform: translateX(68px) translateY(15px);
+        -ms-transform: translateX(68px) translateY(15px);
+        transform: translateX(68px) translateY(15px); }
+      .placeDetail #btn #shareBtn:hover #thirdSC {
+        background-color: cyan;
+        -webkit-transform: translateX(42px) translateY(61px);
+        -ms-transform: translateX(42px) translateY(61px);
+        transform: translateX(42px) translateY(61px); }
     .placeDetail #btn #saveBtn {
       background-image: url("https://www.shareicon.net/data/512x512/2017/06/21/887479_heart_512x512.png");
       background-position: center;
