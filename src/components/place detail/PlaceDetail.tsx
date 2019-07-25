@@ -13,7 +13,7 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
     var images : any = []
     for(let i = 1; i <= 6; i++){
         var obj = {
-            banner: <BannerImage url={"/images/places/" + place.id + "/" + i + ".jpg"} alt="uhuy"/>,
+            banner: <BannerImage url={"/images/places/" + place.id + "/" + i + ".jpg"} id={"id" + i} alt="uhuy"/>,
             key: "id" + i,
         }
         images.push(obj)
