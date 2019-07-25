@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactImageAppear from "react-image-appear";
 
 export default function BannerImage(props: any){
 
     return(
-        <img src={process.env.PUBLIC_URL + props.url} alt={props.alt}/>
+        <ReactImageAppear src={process.env.PUBLIC_URL + props.url}/>
     )
 }

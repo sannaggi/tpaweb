@@ -15,7 +15,7 @@ function RecommendedPlace({places, fetchAllPlace} : {places:any, fetchAllPlace:a
             <h2>Recommended place to stay</h2>
             <div className="cardsContainer">
                 {places.map((place:any) => (
-                    <RecommendedPlaceCard place={place} />
+                    <RecommendedPlaceCard key={place.id} place={place} />
                 ))}
             </div>
         </div>
