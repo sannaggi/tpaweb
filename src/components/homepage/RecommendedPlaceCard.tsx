@@ -1,16 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import { setCurrentPlace } from '../../actions/placeActions';
-import { connect } from 'react-redux'
 
-function RecommendedPlaceCard({place, setCurrentPlace} : {place: any, setCurrentPlace : any }){
-    
-    function onClick(){
-        setCurrentPlace(place)
-    }
+function RecommendedPlaceCard({place} : {place: any}){
     
     return(
-        <div className="cards" key={place.id} onClick={onClick}>
+        <div className="cards" key={place.id}>
             <Link to={"/places/" + place.id}>
                 <img src={place.images[0]} alt=""/>
                 <br/>
@@ -23,4 +17,4 @@ function RecommendedPlaceCard({place, setCurrentPlace} : {place: any, setCurrent
     )
 }
 
-export default connect(null, { setCurrentPlace })(RecommendedPlaceCard)
+export default RecommendedPlaceCard

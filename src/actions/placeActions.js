@@ -23,12 +23,19 @@ export function fetchAllPlace() {
     }
 }
 
-export function setCurrentPlace(place){
+export function setCurrentPlace(id){
     return function (dispatch){
-        dispatch({
-            type: SET_CURRENT_PLACE,
-            payload: place
+        axios.get("https://aivbnbapi.herokuapp.com/api/places/" + id, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
         })
+        .then(takeData)
+        .then(data => dispatch({
+            type: SET_CURRENT_PLACE,
+            payload: data
+        }))
     }
 }
 

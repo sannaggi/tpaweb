@@ -1,9 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 import BannerImage from "./BannerImage";
 import { connect } from 'react-redux';
 import "../../css/place detail/placeDetail.css";
+import { setCurrentPlace } from '../../actions/placeActions'
 
-function PlaceDetail({place} : {place : any}){
+function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPlace:any, match:any}){
+
+    useEffect(() => {
+        setCurrentPlace(match.params.id);
+    }, [setCurrentPlace, match.params.id])
+
     var images : any = []
     for(let i = 1; i <= 6; i++){
         var obj = {
@@ -12,7 +18,6 @@ function PlaceDetail({place} : {place : any}){
         }
         images.push(obj)
     }
-    console.log(place);
 
     return(
         <div className="placeDetail">
@@ -28,9 +33,8 @@ function PlaceDetail({place} : {place : any}){
     )
 }
 
-
 const mapStateToProps = (state: any) => ({
     place: state.places.item
 })
 
-export default connect(mapStateToProps, { })(PlaceDetail)
+export default connect(mapStateToProps, { setCurrentPlace })(PlaceDetail)
