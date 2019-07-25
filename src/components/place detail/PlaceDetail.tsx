@@ -21,13 +21,27 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
 
     return(
         <div className="placeDetail">
-            <div className="placePhoto">{images.map((obj : any) => <div key={obj.key} id={obj.key} className="bannerImage"> {obj.banner} </div>)} </div>
+            <div id="btn">
+                <div id="shareBtn">
+                    <div className="shareChild" id="firstSC"></div>
+                    <div className="shareChild" id="secondSC"></div>
+                    <div className="shareChild" id="thirdSC"></div>
+                </div>
+                <div id="saveBtn"></div>
+            </div>
+            <div className="placePhoto">
+                {images.map((obj : any) => <div key={obj.key} id={obj.key} className="bannerImage"> {obj.banner}</div>)}
+            
+            </div>
             <div className="placeInformation">
                 <div className="left">
                     <div id="name">{place.name}</div>
                     <div>14 guest - 7 bedrooms - 7 baths</div>
+                    <div>hosted by <strong>PewDiePie</strong></div>
                 </div>
-                <div className="right"></div>
+                <div className="right">
+                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium mollitia quaerat dolore corrupti esse magnam vitae aperiam reprehenderit laborum quasi. Quos cumque provident, ipsam omnis autem blanditiis iusto praesentium pariatur. lor</div>
+                </div>
             </div>
         </div>
     )

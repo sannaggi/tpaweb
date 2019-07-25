@@ -3,6 +3,45 @@
 
 .placeDetail{
     width: 100vw;
+    #btn{
+        z-index: 10;
+        padding: 10px;
+        position: fixed;
+        >div, >ul{
+            @include circleShape;
+            margin: 10px;
+        }
+        #shareBtn{
+            background-color: rgb(158, 242, 248);
+            @include centeredImageBG("https://image.flaticon.com/icons/png/512/14/14539.png");
+            background-size: 40px;
+            width: 80px;
+            height: 80px;
+            @include flexFullCenter;
+            >div{
+                transition: all 0.5s ease;
+                border-radius: 50%;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                opacity: 0;
+            }
+            &:hover{
+                >div{
+                    @include circleShape;
+                    animation: fade-out 1s;
+                    opacity: 1;
+                }
+            }
+        }
+        #saveBtn{
+            @include centeredImageBG("https://www.shareicon.net/data/512x512/2017/06/21/887479_heart_512x512.png");
+            background-size: 60px;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+        }
+    }
     .placePhoto{
         width: 100%;
         flex-direction: row;
@@ -14,12 +53,12 @@
             height: 300px;
             overflow: hidden;
             border: 1px inset $superLightGrey;
-            animation: fade-out 0.5s;
+            animation: fade-out 0.3s;
             opacity: 1;
             img{
                 width: 100%;
                 height: inherit;
-                transition: all 0.5s;
+                transition: all 0.3s;
             }
             
             img:hover{
@@ -27,10 +66,23 @@
             }
             
         }
+        &:hover>div:not(:hover){
+            animation: fade-in 0.5s;
+            opacity: 0.6;
+        }
     }
-    .placePhoto:hover>div:not(:hover){
-        animation: fade-in 0.5s;
-        opacity: 0.6;
+    .placeInformation{
+        display: flex;
+        justify-content: space-evenly;
+        .left, .right{
+            width: 50%;
+            padding: 40px;
+        }
+        #name{
+            font-family: inherit;
+            font-size: 16pt;
+            font-weight: 500;
+        }
     }
 }
 

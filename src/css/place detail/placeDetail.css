@@ -1,5 +1,55 @@
 .placeDetail {
   width: 100vw; }
+  .placeDetail #btn {
+    z-index: 10;
+    padding: 10px;
+    position: fixed; }
+    .placeDetail #btn > div, .placeDetail #btn > ul {
+      border-radius: 50%;
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+      margin: 10px; }
+    .placeDetail #btn #shareBtn {
+      background-color: #9ef2f8;
+      background-image: url("https://image.flaticon.com/icons/png/512/14/14539.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      width: 80px;
+      height: 80px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .placeDetail #btn #shareBtn > div {
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        border-radius: 50%;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        opacity: 0; }
+      .placeDetail #btn #shareBtn:hover > div {
+        border-radius: 50%;
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+        -webkit-animation: fade-out 1s;
+        animation: fade-out 1s;
+        opacity: 1; }
+    .placeDetail #btn #saveBtn {
+      background-image: url("https://www.shareicon.net/data/512x512/2017/06/21/887479_heart_512x512.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 60px;
+      background-color: white;
+      width: 50px;
+      height: 50px; }
   .placeDetail .placePhoto {
     width: 100%;
     -webkit-box-orient: horizontal;
@@ -17,23 +67,37 @@
       height: 300px;
       overflow: hidden;
       border: 1px inset #dfdfdf;
-      -webkit-animation: fade-out 0.5s;
-      animation: fade-out 0.5s;
+      -webkit-animation: fade-out 0.3s;
+      animation: fade-out 0.3s;
       opacity: 1; }
       .placeDetail .placePhoto > div img {
         width: 100%;
         height: inherit;
-        -webkit-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s; }
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s; }
       .placeDetail .placePhoto > div img:hover {
         -webkit-transform: scale(1.15);
         -ms-transform: scale(1.15);
         transform: scale(1.15); }
-  .placeDetail .placePhoto:hover > div:not(:hover) {
-    -webkit-animation: fade-in 0.5s;
-    animation: fade-in 0.5s;
-    opacity: 0.6; }
+    .placeDetail .placePhoto:hover > div:not(:hover) {
+      -webkit-animation: fade-in 0.5s;
+      animation: fade-in 0.5s;
+      opacity: 0.6; }
+  .placeDetail .placeInformation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly; }
+    .placeDetail .placeInformation .left, .placeDetail .placeInformation .right {
+      width: 50%;
+      padding: 40px; }
+    .placeDetail .placeInformation #name {
+      font-family: inherit;
+      font-size: 16pt;
+      font-weight: 500; }
 
 @-webkit-keyframes fade-out {
   from {
