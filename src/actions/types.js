@@ -1,2 +1,4 @@
 export const NEW_BOOKING = 'NEW_BOOKING'
 export const FETCH_ALL_PLACE = 'FETCH_ALL_PLACE'
+export const SET_CURRENT_PLACE = 'SET_CURRENT_PLACE'
+export const FETCH_HOST = 'FETCH_HOST'

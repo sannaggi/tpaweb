@@ -1,4 +1,4 @@
-import { FETCH_ALL_PLACE } from "./types";
+import { FETCH_ALL_PLACE, SET_CURRENT_PLACE, FETCH_HOST } from "./types";
 import axios from 'axios'
 
 async function takeData(data) {
@@ -18,6 +18,31 @@ export function fetchAllPlace() {
         .then(takeData)
         .then(data => dispatch({
             type: FETCH_ALL_PLACE,
+            payload: data
+        }))
+    }
+}
+
+export function setCurrentPlace(place){
+    return function (dispatch){
+        dispatch({
+            type: SET_CURRENT_PLACE,
+            payload: place
+        })
+    }
+}
+
+export function fetchHost(placeID){
+    return function (dispatch){
+        axios.get("https://aivbnbapi.herokuapp.com/api/hosts", {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(takeData)
+        .then(data => dispatch({
+            type: FETCH_HOST,
             payload: data
         }))
     }
