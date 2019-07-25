@@ -7,7 +7,6 @@
         z-index: 10;
         padding: 10px;
         position: fixed;
-        width: calc(100vw / 5);
         >div, >ul{
             @include circleShape;
             margin: 10px;
@@ -23,7 +22,7 @@
             width: 90px;
             height: 90px;
             @include flexFullCenter;
-            >div{
+            div{
                 z-index: -1;
                 transition: all 0.35s ease-out 0.75s;
                 border-radius: 50%;
@@ -31,26 +30,41 @@
                 width: 40px;
                 height: 40px;
                 opacity: 0;
+                overflow: hidden;
+                @include flexFullCenter;
+            }
+            #firstSC{
+                @include centeredImageBG("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-clipboard-512.png");
+                background-color: #6b6b6b;
+                background-size: 60%;
+            }
+            #secondSC{
+                @include centeredImageBG("https://www.sccpre.cat/mypng/full/6-60713_facebook-twitter-instagram-pinterest-facebook-twitter-icon-png.png");
+                background-color: white;
+                background-size: 110%;
+            }
+            #thirdSC{
+                @include centeredImageBG("https://pngriver.com/wp-content/uploads/2017/12/download-Email-symbol-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-8d338f5acd60bfbc9b5fb1b208c8814f-e-mail-delineado-cone-redondo-by-vexels.png");
+                background-color: white;
+                background-size: 120%;
             }
             &:hover{
-                >div{
+                div{
+                    cursor: pointer;
                     transition: all 0.35s ease-out 0s;
                     @include circleShape;
                     opacity: 1;
                 }
-                >div:hover{
+                div:hover{
                     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
                 }
                 #firstSC{
-                    background-color: cyan;
                     transform: translateX(+64px) translateY(-35px)
                 }
                 #secondSC{
-                    background-color: cyan;
                     transform: translateX(+68px) translateY(+15px)
                 }
                 #thirdSC{
-                    background-color: cyan;
                     transform: translateX(+42px) translateY(+61px)
                 }
             }

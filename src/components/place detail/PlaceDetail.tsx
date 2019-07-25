@@ -3,6 +3,7 @@ import BannerImage from "./BannerImage";
 import { connect } from 'react-redux';
 import "../../css/place detail/placeDetail.css";
 import { setCurrentPlace } from '../../actions/placeActions'
+import {FacebookShareButton, EmailShareButton} from 'react-share';
 
 function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPlace:any, match:any}){
 
@@ -19,13 +20,21 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
         images.push(obj)
     }
 
+    function clipBoard(){
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);dummy.value = window.location.href;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+    }
+
     return(
         <div className="placeDetail">
             <div id="btn">
                 <div id="shareBtn">
-                    <div className="shareChild" id="firstSC"></div>
-                    <div className="shareChild" id="secondSC"></div>
-                    <div className="shareChild" id="thirdSC"></div>
+                    <div className="shareChild" id="firstSC" onClick={clipBoard}></div>
+                    <div className="shareChild" id="secondSC"><FacebookShareButton url={window.location.href}/></div>
+                    <div className="shareChild" id="thirdSC"><EmailShareButton url={window.location.href} /></div>
                 </div>
                 <div id="saveBtn"></div>
             </div>
@@ -36,7 +45,7 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
             <div className="placeInformation">
                 <div className="left">
                     <div id="name">{place.name}</div>
-                    <div>14 guest - 7 bedrooms - 7 baths</div>
+                    <div>14 guest • 7 bedrooms • 7 baths • ${place.price}/night</div>
                     <div>hosted by <strong>PewDiePie</strong></div>
                 </div>
                 <div className="right">
