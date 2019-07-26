@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import PlaceDetail from './components/place detail/PlaceDetail';
 import Profilepage from './components/profile/Profilepage';
+import ExperienceHost from './components/experience-host/experienceHost';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Route exact path="/" component={Homepage}/>
           <Route path="/places/:id" component={PlaceDetail} />
           <Route path="/users/:id" component={Profilepage} />
+          <Route path="/experience-host" component={ExperienceHost}/>
           <Footer />
         </div>
       </Router>

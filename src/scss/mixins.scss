@@ -24,6 +24,15 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+@mixin basicButton($borderColor, $backColor){
+    width: fit-content;
+    @include flexFullCenter;
+    border: 1x solid $borderColor;
+    background-color: $backColor;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
 
 @mixin basicLink {
     border: 0.4px;
