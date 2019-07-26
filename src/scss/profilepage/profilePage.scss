@@ -1,0 +1,26 @@
+@import '../mixins';
+
+.profilePage{
+    display: flex;
+    justify-content: center;
+    padding: 3em;
+    >div{
+        margin: 2em;
+    }
+    #profileInformation{
+        width: 800px;
+    }
+}
+
+@include mQ(750px){
+    h1{
+        display: none;
+    }
+    .profilePage{
+        flex-direction: column;
+    }
+    #divCard{
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
