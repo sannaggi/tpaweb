@@ -3,8 +3,7 @@ import BannerImage from "./BannerImage";
 import { connect } from 'react-redux';
 import "../../css/place detail/placeDetail.css";
 import { setCurrentPlace } from '../../actions/placeActions'
-import {FacebookShareButton, EmailShareButton} from 'react-share';
-import { timeout } from "q";
+import Sharing from "../reusable/sharing";
 
 function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPlace:any, match:any}){
 
@@ -26,23 +25,9 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
         images.push(obj)
     }
 
-    function clipBoard(){
-        var dummy = document.createElement("textarea");
-        document.body.appendChild(dummy);dummy.value = window.location.href;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-    }
     return(
         <div className="placeDetail">
-            <div id="btn">
-                <div id="shareBtn">
-                    <div className="shareChild" id="firstSC" onClick={clipBoard}></div>
-                    <div className="shareChild" id="secondSC"><FacebookShareButton url={window.location.href}/></div>
-                    <div className="shareChild" id="thirdSC"><EmailShareButton url={window.location.href} /></div>
-                </div>
-                <div id="saveBtn"></div>
-            </div>
+            <Sharing />
             <div className="placePhoto">
                 {images.map((obj : any) => <div key={obj.key} id={obj.key} className="bannerImage"> {obj.banner}</div>)}
             

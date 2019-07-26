@@ -1,0 +1,123 @@
+#btn {
+  z-index: 10;
+  padding: 10px;
+  position: fixed; }
+  #btn > div {
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+    margin: 10px;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out; }
+  #btn > div:hover {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62); }
+  #btn #shareBtn {
+    background-color: white;
+    background-image: url("https://image.flaticon.com/icons/png/512/14/14539.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    width: 90px;
+    height: 90px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    #btn #shareBtn .shareChild {
+      z-index: -1;
+      -webkit-transition: all 0.35s 0.75s;
+      -o-transition: all 0.35s 0.75s;
+      transition: all 0.35s 0.75s;
+      border-radius: 50%;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0;
+      overflow: hidden;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    #btn #shareBtn #urlCopied {
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+      padding: 5px;
+      font-size: 10pt;
+      display: block;
+      opacity: 0;
+      -webkit-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;
+      position: absolute;
+      background-color: inherit;
+      -webkit-transform: translateY(-73px) translateX(90px);
+      -ms-transform: translateY(-73px) translateX(90px);
+      transform: translateY(-73px) translateX(90px);
+      border: 1px solid #000000;
+      background-color: #6b6b6b;
+      pointer-events: none;
+      color: white;
+      border-radius: 5px; }
+    #btn #shareBtn #firstSC {
+      background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-clipboard-512.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #6b6b6b;
+      background-size: 60%; }
+    #btn #shareBtn #secondSC {
+      background-image: url("https://www.sccpre.cat/mypng/full/6-60713_facebook-twitter-instagram-pinterest-facebook-twitter-icon-png.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: white;
+      background-size: 105%; }
+    #btn #shareBtn #thirdSC {
+      background-image: url("https://pngriver.com/wp-content/uploads/2017/12/download-Email-symbol-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-8d338f5acd60bfbc9b5fb1b208c8814f-e-mail-delineado-cone-redondo-by-vexels.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: white;
+      background-size: 120%; }
+    #btn #shareBtn:hover .shareChild {
+      cursor: pointer;
+      -webkit-transition: all 0.35s 0s;
+      -o-transition: all 0.35s 0s;
+      transition: all 0.35s 0s;
+      border-radius: 50%;
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+      opacity: 1; }
+    #btn #shareBtn:hover .shareChild:hover {
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62); }
+    #btn #shareBtn:hover #firstSC {
+      -webkit-transform: translateX(64px) translateY(-35px);
+      -ms-transform: translateX(64px) translateY(-35px);
+      transform: translateX(64px) translateY(-35px); }
+    #btn #shareBtn:hover #secondSC {
+      -webkit-transform: translateX(68px) translateY(15px);
+      -ms-transform: translateX(68px) translateY(15px);
+      transform: translateX(68px) translateY(15px); }
+    #btn #shareBtn:hover #thirdSC {
+      -webkit-transform: translateX(42px) translateY(61px);
+      -ms-transform: translateX(42px) translateY(61px);
+      transform: translateX(42px) translateY(61px); }
+  #btn #saveBtn {
+    background-image: url("https://www.shareicon.net/data/512x512/2017/06/21/887479_heart_512x512.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-color: white;
+    width: 50px;
+    height: 50px; }
