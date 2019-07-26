@@ -7,7 +7,7 @@
     flex-flow: wrap;
     width: 100%;
 }
-.cards {
+.placeCard {
     width: 24%;
     margin: 8px 0.5% !important;
     img {
@@ -45,13 +45,13 @@
     }
 }
 @include mQ(1100px) {
-    .cards {
+    .placeCard {
         width: 32%;
         height: 70%;
     }
 }
 @include mQ(750px) {
-    .cards {
+    .placeCard {
         width: 49%;
         height: 80%;
     }

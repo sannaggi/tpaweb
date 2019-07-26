@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchRecomExperience } from '../../actions/experienceActions'
 import '../../css/homepage/recomExp.css'
 import { Link } from "react-router-dom";
+import RecommendedExperienceCard from './RecommendedExperienceCard';
 
 function RecommendedExperience({experiences, fetchRecomExperience} : {experiences:Array<Object>, fetchRecomExperience:any}) {
     
@@ -10,11 +11,6 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
         fetchRecomExperience()
     }, [fetchRecomExperience])
 
-    function getStyle(experience:any) {
-        return {
-            backgroundImage : "url('" + experience.headerimage + "')"
-        }
-    }
 
     return (
         <div className="recomContainer">
@@ -26,15 +22,7 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
             </div>
             <div className="cardsContainer expContainer">
                 {experiences.map((experience:any) => (
-                    <Link to={"/experiences/" + experience.id} key={experience.id} target="_blank">
-                        <div className="expCard" key={experience.id}>
-                            <div className="cardImage" style={getStyle(experience)}></div>
-                            <div className="card-category">{experience.category.toUpperCase()} &#183; {experience.location.toUpperCase()}</div>
-                            <div className="card-name">{experience.name}</div>
-                            <div className="card-price">From ${experience.price}/person</div>
-                            <div className="card-review"><span>{experience.averagerating}&#9733;</span> ({experience.totalrating})</div>
-                        </div>
-                    </Link>
+                    <RecommendedExperienceCard experience={experience}/>
                 ))}
             </div>
         </div>

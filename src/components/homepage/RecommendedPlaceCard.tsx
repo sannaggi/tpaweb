@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function RecommendedPlaceCard({place} : {place: any}){
     
     return(
-        <div className="cards" key={place.id}>
+        <div className="placeCard" key={place.id}>
             <Link to={"/places/" + place.id}>
                 <img src={place.images[0]} alt=""/>
                 <br/>
