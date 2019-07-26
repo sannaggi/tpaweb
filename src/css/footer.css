@@ -1,6 +1,6 @@
 footer {
-  border-top: 0.5px solid #dfdfdf;
-  border-bottom: 0.5px solid #dfdfdf;
+  border-top: 0.5px solid #bdbdbd;
+  border-bottom: 0.5px solid #bdbdbd;
   width: 100vw;
   padding: 1.8em 12vw;
   display: -webkit-box;
@@ -28,7 +28,7 @@ footer {
 
 .copyright {
   padding: 1em 0;
-  border-top: 0.5px solid #dfdfdf;
+  border-top: 0.5px solid #bdbdbd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

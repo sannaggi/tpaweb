@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 function Navbar() {
     return (
         <React.Fragment>
-            <div className="navbar-link"><Link to="/">Become a Host</Link></div>
-            <div className="navbar-link"><Link to="/">Register</Link></div>
-            <div className="navbar-link"><Link to="/">Login</Link></div>
+            <div className="navbar-link"><div>Become a Host</div></div>
+            <div className="navbar-link"><div>Register</div></div>
+            <div className="navbar-link"><div>Login</div></div>
         </React.Fragment>
     )
 }

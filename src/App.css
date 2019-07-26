@@ -24,3 +24,9 @@ input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
 }
+button {
+    border: none;
+}
+button:hover {
+    cursor: pointer;
+}

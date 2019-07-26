@@ -21,7 +21,7 @@
   .quickCard input {
     font-size: 1em;
     padding: 0.7em;
-    border: 0.8px solid #dfdfdf;
+    border: 0.8px solid #bdbdbd;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom-left-radius: 4px;
@@ -37,7 +37,7 @@
     font-size: 18px;
     font-weight: 600;
     width: auto;
-    background: #ff2f13;
+    background: #ff523b;
     margin-top: 1em;
     color: white;
     float: right;
@@ -57,7 +57,7 @@
     align-items: center;
     font-size: 1em;
     padding: 0.7em;
-    border: 0.8px solid #dfdfdf;
+    border: 0.8px solid #bdbdbd;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom-left-radius: 4px;

@@ -26,7 +26,7 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
             </div>
             <div className="cardsContainer expContainer">
                 {experiences.map((experience:any) => (
-                    <Link to={"/experiences/" + experience.id} target="_blank">
+                    <Link to={"/experiences/" + experience.id} key={experience.id} target="_blank">
                         <div className="expCard" key={experience.id}>
                             <div className="cardImage" style={getStyle(experience)}></div>
                             <div className="card-category">{experience.category.toUpperCase()} &#183; {experience.location.toUpperCase()}</div>

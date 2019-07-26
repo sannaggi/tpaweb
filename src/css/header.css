@@ -95,7 +95,7 @@ header {
   height: 100%;
   text-align: center;
   font-size: 15px; }
-  .navbar-link a {
+  .navbar-link div {
     display: inline-block;
     color: #3b3b3b;
     font-weight: 500;
@@ -104,8 +104,13 @@ header {
     -webkit-transition: border 0.5s;
     -o-transition: border 0.5s;
     transition: border 0.5s; }
-    .navbar-link a:hover {
-      border-bottom: 2px solid black; }
+    .navbar-link div:hover {
+      border-bottom: 2px solid black;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
 
 .dropdown-content {
   overflow: hidden;
@@ -121,7 +126,7 @@ header {
 .dropdown-link {
   display: block;
   padding: 1.5em 0;
-  border-bottom: 1px solid #dfdfdf; }
+  border-bottom: 1px solid #bdbdbd; }
 
 @media screen and (max-width: 1200px) {
   .logo {

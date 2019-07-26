@@ -6,6 +6,7 @@ import NavBar from './Navbar'
 import ArrowDown from '../../../images/arrow-down.png'
 import aivlogo from '../../../images/aivbnblogo.png'
 import { TABLETWIDTH , MOBILEWIDTH } from '../../Specification'
+import LoginModal from "./LoginModal";
 
 function Header() {
 
@@ -86,6 +87,7 @@ function Header() {
             <div className="header-content">
                 <NavBar />
             </div>
+            <LoginModal />
         </header>
     )
 }

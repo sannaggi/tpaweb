@@ -36,3 +36,48 @@
         @content;
     }
 }
+@mixin shadowGlow ($arg1, $arg2) {
+    @keyframes glow {
+        from {box-shadow: 0 0 $arg1 0 rgba(0,0,0,0.75)} 
+        to {box-shadow: 0 0 $arg2 0 rgba(0,0,0,0.75)}
+    }
+}
+@mixin shadowGlow1 ($arg1, $arg2) {
+    @keyframes glow1 {
+        from {box-shadow: 0 0 $arg1 0 rgba(0,0,0,0.75)} 
+        to {box-shadow: 0 0 $arg2 0 rgba(0,0,0,0.75)}
+    }
+}
+@mixin loginButton {
+    @include titleText;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.7em 0;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    img {
+        width: 22px;
+        height: 22px;
+        margin-right: 13px;
+    }
+}
+@mixin loginFacebook { 
+    @include loginButton;
+    background: $fbBlue;
+    margin: 8px 0;
+    span {
+        color: #fff;
+    }
+}
+@mixin loginGoogle { 
+    @include loginButton;
+    background: #fff;
+    margin: 8px 0;
+    border: 1.5px solid rgb(88, 88, 88);
+    span {
+        color: #000;
+    }
+}

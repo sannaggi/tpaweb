@@ -1,0 +1,118 @@
+@import 'mixins';
+@import 'variables';
+
+.modal {
+    display: none;
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 40px;
+}
+.modal-content {
+    @include shadowGlow (0px, 2px);
+    @include shadowGlow1 (2px, 4px);
+    position: relative;
+    padding: 1.5em 2em;
+    background-color: #fff;
+    width: 560px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $lightGrey;
+    .close-modal {
+        display: block;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        color: $lightGrey;
+        border-radius: 50%;
+        user-select: none;
+        transition: box-shadow;
+        &:hover {
+            animation: glow 0.3s;
+            box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
+            cursor: pointer;
+        }
+        &:active {
+            animation: glow1 0.3s;
+            box-shadow: 0 0 4px 0 rgba(0,0,0,0.75);
+        }
+    }
+    .facebook-login {
+        @include loginFacebook;
+    }
+    .google-login {
+        @include loginGoogle;
+    }
+    .separator {
+        @include flexFullCenter;
+        height: 40px;
+        hr {
+            width: 100%;
+        }
+        .separator-text { 
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+            background-color: #fff;
+            width: 60px;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    .forgotPass {
+        text-align: center;
+    }
+    .inputField {
+        width: 100%;
+        margin-bottom: 13px;
+        .inputText{
+            border: 1px solid $superLightGrey;
+            >div {
+                width: 92%;
+                display: inline-block;
+            }
+            .inputLogo {
+                display: inline-block;
+                text-align: center;
+                width: 8%;
+                font-size: 20px;
+                margin-top: 9px;
+                color: #000000;
+            }
+        }
+        input:not(#remember) {
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding: 1em;
+        }
+        input[type="submit"]{
+            cursor: pointer;
+            background-color: $lightRed;
+            @include titleText;
+            color: white;
+        }
+        .show-pass {
+            float: right;
+        }
+    }
+    .helper {
+        padding: 10px 0;
+    }
+    .clickableText {
+        cursor: pointer;
+        color: $blueGreen2;
+        user-select: none;
+    }
+    .signUp {
+        margin-top: 16px;
+        span {
+            font-weight: 600;
+        }
+    }
+}
