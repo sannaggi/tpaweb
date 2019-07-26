@@ -1,0 +1,114 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+#userInformation{
+    >div{
+        margin: 15px 0;
+    }
+    .hr{
+        border: 1px solid $lightGrey;
+        width: inherit;
+        height: 1px;
+    }
+    .information{
+        -webkit-appearance: none;
+        width: 100%;
+        font-family: inherit;
+        padding: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        border-bottom: 1px solid $darkGrey;
+        background: none;
+        color: $blueGreen;
+        transition: all .15s ease;
+    }
+    ul{
+        .name{
+            width: 50%;
+        }
+        #firstName{
+            padding-right: 2%;
+        }
+        #lastName{
+            padding-left: 2%;
+        }
+        li{
+            position: relative;
+            margin: 5px 0;
+            width: 100%;
+            display: flex;
+            .gpd{
+                width: 40%;
+            }
+            #gender{
+                padding-right: 5%;
+            }
+            #phoneNumber{
+                padding-right: 5%;
+            }
+            #addressOut{
+                height: 100px;
+                border: 1px solid $darkGrey;
+                font-size: 10pt;
+                border-radius: 5px;
+                padding: 8px;
+                color: $blueGreen;
+                +div{
+                    top: -22px;
+                    left: 9px;
+                    background-color: white;
+                    padding: 10px;
+                }
+            }
+        }
+        .label{
+            position: relative;
+            font-size: 16px;
+            width: fit-content;
+            transform: scale(.75);
+        }
+    }
+}
+
+@include mQ(1100px){
+    #userInformation{
+        #setLeftRight{
+            display: flex;
+            #forLeft{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                #birthDate{
+                    padding-right: 5%;
+                }
+                div{
+                    width: 100%;
+                }
+            }
+            #forRight{
+                #addressOut{
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+@include mQ(750px){
+    
+    #userInformation{
+        div{width: 100vw;}
+        .setColumn{
+            display: flex;
+            flex-direction: column;
+            #lastName, #firstName{
+                padding: 0;
+            }
+        }
+        #setLeftRight{
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+        }
+    }
+}

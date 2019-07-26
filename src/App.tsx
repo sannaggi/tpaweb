@@ -7,6 +7,7 @@ import Homepage from './components/homepage/Homepage'
 import { Provider } from 'react-redux'
 import store from './store'
 import PlaceDetail from './components/place detail/PlaceDetail';
+import Profilepage from './components/profile/Profilepage';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Header />
           <Route exact path="/" component={Homepage}/>
           <Route path="/places/:id" component={PlaceDetail} />
+          <Route path="/users/:id" component={Profilepage} />
           <Footer />
         </div>
       </Router>
