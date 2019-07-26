@@ -1,0 +1,128 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+#expPlace{
+    #expContainer{
+        padding: 0 5vw;
+        .section{
+            margin: 5vw 0;
+            @include flexFullCenter;
+            >div{
+                @include flexFullCenter;
+                flex-direction: column;
+                width: 100%;
+            }
+            >.left{
+                >.section-head{
+                    width: 100%;
+                    font-size: 26pt;
+                    font-weight: 600; 
+                }
+                width: calc(100vw * (1 / 3));
+            }
+            >.right{
+                width: calc(100vw * (2 / 3));
+            }
+        }
+        .hr{
+            width: 100%;
+            height: 1px;
+            margin: 50px 0;
+            background-color: $superLightGrey;
+        }
+        #first-sec{
+            >div{
+                text-align: left;
+            }
+            >.right{
+                #expBasicInfo{
+                    >div{
+                        margin: 5px 0;
+                    }
+                }
+                #expCategory{
+                    font-weight: 500;
+                }
+                #expName{
+                    font-size: 24pt;
+                    font-weight: 700;
+                }
+                >div{
+                    width: 100%;
+                }
+                .info-sec{
+                    .info-sec-head{
+                        font-weight: 500;
+                        font-size: 14pt;
+                    }
+                    >.left{
+                        width: 70%;
+                    }
+                    >.right{
+                        width: 30%;
+                    }
+                }
+            }
+        }
+        #second-sec{
+            >.right{
+                flex-direction: row;
+                flex-wrap: wrap;
+                >img{
+                    display: flex;
+                    width: calc(100% / 3);
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+@include mQ(1100px){
+    #expPlace{
+        #expContainer{
+            .section{
+                >.left{
+                    >.section-head{
+                        width: 100%;
+                        font-size: 20pt;
+                        font-weight: 600; 
+                    }
+                }
+            }
+            #second-sec{
+                >.right{
+                    >img{
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mQ(750px){
+    #expPlace{
+        #expContainer{
+            .section{
+                flex-direction: column;
+                >div{
+                    width: 100% !important;
+                    margin: 5vw 0;
+                }
+            }
+            #second-sec{
+                >.right{
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    >img{
+                        display: flex;
+                        width: calc(96% / 2);
+                        margin-top: 2%;
+                    }
+                }
+            }
+        }
+    }
+}

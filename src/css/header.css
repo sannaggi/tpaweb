@@ -31,7 +31,7 @@ header {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  border-bottom: 0.6px solid #868686;
+  border-bottom: 0.6px solid silver;
   z-index: 10; }
   header .header-component {
     display: -webkit-box;
@@ -126,7 +126,7 @@ header {
 .dropdown-link {
   display: block;
   padding: 1.5em 0;
-  border-bottom: 1px solid #bdbdbd; }
+  border-bottom: 1px solid #dfdfdf; }
 
 @media screen and (max-width: 1200px) {
   .logo {
