@@ -47,6 +47,9 @@
       cursor: pointer; }
   .quickCard input[type="date"] {
     color: #3b3b3b; }
+  .quickCard #inputDate {
+    height: 0px;
+    overflow: hidden; }
   .quickCard .guestInput {
     background: white;
     display: -webkit-box;

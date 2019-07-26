@@ -48,6 +48,10 @@
     input[type="date"]{
         color: $darkGrey;
     }
+    #inputDate{
+        height: 0px;
+        overflow: hidden;
+    }
     .guestInput {
         background: white;
         display: flex;
