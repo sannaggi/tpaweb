@@ -170,6 +170,8 @@
         font-size: 20px;
         margin-top: 9px;
         color: #000000; }
+    .modal-content .inputField #remember {
+      width: auto; }
     .modal-content .inputField input:not(#remember) {
       border: none;
       width: 100%;

@@ -64,10 +64,9 @@ function Header() {
             display: 'none'
         }
     }
-    
-    function showLoginForm() {
-        var a = document.getElementById("loginModal");
-        a.setAttribute("style", "display: block");
+
+    function showForm(com) {
+        document.getElementById(com).setAttribute("style", "display: block");
     }
 
     function checkScreen() {
@@ -76,8 +75,8 @@ function Header() {
             {returnLogo()}
             <nav className="dropdown-content" style={getStyle()}>
                 <Link to="/becomehost"><div className="dropdown-link">Become a Host</div></Link>
-                <div className="dropdown-link">Register</div>
-                <div className="dropdown-link" onClick={showLoginForm}>Login</div>
+                <div className="dropdown-link" onClick={() => showForm("registerModal")}>Register</div>
+                <div className="dropdown-link" onClick={() => showForm("loginModal")}>Login</div>
             </nav>
         </div>;
     }

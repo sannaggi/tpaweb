@@ -32,7 +32,6 @@ function LoginModal() {
     }
     function responseOAuth(res) {
         if(!res.accessToken) return;
-        console.log(res)
         
         let firstName:string;
         let lastName:string;
@@ -51,8 +50,6 @@ function LoginModal() {
             lastName: lastName,
             email: email
         })
-
-        console.log(userData)
 
         setWindow(true);
     }
