@@ -36,7 +36,7 @@ function QuickCard({guestCount} : {guestCount:Object}) {
                 <div className="title">CHECK-OUT</div>
                 <input type="date" name="checkOut" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkOut} onChange={onChange} placeholder="mm/dd/yy"/>
             </div>
-            <div className="input">
+            <div className="input" id="quickcard-guest">
                 <div className="title">GUESTS</div>
                 <GuestDropdown />
             </div>

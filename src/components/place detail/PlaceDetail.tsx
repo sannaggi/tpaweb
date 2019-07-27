@@ -3,6 +3,7 @@ import BannerImage from "./BannerImage";
 import { connect } from 'react-redux';
 import "../../css/place detail/placeDetail.css";
 import { setCurrentPlace } from '../../actions/placeActions'
+import Test from "../layouts/GuestDropdown";
 
 function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPlace:any, match:any}){
 
@@ -21,6 +22,7 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
 
     return(
         <div className="placeDetail">
+            <Test/>
             <div className="placePhoto">{images.map((obj : any) => <div key={obj.key} id={obj.key} className="bannerImage"> {obj.banner} </div>)} </div>
             <div className="placeInformation">
                 <div className="left">
