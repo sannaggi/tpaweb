@@ -126,7 +126,8 @@ header {
 .dropdown-link {
   display: block;
   padding: 1.5em 0;
-  border-bottom: 1px solid #bdbdbd; }
+  border-bottom: 1px solid #bdbdbd;
+  cursor: pointer; }
 
 @media screen and (max-width: 1200px) {
   .logo {

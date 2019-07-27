@@ -7,6 +7,7 @@ import ArrowDown from '../../../images/arrow-down.png'
 import aivlogo from '../../../images/aivbnblogo.png'
 import { TABLETWIDTH , MOBILEWIDTH } from '../../Specification'
 import LoginModal from "./LoginModal";
+import RegisterModal from './RegisterModal'
 
 function Header() {
 
@@ -63,6 +64,11 @@ function Header() {
             display: 'none'
         }
     }
+    
+    function showLoginForm() {
+        var a = document.getElementById("loginModal");
+        a.setAttribute("style", "display: block");
+    }
 
     function checkScreen() {
         if(screen.width > TABLETWIDTH) return <Link to="/">{returnLogo()}</Link>;
@@ -71,7 +77,7 @@ function Header() {
             <nav className="dropdown-content" style={getStyle()}>
                 <Link to="/becomehost"><div className="dropdown-link">Become a Host</div></Link>
                 <div className="dropdown-link">Register</div>
-                <div className="dropdown-link">Login</div>
+                <div className="dropdown-link" onClick={showLoginForm}>Login</div>
             </nav>
         </div>;
     }
@@ -88,6 +94,7 @@ function Header() {
                 <NavBar />
             </div>
             <LoginModal />
+            <RegisterModal />
         </header>
     )
 }

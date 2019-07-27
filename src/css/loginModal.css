@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
-  padding-top: 40px; }
+  padding-top: calc((100vh - 607.75px) / 2); }
 
 .modal-content {
   position: relative;
@@ -192,6 +192,8 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
+    .modal-content .clickableText:hover {
+      text-decoration: underline; }
   .modal-content .signUp {
     margin-top: 16px; }
     .modal-content .signUp span {

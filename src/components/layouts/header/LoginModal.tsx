@@ -18,7 +18,7 @@ function LoginModal() {
 
     function onClick(e) {
         if(e.target.className === 'modal' || e.target.className === 'close-modal')
-            document.getElementsByClassName("modal")[0].setAttribute("style", "display: none");
+            document.getElementById("loginModal").setAttribute("style", "display: none");
     }
 
     useEffect(() => {
@@ -30,6 +30,7 @@ function LoginModal() {
     }
 
     function responseOAuth(res) {
+        if(!res.accessToken) return;
         console.log(res)
     }
 

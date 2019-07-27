@@ -1,0 +1,45 @@
+@import 'variables';
+@import 'mixins';
+
+.registerFormContainer {
+    @include flexFullCenter;
+    form {
+        margin: 50px 0;
+        padding: 2em;
+        border: 1px solid $superLightGrey;
+        width: 500px;
+        >div{
+            margin: 14px 0;
+        }
+        .center {
+            text-align: center;
+        }
+        .inputField {
+            width: 100%;
+            border: 1px solid $lightGrey;
+            border-radius: 5px;
+            input {
+                width: 93%;
+                border: none;
+            }
+            span {
+                width: 7%;
+                text-align: center;
+                display: inline-block;
+                font-size: 18px;
+            }
+        }
+        .info {
+            font-size: 14px;
+            color: $lightGrey;
+        }
+        input[type="submit"] {
+            background-color: $lightRed;
+            color: white;
+            border: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
