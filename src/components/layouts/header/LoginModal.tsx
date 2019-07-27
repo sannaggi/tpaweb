@@ -1,27 +1,68 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../../css/loginModal.css'
+import GoogleLogin from "react-google-login";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 
 function LoginModal() {
 
     const [show, setShow] = useState(false)
+    const [login, setLogin] = useState({
+        email: "",
+        password: ""
+    })
 
     function willShow(state:Boolean) {
         if(state === show) return {display: "block"}
         return {display: "none"}
     }
 
+    function onClick(e) {
+        if(e.target.className === 'modal' || e.target.className === 'close-modal')
+            document.getElementsByClassName("modal")[0].setAttribute("style", "display: none");
+    }
+
+    useEffect(() => {
+        document.getElementById("loginModal").addEventListener("click", onClick);
+    }, [])
+
+    function onChange(e) {
+        setLogin({...login, [e.target.name]: e.target.value})
+    }
+
+    function responseOAuth(res) {
+        console.log(res)
+    }
+
     return (
         <div className="modal" id="loginModal">
             <div className="modal-content login-content">
                 <div className="close-modal">&#10005;</div>
-                <button className="facebook-login">
-                    <img src="/images/icons/facebook.png" alt=""/>
-                    <span>Log in with Facebook</span>
-                </button>
-                <button className="google-login">
-                    <img src="/images/icons/google.png" alt=""/>
-                    <span>Log in with Google</span>
-                </button>
+                
+                <FacebookLogin
+                    appId="415665872376918"
+                    callback={responseOAuth}
+                    fields="name,email,picture"
+                    render= {renderProps => (
+                        <button className="facebook-login" onClick={renderProps.onClick}>
+                            <img src="/images/icons/facebook.png" alt=""/>
+                            <span>Log in with Facebook</span>
+                        </button>
+                    )}
+                />
+
+                <GoogleLogin 
+                    clientId="232788565524-a87fa8h01gsko8ef3lh7l2jridbp3227.apps.googleusercontent.com"
+                    render={renderProps => (
+                        <button className="google-login" onClick={renderProps.onClick}>
+                            <img src="/images/icons/google.png" alt=""/>
+                            <span>Log in with Google</span>
+                        </button>
+                    )}
+                    onSuccess={responseOAuth}
+                    onFailure={responseOAuth}
+                    cookiePolicy={'single_host_origin'}
+                />
+
                 <div className="separator">
                     <hr/>
                     <span className="separator-text">or</span>
@@ -29,7 +70,7 @@ function LoginModal() {
                 <div className="inputField">
                     <div className="inputText">
                         <div>
-                            <input type="email" name="" id="" placeholder="Email Address"/>
+                            <input type="email" onChange={onChange} value={login.email} name="email" placeholder="Email Address"/>
                         </div>
                         <span className="inputLogo">&#9993;</span>
                     </div>
@@ -37,8 +78,8 @@ function LoginModal() {
                 <div className="inputField">
                     <div className="inputText">
                         <div>                    
-                            <input type="password" name="" id="" style={willShow(false)} placeholder="Password"/>
-                            <input type="text" name="" id="" style={willShow(true)} placeholder="Password"/>
+                            <input type="password" name="password" onChange={onChange} value={login.password} style={willShow(false)} placeholder="Password"/>
+                            <input type="text" name="password" onChange={onChange} value={login.password} style={willShow(true)} placeholder="Password"/>
                         </div>
                         <span className="inputLogo"><i className="fa fa-lock"></i></span>
                     </div>
