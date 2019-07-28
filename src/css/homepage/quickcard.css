@@ -198,3 +198,33 @@ input[disabled] {
 .quickCardTitle {
   font-weight: 700;
   font-size: 36px; }
+
+.searchContainer {
+  width: 100%; }
+  .searchContainer > li {
+    width: 100%;
+    padding: 0.8em 0.5em;
+    font-size: 17px;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .searchContainer > li span {
+      height: 100%;
+      width: 7%;
+      font-size: 20px; }
+    .searchContainer > li div {
+      display: inline-block;
+      width: 90%;
+      height: 100%; }
+    .searchContainer > li:hover {
+      cursor: pointer;
+      background-color: #e6e6e6; }

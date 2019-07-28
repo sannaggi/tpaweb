@@ -73,3 +73,27 @@
     font-weight: 700;
     font-size: 36px;
 }
+.searchContainer {
+    width: 100%;
+    >li {
+        width: 100%;
+        padding: 0.8em 0.5em;
+        font-size: 17px;
+        transition: 0.2s;
+        @include flexFullCenter;
+        span {
+            height: 100%;
+            width: 7%;
+            font-size: 20px;
+        }
+        div {
+            display: inline-block;
+            width: 90%;
+            height: 100%;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: $superDuperLightGrey;
+        }
+    }
+}
