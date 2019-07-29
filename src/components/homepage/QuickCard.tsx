@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { newPost } from '../../actions/bookingActions'
 import GuestDropdown from '../layouts/GuestDropdown'
 import axios from 'axios'
+import SearchResult from './SearchResult'
 
 function QuickCard({guestCount} : {guestCount:Object}) {
 
@@ -11,7 +12,10 @@ function QuickCard({guestCount} : {guestCount:Object}) {
         place: "",
         checkIn: "",
         checkOut: "",
-        guests: {}
+        guests: {},
+        booking: {
+            name: ""
+        }
     })
 
     const [searchResult, setSearchResult] = useState([])
@@ -35,7 +39,13 @@ function QuickCard({guestCount} : {guestCount:Object}) {
         return  <span>&#10070;</span>
     }
 
+    function onClick(data) {
+        setNewBooking({...newBooking, booking: {...data}})
+        setSearchResult([])
+    }
+
     function search(e:any) {
+        setNewBooking({...newBooking, booking: {...newBooking.booking, name: e.target.value}})
         if(e.target.value === "") {
             setSearchResult([])
             return
@@ -53,7 +63,7 @@ function QuickCard({guestCount} : {guestCount:Object}) {
                 return
             }
             setSearchResult(datas.map((data) => (
-                <li key={data.id}>{getLogo(data.type)} <div>{data.name} - {data.type}</div></li>
+                <SearchResult key={data.id} data={data} onClick={onClick} getLogo={getLogo}/>
             )))
         })
     }
@@ -63,7 +73,7 @@ function QuickCard({guestCount} : {guestCount:Object}) {
             <div className="quickCardTitle">Book unique places to stay and things to do.</div>
             <div className="input">
                 <div className="title">WHERE</div>
-                <input type="search" name="place" onChange={search} placeholder="Anywhere"/>
+                <input type="search" id="searchBox" name="place" value={newBooking.booking.name} onChange={search} placeholder="Anywhere"/>
                 <ul className="search-container">
                     {searchResult}
                 </ul>
