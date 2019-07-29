@@ -3,7 +3,8 @@ import { SET_CURRENCY } from '../actions/types'
 const initialState = {
     item: {
         symbol: "USD",
-        rate: 1.0
+        rate: 1.0,
+        icon: "$"
     }
 }
 

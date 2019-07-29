@@ -7,6 +7,19 @@ async function takeData(data) {
     })
 }
 
+var logos = {
+    "USD": "$",
+    "JPY": "¥",
+    "IDR": "Rp.",
+    "SGD": "$",
+    "KRW": "₩",
+    "THB": "฿",
+    "CAD": "$",
+    "CNY": "¥",
+    "PHP": "₱",
+    "GBP": "£"
+}
+
 export function setCurrency(symbol) {
     return function (dispatch) {
         axios.get("https://api.exchangeratesapi.io/latest?base=USD&symbols=" + symbol, {
@@ -20,7 +33,8 @@ export function setCurrency(symbol) {
             type: SET_CURRENCY,
             payload: {
                 symbol: symbol,
-                rate: data.rates[Object.keys(data.rates)[0]]
+                rate: data.rates[Object.keys(data.rates)[0]],
+                icon: logos[symbol]
             }
         }))
     }

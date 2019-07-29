@@ -4,7 +4,7 @@ import { fetchRecomExperience } from '../../actions/experienceActions'
 import '../../css/homepage/recomExp.css'
 import { Link } from "react-router-dom";
 
-function RecommendedExperience({experiences, fetchRecomExperience} : {experiences:Array<Object>, fetchRecomExperience:any}) {
+function RecommendedExperience({experiences, fetchRecomExperience, currency} : {experiences:Array<Object>, fetchRecomExperience:any, currency:any}) {
     
     useEffect(() => {
         fetchRecomExperience()
@@ -14,6 +14,10 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
         return {
             backgroundImage : "url('" + experience.headerimage + "')"
         }
+    }
+
+    function getCurrency(price:any) {
+        return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
     }
 
     return (
@@ -31,7 +35,7 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
                             <div className="cardImage" style={getStyle(experience)}></div>
                             <div className="card-category">{experience.category.toUpperCase()} &#183; {experience.location.toUpperCase()}</div>
                             <div className="card-name">{experience.name}</div>
-                            <div className="card-price">From ${experience.price}/person</div>
+                            <div className="card-price">From {getCurrency(experience.price)}/person</div>
                             <div className="card-review"><span>{experience.averagerating}&#9733;</span> ({experience.totalrating})</div>
                         </div>
                     </Link>
@@ -42,7 +46,8 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
 }
 
 const mapStateToProps = (state:any) => ({
-    experiences: state.experiences.items
+    experiences: state.experiences.items,
+    currency: state.currency.item
 })
 
 export default connect(mapStateToProps, { fetchRecomExperience })(RecommendedExperience)
