@@ -1,5 +1,5 @@
 #btn {
-  z-index: 10;
+  z-index: 100;
   padding: 10px;
   position: fixed; }
   #btn > div {

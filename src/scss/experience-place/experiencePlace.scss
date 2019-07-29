@@ -3,16 +3,32 @@
 
 #expPlace{
     #expContainer{
-        padding: 0 5vw;
+        padding: 5vw;
         .section{
-            margin: 5vw 0;
-            @include flexFullCenter;
+            margin-bottom: 5vw;
+            display: flex;
             >div{
-                @include flexFullCenter;
+                display: flex;
                 flex-direction: column;
                 width: 100%;
             }
             >.left{
+                padding: 0 20px;
+                >div{
+                    width: 100%;
+                    >div{
+                        width: 100% !important;
+                        >div{
+                            width: 100% !important;
+                            >div{
+                                width: 100% !important;
+                                >div{
+                                    width: 100% !important;
+                                }
+                            }
+                        }
+                    }
+                }
                 >.section-head{
                     width: 100%;
                     font-size: 26pt;
@@ -33,6 +49,9 @@
         #first-sec{
             >div{
                 text-align: left;
+            }
+            >.left{
+                min-height: 100%;
             }
             >.right{
                 #expBasicInfo{
