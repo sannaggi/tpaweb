@@ -136,7 +136,8 @@ input[disabled] {
   .quickCard .input {
     display: inline-block;
     margin: 1em 0;
-    width: 100%; }
+    width: 100%;
+    position: relative; }
   .quickCard .half {
     width: 50% !important; }
   .quickCard input {
@@ -199,9 +200,14 @@ input[disabled] {
   font-weight: 700;
   font-size: 36px; }
 
-.searchContainer {
-  width: 100%; }
-  .searchContainer > li {
+.search-container {
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  -webkit-box-shadow: 0px 6px 20px -9px #333333;
+  box-shadow: 0px 6px 20px -9px #333333;
+  background: #fff; }
+  .search-container > li {
     width: 100%;
     padding: 0.8em 0.5em;
     font-size: 17px;
@@ -217,14 +223,14 @@ input[disabled] {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-    .searchContainer > li span {
+    .search-container > li span {
       height: 100%;
       width: 7%;
       font-size: 20px; }
-    .searchContainer > li div {
+    .search-container > li div {
       display: inline-block;
       width: 90%;
       height: 100%; }
-    .searchContainer > li:hover {
+    .search-container > li:hover {
       cursor: pointer;
       background-color: #e6e6e6; }

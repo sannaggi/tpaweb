@@ -64,7 +64,7 @@ function QuickCard({guestCount} : {guestCount:Object}) {
             <div className="input">
                 <div className="title">WHERE</div>
                 <input type="search" name="place" onChange={search} placeholder="Anywhere"/>
-                <ul className="searchContainer">
+                <ul className="search-container">
                     {searchResult}
                 </ul>
             </div>

@@ -8,6 +8,7 @@ import aivlogo from '../../../images/aivbnblogo.png'
 import { TABLETWIDTH , MOBILEWIDTH } from '../../Specification'
 import LoginModal from "./LoginModal";
 import RegisterModal from './RegisterModal'
+import CurrencySelect from './CurrencySelect'
 
 function Header() {
 
@@ -90,6 +91,7 @@ function Header() {
                 </div>
             </div>
             <div className="header-content">
+                <CurrencySelect />
                 <NavBar />
             </div>
             <LoginModal />
