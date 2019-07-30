@@ -17,8 +17,8 @@ const App: React.FC = () => {
         <div className="App">
           <Header />
           <Route exact path="/" component={Homepage}/>
+          <Route exact path="/places" component={Places}/>
           <Route path="/places/:id" component={PlaceDetail} />
-          <Route path="/places" component={Places}/>
           <Route path="/register/:auth/:firstName/:lastName/:email" component={RegisterForm} />
           <Footer />
         </div>
