@@ -4,6 +4,55 @@
 #expPlace{
     #expContainer{
         padding: 5vw;
+        #section-reviews{
+            >.left{
+                >#rating{
+                    @include flexFullCenter;
+                    font-size: 20px;
+                    .reviews{
+                        height: 20px;
+                    }
+                }
+                
+            }
+            >.right{
+                .pagination{
+                    overflow: hidden;
+                    display: flex;
+                    .disabled{
+                        display: none;
+                    }
+                    .active{
+                        pointer-events: none;
+                        @include circle(32px);
+                        background-color: $blueGreen;
+                        >a{
+                            color: white;
+                        }
+                    }
+                    .break-me{
+                        pointer-events: none;
+                    }
+                    .next, .previous{
+                        border: 1px solid $blueGreen;
+                    }
+                    >li{
+                        text-align: center;
+                        display: flex;
+                        @include circle(32px);
+                        overflow: hidden;
+                        margin: 0 7px;
+                        >a{
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                            color: $blueGreen;
+                            @include flexFullCenter;
+                            @include circle(100%);
+                        }
+                    }
+                }
+            }
+        }
         .section{
             margin-bottom: 5vw;
             display: flex;
@@ -11,24 +60,16 @@
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-            }
-            >.left{
-                padding: 0 20px;
                 >div{
                     width: 100%;
                     >div{
-                        width: 100% !important;
-                        >div{
-                            width: 100% !important;
-                            >div{
-                                width: 100% !important;
-                                >div{
-                                    width: 100% !important;
-                                }
-                            }
-                        }
+                        width: 100%;
                     }
                 }
+            }
+            >.left{
+                padding: 0 20px;
+                
                 >.section-head{
                     width: 100%;
                     font-size: 26pt;
@@ -52,6 +93,21 @@
             }
             >.left{
                 min-height: 100%;
+                >div{
+                    width: 100%;
+                    >div{
+                        width: 100% !important;
+                        >div{
+                            width: 100% !important;
+                            >div{
+                                width: 100% !important;
+                                >div{
+                                    width: 100% !important;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             >.right{
                 #expBasicInfo{
@@ -128,6 +184,9 @@
                 >div{
                     width: 100% !important;
                     margin: 5vw 0;
+                }
+                .left{
+                    padding: 0;
                 }
             }
             #second-sec{

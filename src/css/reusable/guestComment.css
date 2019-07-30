@@ -1,0 +1,33 @@
+#guestComment > ul > li {
+  margin-bottom: 50px; }
+  #guestComment > ul > li .guestProfile {
+    height: 40px; }
+    #guestComment > ul > li .guestProfile .profilePicture {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden; }
+      #guestComment > ul > li .guestProfile .profilePicture > img {
+        height: 100%;
+        width: 100%; }
+  #guestComment > ul > li > div {
+    margin: 10px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    #guestComment > ul > li > div > div {
+      margin: 0 5px; }
+      #guestComment > ul > li > div > div > div {
+        margin: 2px; }
+
+.reviews {
+  height: 10px; }

@@ -73,18 +73,6 @@
         border: 1px solid #dfdfdf; }
       .placeDetail .placeInformation .right .booking .reviews {
         height: 10px; }
-        .placeDetail .placeInformation .right .booking .reviews #star-container {
-          position: relative;
-          height: inherit; }
-          .placeDetail .placeInformation .right .booking .reviews #star-container .star {
-            position: absolute;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            height: inherit; }
-            .placeDetail .placeInformation .right .booking .reviews #star-container .star > img {
-              width: auto;
-              height: inherit; }
       .placeDetail .placeInformation .right .booking input[type="date"] {
         color: #3b3b3b; }
       .placeDetail .placeInformation .right .booking input {

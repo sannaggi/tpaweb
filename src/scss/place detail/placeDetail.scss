@@ -77,19 +77,6 @@
                 }
                 .reviews{
                     height: 10px;
-                    #star-container{
-                        position: relative;
-                        height: inherit;
-                        .star{
-                            position: absolute;
-                            display: flex;
-                            height: inherit;
-                            >img{
-                                width: auto;
-                                height: inherit;
-                            }
-                        }
-                    }
                 }
                 input[type="date"]{
                     color: $darkGrey;
