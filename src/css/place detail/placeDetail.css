@@ -16,7 +16,7 @@
       width: calc(100% / 3);
       height: 300px;
       overflow: hidden;
-      border: 1px inset #dfdfdf;
+      border: 1px inset #bdbdbd;
       -webkit-animation: fade-out 0.5s;
       animation: fade-out 0.5s;
       opacity: 1; }
