@@ -10,7 +10,7 @@ async function takeData(data) {
 var logos = {
     "USD": "$",
     "JPY": "¥",
-    "IDR": "Rp.",
+    "IDR": "Rp. ",
     "SGD": "$",
     "KRW": "₩",
     "THB": "฿",

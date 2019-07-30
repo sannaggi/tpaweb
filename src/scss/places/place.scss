@@ -1,0 +1,85 @@
+@import '../mixins';
+@import '../variables';
+
+.placeContainer {
+    user-select: none;
+    padding: 0.3em;
+    border: 1px solid $superDuperLightGrey;
+    border-radius: 5px;
+    display: flex;
+    margin: 0.5em 0;
+    .sliderContainer {
+        width: 21vw;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 200px;
+        }
+    }
+    .placeDetailContainer {
+        padding: 1em;
+        position: relative;
+        width: calc(100% - 21vw);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .upperDetail {
+            h4 {
+                @include card-category
+            }
+            h3 {
+                @include card-name;
+                font-size: 20%vw;
+            }
+            .detail {
+                font-size: 15px;
+                margin: 3px 0;
+            }
+        }
+        .lowerDetail {
+            .rating {
+                font-size: 13px;
+                span {
+                    @include rating;
+                    font-size: 14px;
+                }
+                strong {
+                    font-size: 13px;
+                }
+            }
+            .price {
+                float: right;
+                font-weight: 600;
+                font-size: 18px;
+            }
+        }
+        .btnFavorite {
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            font-size: 30px;
+        }
+    }
+}
+@include mQ(1200px) {
+    .placeContainer {
+        .placeDetailContainer {
+            .upperDetail {
+                h4 {
+                    font-size: 12px;
+                }
+                h3 {
+                    font-size: 17px;
+                }
+                .detail {
+                    font-size: 14px;
+                }
+            }
+            .lowerDetail {
+                .price {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

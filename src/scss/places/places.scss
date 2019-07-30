@@ -1,0 +1,36 @@
+@import '../mixins';
+@import '../variables';
+
+header {
+    position: fixed;
+    width: 100%;
+}
+.placesContainer {
+    margin-top: 83px;
+    display: flex;
+    .detail-container {
+        width: 55vw;
+        padding: 1.2em 1.5em;
+    }
+    .map-container {
+        width: 45vw;
+        img {
+            position: sticky;
+            top: 83px;
+            width: 100%;
+            height: calc(100vh - 86.1px)
+        }
+    }
+}
+
+@include mQ(1200px) {
+    .placesContainer { 
+        margin-top: 59.2px;
+        .map-container {
+            img {
+                top: 59.2px;
+                height: calc(100vh - 60px)
+            }
+        }
+    }
+}

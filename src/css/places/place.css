@@ -1,0 +1,70 @@
+.placeContainer {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0.3em;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5em 0; }
+  .placeContainer .sliderContainer {
+    width: 21vw;
+    height: 100%; }
+    .placeContainer .sliderContainer img {
+      width: 100%;
+      height: 200px; }
+  .placeContainer .placeDetailContainer {
+    padding: 1em;
+    position: relative;
+    width: calc(100% - 21vw);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .placeContainer .placeDetailContainer .upperDetail h4 {
+      font-size: 13px;
+      font-weight: 600; }
+    .placeContainer .placeDetailContainer .upperDetail h3 {
+      word-wrap: break-word;
+      font-size: 18px;
+      font-weight: 600;
+      font-size: 20%vw; }
+    .placeContainer .placeDetailContainer .upperDetail .detail {
+      font-size: 15px;
+      margin: 3px 0; }
+    .placeContainer .placeDetailContainer .lowerDetail .rating {
+      font-size: 13px; }
+      .placeContainer .placeDetailContainer .lowerDetail .rating span {
+        color: #0d8d78;
+        font-size: 17px;
+        font-size: 14px; }
+      .placeContainer .placeDetailContainer .lowerDetail .rating strong {
+        font-size: 13px; }
+    .placeContainer .placeDetailContainer .lowerDetail .price {
+      float: right;
+      font-weight: 600;
+      font-size: 18px; }
+    .placeContainer .placeDetailContainer .btnFavorite {
+      position: absolute;
+      top: 0px;
+      right: 10px;
+      font-size: 30px; }
+
+@media screen and (max-width: 1200px) {
+  .placeContainer .placeDetailContainer .upperDetail h4 {
+    font-size: 12px; }
+  .placeContainer .placeDetailContainer .upperDetail h3 {
+    font-size: 17px; }
+  .placeContainer .placeDetailContainer .upperDetail .detail {
+    font-size: 14px; }
+  .placeContainer .placeDetailContainer .lowerDetail .price {
+    font-size: 15px; } }

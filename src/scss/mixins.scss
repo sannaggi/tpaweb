@@ -81,3 +81,22 @@
         color: #000;
     }
 }
+@mixin card-category {
+    font-size: 13px;
+    font-weight: 600;
+}
+@mixin card-name {
+    word-wrap: break-word;
+    font-size: 18px;
+    font-weight: 600;
+}
+@mixin card-price {
+    font-size: 16px;
+}
+@mixin card-review {
+    font-size: 15px;
+}
+@mixin rating {
+    color: $blueGreen2;
+    font-size: 17px;
+}

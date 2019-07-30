@@ -1,0 +1,27 @@
+header {
+  position: fixed;
+  width: 100%; }
+
+.placesContainer {
+  margin-top: 83px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .placesContainer .detail-container {
+    width: 55vw;
+    padding: 1.2em 1.5em; }
+  .placesContainer .map-container {
+    width: 45vw; }
+    .placesContainer .map-container img {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 83px;
+      width: 100%;
+      height: calc(100vh - 86.1px); }
+
+@media screen and (max-width: 1200px) {
+  .placesContainer {
+    margin-top: 59.2px; }
+    .placesContainer .map-container img {
+      top: 59.2px;
+      height: calc(100vh - 60px); } }
