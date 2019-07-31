@@ -9,9 +9,12 @@ import { TABLETWIDTH , MOBILEWIDTH } from '../../Specification'
 import LoginModal from "./LoginModal";
 import RegisterModal from './RegisterModal'
 import CurrencySelect from './CurrencySelect'
+import { setGeoLocation } from "../../../actions/locationActions"
+import { connect } from 'react-redux';
 
-function Header() {
 
+function Header({setGeoLocation} : {setGeoLocation:any}) {
+    
     const [click, setClick] = useState(false)
     const [visible, setVisible] = useState(true)
 
@@ -19,6 +22,8 @@ function Header() {
         width: window.innerWidth,
         height: window.innerHeight
     })
+    
+    navigator.geolocation.getCurrentPosition(setGeoLocation)
 
     useEffect(() => {
         window.addEventListener("resize", () => {
@@ -29,7 +34,7 @@ function Header() {
             if(window.innerWidth > MOBILEWIDTH) setVisible(true)
             if(window.innerWidth > TABLETWIDTH) setClick(false)
         })
-    }, [])
+    }, [setGeoLocation])
 
     function onClick() {
         if(screen.width <= TABLETWIDTH) {
@@ -100,4 +105,4 @@ function Header() {
     )
 }
 
-export default Header
+export default connect(null, { setGeoLocation })(Header)

@@ -2,7 +2,6 @@
 @import '../variables';
 
 header {
-    position: fixed;
     width: 100%;
 }
 .placesContainer {
@@ -14,11 +13,15 @@ header {
     }
     .map-container {
         width: 45vw;
-        img {
-            position: sticky;
+        .container {
             top: 83px;
             width: 100%;
-            height: calc(100vh - 86.1px)
+            height: calc(100vh - 83px);
+            position: sticky;
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }
@@ -27,7 +30,7 @@ header {
     .placesContainer { 
         margin-top: 59.2px;
         .map-container {
-            img {
+            .container {
                 top: 59.2px;
                 height: calc(100vh - 60px)
             }

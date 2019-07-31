@@ -1,15 +1,7 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux';
-import { fetchAllPlace } from "../../actions/placeActions";
+import React, { } from 'react'
 import Place from "./place";
 
-//TODO change with controlled fetch
-function PlaceList({places, fetchAllPlace} : {places:Array<Object>, fetchAllPlace:any}) {
-    
-    useEffect(() => {
-        fetchAllPlace()
-    }, [fetchAllPlace])
-    
+function PlaceList({places} : {places:Array<Object>}) {
     return (
         <React.Fragment>
             {places.map((place:any) => ( 
@@ -19,8 +11,4 @@ function PlaceList({places, fetchAllPlace} : {places:Array<Object>, fetchAllPlac
     )
 }
 
-const mapStateToProps = (state: any) => ({
-    places: state.places.items
-})
-
-export default connect(mapStateToProps, { fetchAllPlace })(PlaceList)
+export default PlaceList

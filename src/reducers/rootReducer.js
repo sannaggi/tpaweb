@@ -4,6 +4,7 @@ import placeReducer from './placeReducer.ts'
 import experienceReducer from './experienceReducer.ts'
 import guestCountReducer from './guestCountReducer.ts'
 import currencyReducer from './currencyReducer'
+import LocationReducer from "./locationReducer";
 
 export default combineReducers({
     bookings: bookingReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
     experiences: experienceReducer,
     guestCount: guestCountReducer,
     currency: currencyReducer,
+    location: LocationReducer
 })
