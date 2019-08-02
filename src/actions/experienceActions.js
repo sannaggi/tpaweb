@@ -1,4 +1,4 @@
-import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES } from "./types";
+import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES } from "./types";
 import axios from 'axios'
 
 async function takeData(data) {
@@ -34,6 +34,24 @@ export function fetchAllExperiences() {
         .then(takeData)
         .then(data => dispatch({
             type: FETCH_ALL_EXPERIENCES,
+            payload: data
+        }))
+    }
+}
+
+export function fetchFilteredExperiences(category) {
+    return function (dispatch) {
+        axios({
+            url: 'http://localhost/api/experiences/search',
+            method: 'POST',
+            data: category,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(takeData)
+        .then(data => dispatch({
+            type: FETCH_FILTERED_EXPERIENCES,
             payload: data
         }))
     }

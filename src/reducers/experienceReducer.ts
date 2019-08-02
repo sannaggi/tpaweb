@@ -1,4 +1,4 @@
-import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES } from '../actions/types'
+import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES } from '../actions/types'
 
 const initialState = {
     items: []
@@ -12,6 +12,11 @@ export default function(state = initialState, action:any) {
                 items: action.payload
             }
         case FETCH_ALL_EXPERIENCES:
+            return {
+                ...state,
+                items: action.payload
+            }
+        case FETCH_FILTERED_EXPERIENCES:
             return {
                 ...state,
                 items: action.payload

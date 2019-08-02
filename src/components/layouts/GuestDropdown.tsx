@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { setGuestCount } from "../../actions/guestCountActions";
+import GuestCounter from "./GuestCounter";
 
 function GuestDropdown({setGuestCount} : {setGuestCount:any}) {
 
@@ -76,33 +77,7 @@ function GuestDropdown({setGuestCount} : {setGuestCount:any}) {
                     <input type="text" disabled name="" placeholder={getGuestSummary()}/>
                     <i className="fa fa-angle-down" id="arrow"></i>
                 </div>
-                <div className="guestInputContent" style={getVisible()}>
-                    <div className="guestType">
-                        <span className="typeTitle">Adults</span>
-                        <div>
-                            <span className="counterBtn minus adults" onClick={count}>-</span>
-                            <span className="adultCounter counter">{guests.adults}</span>
-                            <span className="counterBtn plus adults" onClick={count}>+</span>
-                        </div>
-                    </div>
-                    <div className="guestType">
-                        <span className="typeTitle">Children</span>
-                        <div>
-                            <span className="counterBtn minus children" onClick={count}>-</span>
-                            <span className="childrenCounter counter">{guests.children}</span>
-                            <span className="counterBtn plus children" onClick={count}>+</span>
-                        </div>
-                    </div>
-                    <div className="guestType">
-                        <span className="typeTitle">Infants</span>
-                        <div>
-                            <span className="counterBtn minus infants" onClick={count}>-</span>
-                            <span className="infantsCounter counter">{guests.infants}</span>
-                            <span className="counterBtn plus infants" onClick={count}>+</span>
-                        </div>
-                    </div>
-                    <span className="apply" onClick={() => setClick(!click)}>Apply</span>
-                </div>
+                <GuestCounter getVisible={getVisible} count={count} guests={guests} setClick={setClick} click={click}/>
             </div>
         </div>
     )

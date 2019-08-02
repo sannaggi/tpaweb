@@ -1,13 +1,25 @@
 .filterBar {
   border-bottom: 0.6px solid #bdbdbd;
-  padding: 8px 6vw; }
+  padding: 8px 6vw;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 82.59px;
+  background: #fff;
+  z-index: 5; }
+  .filterBar .filterCategory {
+    display: inline-block;
+    position: relative; }
+    .filterBar .filterCategory .guestInputContent {
+      margin-top: 8px;
+      width: 400px; }
   .filterBar button {
     background: #fff;
     border: 0.6px solid #bdbdbd;
-    padding: 9px 15px;
+    padding: 8px 15px;
     color: #868686;
     font-size: 15px;
-    margin-right: 13px; }
+    margin-right: 13px;
+    border-radius: 3px; }
 
 .experienceContainer {
   padding: 40px 6vw;
@@ -17,13 +29,11 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -ms-flex-flow: wrap;
-  flex-flow: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
+  flex-flow: wrap; }
   .experienceContainer .experienceCard {
     position: relative;
-    width: 13.4vw; }
+    width: 13.4vw;
+    margin: 0 6px; }
     .experienceContainer .experienceCard .btnFavorite {
       color: #fff;
       font-size: 35px !important; }
@@ -45,10 +55,60 @@
       font-weight: 400;
       font-size: 15px; }
     .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
-      color: #0d8d78;
+      color: #0d848d;
       font-size: 17px;
       font-size: 14px;
       font-weight: 600; }
     .experienceContainer .experienceCard .card-review {
       font-size: 15px;
       font-size: 13px; }
+
+@media screen and (max-width: 1200px) {
+  .filterBar {
+    top: 59.2px; }
+  .experienceContainer .experienceCard {
+    width: 16vw;
+    margin: 0 5px; }
+    .experienceContainer .experienceCard .experience-image {
+      height: 22vw; }
+    .experienceContainer .experienceCard .card-title {
+      font-size: 17px; }
+    .experienceContainer .experienceCard .card-category {
+      font-size: 14px; }
+    .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
+      font-size: 12px; }
+    .experienceContainer .experienceCard .card-review {
+      font-size: 15px;
+      font-size: 12px; } }
+
+@media screen and (max-width: 1000px) {
+  .experienceContainer .experienceCard {
+    width: 20vw; }
+    .experienceContainer .experienceCard .experience-image {
+      height: 26vw; }
+    .experienceContainer .experienceCard .card-title {
+      font-size: 19px; }
+    .experienceContainer .experienceCard .card-category {
+      font-size: 16px; }
+    .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
+      font-size: 14px; }
+    .experienceContainer .experienceCard .card-review {
+      font-size: 15px; } }
+
+@media screen and (max-width: 750px) {
+  .filterBar button {
+    padding: 8px 11px;
+    font-size: 13px;
+    margin-right: 6px; }
+  .experienceContainer .experienceCard {
+    width: 26vw; }
+    .experienceContainer .experienceCard .experience-image {
+      height: 33.5vw; }
+    .experienceContainer .experienceCard .card-title {
+      font-size: 17px; }
+    .experienceContainer .experienceCard .card-category {
+      font-size: 14px; }
+    .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
+      font-size: 12px; }
+    .experienceContainer .experienceCard .card-review {
+      font-size: 13px; } }

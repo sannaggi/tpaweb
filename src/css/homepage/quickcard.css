@@ -9,7 +9,7 @@ input {
   width: 100%;
   font-size: 20px; }
   input:focus {
-    border-color: #0d8d78; }
+    border-color: #0d848d; }
 
 .guestInput {
   background: white;
@@ -28,7 +28,7 @@ input {
   border-bottom-right-radius: 4px;
   padding: 0em; }
   .guestInput:focus {
-    border-color: #0d8d78; }
+    border-color: #0d848d; }
   .guestInput:hover {
     cursor: pointer; }
   .guestInput input {
@@ -98,15 +98,15 @@ input[disabled] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #0d8d78;
-  border: 1.2px solid #0d8d78;
+  color: #0d848d;
+  border: 1.2px solid #0d848d;
   cursor: pointer; }
 
 .apply {
   font-size: 18px;
   font-weight: 600;
   float: right;
-  color: #0d8d78;
+  color: #0d848d;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -150,7 +150,7 @@ input[disabled] {
     width: 100%;
     font-size: 20px; }
     .quickCard input:focus {
-      border-color: #0d8d78; }
+      border-color: #0d848d; }
   .quickCard input[disabled] {
     width: 95%;
     border: none; }
@@ -185,7 +185,7 @@ input[disabled] {
     border-bottom-right-radius: 4px;
     padding: 0em; }
     .quickCard .guestInput:focus {
-      border-color: #0d8d78; }
+      border-color: #0d848d; }
     .quickCard .guestInput:hover {
       cursor: pointer; }
     .quickCard .guestInput input {
