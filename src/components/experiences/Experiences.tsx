@@ -6,6 +6,7 @@ import FavoriteButton from "../layouts/FavoriteButton";
 import { Link } from 'react-router-dom';
 import GuestCounter from '../layouts/GuestCounter';
 import '../../css/guestDropdown.css'
+import PriceFilter from "./PriceFilter";
 
 function Experiences({ experiences, fetchFilteredExperiences, currency } : { experiences:Array<any>, fetchFilteredExperiences:Function, currency:any }) {
     
@@ -16,13 +17,15 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
     })
 
     const [lowerPrice, setLowerPrice] = useState(1)
-    const [upperPrice, setUpperPrice] = useState(9999)
+    const [upperPrice, setUpperPrice] = useState(999)
     const [languages, setLanguages] = useState(["English", "German", "Italian", "Bahasa", "Japanese", "Korean", "Chinese"])
 
     const [guestsClick, setGuestsClick] = useState(false)
+    const [priceClick, setPriceClick] = useState(false)
+    const [languageClick, setLanguageClick] = useState(false)
     
     useEffect(() => {
-        if(!guestsClick) {
+        if(!guestsClick && !priceClick && !languageClick) {
             fetchFilteredExperiences({
                 guests: guests.adults + guests.children,
                 lowerprice: lowerPrice,
@@ -31,7 +34,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
             })
         }
         
-    }, [fetchFilteredExperiences, guestsClick, guests, lowerPrice, upperPrice, languages])
+    }, [fetchFilteredExperiences, guestsClick, priceClick, languageClick, guests, lowerPrice, upperPrice, languages])
 
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
@@ -48,9 +51,14 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
             return {height: '0px', padding: '0 2em'}
         }
         return {height: '240px', padding: '1em 2em'}
-
     }
     
+    function getPriceVisible() {
+        if(!priceClick) {
+            return {height: '0px', padding: '0 1.5em'}
+        }
+        return {height: '190px', padding: '1.5em'}
+    }
     function count(e:any){
         let change;
         let classname = e.target.className;
@@ -63,7 +71,12 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
                 })
         }
         else if(type === 'children'){
+            if(guests.adults !== 0)
+                setGuests({...guests, children: guests.children + change < 0 ? 0 : guests.children + change
+                })
+            else 
             setGuests({...guests, children: guests.children + change < 0 ? 0 : guests.children + change
+                , adults: 1
             })
         }
         else{
@@ -101,36 +114,67 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
                     return { backgroundColor: "rgb(9, 142, 151)", color: "#fff"}
                 }
                 break;
-        
+            case "price":
+                if(lowerPrice !== 1 || upperPrice !== 999) {
+                    return { backgroundColor: "rgb(9, 142, 151)", color: "#fff"}
+                }
+                break;
             default:
                 break;
         }
     }
+
+    function onClick(category) {
+        switch (category) {
+            case "guests":
+                setGuestsClick(!guestsClick)
+                setPriceClick(false)
+                setLanguageClick(false)
+                break;
+            case "price":
+                setPriceClick(!priceClick)
+                setGuestsClick(false)
+                setLanguageClick(false)
+                break;
+            default:
+                break;
+        }
+    }
+
+    function getExperiences() {
+        if(experiences === null)
+            return <div className="none">No experiences available with this criteria :(</div>
+
+        return experiences.map((experience) => (
+                <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
+                    <div className="experienceCard">
+                        <FavoriteButton />
+                        <div className="experience-image" style={{backgroundImage: "url(" + experience.headerimage + ")"}}></div>
+                        <div className="card-title">{experience.name}</div>
+                        <div className="card-category">From {getCurrency(experience.price)}/person &#183; {experience.duration} hours &#183; {getAmenities(experience.amenities)} included</div>
+                        <div><span className="card-rating">{experience.averagerating}</span><span className="star">&#9733;</span><span className="card-review"> ({experience.totalrating})</span></div>
+                    </div>
+                </Link>
+            ))
+        }
 
     return (
         <React.Fragment>
             <div className="filterBar">
                 <button>Dates</button>
                 <div className="filterCategory">
-                    <button style={getStyle("guests")} onClick={() => setGuestsClick(!guestsClick)}>{getGuestSummary()}</button>
+                    <button style={getStyle("guests")} onClick={() => onClick("guests")}>{getGuestSummary()}</button>
                     <GuestCounter getVisible={getGuestsVisible} count={count} guests={guests} setClick={setGuestsClick} click={guestsClick}/>
                 </div>
-                <button>Price</button>
+                <div className="filterCategory">
+                    <button style={getStyle("price")} onClick={() => onClick("price")}>Price</button>
+                    <PriceFilter priceClick={priceClick} setPriceClick={setPriceClick} getPriceVisible={getPriceVisible} lowerprice={lowerPrice} upperprice={upperPrice} setLowerPrice={setLowerPrice} setUpperPrice={setUpperPrice}/>
+                </div>
                 <button>Time of day</button>
                 <button>Language offered</button>
             </div>
             <div className="experienceContainer">
-                {experiences.map((experience) => (
-                    <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
-                        <div className="experienceCard">
-                            <FavoriteButton />
-                            <div className="experience-image" style={{backgroundImage: "url(" + experience.headerimage + ")"}}></div>
-                            <div className="card-title">{experience.name}</div>
-                            <div className="card-category">From {getCurrency(experience.price)}/person &#183; {experience.duration} hours &#183; {getAmenities(experience.amenities)} included</div>
-                            <div><span className="card-rating">{experience.averagerating}</span><span className="star">&#9733;</span><span className="card-review"> ({experience.totalrating})</span></div>
-                        </div>
-                    </Link>
-                ))}
+                {getExperiences()}
             </div>
         </React.Fragment>
     )

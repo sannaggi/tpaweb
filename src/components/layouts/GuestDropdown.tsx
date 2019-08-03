@@ -40,16 +40,27 @@ function GuestDropdown({setGuestCount} : {setGuestCount:any}) {
         if(classname.includes('minus')) change = -1;
         else change = 1;
         if(type === 'adults'){
-            setGuests({...guests, adults: guests.adults + change < 0 ? 0 : guests.adults + change
-            })
+            if(change === 1 || (guests.adults > 1 && change === -1))
+                setGuests({...guests, adults: guests.adults + change < 0 ? 0 : guests.adults + change
+                })
         }
         else if(type === 'children'){
+            if(guests.adults !== 0)
+                setGuests({...guests, children: guests.children + change < 0 ? 0 : guests.children + change
+                })
+            else 
             setGuests({...guests, children: guests.children + change < 0 ? 0 : guests.children + change
+                , adults: 1
             })
         }
         else{
-            setGuests({...guests, infants: guests.infants + change < 0 ? 0 : guests.infants + change
-            })
+            if(guests.adults !== 0)
+                setGuests({...guests, infants: guests.infants + change < 0 ? 0 : guests.infants + change
+                })
+            else 
+                setGuests({...guests, infants: guests.infants + change < 0 ? 0 : guests.infants + change
+                    , adults: 1
+                })
         }
     }
 

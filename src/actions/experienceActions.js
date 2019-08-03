@@ -42,7 +42,7 @@ export function fetchAllExperiences() {
 export function fetchFilteredExperiences(category) {
     return function (dispatch) {
         axios({
-            url: 'http://localhost/api/experiences/search',
+            url: 'https://aivbnbapi.herokuapp.com/api/experiences/search',
             method: 'POST',
             data: category,
             headers: {
