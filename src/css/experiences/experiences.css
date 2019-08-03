@@ -9,8 +9,11 @@
   .filterBar .filterCategory {
     display: inline-block;
     position: relative; }
+    .filterBar .filterCategory #bullet {
+      font-weight: 600;
+      color: #fff; }
     .filterBar .filterCategory .guestInputContent {
-      margin-top: 8px;
+      margin-top: 9px;
       width: 400px; }
     .filterBar .filterCategory .filter {
       position: absolute;
@@ -21,10 +24,10 @@
       -webkit-transition: 0.4s;
       -o-transition: 0.4s;
       transition: 0.4s;
-      margin-top: 8px;
+      margin-top: 9px;
+      padding: 1.5em;
       width: 450px;
-      height: 190px;
-      padding: 1.5em; }
+      height: 190px; }
       .filterBar .filterCategory .filter .rangeContainer {
         position: relative; }
         .filterBar .filterCategory .filter .rangeContainer .apply {

@@ -11,20 +11,18 @@
     .filterCategory {
         display: inline-block;
         position: relative;
+        #bullet {
+            font-weight: 600;
+            color: #fff;
+        }
         .guestInputContent {
-            margin-top: 8px;
+            margin-top: 9px;
             width: 400px;
         }
         .filter {
-            position: absolute;
-            background: #fff;
-            box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
-            overflow: hidden;
-            transition: 0.4s;
-            margin-top: 8px;
+            @include filter;
             width: 450px;
             height: 190px;
-            padding: 1.5em;
             .rangeContainer {
                 position: relative;
                 .apply {

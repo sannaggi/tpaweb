@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import GuestCounter from '../layouts/GuestCounter';
 import '../../css/guestDropdown.css'
 import PriceFilter from "./PriceFilter";
+import LanguageFilter from "./LanguageFilter";
 
 function Experiences({ experiences, fetchFilteredExperiences, currency } : { experiences:Array<any>, fetchFilteredExperiences:Function, currency:any }) {
     
@@ -18,7 +19,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
 
     const [lowerPrice, setLowerPrice] = useState(1)
     const [upperPrice, setUpperPrice] = useState(999)
-    const [languages, setLanguages] = useState(["English", "German", "Italian", "Bahasa", "Japanese", "Korean", "Chinese"])
+    const [languages, setLanguages] = useState(["English", "German", "Italian", "Bahasa", "Japanese", "Korean", "Chinese", "Spanish"])
 
     const [guestsClick, setGuestsClick] = useState(false)
     const [priceClick, setPriceClick] = useState(false)
@@ -58,6 +59,13 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
             return {height: '0px', padding: '0 1.5em'}
         }
         return {height: '190px', padding: '1.5em'}
+    }
+
+    function getLanguagesVisible() {
+        if(!languageClick) {
+            return {height: '0px', padding: '0 1.5em', width: '420px'}
+        }
+        return {height: '230px', padding: '1.5em', width: '420px'}
     }
     function count(e:any){
         let change;
@@ -119,6 +127,10 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
                     return { backgroundColor: "rgb(9, 142, 151)", color: "#fff"}
                 }
                 break;
+            case "language":
+                if(JSON.stringify(["English", "German", "Italian", "Bahasa", "Japanese", "Korean", "Chinese", "Spanish"]) !== JSON.stringify(languages))
+                    return { backgroundColor: "rgb(9, 142, 151)", color: "#fff"}
+                break;
             default:
                 break;
         }
@@ -136,6 +148,11 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
                 setGuestsClick(false)
                 setLanguageClick(false)
                 break;
+            case "language":
+                setLanguageClick(!languageClick)
+                setPriceClick(false)
+                setGuestsClick(false)
+                break;
             default:
                 break;
         }
@@ -146,17 +163,23 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
             return <div className="none">No experiences available with this criteria :(</div>
 
         return experiences.map((experience) => (
-                <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
-                    <div className="experienceCard">
-                        <FavoriteButton />
-                        <div className="experience-image" style={{backgroundImage: "url(" + experience.headerimage + ")"}}></div>
-                        <div className="card-title">{experience.name}</div>
-                        <div className="card-category">From {getCurrency(experience.price)}/person &#183; {experience.duration} hours &#183; {getAmenities(experience.amenities)} included</div>
-                        <div><span className="card-rating">{experience.averagerating}</span><span className="star">&#9733;</span><span className="card-review"> ({experience.totalrating})</span></div>
-                    </div>
-                </Link>
-            ))
+            <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
+                <div className="experienceCard">
+                    <FavoriteButton />
+                    <div className="experience-image" style={{backgroundImage: "url(" + experience.headerimage + ")"}}></div>
+                    <div className="card-title">{experience.name}</div>
+                    <div className="card-category">From {getCurrency(experience.price)}/person &#183; {experience.duration} hours &#183; {getAmenities(experience.amenities)} included</div>
+                    <div><span className="card-rating">{experience.averagerating}</span><span className="star">&#9733;</span><span className="card-review"> ({experience.totalrating})</span></div>
+                </div>
+            </Link>
+        ))
+    }
+    
+    function getLangCount() {
+        if(JSON.stringify(["English", "German", "Italian", "Bahasa", "Japanese", "Korean", "Chinese", "Spanish"]) !== JSON.stringify(languages)){
+            return <React.Fragment><span id="bullet"> &#183; </span>{languages.length}</React.Fragment>
         }
+    }
 
     return (
         <React.Fragment>
@@ -171,7 +194,10 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
                     <PriceFilter priceClick={priceClick} setPriceClick={setPriceClick} getPriceVisible={getPriceVisible} lowerprice={lowerPrice} upperprice={upperPrice} setLowerPrice={setLowerPrice} setUpperPrice={setUpperPrice}/>
                 </div>
                 <button>Time of day</button>
-                <button>Language offered</button>
+                <div className="filterCategory">
+                    <button style={getStyle("language")} onClick={() => onClick("language")}>Language offered{getLangCount()}</button>
+                    <LanguageFilter getLanguagesVisible={getLanguagesVisible} setLanguageClick={setLanguageClick} languageClick={languageClick} languages={languages} setLanguages={setLanguages}/>
+                </div>
             </div>
             <div className="experienceContainer">
                 {getExperiences()}
