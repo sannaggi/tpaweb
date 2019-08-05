@@ -40,9 +40,21 @@
       #EHGetStarted > .left > .section input[type="checkbox"]:checked + label > .coolCheck {
         background-color: #2ac5ab; }
     #EHGetStarted > .left > .section label > .coolCheck {
-      width: 40px;
-      height: 40px;
+      width: 24px;
+      height: 24px;
       border: 3px solid #2ac5ab;
-      border-radius: 50%; }
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-radius: 50%;
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+      transform: scale(1.5); }
   #EHGetStarted > .right {
     width: 75%; }
