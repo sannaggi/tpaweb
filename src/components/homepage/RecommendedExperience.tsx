@@ -26,19 +26,7 @@ function RecommendedExperience({experiences, fetchRecomExperience, currency} : {
             </div>
             <div className="cardsContainer expContainer">
                 {experiences.map((experience:any) => (
-<<<<<<< HEAD
                     <RecommendedExperienceCard experience={experience}/>
-=======
-                    <Link to={"/experiences/" + experience.id} key={experience.id} target="_blank">
-                        <div className="expCard" key={experience.id}>
-                            <div className="cardImage" style={getStyle(experience)}></div>
-                            <div className="card-category">{experience.category.toUpperCase()} &#183; {experience.location.toUpperCase()}</div>
-                            <div className="card-name">{experience.name}</div>
-                            <div className="card-price">From {getCurrency(experience.price)}/person</div>
-                            <div className="card-review"><span>{experience.averagerating}&#9733;</span> ({experience.totalrating})</div>
-                        </div>
-                    </Link>
->>>>>>> 202507999c384bd9353c9e259ddf2084076957ac
                 ))}
             </div>
         </div>

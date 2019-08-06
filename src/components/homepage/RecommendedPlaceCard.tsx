@@ -9,13 +9,8 @@ function RecommendedPlaceCard({place, currency} : {place: any, currency:any}){
     }
 
     return(
-<<<<<<< HEAD
         <div className="placeCard" key={place.id}>
             <Link to={"/places/" + place.id}>
-=======
-        <div className="cards" key={place.id}>
-            <Link to={"/places/" + place.id} target="_blank">
->>>>>>> 202507999c384bd9353c9e259ddf2084076957ac
                 <img src={place.images[0]} alt=""/>
                 <br/>
                 <div className="card-category">{place.category.toUpperCase()}</div>
