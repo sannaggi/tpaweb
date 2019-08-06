@@ -1,0 +1,206 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+#expPlace{
+    #expContainer{
+        padding: 5vw;
+        #section-reviews{
+            >.left{
+                >#rating{
+                    @include flexFullCenter;
+                    font-size: 20px;
+                    .reviews{
+                        height: 20px;
+                    }
+                }
+                
+            }
+            >.right{
+                .pagination{
+                    overflow: hidden;
+                    display: flex;
+                    .disabled{
+                        display: none;
+                    }
+                    .active{
+                        pointer-events: none;
+                        @include circle(32px);
+                        background-color: $blueGreen;
+                        >a{
+                            color: white;
+                        }
+                    }
+                    .break-me{
+                        pointer-events: none;
+                    }
+                    .next, .previous{
+                        border: 1px solid $blueGreen;
+                    }
+                    >li{
+                        text-align: center;
+                        display: flex;
+                        @include circle(32px);
+                        overflow: hidden;
+                        margin: 0 7px;
+                        >a{
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                            color: $blueGreen;
+                            @include flexFullCenter;
+                            @include circle(100%);
+                        }
+                    }
+                }
+            }
+        }
+        .section{
+            margin-bottom: 5vw;
+            display: flex;
+            >div{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                >div{
+                    width: 100%;
+                    >div{
+                        width: 100%;
+                    }
+                }
+            }
+            >.left{
+                padding: 0 20px;
+                
+                >.section-head{
+                    width: 100%;
+                    font-size: 26pt;
+                    font-weight: 600; 
+                }
+                width: calc(100vw * (1 / 3));
+            }
+            >.right{
+                width: calc(100vw * (2 / 3));
+            }
+        }
+        .hr{
+            width: 100%;
+            height: 1px;
+            margin: 50px 0;
+            background-color: $superLightGrey;
+        }
+        #first-sec{
+            >div{
+                text-align: left;
+            }
+            >.left{
+                min-height: 100%;
+                >div{
+                    width: 100%;
+                    >div{
+                        width: 100% !important;
+                        >div{
+                            width: 100% !important;
+                            >div{
+                                width: 100% !important;
+                                >div{
+                                    width: 100% !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            >.right{
+                #expBasicInfo{
+                    >div{
+                        margin: 5px 0;
+                    }
+                }
+                #expCategory{
+                    font-weight: 500;
+                }
+                #expName{
+                    font-size: 24pt;
+                    font-weight: 700;
+                }
+                >div{
+                    width: 100%;
+                }
+                .info-sec{
+                    .info-sec-head{
+                        font-weight: 500;
+                        font-size: 14pt;
+                    }
+                    >.left{
+                        width: 70%;
+                    }
+                    >.right{
+                        width: 30%;
+                    }
+                }
+            }
+        }
+        #second-sec{
+            >.right{
+                flex-direction: row;
+                flex-wrap: wrap;
+                >img{
+                    display: flex;
+                    width: calc(100% / 3);
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+@include mQ(1100px){
+    #expPlace{
+        #expContainer{
+            .section{
+                >.left{
+                    >.section-head{
+                        width: 100%;
+                        font-size: 20pt;
+                        font-weight: 600; 
+                    }
+                }
+            }
+            #second-sec{
+                >.right{
+                    >img{
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mQ(750px){
+    #expPlace{
+        #expContainer{
+            .section{
+                flex-direction: column;
+                >div{
+                    width: 100% !important;
+                    margin: 5vw 0;
+                }
+                .left{
+                    padding: 0;
+                }
+            }
+            #second-sec{
+                >.right{
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    >img{
+                        display: flex;
+                        width: calc(96% / 2);
+                        margin-top: 2%;
+                    }
+                }
+            }
+        }
+    }
+}

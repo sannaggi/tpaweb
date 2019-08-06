@@ -4,10 +4,11 @@
     width: 100vw;
 }
 .slides {
+    position: absolute;
     z-index: inherit;
-    height: 100%;
-    width: 100%;
-    animation: fade 1.5s;
+    height: inherit;
+    width: inherit;
+    transition: all 1.5s ease;
 }
 @keyframes fade {
     from {opacity: 0.4}

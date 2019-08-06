@@ -1,0 +1,36 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+#guestComment{
+    >ul{
+        >li{
+            margin-bottom: 50px;
+            .guestProfile{
+                height: 40px;
+                .profilePicture{
+                    @include flexFullCenter;
+                    @include circle(40px);
+                    overflow: hidden;   
+                    >img{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+            >div{
+                margin: 10px 0;
+                display: flex;
+                >div{
+                    margin: 0 5px;
+                    >div{
+                        margin: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.reviews{
+    height: 10px;
+}

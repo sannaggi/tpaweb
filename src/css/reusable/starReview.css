@@ -1,0 +1,12 @@
+#star-container {
+  position: relative;
+  height: inherit; }
+  #star-container .star {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: inherit; }
+    #star-container .star > img {
+      width: auto;
+      height: inherit; }

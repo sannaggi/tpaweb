@@ -1,0 +1,41 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+#EHGetStarted{
+    opacity: 0;
+    width: 100vw;
+    @include flexFullCenter;
+    transition: all 0.5s;
+    >.left{
+        padding: 10px;
+        height: 80vh;
+        display: flex;
+        overflow: scroll;
+        flex-direction: column;
+        width: 25%;
+        >.section{
+            input[type="checkbox"]{
+                position: absolute;
+                opacity: 0;
+                @include flexFullCenter;
+                &:checked + label>.coolCheck{
+                    background-color: $lightBlueGreen;
+                }
+            }
+            label>.coolCheck{
+                width: 24px;
+                height: 24px;
+                border: 3px solid $lightBlueGreen;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                // background-color: $lightBlueGreen;
+                transform: scale(1.5)
+            }
+        }
+    }
+    >.right{
+        width: 75%;
+    }
+}

@@ -1,0 +1,24 @@
+#instaStories {
+  width: 100%;
+  height: 100%; }
+  #instaStories > div {
+    position: relative;
+    margin: 5%;
+    width: calc(100vw / 4);
+    height: calc(100vw / 2 - 5vw);
+    overflow: hidden; }
+    #instaStories > div #instaSlide {
+      -webkit-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: inherit;
+      position: absolute; }
+      #instaStories > div #instaSlide > div video {
+        width: calc(100vw / 4);
+        height: calc(100vw / 2); }
+      #instaStories > div #instaSlide > div img {
+        width: calc(100vw / 4);
+        height: calc(100vw / 2); }

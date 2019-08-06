@@ -1,0 +1,12 @@
+.photoHolder {
+    display: flex;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    img {
+        display: flex;
+        width: inherit;
+        justify-content: center;
+    }
+}

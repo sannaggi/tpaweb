@@ -15,11 +15,11 @@ function ImageSlider() {
         var slides = document.getElementsByClassName('slides');
         if(slides.length === 0) return;
         for (let i = 0; i < slides.length; i++) {
-            slides[i].setAttribute("style", "display: none");
+            slides[i].setAttribute("style", "opacity: 0");
         }
         slideIndex++;
         if(slideIndex > slides.length) slideIndex = 1;
-        slides[slideIndex-1].setAttribute("style", "display: block");
+        slides[slideIndex-1].setAttribute("style", "opacity: 1");
         setTimeout(showSlides, 7000);
     }
 

@@ -1,10 +1,18 @@
 .slidesContainer {
+<<<<<<< HEAD
   z-index: -5;
   height: 100%;
   width: 100vw; }
 
 .slides {
   z-index: inherit;
+=======
+  height: 100%;
+  width: 100vw;
+  overflow: hidden; }
+
+.slides {
+>>>>>>> profile-test
   height: 100%;
   width: 100%;
   -webkit-animation: fade 1.5s;

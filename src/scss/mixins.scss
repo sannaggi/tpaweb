@@ -5,6 +5,41 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin circleShape {
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+}
+
+@mixin circle($args){
+    width: $args;
+    height: $args;
+    border-radius: 50%;
+}
+
+@mixin circleButton {
+    @include circleShape;
+    transition: all 0.5s ease-out;
+    &:hover{
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.62);
+    }
+}
+
+@mixin centeredImageBG($url) {
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@mixin basicButton($borderColor, $backColor){
+    width: fit-content;
+    @include flexFullCenter;
+    border: 1x solid $borderColor;
+    background-color: $backColor;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
 @mixin basicLink {
     border: 0.4px;
     border-bottom: transparent $darkGrey;

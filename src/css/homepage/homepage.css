@@ -4,11 +4,13 @@
   width: 100vw; }
 
 .slides {
+  position: absolute;
   z-index: inherit;
-  height: 100%;
-  width: 100%;
-  -webkit-animation: fade 1.5s;
-  animation: fade 1.5s; }
+  height: inherit;
+  width: inherit;
+  -webkit-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
+  transition: all 1.5s ease; }
 
 @-webkit-keyframes fade {
   from {

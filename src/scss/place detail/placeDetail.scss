@@ -3,6 +3,7 @@
 
 .placeDetail{
     width: 100vw;
+    
     .placePhoto{
         width: 100%;
         flex-direction: row;
@@ -14,12 +15,11 @@
             height: 300px;
             overflow: hidden;
             border: 1px inset $superLightGrey;
-            animation: fade-out 0.5s;
             opacity: 1;
             img{
                 width: 100%;
                 height: inherit;
-                transition: all 0.5s;
+                transition: all 0.3s;
             }
             
             img:hover{
@@ -27,10 +27,128 @@
             }
             
         }
+        &:hover>div:not(:hover){
+            animation: fade-in 0.5s;
+            opacity: 0.6;
+        }
     }
-    .placePhoto:hover>div:not(:hover){
-        animation: fade-in 0.5s;
-        opacity: 0.6;
+    .placeInformation{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 5%;
+        .left, .right{
+            padding: 20px;
+        }
+        .left{
+            width: 60%;
+            #name{
+                font-family: inherit;
+                font-size: 16pt;
+                font-weight: 500;
+            }
+            >div{
+                margin: 15px;
+            }
+        }
+        .right{
+            width: 40%;
+            >div{
+                margin: 10px;
+                border: 2px solid $superLightGrey;
+                padding: 10px;
+            }
+            .booking{
+                #reserveBtn{
+                    border-radius: 3px;
+                    width: inherit;
+                    text-align: center;
+                    border: 1px solid $pinkRed;
+                    padding: 5px;
+                    background-color: $pinkRed;
+                    color: white;
+                }
+                >div{
+                    margin: 15px;
+                }
+                .hr{
+                    width: inherit;
+                    border: 1px solid $superLightGrey;
+                }
+                .reviews{
+                    height: 10px;
+                }
+                input[type="date"]{
+                    color: $darkGrey;
+                }
+                input {
+                    @include input(1em);
+                    width: 100%;
+                    font-size: 20px;
+                }
+                #checkinout{
+                    transition: all 0.5s;
+                    pointer-events: none;
+                    display: flex;
+                    justify-content: space-evenly;
+                    border: 2px solid $superLightGrey;
+                    border-radius: 5px;
+                    >div{
+                        cursor: pointer;
+                        transition: all 0.5s;
+                        padding: 5px;
+                        pointer-events: all;
+                        width: 50%;
+                        text-align: center;
+                        .inputDate{
+                            max-height: 0;
+                            overflow: hidden;
+                            transform: translateY(10px);
+                            transition: all 0.5s;
+                            transition-delay: 0.5s;
+                            position: absolute;
+                            opacity: 0;
+                        }
+                    }
+                    #checkin{
+                        border-top-right-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                    #checkout{
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                    }
+                    &:hover{
+                        background-color: $lightGrey;
+                        >div:hover{
+                            background-color: $superLightGrey;
+                            transition-delay: 0s;
+                            .inputDate{
+                                transition-delay: 0s;
+                                overflow: visible;
+                                max-height: 300px;
+                                opacity: 1;
+                            }
+                        }
+                        #checkout:hover{
+                            box-shadow: -5px 0px 3px rgba(0, 0, 0, 0.62);
+                        }
+                        #checkin:hover{
+                            box-shadow: 5px 0px 3px rgba(0, 0, 0, 0.62);
+                        }
+                    }
+                }
+            }
+            .price{
+                display: flex;
+                #price{
+                    font-weight: 500;
+                    font-size: 16pt;
+                }
+                >div{
+                    bottom: 0;
+                }
+            }
+        }
     }
 }
 

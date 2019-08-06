@@ -1,0 +1,131 @@
+#profileEdit > div {
+  margin: 15px 0; }
+
+#profileEdit .hr {
+  border: 1px solid #868686;
+  width: inherit;
+  height: 1px; }
+
+#profileEdit > input {
+  width: 100%;
+  padding: 3px; }
+
+ul li > div {
+  width: 100%; }
+
+ul .inp {
+  position: relative;
+  margin: 5px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  ul .inp .gpd {
+    width: 40%; }
+  ul .inp #gender {
+    padding-right: 5%; }
+  ul .inp #phoneNumber {
+    padding-right: 5%; }
+  ul .inp #address {
+    resize: none;
+    height: 100px; }
+    ul .inp #address + div {
+      top: -100px; }
+
+ul .name {
+  width: 50%; }
+
+ul #firstName {
+  padding-right: 2%; }
+
+ul #lastName {
+  padding-left: 2%; }
+
+ul .inpLabel {
+  position: relative;
+  top: -35px;
+  left: 9px;
+  font-size: 16px;
+  color: #3b3b3b;
+  font-weight: 500;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  background-color: white;
+  padding: 3px;
+  pointer-events: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; }
+
+ul input::-webkit-input-placeholder, ul textarea::-webkit-input-placeholder {
+  color: transparent; }
+
+ul input:focus::-webkit-input-placeholder, ul textarea:focus::-webkit-input-placeholder {
+  color: #868686; }
+
+ul input, ul select, ul #address {
+  -webkit-appearance: none;
+  width: 100%;
+  font-family: inherit;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #3b3b3b;
+  border-radius: 5px;
+  background: none;
+  color: #3b3b3b;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease; }
+  ul input:focus + div, ul select:focus + div, ul #address:focus + div {
+    -webkit-transform: translateY(-17px) scale(0.75);
+    -ms-transform: translateY(-17px) scale(0.75);
+    transform: translateY(-17px) scale(0.75); }
+  ul input:not(:placeholder-shown) + div, ul select:not(:placeholder-shown) + div, ul #address:not(:placeholder-shown) + div {
+    color: #008489;
+    -webkit-transform: translateY(-17px) scale(0.75);
+    -ms-transform: translateY(-17px) scale(0.75);
+    transform: translateY(-17px) scale(0.75); }
+  ul input:hover, ul select:hover, ul #address:hover {
+    border-color: #008489; }
+    ul input:hover + div, ul select:hover + div, ul #address:hover + div {
+      color: #008489; }
+
+@media screen and (max-width: 1100px) {
+  #forLeft {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    #forLeft > div {
+      width: 100%; }
+    #forLeft #gender, #forLeft #phoneNumber {
+      padding-right: 0%; } }
+
+@media screen and (max-width: 750px) {
+  #profileEdit .setColumn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    #profileEdit .setColumn #lastName, #profileEdit .setColumn #firstName {
+      padding: 0; }
+  #profileEdit #setLeftRight {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100vw; } }

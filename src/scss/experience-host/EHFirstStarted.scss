@@ -1,0 +1,33 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+#EHFirstStarted{
+    opacity: 0;
+    transition: all 0.5s;
+    @include flexFullCenter;
+    >div{
+        @include flexFullCenter;
+        flex-direction: column;
+    }
+    .left{
+        >div{
+            width: 100%;
+            margin: 3%;
+            text-align: left;
+        }
+        width: 60%;
+        padding: 10% 10%;
+        .nextBtn{
+            padding: 10px;
+            color: white;
+            @include basicButton($blueGreen, $blueGreen);
+        }
+    }
+    .right{
+        width: 40%;
+        >img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
