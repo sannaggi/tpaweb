@@ -13,8 +13,6 @@ function Places({location, fetchAllPlace, places, currCard} : {location:any, fet
     useEffect(() => {
         let header = document.getElementsByTagName("header")[0]
         header.setAttribute("style", "position: fixed")
-        
-        //TODO change with controlled fetch
         fetchAllPlace()
     }, [fetchAllPlace])
 

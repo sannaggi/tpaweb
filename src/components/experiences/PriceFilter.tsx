@@ -35,12 +35,12 @@ function PriceFilter({setPriceClick, priceClick, getPriceVisible, currency, lowe
                 <div className="range">
                     <div className="priceRange">
                         <div className="currencySymbol">{currency.icon}</div>
-                        <input type="number" name="" value={convertCurrency(lowerprice, 0)} onChange={changeLowerPrice}/>
+                        <input type="number" name="" min={convertCurrency(lowerprice, 0)} value={convertCurrency(lowerprice, 0)} onChange={changeLowerPrice}/>
                     </div>
                     <span> - </span>
                     <div className="priceRange">
                         <div className="currencySymbol">{currency.icon}</div>
-                        <input type="number" name="" value={convertCurrency(upperprice, 1)} onChange={changeUpperPrice}/>
+                        <input type="number" name="" max={convertCurrency(upperprice, 1)} value={convertCurrency(upperprice, 1)} onChange={changeUpperPrice}/>
                     </div>
                 </div>
                 <span className="apply" onClick={() => setPriceClick(!priceClick)}>Apply</span>

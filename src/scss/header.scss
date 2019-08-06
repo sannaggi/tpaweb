@@ -65,10 +65,23 @@ header {
         padding: 30px 15px;
         border-bottom: 2px solid white;
         transition: border 0.5s;
+        height: 100%;
         &:hover {
             border-bottom: 2px solid black;
             cursor: pointer;
             user-select: none;
+        }
+    }
+    #profileImage {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+    }
+    a {
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
     }
 }

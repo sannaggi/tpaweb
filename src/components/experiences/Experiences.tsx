@@ -9,7 +9,7 @@ import '../../css/guestDropdown.css'
 import PriceFilter from "./PriceFilter";
 import LanguageFilter from "./LanguageFilter";
 
-function Experiences({ experiences, fetchFilteredExperiences, currency } : { experiences:Array<any>, fetchFilteredExperiences:Function, currency:any }) {
+function Experiences({ experiences, fetchFilteredExperiences, currency } : { experiences:Array<any>, fetchFilteredExperiences:Function, currency:any}) {
     
     const [guests, setGuests] = useState({
         adults: 0,
@@ -24,7 +24,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
     const [guestsClick, setGuestsClick] = useState(false)
     const [priceClick, setPriceClick] = useState(false)
     const [languageClick, setLanguageClick] = useState(false)
-    
+
     useEffect(() => {
         if(!guestsClick && !priceClick && !languageClick) {
             fetchFilteredExperiences({
@@ -160,7 +160,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
 
     function getExperiences() {
         if(experiences === null)
-            return <div className="none">No experiences available with this criteria :(</div>
+            return <div className="none">No experiences available with this criteria</div>
 
         return experiences.map((experience) => (
             <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
@@ -202,6 +202,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
             <div className="experienceContainer">
                 {getExperiences()}
             </div>
+
         </React.Fragment>
     )
 }

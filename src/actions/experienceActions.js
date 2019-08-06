@@ -1,4 +1,4 @@
-import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES } from "./types";
+import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES, FETCH_LIMITED_EXPERIENCES } from "./types";
 import axios from 'axios'
 
 async function takeData(data) {
@@ -52,6 +52,24 @@ export function fetchFilteredExperiences(category) {
         .then(takeData)
         .then(data => dispatch({
             type: FETCH_FILTERED_EXPERIENCES,
+            payload: data
+        }))
+    }
+}
+
+export function fetchLimitedExperiences(limitation) {
+    return function (dispatch) {
+        axios({
+            url: 'https://aivbnbapi.herokuapp.com/api/experiences/s',
+            method: 'POST',
+            data: limitation,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(takeData)
+        .then(data => dispatch({
+            type: FETCH_LIMITED_EXPERIENCES,
             payload: data
         }))
     }
