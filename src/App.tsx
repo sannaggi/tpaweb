@@ -10,6 +10,8 @@ import PlaceDetail from './components/place detail/PlaceDetail';
 import RegisterForm from "./components/layouts/RegisterForm";
 import Places from "./components/places/Places";
 import Experiences from "./components/experiences/Experiences";
+import ExperiencePlace from './components/experience-place/experiencePlace';
+import Profilepage from './components/profile/Profilepage';
 
 const App: React.FC = () => {
   return (
@@ -20,7 +22,9 @@ const App: React.FC = () => {
           <Route exact path="/" component={Homepage}/>
           <Route exact path="/places" component={Places}/>
           <Route exact path="/experiences" component={Experiences}/>
+          <Route path="/experiences/:id" component={ExperiencePlace} />
           <Route path="/places/:id" component={PlaceDetail} />
+          <Route path="/users/:id/" component={Profilepage} />
           <Route path="/register/:auth/:firstName/:lastName/:email" component={RegisterForm} />
           <Footer />
         </div>

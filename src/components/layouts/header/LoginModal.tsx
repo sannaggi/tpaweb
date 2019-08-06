@@ -34,7 +34,7 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
     setLogin({ ...login, [e.target.name]: e.target.value });
   }
 
-  function loginGoogle(res) {
+  // function loginGoogle(res) {
     // let test = sign(
     //   {
     //     data: {
@@ -46,7 +46,7 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
     //   "nolep"
     // );
     // localStorage.setItem("aiv-token", test);
-  }
+  // }
 
   function responseOAuth(res) {
     if (!res.accessToken) return;

@@ -7,8 +7,7 @@ import StarReview from "../reusable/StarReview";
 import ReactPaginate from "react-paginate";
 import GuestComment from "../reusable/GuestComment";
 
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+// const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 export default function ExperiencePlace(){
     var perPage = 5

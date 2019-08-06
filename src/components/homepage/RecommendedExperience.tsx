@@ -12,9 +12,9 @@ function RecommendedExperience({experiences, fetchRecomExperience, currency} : {
     }, [fetchRecomExperience])
 
 
-    function getCurrency(price:any) {
-        return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
-    }
+    // function getCurrency(price:any) {
+    //     return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
+    // }
 
     return (
         <div className="recomContainer">
