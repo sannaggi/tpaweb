@@ -1,80 +1,44 @@
-.quickCard {
-  position: absolute;
-  top: 10em;
-  left: 4em;
-  z-index: 5;
-  padding: 2em;
-  background-color: white;
-  width: 510px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0px 0px 25px -9px #333333;
-  box-shadow: 0px 0px 25px -9px #333333; }
-  .quickCard .title {
-    font-weight: 600;
-    margin-bottom: 0.6em; }
-  .quickCard .input {
-    display: inline-block;
-    margin: 1em 0;
-    width: 100%; }
-  .quickCard .half {
-    width: 50% !important; }
-  .quickCard input {
-    font-size: 1em;
-    padding: 0.7em;
-    border: 0.8px solid #bdbdbd;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    width: 100%;
-    font-size: 20px; }
-    .quickCard input:focus {
-      border-color: #0d8d78; }
-  .quickCard input[disabled] {
-    width: 95%;
-    border: none; }
-  .quickCard input[type="submit"] {
-    font-size: 18px;
-    font-weight: 600;
-    width: auto;
-    background: #ff523b;
-    margin-top: 1em;
-    color: white;
-    float: right;
-    padding: 15px 27px;
-    border-radius: 6px; }
-    .quickCard input[type="submit"]:hover {
-      cursor: pointer; }
-  .quickCard input[type="date"] {
-    color: #3b3b3b; }
-  .quickCard .guestInput {
-    background: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-size: 1em;
-    padding: 0.7em;
-    border: 0.8px solid #bdbdbd;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    padding: 0em; }
-    .quickCard .guestInput:focus {
-      border-color: #0d8d78; }
-    .quickCard .guestInput:hover {
-      cursor: pointer; }
-    .quickCard .guestInput input {
-      background: #fff; }
-      .quickCard .guestInput input:hover {
-        cursor: pointer; }
+input {
+  font-size: 1em;
+  padding: 0.7em;
+  border: 0.8px solid #bdbdbd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 100%;
+  font-size: 20px; }
+  input:focus {
+    border-color: #0d848d; }
 
-.quickCardTitle {
-  font-weight: 700;
-  font-size: 36px; }
+.guestInput {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1em;
+  padding: 0.7em;
+  border: 0.8px solid #bdbdbd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 0em; }
+  .guestInput:focus {
+    border-color: #0d848d; }
+  .guestInput:hover {
+    cursor: pointer; }
+  .guestInput input {
+    background: #fff; }
+    .guestInput input:hover {
+      cursor: pointer; }
+
+input[disabled] {
+  width: 95%;
+  border: none; }
 
 .guestContainer {
   width: auto; }
@@ -82,7 +46,6 @@
 .guestInputContent {
   position: absolute;
   background: #fff;
-  width: calc(100% - 4em);
   -webkit-box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
   overflow: hidden;
@@ -135,15 +98,15 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #0d8d78;
-  border: 1.2px solid #0d8d78;
+  color: #0d848d;
+  border: 1.2px solid #0d848d;
   cursor: pointer; }
 
 .apply {
   font-size: 18px;
   font-weight: 600;
   float: right;
-  color: #0d8d78;
+  color: #0d848d;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -154,3 +117,119 @@
 
 #arrow {
   font-size: 20px; }
+
+.quickCard {
+  position: absolute;
+  top: 10em;
+  left: 4em;
+  z-index: 5;
+  padding: 2em;
+  background-color: white;
+  width: 510px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 25px -9px #333333;
+  box-shadow: 0px 0px 25px -9px #333333; }
+  .quickCard .title {
+    font-weight: 600;
+    margin-bottom: 0.6em; }
+  .quickCard .input {
+    display: inline-block;
+    margin: 1em 0;
+    width: 100%;
+    position: relative; }
+  .quickCard .half {
+    width: 50% !important; }
+  .quickCard input {
+    font-size: 1em;
+    padding: 0.7em;
+    border: 0.8px solid #bdbdbd;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 100%;
+    font-size: 20px; }
+    .quickCard input:focus {
+      border-color: #0d848d; }
+  .quickCard input[disabled] {
+    width: 95%;
+    border: none; }
+  .quickCard input[type="submit"] {
+    font-size: 18px;
+    font-weight: 600;
+    width: auto;
+    background: #ff523b;
+    margin-top: 1em;
+    color: white;
+    float: right;
+    padding: 15px 27px;
+    border-radius: 6px; }
+    .quickCard input[type="submit"]:hover {
+      cursor: pointer; }
+  .quickCard input[type="date"] {
+    color: #3b3b3b; }
+  .quickCard .guestInput {
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1em;
+    padding: 0.7em;
+    border: 0.8px solid #bdbdbd;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 0em; }
+    .quickCard .guestInput:focus {
+      border-color: #0d848d; }
+    .quickCard .guestInput:hover {
+      cursor: pointer; }
+    .quickCard .guestInput input {
+      background: #fff; }
+      .quickCard .guestInput input:hover {
+        cursor: pointer; }
+  .quickCard .guestInputContent {
+    width: 100%; }
+
+.quickCardTitle {
+  font-weight: 700;
+  font-size: 36px; }
+
+.search-container {
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  -webkit-box-shadow: 0px 6px 20px -9px #333333;
+  box-shadow: 0px 6px 20px -9px #333333;
+  background: #fff; }
+  .search-container > li {
+    width: 100%;
+    padding: 0.8em 0.5em;
+    font-size: 17px;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .search-container > li span {
+      height: 100%;
+      width: 7%;
+      font-size: 20px; }
+    .search-container > li div {
+      display: inline-block;
+      width: 90%;
+      height: 100%; }
+    .search-container > li:hover {
+      cursor: pointer;
+      background-color: #e6e6e6; }

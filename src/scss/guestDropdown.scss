@@ -1,0 +1,79 @@
+@import 'mixins';
+@import 'variables';
+
+input {
+    @include input(1em);
+    width: 100%;
+    font-size: 20px;
+}
+
+.guestInput {
+    background: white;
+    display: flex;
+    align-items: center;
+    @include input(1em);
+    padding: 0em;
+    &:hover {
+        cursor: pointer;
+    }
+    input {
+        background: #fff;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+input[disabled] {
+    width: 95%;
+    border: none;
+}
+.guestContainer {
+    width: auto;
+}
+.guestInputContent {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0px 11px 28px -14px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    transition: 0.4s;
+}
+.typeTitle {
+    @include titleText;
+}
+.guestType {
+    @include flexFullCenter;
+    justify-content: space-between;
+    margin: 1em 0;
+    user-select: none;
+}
+.counter {
+    @include titleText;
+    width: 55px;
+    display: inline-block;
+    text-align: center;
+}
+.counterBtn {
+    @include titleText;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    color: $blueGreen2;
+    border: 1.2px solid $blueGreen2;
+    cursor: pointer;
+}
+.apply {
+    @include titleText;
+    float: right;
+    color: $blueGreen2;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    user-select: none;
+}
+#arrow {
+    font-size: 20px;
+}

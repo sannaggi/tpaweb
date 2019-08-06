@@ -1,0 +1,39 @@
+@import '../mixins';
+@import '../variables';
+
+header {
+    width: 100%;
+}
+.placesContainer {
+    margin-top: 83px;
+    display: flex;
+    .detail-container {
+        width: 55vw;
+        padding: 1.2em 1.5em;
+    }
+    .map-container {
+        width: 45vw;
+        .container {
+            top: 83px;
+            width: 100%;
+            height: calc(100vh - 83px);
+            position: sticky;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@include mQ(1200px) {
+    .placesContainer { 
+        margin-top: 59.2px;
+        .map-container {
+            .container {
+                top: 59.2px;
+                height: calc(100vh - 60px)
+            }
+        }
+    }
+}

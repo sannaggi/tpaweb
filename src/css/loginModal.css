@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
-  padding-top: 40px; }
+  padding-top: calc((100vh - 607.75px) / 2); }
 
 .modal-content {
   position: relative;
@@ -170,6 +170,8 @@
         font-size: 20px;
         margin-top: 9px;
         color: #000000; }
+    .modal-content .inputField #remember {
+      width: auto; }
     .modal-content .inputField input:not(#remember) {
       border: none;
       width: 100%;
@@ -187,11 +189,13 @@
     padding: 10px 0; }
   .modal-content .clickableText {
     cursor: pointer;
-    color: #0d8d78;
+    color: #0d848d;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
+    .modal-content .clickableText:hover {
+      text-decoration: underline; }
   .modal-content .signUp {
     margin-top: 16px; }
     .modal-content .signUp span {

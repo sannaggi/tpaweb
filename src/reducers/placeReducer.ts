@@ -1,9 +1,10 @@
-import { FETCH_ALL_PLACE, SET_CURRENT_PLACE, FETCH_HOST } from '../actions/types'
+import { FETCH_ALL_PLACE, SET_CURRENT_PLACE, FETCH_HOST, SET_HOVERED_CARD } from '../actions/types'
 
 const initialState = {
     items: [],
     item: {},
     host: null,
+    currCard: null
 }
 
 export default function(state = initialState, action:any) {
@@ -23,6 +24,11 @@ export default function(state = initialState, action:any) {
             return {
                 ...state,
                 host: action.payload
+            }
+        case SET_HOVERED_CARD:
+            return {
+                ...state,
+                currCard: action.payload
             }
         default:
             return state;

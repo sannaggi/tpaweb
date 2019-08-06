@@ -1,10 +1,19 @@
-import { FETCH_ALL_PLACE, SET_CURRENT_PLACE, FETCH_HOST } from "./types";
+import { FETCH_ALL_PLACE, SET_CURRENT_PLACE, FETCH_HOST, SET_HOVERED_CARD } from "./types";
 import axios from 'axios'
 
 async function takeData(data) {
     return new Promise((resolve) => {
         resolve(data.data);
     })
+}
+
+export function setHoveredCard(id) {
+    return function (dispatch) {
+        dispatch ({
+            type: SET_HOVERED_CARD,
+            payload: id
+        })
+    }
 }
 
 export function fetchAllPlace() {

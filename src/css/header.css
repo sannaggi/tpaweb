@@ -31,7 +31,7 @@ header {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  border-bottom: 0.6px solid #868686;
+  border-bottom: 0.6px solid #bdbdbd;
   z-index: 10; }
   header .header-component {
     display: -webkit-box;
@@ -103,7 +103,8 @@ header {
     border-bottom: 2px solid white;
     -webkit-transition: border 0.5s;
     -o-transition: border 0.5s;
-    transition: border 0.5s; }
+    transition: border 0.5s;
+    height: 100%; }
     .navbar-link div:hover {
       border-bottom: 2px solid black;
       cursor: pointer;
@@ -111,6 +112,18 @@ header {
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none; }
+  .navbar-link #profileImage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 15px; }
+  .navbar-link a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; }
 
 .dropdown-content {
   overflow: hidden;
@@ -126,7 +139,8 @@ header {
 .dropdown-link {
   display: block;
   padding: 1.5em 0;
-  border-bottom: 1px solid #bdbdbd; }
+  border-bottom: 1px solid #bdbdbd;
+  cursor: pointer; }
 
 @media screen and (max-width: 1200px) {
   .logo {
@@ -138,4 +152,4 @@ header {
 
 @media screen and (max-width: 750px) {
   .searchBox input, .searchBox input:focus {
-    width: calc(100vw - 200px); } }
+    width: calc(100vw - 250px); } }

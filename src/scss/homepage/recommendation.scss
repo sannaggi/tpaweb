@@ -20,28 +20,24 @@
 }
 
 .recomContainer {
-    margin: 2em 4.5em;
+    margin: 2em 0;
     div {
         margin: 2px 0;
     }
     .card-category {
-        font-size: 13px;
-        font-weight: 600;
+        @include card-category
     }
     .card-name {
-        word-wrap: break-word;
-        font-size: 18px;
-        font-weight: 600;
+        @include card-name
     }
     .card-price {
-        font-size: 16px;
+        @include card-price
     }
     .card-review {
-        font-size: 15px;
+        @include card-review
     }
     span {
-        color: $blueGreen2;
-        font-size: 17px;
+        @include rating
     }
 }
 @include mQ(1100px) {

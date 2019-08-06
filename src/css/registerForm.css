@@ -1,0 +1,40 @@
+.registerFormContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .registerFormContainer form {
+    margin: 50px 0;
+    padding: 2em;
+    border: 1px solid #bdbdbd;
+    width: 500px; }
+    .registerFormContainer form > div {
+      margin: 14px 0; }
+    .registerFormContainer form .center {
+      text-align: center; }
+    .registerFormContainer form .inputField {
+      width: 100%;
+      border: 1px solid #868686;
+      border-radius: 5px; }
+      .registerFormContainer form .inputField input {
+        width: 93%;
+        border: none; }
+      .registerFormContainer form .inputField span {
+        width: 7%;
+        text-align: center;
+        display: inline-block;
+        font-size: 18px; }
+    .registerFormContainer form .info {
+      font-size: 14px;
+      color: #868686; }
+    .registerFormContainer form input[type="submit"] {
+      background-color: #ff523b;
+      color: white;
+      border: none; }
+      .registerFormContainer form input[type="submit"]:hover {
+        cursor: pointer; }

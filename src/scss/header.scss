@@ -21,7 +21,7 @@ header {
     top: 0;
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.6px solid $lightGrey;
+    border-bottom: 0.6px solid $superLightGrey;
     z-index: 10;
     .header-component {
         display: flex;
@@ -65,10 +65,23 @@ header {
         padding: 30px 15px;
         border-bottom: 2px solid white;
         transition: border 0.5s;
+        height: 100%;
         &:hover {
             border-bottom: 2px solid black;
             cursor: pointer;
             user-select: none;
+        }
+    }
+    #profileImage {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+    }
+    a {
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
     }
 }
@@ -85,6 +98,7 @@ header {
     display: block;
     padding: 1.5em 0;
     border-bottom: 1px solid $superLightGrey;
+    cursor: pointer;
 }
 
 @include mQ(1200px) {
@@ -102,7 +116,7 @@ header {
 @include mQ(750px) {
     .searchBox {
         input, input:focus{
-            width: calc(100vw - 200px);
+            width: calc(100vw - 250px);
         }
     }
 }

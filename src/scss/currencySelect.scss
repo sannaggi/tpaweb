@@ -1,0 +1,33 @@
+@import 'mixins';
+@import 'variables';
+
+.currContainer {
+    position: relative;
+    >li {
+        border: 1px solid $lightGrey;
+    }
+    li {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        padding: 0.5em 0;
+        width: 60px;
+        cursor: pointer;
+        &:not(#curr):hover {
+            background: $superDuperLightGrey;
+        }
+    }
+    >ul {
+        width: 100%;
+        position: absolute;
+        background: #fff;
+        overflow: hidden;
+        transition: 1.3s;
+        box-shadow: 0px 6.5px 11px -4px rgba(51,51,51,1);
+    }
+}
+@include mQ(1200px) {
+    .currContainer {
+        right: 10px;
+    }   
+}
