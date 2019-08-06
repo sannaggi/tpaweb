@@ -1,6 +1,9 @@
 @import '../mixins';
 
 .profilePage{
+    h1{
+        color: rgb(59, 59, 59)
+    }
     display: flex;
     justify-content: center;
     padding: 3em;

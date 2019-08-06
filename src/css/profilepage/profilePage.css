@@ -6,6 +6,8 @@
   -ms-flex-pack: center;
   justify-content: center;
   padding: 3em; }
+  .profilePage h1 {
+    color: #3b3b3b; }
   .profilePage > div {
     margin: 2em; }
   .profilePage #profileInformation {
