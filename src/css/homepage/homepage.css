@@ -1,16 +1,15 @@
 .slidesContainer {
   z-index: -5;
   height: 100%;
-  width: 100vw; }
-
-.slides {
-  position: absolute;
-  z-index: inherit;
-  height: inherit;
-  width: inherit;
-  -webkit-transition: all 1.5s ease;
-  -o-transition: all 1.5s ease;
-  transition: all 1.5s ease; }
+  width: 100%;
+  position: relative; }
+  .slidesContainer img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: all 1.5s ease;
+    -o-transition: all 1.5s ease;
+    transition: all 1.5s ease; }
 
 @-webkit-keyframes fade {
   from {
@@ -64,12 +63,13 @@
 @media screen and (max-width: 750px) {
   .quickCard {
     width: 100%;
-    top: 300px;
+    top: 360px;
     left: 0; }
   .slidesContainer {
     height: 300px; }
   .home-content {
-    margin-top: 100px; }
+    margin-top: 100px;
+    padding: 0 2.5em; }
     .home-content .showContainer {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;

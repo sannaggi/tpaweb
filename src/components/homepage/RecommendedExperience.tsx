@@ -26,7 +26,7 @@ function RecommendedExperience({experiences, fetchRecomExperience, currency} : {
             </div>
             <div className="cardsContainer expContainer">
                 {experiences.map((experience:any) => (
-                    <RecommendedExperienceCard experience={experience}/>
+                    <RecommendedExperienceCard key={experience.id} experience={experience}/>
                 ))}
             </div>
         </div>

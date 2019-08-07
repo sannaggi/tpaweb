@@ -2,13 +2,14 @@ import React from "react"
 import PhotoHolder from "../PhotoHolder";
 import {USERINFORMATION} from "../../Specification.js"
 import "../../../css/profileCard.css"
+import { Link } from "react-router-dom";
 
 function ProfileCard(){
     return(
         <div className="profileCard">
             <PhotoHolder />
             <div>
-                <b><a href="">Perbarui foto</a></b>
+                <b><Link to="./">Perbarui foto</Link></b>
             </div>
             <div id="hr"></div>
             <div><b>{USERINFORMATION.FirstName} {USERINFORMATION.LastName}</b></div>

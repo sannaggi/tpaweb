@@ -1,14 +1,14 @@
 .slidesContainer {
     z-index: -5;
     height: 100%;
-    width: 100vw;
-}
-.slides {
-    position: absolute;
-    z-index: inherit;
-    height: inherit;
-    width: inherit;
-    transition: all 1.5s ease;
+    width: 100%;
+    position: relative;
+    img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transition: all 1.5s ease;
+    }
 }
 @keyframes fade {
     from {opacity: 0.4}

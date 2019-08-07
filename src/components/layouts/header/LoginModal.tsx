@@ -34,20 +34,6 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
     setLogin({ ...login, [e.target.name]: e.target.value });
   }
 
-  // function loginGoogle(res) {
-    // let test = sign(
-    //   {
-    //     data: {
-    //       expiration: res.tokenObj.expires_at,
-    //       id: res.googleId,
-    //       accessToken: res.accessToken
-    //     }
-    //   },
-    //   "nolep"
-    // );
-    // localStorage.setItem("aiv-token", test);
-  // }
-
   function responseOAuth(res) {
     if (!res.accessToken) return;
     if (res.googleId !== undefined) {

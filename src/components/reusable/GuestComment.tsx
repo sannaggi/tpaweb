@@ -7,7 +7,7 @@ export default function GuestComment(props: any){
     var out = [];
     fetchComment.forEach(element => {
         let temp =
-        <li>
+        <li key={element.userid}>
             <div className="guestProfile">
                 <div className="profilePicture"><img src="" alt="uhuy"/></div>
                 <div>
@@ -16,7 +16,7 @@ export default function GuestComment(props: any){
                 </div>
             </div>
             <div>
-                {element.comment}
+                {element.review}
             </div>
         </li>
         out.push(temp)

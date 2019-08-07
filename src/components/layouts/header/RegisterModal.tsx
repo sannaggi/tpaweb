@@ -4,16 +4,14 @@ import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import "../../../css/registerModal.css";
 import NewWindow from "react-new-window";
+import { connect } from 'react-redux';
+import { setNewOauthUser } from "../../../actions/userActions";
 
-function LoginModal() {
+function LoginModal({ setNewOauthUser } : { setNewOauthUser: any }) {
 
     const [window, setWindow] = useState(false)
     const [auth, setAuth] = useState("")
-    const [userData, setUserData] = useState({
-        firstName: "",
-        lastName: "",
-        email: ""
-    })
+    const [userData, setUserData] = useState()
 
     function onClick(e) {
         if(e.target.className === 'modal' || e.target.className === 'close-modal')
@@ -24,33 +22,43 @@ function LoginModal() {
         document.getElementById("registerModal").addEventListener("click", onClick);
     }, [])
 
+    function onUnload() {
+        setWindow(false)
+        setNewOauthUser(userData)
+    }
+
     function registerWindow() {
         if(window) return (
-            <NewWindow url={"/register/" + auth + "/" + userData.firstName + "/" + userData.lastName + "/" + userData.email} center="screen" copyStyles={true} onUnload={() => {setWindow(false)}}>
+            <NewWindow url={"/register/" + auth + "/" + userData.firstname + "/" + userData.lastname + "/" + userData.email} center="screen"  copyStyles={true} onUnload={onUnload}>
             </NewWindow>
         )
     }
+
     function responseOAuth(res) {
         if(!res.accessToken) return;
-        
-        let firstName:string;
-        let lastName:string;
-        let email:string;
-        if(auth === "Google") {
-            firstName = res.profileObj.givenName;
-            lastName = res.profileObj.familyName;
-            email = res.profileObj.email;
-        } else {
-            firstName = res.name.substr(0, res.name.indexOf(' '));
-            lastName = res.name.substr(res.name.lastIndexOf(' '));
-            email = res.email;
+        let data = {
+            firstname: "",
+            lastname: "",
+            email: "",
+            profileimage: "",
+            googleid: "",
+            facebookid: ""
         }
-        setUserData({
-            firstName: firstName,
-            lastName: lastName,
-            email: email
-        })
-
+        if(auth === "Google") {
+            const profile = res.profileObj
+            data.firstname = profile.givenName;
+            data.lastname = profile.familyName;
+            data.email = profile.email;
+            data.googleid = profile.googleId;
+            data.profileimage = profile.imageUrl;
+        } else {
+            data.firstname = res.name.substr(0, res.name.indexOf(' '));
+            data.lastname = res.name.substr(res.name.lastIndexOf(' '));
+            data.email = res.email;
+            data.facebookid = res.facebookid;
+            data.profileimage = res.picture.data.url;
+        }
+        setUserData(data)
         setWindow(true);
     }
 
@@ -104,4 +112,4 @@ function LoginModal() {
     )
 }
 
-export default LoginModal
+export default connect(null, { setNewOauthUser })(LoginModal)

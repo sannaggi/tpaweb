@@ -35,7 +35,7 @@
 @include mQ(750px) {
     .quickCard {
         width: 100%;
-        top: 300px;
+        top: 360px;
         left: 0;
     }
     .slidesContainer {
@@ -43,6 +43,7 @@
     }
     .home-content {
         margin-top: 100px;
+        padding: 0 2.5em;
         .showContainer {
             flex-direction: column;
             width: 200px;

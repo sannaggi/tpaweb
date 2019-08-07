@@ -23,7 +23,8 @@
       border-radius: 5px; }
       .registerFormContainer form .inputField input {
         width: 93%;
-        border: none; }
+        border: none;
+        background-color: white; }
       .registerFormContainer form .inputField span {
         width: 7%;
         text-align: center;
@@ -33,7 +34,7 @@
       font-size: 14px;
       color: #868686; }
     .registerFormContainer form input[type="submit"] {
-      background-color: #ff523b;
+      background-color: #ff2f13;
       color: white;
       border: none; }
       .registerFormContainer form input[type="submit"]:hover {

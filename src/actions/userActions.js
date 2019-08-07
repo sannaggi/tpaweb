@@ -1,4 +1,4 @@
-import { LOGIN_OAUTH2 } from "./types";
+import { LOGIN_OAUTH2, NEW_OAUTH_USER } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 
@@ -22,7 +22,7 @@ function setCookie(id, expiration, accessToken) {
 export function oauth2Login(id, expiration, accessToken, authenticator) {
   return function(dispatch) {
     axios({
-      url: "http://localhost/api/login/o",
+      url: "https://aivbnbapi.herokuapp.com/api/login/o",
       method: "POST",
       data: {
         id: id,
@@ -40,5 +40,14 @@ export function oauth2Login(id, expiration, accessToken, authenticator) {
       })
     )
     .then(setCookie(id, expiration, accessToken))
+  };
+}
+
+export function setNewOauthUser(data) {
+  return function(dispatch) {
+    dispatch({
+      type: NEW_OAUTH_USER,
+      payload: data
+    })
   };
 }

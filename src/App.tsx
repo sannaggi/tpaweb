@@ -25,7 +25,7 @@ const App: React.FC = () => {
           <Route path="/experiences/:id" component={ExperiencePlace} />
           <Route path="/places/:id" component={PlaceDetail} />
           <Route path="/users/:id/" component={Profilepage} />
-          <Route path="/register/:auth/:firstName/:lastName/:email" component={RegisterForm} />
+          <Route path="/register/:auth/:firstname/:lastname/:email" component={RegisterForm} />
           <Footer />
         </div>
       </Router>
