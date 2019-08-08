@@ -1,4 +1,4 @@
-import { LOGIN_OAUTH2, NEW_OAUTH_USER } from "./types";
+import { LOGIN_OAUTH2, REGISTER_STATUS } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 
@@ -22,7 +22,7 @@ function setCookie(id, expiration, accessToken) {
 export function oauth2Login(id, expiration, accessToken, authenticator) {
   return function(dispatch) {
     axios({
-      url: "https://aivbnbapi.herokuapp.com/api/login/o",
+      url: "https://aivbnb.herokuapp.com/api/login/o",
       method: "POST",
       data: {
         id: id,
@@ -45,8 +45,27 @@ export function oauth2Login(id, expiration, accessToken, authenticator) {
 
 export function setNewOauthUser(data) {
   return function(dispatch) {
+    axios({
+      url: "https://aivbnb.herokuapp.com/api/users/",
+      method: "POST",
+      data: data,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    })
+    .then(
+      dispatch({
+        type: REGISTER_STATUS,
+        payload: true
+      })
+    )
+  };
+}
+
+export function setRegisterStatus(data) {
+  return function(dispatch) {
     dispatch({
-      type: NEW_OAUTH_USER,
+      type: REGISTER_STATUS,
       payload: data
     })
   };

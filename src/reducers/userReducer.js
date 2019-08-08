@@ -1,1 +1,29 @@
-"use strict";function default_1(e,t){switch(void 0===e&&(e=initialState),t.type){case types_1.LOGIN_OAUTH2:return __assign({},e,{item:t.payload});case types_1.NEW_OAUTH_USER:return __assign({},e,{newItem:__assign({},e.newItem,t.payload)});case types_1.SET_REGISTER_END:return __assign({},e,{registerEnd:t.payload});default:return e}}var __assign=this&&this.__assign||Object.assign||function(e){for(var t,s=1,a=arguments.length;s<a;s++)for(var r in t=arguments[s])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e};Object.defineProperty(exports,"__esModule",{value:!0});var types_1=require("../actions/types"),initialState={item:{},newItem:{},registerEnd:!1};exports.default=default_1;
+import { LOGIN_OAUTH2, REGISTER_STATUS, SET_REGISTER_END } from "../actions/types";
+
+const initialState = {
+  item: {},
+  newItem: {},
+  registerStatus: false
+};
+
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case LOGIN_OAUTH2:
+      return {
+        ...state,
+        item: action.payload
+      };
+    case REGISTER_STATUS:
+      return {
+        ...state,
+        registerStatus: action.payload
+      };
+    case SET_REGISTER_END:
+      return {
+        ...state,
+        registerStatus: action.payload
+      };
+    default:
+      return state;
+  }
+}
