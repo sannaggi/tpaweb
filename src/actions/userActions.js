@@ -22,7 +22,7 @@ function setCookie(id, expiration, accessToken) {
 export function oauth2Login(id, expiration, accessToken, authenticator) {
   return function(dispatch) {
     axios({
-      url: "https://aivbnb.herokuapp.com/api/login/o",
+      url: "https://aivbnbapi.herokuapp.com/api/login/o",
       method: "POST",
       data: {
         id: id,
@@ -46,7 +46,7 @@ export function oauth2Login(id, expiration, accessToken, authenticator) {
 export function setNewOauthUser(data) {
   return function(dispatch) {
     axios({
-      url: "https://aivbnb.herokuapp.com/api/users/",
+      url: "https://aivbnbapi.herokuapp.com/api/users/",
       method: "POST",
       data: data,
       headers: {

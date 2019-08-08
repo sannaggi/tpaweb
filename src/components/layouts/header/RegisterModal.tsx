@@ -93,7 +93,7 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauth2
             data.profileimage = res.picture.data.url;
         }
         axios({
-            url: "https://aivbnb.herokuapp.com/api/users/check",
+            url: "https://aivbnbapi.herokuapp.com/api/users/check",
             method: "POST",
             data: data,
             headers: {
