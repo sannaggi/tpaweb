@@ -69,6 +69,8 @@
       padding: 0.7em 1em; }
 
 @media screen and (max-width: 750px) {
+  .quickCardContainer {
+    height: 700px; }
   .quickCard {
     width: 100%;
     top: 300px;
@@ -76,7 +78,6 @@
   .slidesContainer {
     height: 300px; }
   .home-content {
-    margin-top: 150px;
     padding: 0 2.5em; }
     .home-content .showContainer {
       -webkit-box-orient: vertical;

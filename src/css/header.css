@@ -157,5 +157,7 @@ header {
     display: none; } }
 
 @media screen and (max-width: 750px) {
+  .dropdown-link {
+    padding: 1em 0; }
   .searchBox input, .searchBox input:focus {
     width: calc(100vw - 250px); } }

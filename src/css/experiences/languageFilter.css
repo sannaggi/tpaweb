@@ -7,7 +7,7 @@
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-  margin-top: 9px;
+  margin-top: 7px;
   padding: 1.5em; }
   .filter .gridContainer {
     display: -ms-grid;
@@ -59,3 +59,28 @@
         background-color: #ccc; }
   .filter .apply {
     margin-top: 10px; }
+
+@media screen and (max-width: 1100px) {
+  .language-filter {
+    width: 41vw !important; }
+    .language-filter .container {
+      padding-left: 30px !important; } }
+
+@media screen and (max-width: 750px) {
+  .language-filter {
+    width: 33vw !important;
+    overflow: scroll !important; }
+    .language-filter .gridContainer {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: auto;
+      grid-template-columns: auto; }
+      .language-filter .gridContainer .checkmark {
+        height: 20px !important;
+        width: 20px !important; }
+        .language-filter .gridContainer .checkmark:after {
+          left: 6px !important;
+          top: 2px !important; }
+      .language-filter .gridContainer .container {
+        font-size: 15px;
+        padding-left: 25px !important; } }

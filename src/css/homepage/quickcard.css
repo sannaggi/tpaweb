@@ -233,3 +233,15 @@ input[disabled] {
     .search-container > li:hover {
       cursor: pointer;
       background-color: #e6e6e6; }
+
+@media screen and (max-width: 750px) {
+  .quickCard {
+    padding: 1.3em; }
+    .quickCard .quickCardTitle {
+      font-size: 25px; }
+    .quickCard .input {
+      margin: 0.4em 0; }
+    .quickCard input {
+      padding: 0.5em; }
+    .quickCard input[type="button"] {
+      margin-top: 0.5em; } }

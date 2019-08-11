@@ -55,3 +55,34 @@
         margin-top: 10px;
     }
 }
+
+@include mQ(1100px) {
+    .language-filter {
+        width: 41vw !important;
+        .container {
+            padding-left: 30px !important;
+        }
+    }
+}
+@include mQ(750px) {
+    .language-filter {
+        width: 33vw !important;
+        overflow: scroll !important;
+        .gridContainer {
+            display: grid;
+            grid-template-columns: auto;
+            .checkmark {  
+                height: 20px !important;
+                width: 20px !important;
+                &:after {
+                    left: 6px !important;
+                    top: 2px !important;
+                }
+            }
+            .container {
+                font-size: 15px;
+                padding-left: 25px !important;
+            }
+        }
+    }
+}

@@ -30,7 +30,7 @@ function PriceFilter({setPriceClick, priceClick, getPriceVisible, currency, lowe
 
     return (
         <div className="filter" style={getPriceVisible()}>
-            <div>The average price of an experience is {getCurrency(27)}.</div>
+            <div className="priceFilterSummary">The average price of an experience is {getCurrency(27)}.</div>
             <div className="rangeContainer">
                 <div className="range">
                     <div className="priceRange">

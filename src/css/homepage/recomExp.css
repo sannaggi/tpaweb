@@ -41,3 +41,18 @@
     width: calc((100% - 30px) / 3); }
   .expContainer .cardImage {
     height: 30vw; } }
+
+@media screen and (max-width: 750px) {
+  .expCard .cardImage {
+    margin-bottom: 0.30em; }
+  .expCard .card-category {
+    font-size: 11px;
+    height: 27px; }
+  .expCard .card-name {
+    font-size: 12.5px; }
+  .expCard .card-price {
+    font-size: 13px; }
+  .expCard .card-review {
+    font-size: 11px; }
+    .expCard .card-review span {
+      font-size: 11px; } }

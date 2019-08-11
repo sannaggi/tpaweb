@@ -28,7 +28,7 @@ function LanguageFilter({getLanguagesVisible, languages, setLanguages, languageC
     }
 
     return (
-        <div className="filter" style={getLanguagesVisible()}>
+        <div className="filter language-filter" style={getLanguagesVisible()}>
             <div className="gridContainer">
                 <label className="container">English
                     <input type="checkbox" onClick={onClick} value="English"/>

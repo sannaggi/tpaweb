@@ -5,16 +5,11 @@ import '../../css/homepage/recomExp.css'
 import { Link } from "react-router-dom";
 import RecommendedExperienceCard from './RecommendedExperienceCard';
 
-function RecommendedExperience({experiences, fetchRecomExperience, currency} : {experiences:Array<Object>, fetchRecomExperience:any, currency:any}) {
+function RecommendedExperience({experiences, fetchRecomExperience} : {experiences:Array<Object>, fetchRecomExperience:any}) {
     
     useEffect(() => {
         fetchRecomExperience()
     }, [fetchRecomExperience])
-
-
-    // function getCurrency(price:any) {
-    //     return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
-    // }
 
     return (
         <div className="recomContainer">
@@ -35,8 +30,7 @@ function RecommendedExperience({experiences, fetchRecomExperience, currency} : {
 }
 
 const mapStateToProps = (state:any) => ({
-    experiences: state.experiences.items,
-    currency: state.currency.item
+    experiences: state.experiences.items
 })
 
 export default connect(mapStateToProps, { fetchRecomExperience })(RecommendedExperience)

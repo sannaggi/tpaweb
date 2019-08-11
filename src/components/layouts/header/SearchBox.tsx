@@ -55,10 +55,9 @@ function SearchBox() {
     }
 
     function onElementClick(e) {
-        // if(e.target.className !== "searchItem") {
-        //     setSearchResult([])
-        //     setSearchText("")
-        // }
+        if(e.target.className !== "searchItem") {
+            setSearchResult([])
+        }
     }
 
     function renderRedirect() {

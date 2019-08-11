@@ -102,3 +102,21 @@
         }
     }
 }
+
+@include mQ(750px) {
+    .quickCard {
+        padding: 1.3em;
+        .quickCardTitle {
+            font-size: 25px;
+        }
+        .input {
+            margin: 0.4em 0;
+        }
+        input {
+            padding: 0.5em;
+        }
+        input[type="button"] {
+            margin-top: 0.5em;
+        }
+    }
+}

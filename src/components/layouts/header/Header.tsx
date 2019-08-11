@@ -55,7 +55,12 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
   }
 
   function getStyle() {
-    if (click) return {height: "140px"}
+    if (click) {
+      if (screen.width <= MOBILEWIDTH) {
+        return {height: "161px"}
+      }
+      return {height: "210px"}
+    }
   }
 
   function getVisible() {
@@ -77,6 +82,9 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
       if(user.id === undefined)
         return (
             <React.Fragment>
+                <Link to="/">
+                  <div className="dropdown-link">Home</div>
+                </Link>
                 <div className="dropdown-link" onClick={() => showForm("registerModal")}>
                     Register
                 </div>
@@ -87,6 +95,9 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
         )
       return (
         <React.Fragment>
+          <Link to="/">
+            <div className="dropdown-link">Home</div>
+          </Link>
           <Link to="/users/:id">
             <div className="dropdown-link">Profile</div>
           </Link>
