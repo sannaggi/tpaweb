@@ -71,26 +71,28 @@ function QuickCard({guestCount} : {guestCount:Object}) {
     return (
         <div className="quickCard">
             <div className="quickCardTitle">Book unique places to stay and things to do.</div>
-            <div className="input">
-                <div className="title">WHERE</div>
-                <input type="search" id="searchBox" name="place" value={newBooking.booking.name} onChange={search} placeholder="Anywhere"/>
-                <ul className="search-container">
-                    {searchResult}
-                </ul>
-            </div>
-            <div className="input half">
-                <div className="title">CHECK-IN</div>
-                <input type="date" name="checkIn" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkIn} onChange={onChange} placeholder="mm/dd/yy"/>
-            </div>
-            <div className="input half">
-                <div className="title">CHECK-OUT</div>
-                <input type="date" name="checkOut" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkOut} onChange={onChange} placeholder="mm/dd/yy"/>
-            </div>
-            <div className="input" id="quickcard-guest">
-                <div className="title">GUESTS</div>
-                <GuestDropdown />
-            </div>
-            <input type="submit" value="Search"/>
+            <form action="">
+                <div className="input">
+                    <div className="title">WHERE</div>
+                    <input type="search" id="searchBox" name="place" value={newBooking.booking.name} onChange={search} placeholder="Anywhere"/>
+                    <ul className="search-container">
+                        {searchResult}
+                    </ul>
+                </div>
+                <div className="input half">
+                    <div className="title">CHECK-IN</div>
+                    <input type="date" name="checkIn" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkIn} onChange={onChange} placeholder="mm/dd/yy"/>
+                </div>
+                <div className="input half">
+                    <div className="title">CHECK-OUT</div>
+                    <input type="date" name="checkOut" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkOut} onChange={onChange} placeholder="mm/dd/yy"/>
+                </div>
+                <div className="input" id="quickcard-guest">
+                    <div className="title">GUESTS</div>
+                    <GuestDropdown />
+                </div>
+                <input type="button" value="Search"/>
+            </form>
         </div>
     )
 }

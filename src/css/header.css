@@ -52,6 +52,9 @@ header {
   -ms-flex-align: center;
   align-items: center; }
 
+.header-search-container {
+  position: relative; }
+
 .searchBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,6 +74,9 @@ header {
     width: 30px;
     margin: 0 12px; }
   .searchBox input {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
     padding: 0.4em 0;
     width: 300px;
     border: none;

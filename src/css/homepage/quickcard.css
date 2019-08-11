@@ -154,17 +154,17 @@ input[disabled] {
   .quickCard input[disabled] {
     width: 95%;
     border: none; }
-  .quickCard input[type="submit"] {
+  .quickCard input[type="button"] {
     font-size: 18px;
     font-weight: 600;
     width: auto;
-    background: #ff523b;
+    background: #ff2f13;
     margin-top: 1em;
     color: white;
     float: right;
     padding: 15px 27px;
     border-radius: 6px; }
-    .quickCard input[type="submit"]:hover {
+    .quickCard input[type="button"]:hover {
       cursor: pointer; }
   .quickCard input[type="date"] {
     color: #3b3b3b; }

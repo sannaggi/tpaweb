@@ -90,7 +90,11 @@
         font-size: 13px;
         font-weight: 600; }
       .placeContainer a .placeDetailContainer .upperDetail h3 {
-        word-wrap: break-word;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        height: 1.3em;
         font-size: 18px;
         font-weight: 600;
         font-size: 20%vw; }

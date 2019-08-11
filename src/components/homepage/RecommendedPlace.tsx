@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchAllPlace } from '../../actions/placeActions'
+import { Link } from "react-router-dom";
 import '../../css/homepage/recommendation.css'
 import RecommendedPlaceCard from './RecommendedPlaceCard';
 
@@ -18,6 +19,7 @@ function RecommendedPlace({places, fetchAllPlace} : {places:any, fetchAllPlace:a
                     <RecommendedPlaceCard key={place.id} place={place} />
                 ))}
             </div>
+            <Link to='/places' className="showMore">Show all Aivbnb places ></Link>
         </div>
     )
 }

@@ -16,28 +16,30 @@ function Homepage() {
             <div className="home-content">
                 <h2>Explore Aivbnb</h2>
                 <div className="container">
-                    <Link to="/places">
-                        <div className="showContainer">
-                            <div className="showImage" style={{backgroundImage: "url('/images/placeHeader.jpg')"}}></div>
-                            <div className="showInfo">
-                                <div>
-                                    <h3>Stays</h3>
-                                    Homes, boutique hotels & more
+                    <div className="show">
+                        <Link to="/places">
+                            <div className="showContainer">
+                                <div className="showImage" style={{backgroundImage: "url('/images/placeHeader.jpg')"}}></div>
+                                <div className="showInfo">
+                                    <div>
+                                        <h3>Stays</h3>
+                                        Homes, boutique hotels & more
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
-                    <Link to="/experiences">
-                        <div className="showContainer">
-                            <div className="showImage" style={{backgroundImage: "url('/images/experienceHeader.jpg')"}}></div>
-                            <div className="showInfo">
-                                <div>
-                                    <h3>Experiences</h3>
-                                    Activities hosted by locals
+                        </Link>
+                        <Link to="/experiences">
+                            <div className="showContainer">
+                                <div className="showImage" style={{backgroundImage: "url('/images/experienceHeader.jpg')"}}></div>
+                                <div className="showInfo">
+                                    <div>
+                                        <h3>Experiences</h3>
+                                        Activities hosted by locals
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 </div>
                 <RecommmendedPlace />
                 <RecommendedExperience />

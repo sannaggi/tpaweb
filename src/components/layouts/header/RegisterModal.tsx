@@ -52,46 +52,38 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauth2
         )
     }
 
+    function setData(data, firstname, lastname, email, profileimage, googleid, facebookid) {
+        data.firstname = firstname
+        data.lastname = lastname
+        data.email = email
+        data.profileimage = profileimage
+        data.googleid = googleid
+        data.facebookid = facebookid
+    }
+
+    function setTempToken(tempToken, id, expiration, accessToken, authenticator) {
+        tempToken.id = id
+        tempToken.expiration = expiration
+        tempToken.accessToken = accessToken
+        tempToken.authenticator = authenticator
+    }
+
     function responseOAuth(res) {
         if(!res.accessToken) return;
-        let data = {
-            firstname: "",
-            lastname: "",
-            email: "",
-            profileimage: "",
-            googleid: "",
-            facebookid: ""
-        }
-
-        let tempToken = {
-            id: "",
-            expiration: "",
-            accessToken: "",
-            authenticator: ""
-        }
+        let data = {}
+        let tempToken = {}
 
         if(auth === "Google") {
             const profile = res.profileObj
-
-            data.firstname = profile.givenName;
-            data.lastname = profile.familyName;
-            data.email = profile.email;
-            data.googleid = profile.googleId;
-            data.profileimage = profile.imageUrl;
-            
-            tempToken.id = res.googleId
-            tempToken.expiration = res.tokenObj.expires_at
-            tempToken.accessToken = res.accessToken
-            tempToken.authenticator = "googleid"
-
+            setData(data, profile.givenName, profile.familyName, profile.email, profile.imageUrl, profile.googleId, "")
+            setTempToken(tempToken, res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid")
             setToken(tempToken)
         } else {
-            data.firstname = res.name.substr(0, res.name.indexOf(' '));
-            data.lastname = res.name.substr(res.name.lastIndexOf(' '));
-            data.email = res.email;
-            data.facebookid = res.facebookid;
-            data.profileimage = res.picture.data.url;
+            setData(data, res.name.substr(0, res.name.indexOf(' ')), res.name.substr(res.name.lastIndexOf(' ')), res.email, res.picture.data.url, "", res.userID)
+            setTempToken(tempToken, res.userID, res.data_access_expiration_time, res.accessToken, "facebookid")
+            setToken(tempToken)
         }
+
         axios({
             url: "https://aivbnbapi.herokuapp.com/api/users/check",
             method: "POST",

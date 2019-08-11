@@ -5,7 +5,7 @@
     width: 15.5%; }
 
 .recomTitleContainer {
-  margin: 1em 0 !important; }
+  margin: 3em 0  1em 0 !important; }
 
 .expCard {
   width: 100%; }
@@ -38,6 +38,6 @@
 @media screen and (max-width: 1100px) {
   .expContainer a {
     margin: 0 5px;
-    width: 30%; }
+    width: calc((100% - 30px) / 3); }
   .expContainer .cardImage {
     height: 30vw; } }

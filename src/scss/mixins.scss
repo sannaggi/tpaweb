@@ -121,7 +121,10 @@
     font-weight: 600;
 }
 @mixin card-name {
-    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 1.3em;
     font-size: 18px;
     font-weight: 600;
 }

@@ -29,6 +29,7 @@ function RecommendedExperience({experiences, fetchRecomExperience, currency} : {
                     <RecommendedExperienceCard key={experience.id} experience={experience}/>
                 ))}
             </div>
+            <Link to='/experiences' className="showMore">Show all Aivbnb experiences ></Link>
         </div>
     )
 }

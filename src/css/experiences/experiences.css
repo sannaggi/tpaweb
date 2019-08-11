@@ -111,7 +111,11 @@
       height: 19vw;
       border-radius: 4px; }
     .experienceContainer .experienceCard .card-title {
-      word-wrap: break-word;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      height: 1.3em;
       font-size: 18px;
       font-weight: 600;
       margin: 0.4em 0; }

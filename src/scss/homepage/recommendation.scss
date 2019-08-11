@@ -12,7 +12,7 @@
     margin: 8px 0.5% !important;
     img {
         width: 100%;
-        height: 60%;
+        height: 16vw;
     }
 }
 .place h2 {
@@ -21,6 +21,13 @@
 
 .recomContainer {
     margin: 2em 0;
+    .showMore {
+        color: $blueGreen;
+        font-size: 17px;
+        font-weight: 600;
+        margin-top: 10px;
+        display: inline-block;
+    }
     div {
         margin: 2px 0;
     }
@@ -44,6 +51,9 @@
     .placeCard {
         width: 32%;
         height: 70%;
+        img {
+            height: 26vw;
+        }
     }
 }
 @include mQ(750px) {
