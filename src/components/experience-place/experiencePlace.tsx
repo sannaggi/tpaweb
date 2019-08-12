@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import Sharing from "../reusable/sharing";
 import "../../css/experience-place/experiencePlace.css";
 import GoogleMapReact from "google-map-react";
-// import Stories from 'react-insta-stories'
+import Stories from 'react-insta-stories'
 import StarReview from "../reusable/StarReview";
 import ReactPaginate from "react-paginate";
 import GuestComment from "../reusable/GuestComment";
 import { connect } from "react-redux";
 import { setCurrentExperience } from "../../actions/experienceActions";
+// const fs = require('fs')
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurrentExperience: any, match: any, experience: any }){
-
+    var storiesRef
     useEffect(() => {
         setCurrentExperience(match.params.id)
     }, [setCurrentExperience, match.params.id])
@@ -42,12 +43,41 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
         if(experience.rating === undefined) return
         setsentComments(experience.rating.slice(0, 1 * perPage + perPage))
         setCommentSection(true)
+        
+        // setTimeout(() => {
+        //     console.log(storiesRef)
+        //     storiesRef.pause()
+        // }, 5000)
     }, [experience.rating, setsentComments, perPage])
     
-    const stories = [{ url: 'https://picsum.photos/1080/1920' }, { url: 'https://fsa.zobj.net/crop.php?r=dyJ08vhfPsUL3UkJ2aFaLo1LK5lhjA_5o6qEmWe7CW6P4bdk5Se2tYqxc8M3tcgYCwKp0IAyf0cmw9yCmOviFYb5JteeZgYClrug_bvSGgQxKGEUjH9H3s7PS9fQa3rpK3DN3nx-qA-mf6XN' }, { url: 'https://media.idownloadblog.com/wp-content/uploads/2016/04/iPhone-wallpaper-abstract-portrait-stars-macinmac.jpg' }, { url: 'https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4', type: 'video', duration: 1000 }, { url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', type: 'video'}, { url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', type: 'video' }, 'https://images.unsplash.com/photo-1534856966153-c86d43d53fe0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80']
+    var stories = []
+    // const stories = [{ url: 'https://picsum.photos/1080/1920' }, { url: 'https://fsa.zobj.net/crop.php?r=dyJ08vhfPsUL3UkJ2aFaLo1LK5lhjA_5o6qEmWe7CW6P4bdk5Se2tYqxc8M3tcgYCwKp0IAyf0cmw9yCmOviFYb5JteeZgYClrug_bvSGgQxKGEUjH9H3s7PS9fQa3rpK3DN3nx-qA-mf6XN' }, { url: 'https://media.idownloadblog.com/wp-content/uploads/2016/04/iPhone-wallpaper-abstract-portrait-stars-macinmac.jpg' }, { url: 'https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4', type: 'video', duration: 1000 }, { url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', type: 'video'}, { url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', type: 'video' }, 'https://images.unsplash.com/photo-1534856966153-c86d43d53fe0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80']
     var greenStar = {
         width: "calc(20px * " + experience.averagerating + ")",
         overflow: "hidden",
+    }
+
+    function getStories(){
+        if(experience.rating === undefined) return (<div></div>)
+        let story = experience.story
+        story.forEach(e => {
+            let isVideo = e.endsWith("webm")
+            let obj;
+            if(isVideo){
+                obj = {
+                    url: process.env.PUBLIC_URL + e,
+                    type: 'video'
+                }
+            }
+            else{
+                obj = {
+                    url: process.env.PUBLIC_URL + e,
+                }
+            }
+            stories.push(obj)
+        })
+        storiesRef = <Stories stories={stories} loop={true}/>
+        return(storiesRef)
     }
 
     function handlePageChange(data){
@@ -67,6 +97,7 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
         }
         return amenities
     }
+
 
     function getLanguages() {
         if(experience.languages === undefined) return
@@ -127,12 +158,8 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
             <div id="expContainer">
                 <div className="section" id="first-sec">
                     <div className="left">
-                        <div>
-                            {/* <Stories 
-                                stories={stories}
-                                defaultInterval={8000}
-                                loop={true}
-                            /> */}
+                        <div id="storiess">
+                            {getStories()}
                         </div>
                     </div>
                     <div className="right">

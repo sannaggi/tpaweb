@@ -1,11 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import StarReview from "../reusable/StarReview";
 
 function RecommendedPlaceCard({place, currency} : {place: any, currency:any}){
     
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
+    }
+    
+    var greenStar = {
+        width: "calc(10px * " + place.averagerating + ")",
+        overflow: "hidden",
     }
 
     return(
@@ -16,7 +22,7 @@ function RecommendedPlaceCard({place, currency} : {place: any, currency:any}){
                 <div className="card-category">{place.category.toUpperCase()}</div>
                 <div className="card-name">{place.name}</div>
                 <div className="card-price">{getCurrency(place.price)}/night</div>
-                <div className="card-review"><span> &#9733;</span><strong>{place.averagerating}</strong>({place.ratingcount}) - NoobHost</div>
+                <div className="card-review"><span><StarReview greenStar={greenStar}/></span><strong>{place.averagerating}</strong>({place.ratingcount}) - NoobHost</div>
             </Link>
         </div>
     )

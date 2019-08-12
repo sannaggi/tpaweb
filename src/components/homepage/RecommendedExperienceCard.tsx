@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import '../../css/homepage/recomExp.css';
 import { connect } from "react-redux";
+import StarReview from "../reusable/StarReview";
 
 function RecommendedExperienceCard({experience, currency} : {experience : any, currency:any}){
 
@@ -9,6 +10,10 @@ function RecommendedExperienceCard({experience, currency} : {experience : any, c
         return {
             backgroundImage : "url('" + experience.headerimage + "')"
         }
+    }
+    var greenStar = {
+        width: "calc(10px * " + experience.averagerating + ")",
+        overflow: "hidden",
     }
     
     function getCurrency(price:any) {
@@ -22,7 +27,7 @@ function RecommendedExperienceCard({experience, currency} : {experience : any, c
                 <div className="card-category">{experience.category.toUpperCase()} &#183; {experience.location.toUpperCase()}</div>
                 <div className="card-name">{experience.name}</div>
                 <div className="card-price">{getCurrency(experience.price)} /person</div>
-                <div className="card-review"><span>{experience.averagerating}&#9733;</span> ({experience.totalrating})</div>
+                <div className="card-review"><span><StarReview greenStar={greenStar}/>{experience.averagerating}</span> ({experience.totalrating})</div>
             </div>
         </Link>
     )
