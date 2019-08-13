@@ -101,7 +101,9 @@ export function oauthLogin(id, expiration, accessToken, authenticator) {
         type: LOGIN,
         payload: data
       })
+      return new Promise(resolve => resolve(data))
     })
+    .then(data => setCookie(data, expiration, accessToken))
   };
 }
 
