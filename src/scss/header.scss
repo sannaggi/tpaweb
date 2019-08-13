@@ -113,7 +113,10 @@ header {
     .arrowDown {
         display: block;
     }
-    .navbar-link {
+    #profileImage {
+        border-bottom: none;
+    }
+    .navbar-link:not(#nav-profile-icon) {
         display: none;
     }
 }
@@ -122,9 +125,12 @@ header {
     .dropdown-link {
         padding: 1em 0;
     }
+    #profileImage {
+        padding: 0 5px 0 0 !important;
+    }
     .searchBox {
         input, input:focus{
-            width: calc(100vw - 250px);
+            width: calc(100vw - 280px);
         }
     }
 }

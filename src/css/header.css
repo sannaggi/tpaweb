@@ -153,11 +153,15 @@ header {
     padding-right: 7px; }
   .arrowDown {
     display: block; }
-  .navbar-link {
+  #profileImage {
+    border-bottom: none; }
+  .navbar-link:not(#nav-profile-icon) {
     display: none; } }
 
 @media screen and (max-width: 750px) {
   .dropdown-link {
     padding: 1em 0; }
+  #profileImage {
+    padding: 0 5px 0 0 !important; }
   .searchBox input, .searchBox input:focus {
-    width: calc(100vw - 250px); } }
+    width: calc(100vw - 280px); } }

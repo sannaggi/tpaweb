@@ -1,4 +1,4 @@
-import { LOGIN_OAUTH2, REGISTER_STATUS, SET_REGISTER_END } from "../actions/types";
+import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT } from "../actions/types";
 
 const initialState = {
   item: {},
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_OAUTH2:
+    case LOGIN:
       return {
         ...state,
         item: action.payload
@@ -23,6 +23,11 @@ export default function(state = initialState, action) {
         ...state,
         registerStatus: action.payload
       };
+    case LOGOUT:
+      return {
+        ...state,
+        item: {}
+      }
     default:
       return state;
   }

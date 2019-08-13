@@ -1,5 +1,15 @@
-#registerModal {
-  padding-top: calc((100vh - 345.75px) / 2); }
-
 h1 {
   color: red; }
+
+.emailLoginTop {
+  text-align: center;
+  width: 100%; }
+  .emailLoginTop .oauthLoginLink {
+    color: #008489;
+    font-weight: 600; }
+    .emailLoginTop .oauthLoginLink:hover {
+      cursor: pointer; }
+
+.offer {
+  margin: 13px 0;
+  font-size: 15px; }

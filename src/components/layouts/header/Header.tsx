@@ -11,8 +11,9 @@ import RegisterModal from "./RegisterModal";
 import CurrencySelect from "./CurrencySelect";
 import { setGeoLocation } from "../../../actions/locationActions";
 import { connect } from "react-redux";
+import { logout } from "../../../actions/userActions";
 
-function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
+function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: any, logout: any }) {
   const [click, setClick] = useState(false);
   const [visible, setVisible] = useState(true);
 
@@ -57,9 +58,11 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
   function getStyle() {
     if (click) {
       if (screen.width <= MOBILEWIDTH) {
-        return {height: "161px"}
+        if(user.id === undefined) return {height: "161px"}
+        return {height: "215px"}
       }
-      return {height: "210px"}
+      if(user.id === undefined) return {height: "210px"}
+      return {height: "280px"}
     }
   }
 
@@ -85,11 +88,11 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
                 <Link to="/">
                   <div className="dropdown-link">Home</div>
                 </Link>
-                <div className="dropdown-link" onClick={() => showForm("registerModal")}>
-                    Register
-                </div>
                 <div className="dropdown-link" onClick={() => showForm("loginModal")}>
                     Login
+                </div>
+                <div className="dropdown-link" onClick={() => showForm("registerModal")}>
+                    Register
                 </div>
             </React.Fragment>
         )
@@ -98,12 +101,13 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
           <Link to="/">
             <div className="dropdown-link">Home</div>
           </Link>
-          <Link to="/users/:id">
-            <div className="dropdown-link">Profile</div>
-          </Link>
           <Link to="/becomehost">
             <div className="dropdown-link">Become a Host</div>
           </Link>
+          <Link to="/users/:id">
+            <div className="dropdown-link">Profile</div>
+          </Link>
+          <div className="dropdown-link" onClick={() => logout()}>Logout</div>
         </React.Fragment>
       )
   }
@@ -144,5 +148,5 @@ const mapStateToProps = (state: any) => ({
 
 export default connect(
   mapStateToProps,
-  { setGeoLocation }
+  { setGeoLocation, logout }
 )(Header);

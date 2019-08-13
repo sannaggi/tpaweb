@@ -12,6 +12,7 @@ import Places from "./components/places/Places";
 import Experiences from "./components/experiences/Experiences";
 import ExperiencePlace from './components/experience-place/experiencePlace';
 import Profilepage from './components/profile/Profilepage';
+import Global from "./components/layouts/Global";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Router>
         <div className="App">
           <Header />
+          <Global />
           <Route exact path="/" component={Homepage}/>
           <Route exact path="/places" component={Places}/>
           <Route exact path="/experiences" component={Experiences}/>

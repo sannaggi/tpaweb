@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import "../../../css/loginModal.css";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-// import { sign, decode } from "jsonwebtoken";
-// import Axios from "axios";
-import { oauth2Login } from "../../../actions/userActions";
+import { oauthLogin, emailLogin } from "../../../actions/userActions";
 import { connect } from "react-redux";
+import sha from "sha256";
 
-function LoginModal({ oauth2Login }: { oauth2Login: any }) {
+function LoginModal({ oauthLogin, emailLogin }: { oauthLogin: any, emailLogin: any }) {
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState({
     email: "",
-    password: ""
+    password: "",
+    rememberMe: ""
   });
 
   function willShow(state: Boolean) {
@@ -34,12 +34,23 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
     setLogin({ ...login, [e.target.name]: e.target.value });
   }
 
+  function showRegister() {
+    document.getElementById("loginModal").setAttribute("style", "display: hidden")
+    document.getElementById("registerModal").setAttribute("style", "display: block")
+  }
+
   function responseOAuth(res) {
     if (!res.accessToken) return;
     if (res.googleId !== undefined) {
-      oauth2Login(res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid");
+      oauthLogin(res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid");
       document.getElementById("loginModal").setAttribute("style", "display: hidden");
     }
+  }
+
+  function onSubmit(e) {
+    e.preventDefault()
+    document.getElementById("loginModal").setAttribute("style", "display: hidden");
+    emailLogin(login.email, sha(login.password), login.rememberMe)
   }
 
   return (
@@ -76,64 +87,66 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
           <hr />
           <span className="separator-text">or</span>
         </div>
-        <div className="inputField">
-          <div className="inputText">
-            <div>
-              <input
-                type="email"
-                onChange={onChange}
-                value={login.email}
-                name="email"
-                placeholder="Email Address"
-              />
+        <form onSubmit={onSubmit}>
+          <div className="inputField">
+            <div className="inputText">
+              <div>
+                <input
+                  type="email"
+                  onChange={onChange}
+                  value={login.email}
+                  name="email"
+                  placeholder="Email Address"
+                />
+              </div>
+              <span className="inputLogo">&#9993;</span>
             </div>
-            <span className="inputLogo">&#9993;</span>
           </div>
-        </div>
-        <div className="inputField">
-          <div className="inputText">
-            <div>
-              <input
-                type="password"
-                name="password"
-                onChange={onChange}
-                value={login.password}
-                style={willShow(false)}
-                placeholder="Password"
-              />
-              <input
-                type="text"
-                name="password"
-                onChange={onChange}
-                value={login.password}
-                style={willShow(true)}
-                placeholder="Password"
-              />
+          <div className="inputField">
+            <div className="inputText">
+              <div>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={onChange}
+                  value={login.password}
+                  style={willShow(false)}
+                  placeholder="Password"
+                />
+                <input
+                  type="text"
+                  name="password"
+                  onChange={onChange}
+                  value={login.password}
+                  style={willShow(true)}
+                  placeholder="Password"
+                />
+              </div>
+              <span className="inputLogo">
+                <i className="fa fa-lock" />
+              </span>
             </div>
-            <span className="inputLogo">
-              <i className="fa fa-lock" />
+          </div>
+          <div className="inputField helper">
+            <input type="checkbox" onChange={onChange} name="rememberMe" id="remember" />
+            <label htmlFor="remember"> Remember me</label>
+            <span
+              className="clickableText show-pass"
+              onClick={() => setShow(!show)}
+            >
+              Show password
             </span>
           </div>
-        </div>
-        <div className="inputField helper">
-          <input type="checkbox" name="" id="remember" />
-          <label htmlFor="remember"> Remember me</label>
-          <span
-            className="clickableText show-pass"
-            onClick={() => setShow(!show)}
-          >
-            Show password
-          </span>
-        </div>
-        <div className="inputField">
-          <input type="submit" value="Log in" />
-        </div>
+          <div className="inputField">
+            <input type="submit" value="Log in" />
+          </div>
+        </form>
         <div className="inputField forgotPass">
           <span className="clickableText">Forgot password?</span>
         </div>
         <hr />
         <div className="signUp">
-          Don't have an account? <span className="clickableText">Sign up</span>{" "}
+          Don't have an account? <span className="clickableText" onClick={showRegister}>Sign up</span>
         </div>
       </div>
     </div>
@@ -142,5 +155,5 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
 
 export default connect(
   null,
-  { oauth2Login }
+  { oauthLogin, emailLogin }
 )(LoginModal);
