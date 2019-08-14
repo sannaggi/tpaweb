@@ -1,10 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import BannerImage from "./BannerImage";
 import { connect } from 'react-redux';
 import "../../css/place detail/placeDetail.css";
 import { setCurrentPlace } from '../../actions/placeActions'
 import Sharing from "../reusable/sharing";
 import StarReview from "../reusable/StarReview";
+import ImagesNavigation from "../reusable/ImagesNavigation";
 
 function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPlace:any, match:any}){
 
@@ -12,32 +13,57 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
         setCurrentPlace(match.params.id);
     }, [setCurrentPlace, match.params.id])
 
-    var greenStar = {
-        width: "calc(10px * " + place.averagerating + ")",
-        overflow: "hidden",
+    const [fullImageSrc, setFullImageSrc] = useState("/images/places/" + place.id + "/1.jpg")
+
+    const handleImageClick = e => {
+        // e.target.setAttribute("style", "opacity: 0; transition: opacity 0.15s ease-in-out")
+        // setTimeout(() =>{
+            setFullImageSrc(e.target.src)
+            // e.target.setAttribute("style", "opacity: 1; transition: opacity 0.15s ease-in-out")
+        // }, 150)
     }
 
     var images : any = []
     for(let i = 1; i <= 6; i++){
         var obj = {
-            banner: <BannerImage url={"/images/places/" + place.id + "/" + i + ".jpg"} id={"id" + i} alt="uhuy"/>,
+            imgNum: i,
+            banner: <BannerImage handleImageClick={handleImageClick} url={"/images/places/" + place.id + "/" + i + ".jpg"} id={"id" + i} alt="uhuy"/>,
             key: "id" + i,
         }
         images.push(obj)
     }
 
+    function showImgNav(e){
+        document.getElementById("imagesNavigation").setAttribute("style", "display: block")
+        setTimeout(() => {
+            document.getElementById("imgNavContent").setAttribute("style", "opacity: 1; transition: opacity 0.5s ease-in-out !important;")
+            
+        }, 150)
+    }
+
+    function getImages(){
+        if(place === undefined) return(<div></div>)
+        return images.map((obj : any) => <div onClick={showImgNav} key={obj.key} id={obj.key} className="bannerImage"> {obj.banner}</div>)
+    }
+
+    var greenStar = {
+        width: "calc(10px * " + place.averagerating + ")",
+        overflow: "hidden",
+    }
+
+
     return(
         <div className="placeDetail">
+            <ImagesNavigation handleImageClick={handleImageClick} fullImageSrc={fullImageSrc} images={place.images}/>
             <Sharing />
             <div className="placePhoto">
-                {images.map((obj : any) => <div key={obj.key} id={obj.key} className="bannerImage"> {obj.banner}</div>)}
-            
+                {getImages()}
             </div>
             <div className="placeInformation">
                 <div className="left">
                     <div>
                         <div id="name">{place.name}</div>
-                        <div>14 guest • 7 bedrooms • 7 baths</div>
+                        <div>{place.guests} guest • {place.bedrooms} bedrooms • {place.baths} baths</div>
                         <div>hosted by <strong>PewDiePie</strong></div>
                     </div>
                     <div id="detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium mollitia quaerat dolore corrupti esse magnam vitae aperiam reprehenderit laborum quasi. Quos cumque provident, ipsam omnis autem blanditiis iusto praesentium pariatur. lor</div>

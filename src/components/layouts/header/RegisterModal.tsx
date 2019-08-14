@@ -17,7 +17,7 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauth2
 
     function onClick(e) {
         if(e.target.className === 'modal' || e.target.className === 'close-modal')
-            document.getElementById("registerModal").setAttribute("style", "display: none");
+        document.getElementById("registerModal").setAttribute("style", "display: none");
     }
 
     function userLogin(currToken) {
@@ -105,7 +105,7 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauth2
 
     return (
         <div className="modal" id="registerModal">
-            <div className="modal-content login-content">
+            <div className="modal-content login-content" id="register-content">
                 <div className="close-modal">&#10005;</div>
                 {registerWindow()}
 

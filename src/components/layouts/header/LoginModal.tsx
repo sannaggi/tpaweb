@@ -44,7 +44,7 @@ function LoginModal({ oauth2Login }: { oauth2Login: any }) {
 
   return (
     <div className="modal" id="loginModal">
-      <div className="modal-content login-content">
+      <div className="modal-content login-content" id="login-content">
         <div className="close-modal">&#10005;</div>
 
         <FacebookLogin

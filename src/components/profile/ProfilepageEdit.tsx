@@ -5,36 +5,36 @@ import { USERINFORMATION } from "../Specification.js";
 export default function ProfilepageEdit(){
     return (
         <div id="profileEdit">
-            <input type="text" placeholder={USERINFORMATION.Description}/>
+            <input type="text" defaultValue={USERINFORMATION.Description}/>
             <div className="hr"></div>
             <ul>
                 <li className="inp">
                     <div className="name" id="firstName">
-                        <input type="text" name="firstName" id="firstName" placeholder={USERINFORMATION.FirstName}/>
+                        <input type="text" name="firstName" id="firstName" defaultValue={USERINFORMATION.FirstName}/>
                         <div className="inpLabel">First Name</div>
                     </div>
                     <div className="name" id="lastName">
-                        <input type="text" name="lastName" id="lastName" placeholder={USERINFORMATION.LastName}/>
+                        <input type="text" name="lastName" id="lastName" defaultValue={USERINFORMATION.LastName}/>
                         <div className="inpLabel">Last Name</div>
                     </div>
                 </li>
                 <li className="inp">
                     <div>
-                        <input type="text" name="emailAddress" id="emailAddress" placeholder={USERINFORMATION.EmailAddress}/>
+                        <input type="text" name="emailAddress" id="emailAddress" defaultValue={USERINFORMATION.EmailAddress}/>
                         <div className="inpLabel" aria-hidden="true">Email Address</div>
                     </div>
                 </li>
                 <div id="setLeftRight">
                     <li className="inp" id="forLeft">
                         <div className="gpd" id="gender">
-                            <select name="" id="" placeholder="Gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                            <select name="" id="" defaultValue="Gender">
+                                <option defaultValue="Male">Male</option>
+                                <option defaultValue="Female">Female</option>
                             </select>
                             <div className="inpLabel">Gender</div>
                         </div>
                         <div className="gpd" id="phoneNumber">
-                            <input type="text" name="phoneNumber" id="" placeholder={USERINFORMATION.PhoneNumber}/>
+                            <input type="text" name="phoneNumber" id="" defaultValue={USERINFORMATION.PhoneNumber}/>
                             <div className="inpLabel">Phone Number</div>
                         </div>
                         <div className="gpd" id="dob">  
@@ -44,7 +44,7 @@ export default function ProfilepageEdit(){
                     </li>
                     <li className="inp" id="forRight">
                         <div>
-                            <textarea name="" id="address" placeholder={USERINFORMATION.Address}></textarea>
+                            <textarea name="" id="address" defaultValue={USERINFORMATION.Address}></textarea>
                             <div className="inpLabel">Address</div>
                         </div>
                     </li>

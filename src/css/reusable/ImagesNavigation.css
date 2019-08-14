@@ -1,0 +1,60 @@
+#imagesNavigation {
+  display: none;
+  z-index: 1002;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1.5em 2em !important; }
+  #imagesNavigation > div {
+    width: 100%;
+    height: 100%;
+    padding: 0.5em;
+    opacity: 0; }
+    #imagesNavigation > div > div {
+      width: inherit;
+      height: calc(100% * (4 / 5)); }
+    #imagesNavigation > div #imageHolder {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 2em;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center; }
+      #imagesNavigation > div #imageHolder #mid > img {
+        border-radius: 10px;
+        max-width: calc(100% * (2 / 3));
+        max-height: calc(100% * (4 / 5)); }
+      #imagesNavigation > div #imageHolder #l, #imagesNavigation > div #imageHolder #r {
+        cursor: pointer;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        position: absolute;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        height: calc(100% - (1.5em + 2.5em));
+        width: calc(50% - 2.5em);
+        font-size: 24pt; }
+        #imagesNavigation > div #imageHolder #l > img, #imagesNavigation > div #imageHolder #r > img {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          opacity: 0; }
+      #imagesNavigation > div #imageHolder #l {
+        text-align: left;
+        left: 2.5em; }
+      #imagesNavigation > div #imageHolder #r {
+        text-align: right;
+        right: 2.5em; }

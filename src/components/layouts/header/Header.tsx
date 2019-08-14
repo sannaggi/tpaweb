@@ -76,6 +76,12 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
 
   function showForm(com) {
     document.getElementById(com).setAttribute("style", "display: block");
+    document.getElementById("register-content").setAttribute("style", "opacity: 0");
+    document.getElementById("login-content").setAttribute("style", "opacity: 0");
+    setTimeout(() => {
+      document.getElementById("register-content").setAttribute("style", "opacity: 1; transition: 0.5s ease-in-out;");
+      document.getElementById("login-content").setAttribute("style", "opacity: 1; transition: 0.5s ease-in-out;");
+    }, 150)
   }
 
   function getMenus() {
@@ -85,7 +91,9 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
                 <Link to="/">
                   <div className="dropdown-link">Home</div>
                 </Link>
-                <div className="dropdown-link" onClick={() => showForm("registerModal")}>
+                <div className="dropdown-link" onClick={() => {
+                  showForm("registerModal")
+                }}>
                     Register
                 </div>
                 <div className="dropdown-link" onClick={() => showForm("loginModal")}>

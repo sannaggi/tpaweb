@@ -12,8 +12,7 @@ export default function Profilepage(){
             <div id="divCard"><ProfileCard /></div>
             <div id="profileInformation">
                 <h1 id="fullName">Hi! {USERINFORMATION.FirstName} {USERINFORMATION.LastName}</h1>
-                <Route exact path="/users/:id/" component={ProfilepageInformation} />
-                <Route path="/users/:id/edit" component={ProfilepageEdit} />
+                <ProfilepageEdit />
             </div>
         </div>
     )
