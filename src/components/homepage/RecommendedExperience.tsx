@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchRecomExperience } from '../../actions/experienceActions'
+import { fetchRecommendedExperience } from '../../actions/experienceActions'
 import '../../css/homepage/recomExp.css'
 import { Link } from "react-router-dom";
 import RecommendedExperienceCard from './RecommendedExperienceCard';
 
-function RecommendedExperience({experiences, fetchRecomExperience} : {experiences:Array<Object>, fetchRecomExperience:any}) {
+function RecommendedExperience({experiences, fetchRecommendedExperience} : {experiences:Array<Object>, fetchRecommendedExperience:any}) {
     
     useEffect(() => {
-        fetchRecomExperience()
-    }, [fetchRecomExperience])
+        fetchRecommendedExperience()
+    }, [fetchRecommendedExperience])
 
     return (
         <div className="recomContainer">
             <div className="recomTitleContainer">
                 <Link to="/experiences">
-                    <h2>Top rated experiences</h2>
-                    <p>Book activities led by local hosts on your next trip</p>
+                    <h2 style={{display: "inline"}}>Top rated experiences</h2><p style={{display: "inline"}}> - Book activities led by local hosts on your next trip</p>
+                    <br/>
+                    <small>- Sorted by average star rating -</small>
                 </Link>
             </div>
             <div className="cardsContainer expContainer">
@@ -30,7 +31,7 @@ function RecommendedExperience({experiences, fetchRecomExperience} : {experience
 }
 
 const mapStateToProps = (state:any) => ({
-    experiences: state.experiences.items
+    experiences: state.experiences.recommended
 })
 
-export default connect(mapStateToProps, { fetchRecomExperience })(RecommendedExperience)
+export default connect(mapStateToProps, { fetchRecommendedExperience })(RecommendedExperience)

@@ -1,17 +1,18 @@
-import { SET_CURRENT_EXPERIENCE, FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES, FETCH_LIMITED_EXPERIENCES } from '../actions/types'
+import { SET_CURRENT_EXPERIENCE, FETCH_RECOMMENDED_EXPERIENCES, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES, FETCH_LIMITED_EXPERIENCES } from '../actions/types'
 
 const initialState = {
     items: [],
     limitedItems: [],
-    item : {},
+    item: {},
+    recommended: [],
 }
 
 export default function(state = initialState, action:any) {
     switch(action.type) {
-        case FETCH_RECOMMENDED_EXPERIENCE:
+        case FETCH_RECOMMENDED_EXPERIENCES:
             return {
                 ...state,
-                items: action.payload
+                recommended: action.payload
             }
         case FETCH_ALL_EXPERIENCES:
             return {

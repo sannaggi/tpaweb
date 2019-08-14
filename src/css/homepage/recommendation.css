@@ -15,8 +15,8 @@
     width: 100%;
     height: 16vw; }
 
-.place h2 {
-  margin-bottom: 1em; }
+.recomTitle {
+  margin-bottom: 1em !important; }
 
 .recomContainer {
   margin: 2em 0; }
@@ -52,7 +52,7 @@
     width: 32%;
     height: 70%; }
     .placeCard img {
-      height: 22  vw; } }
+      height: 22vw; } }
 
 @media screen and (max-width: 750px) {
   .placeCard {
