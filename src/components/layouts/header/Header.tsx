@@ -59,7 +59,7 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
     if (click) {
       if (screen.width <= MOBILEWIDTH) {
         if(user.id === undefined) return {height: "161px"}
-        return {height: "215px"}
+        return {height: "270px"}
       }
       if(user.id === undefined) return {height: "210px"}
       return {height: "280px"}
@@ -104,8 +104,8 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
           <Link to="/becomehost">
             <div className="dropdown-link">Become a Host</div>
           </Link>
-          <Link to="/users/:id">
-            <div className="dropdown-link">Profile</div>
+          <Link to="/wishlist">
+            <div className="dropdown-link">Saved</div>
           </Link>
           <div className="dropdown-link" onClick={() => logout()}>Logout</div>
         </React.Fragment>

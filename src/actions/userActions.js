@@ -40,7 +40,7 @@ export function cookieLogin(id) {
     })
     .then(decodeJWT)
     .then(data =>
-        dispatch({
+      dispatch({
         type: LOGIN,
         payload: data
       })
@@ -71,8 +71,7 @@ export function emailLogin(email, password, rememberMe) {
     })
     .then(data => {
       return new Promise((resolve, reject) => {
-        if(!rememberMe) reject(false)
-        else {
+        if(rememberMe) {
           setCookie(data, "", "")
           resolve(data)
         }

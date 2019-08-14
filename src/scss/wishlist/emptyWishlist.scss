@@ -1,0 +1,43 @@
+@import "../mixins";
+@import "../variables";
+
+.empty-container {
+    padding: 3em 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .empty-details {
+        width: 45%;
+        h2 {
+            line-height: 1.1em;
+            font-size: 45px;
+            margin-bottom: 7px;
+        }
+        p {
+            margin-bottom: 3em;
+        }
+    }
+    .empty-image {
+        width: 40vw;
+        height: 40vw;
+        background-position: center;
+        background-size: cover;
+        background-image: url("../../images/wishlist.svg");
+    }
+}
+@include mQ(750px) {
+    .empty-container {
+        flex-direction: column-reverse;
+        padding: 1em 0;
+        .empty-details {
+            width: 100%;
+            h2 {
+                font-size: 30px;
+            }
+        }
+        .empty-image {
+            width: 90vw;
+            height: 90vw;
+        }
+    }
+}

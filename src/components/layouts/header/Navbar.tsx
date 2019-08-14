@@ -19,6 +19,7 @@ function Navbar({ user, logout } : { user: any, logout: any }) {
         return (
             <React.Fragment>
                 <div className="navbar-link"><div>Become a Host</div></div>
+                <Link to="/wishlist"><div className="navbar-link"><div>Saved</div></div></Link>
                 <div className="navbar-link" onClick={() => logout()}><div>Logout</div></div>
                 <div className="navbar-link" id="nav-profile-icon"><div id="profileImage"><Link to={`users/${user.id}`}><img src={user.profileimage} alt=""/></Link></div></div>
             </React.Fragment>

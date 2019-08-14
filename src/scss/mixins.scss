@@ -147,3 +147,19 @@
     margin-top: 7px;
     padding: 1.5em;
 }
+@mixin flexBetween {
+    display: flex;
+    justify-content: space-between;
+}
+@mixin flexAround {
+    display: flex;
+    justify-content: space-around;
+}
+@mixin wishlistButton {
+    padding: 0.9em 1.5em;
+    border: 2px solid $blueGreen;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}

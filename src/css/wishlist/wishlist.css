@@ -1,0 +1,97 @@
+.empty-container {
+  padding: 3em 4vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .empty-container .empty-details {
+    width: 45%; }
+    .empty-container .empty-details h2 {
+      line-height: 1.1em;
+      font-size: 45px;
+      margin-bottom: 7px; }
+    .empty-container .empty-details p {
+      margin-bottom: 3em; }
+  .empty-container .empty-image {
+    width: 40vw;
+    height: 40vw;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../../images/wishlist.svg"); }
+
+@media screen and (max-width: 750px) {
+  .empty-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    padding: 1em 0; }
+    .empty-container .empty-details {
+      width: 100%; }
+      .empty-container .empty-details h2 {
+        font-size: 30px; }
+    .empty-container .empty-image {
+      width: 90vw;
+      height: 90vw; } }
+
+#wishlistModal .modal-content > h2 {
+  margin: 0.6em 0 2em 0; }
+
+#wishlistModal .modal-content .inputField {
+  margin: 1.5em 0; }
+  #wishlistModal .modal-content .inputField > label {
+    color: initial;
+    font-size: 15px;
+    font-weight: 700; }
+  #wishlistModal .modal-content .inputField input, #wishlistModal .modal-content .inputField select {
+    padding: 0.7em 0.4em;
+    border: 1px solid #bdbdbd;
+    font-size: 17px;
+    margin-top: 7px;
+    border-radius: 4px; }
+  #wishlistModal .modal-content .inputField select {
+    width: 100%; }
+    #wishlistModal .modal-content .inputField select:focus {
+      border-color: #008489; }
+    #wishlistModal .modal-content .inputField select option {
+      width: 100%; }
+
+.wishlist-container {
+  padding: 3.5em 10vw; }
+  .wishlist-container .wish-button {
+    padding: 0.9em 1.5em;
+    border: 2px solid #008489;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; }
+  .wishlist-container .white-button {
+    background-color: #fff;
+    color: #008489; }
+    .wishlist-container .white-button:active {
+      background-color: #008489;
+      color: #fff; }
+  .wishlist-container .green-button {
+    background-color: #008489;
+    color: #fff; }
+    .wishlist-container .green-button:active {
+      background-color: #fff;
+      color: #008489; }
+  .wishlist-container .wishlist-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+
+@media screen and (max-width: 1100px) {
+  .wishlist-container {
+    padding: 2em; } }
