@@ -1,0 +1,15 @@
+@import './wishlistCard';
+
+.wishlists-container {
+    margin-top: 2.5em;
+    .wishHeader {
+        @include flexBetween;
+        margin: 0 calc(10% / 6) 13px calc(10% / 6);
+        >h3 {
+            font-weight: 500;
+        }
+    }
+    .cardsContainer {
+        display: flex;
+    }
+}

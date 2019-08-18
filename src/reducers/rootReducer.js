@@ -6,6 +6,7 @@ import guestCountReducer from "./guestCountReducer.ts";
 import currencyReducer from "./currencyReducer";
 import LocationReducer from "./locationReducer";
 import UserReducer from "./userReducer";
+import WishlistReducer from "./wishlistReducer";
 
 export default combineReducers({
   bookings: bookingReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   guestCount: guestCountReducer,
   currency: currencyReducer,
   location: LocationReducer,
-  user: UserReducer
+  user: UserReducer,
+  wishlist: WishlistReducer
 });

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import axios from "axios";
 
-function WishlistModal({user} : {user: any}) {
+function WishlistModal({user, refreshWishlists} : {user: any, refreshWishlists: any}) {
     
     const [newWishlist, setNewWishlist] = useState({
         name: "",
@@ -36,13 +36,14 @@ function WishlistModal({user} : {user: any}) {
 
     function addNewWishlist() {
         axios({
-            url: `http://localhost/api/users/${user.id}/wish`,
+            url: `https://aivbnbapi.herokuapp.com/api/wishlist/`,
             method: "POST",
-            data: newWishlist,
+            data: {...newWishlist, userid: user.id},
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         })
+        .then(_ => refreshWishlists())
     }
 
     function onSubmit(e) {

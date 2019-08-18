@@ -18,7 +18,7 @@ export const REGISTER_STATUS = "REGISTER_STATUS";
 export const SET_REGISTER_END = "SET_REGISTER_END";
 export const LOGOUT = "LOGOUT";
 
-export const NEW_WISHLIST = "NEW_WISHLIST";
+export const GET_ALL_WISHLISTS = "GET_ALL_WISHLIST";
 
 export const SET_GEO_LOCATION = "SET_GEO_LOCATION";
 
