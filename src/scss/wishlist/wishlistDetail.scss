@@ -1,0 +1,72 @@
+@import '../mixins';
+@import '../variables';
+
+.wishlist-detail-container {
+    font-weight: 500;
+    display: flex;
+    align-items: stretch;
+    .wishlist-map {
+        width: 65%;
+        .map-container {
+            height: 100%;
+            top: 83px;
+            height: calc(100vh - 83px);
+            position: sticky;
+            .container {
+                height: 100%;
+            }
+        }
+    }
+    .wishlist-detail {
+        width: 35%;
+        padding: 1.5em 2em;
+        >a {
+            @include blueGreenLink;
+            font-size: 20px;
+        }
+        .detail-header {
+            margin-top: 2em;
+            .header-detail {
+                color: $darkGrey;
+                font-weight: normal;
+            }
+        }
+        .pane-container {
+            margin-top: 1.5em;
+            width: 100%;
+            display: flex;
+            border-bottom: 1px solid $superDuperLightGrey;
+            >button {
+                padding: 2em 0;
+                margin-right: 2em;
+                border-bottom: 3px solid transparent;
+                transition: 0.3s;
+                &:hover {
+                    border-bottom-color: $blueGreen;
+                }
+            }
+            .active { 
+                border-bottom-color: $blueGreen;
+            }
+        }
+        .wishlist-content {
+            .content-header {
+                font-size: 20px;
+                margin: 1em 0;
+                font-weight: 700;
+            }
+            .placeContainer {
+                flex-direction: column;
+                .sliderContainer{
+                    width: 100%;
+                    .imageSlider {
+                        height: 330px;
+                    }
+                }
+                a {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

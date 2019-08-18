@@ -14,6 +14,7 @@ import ExperiencePlace from './components/experience-place/experiencePlace';
 import Profilepage from './components/profile/Profilepage';
 import Global from "./components/layouts/Global";
 import Wishlist from "./components/wishlist/Wishlist";
+import WishlistDetail from "./components/wishlist/WishlistDetail";
 
 const App: React.FC = () => {
   return (
@@ -29,7 +30,8 @@ const App: React.FC = () => {
           <Route path="/places/:id" component={PlaceDetail} />
           <Route path="/users/:id/" component={Profilepage} />
           <Route path="/register/:auth/:firstname/:lastname/:email" component={RegisterForm} />
-          <Route path="/wishlist" component={Wishlist} />
+          <Route exact path="/wishlist" component={Wishlist} />
+          <Route path="/wishlist/:id" component={WishlistDetail} />  
           <Footer />
         </div>
       </Router>

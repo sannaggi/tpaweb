@@ -16,7 +16,6 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
     }, [getAllWishlists, user.id])
 
     function refreshWishlists() {
-        console.log("aaa")
         getAllWishlists(user.id)
     }
 
@@ -32,7 +31,7 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
     }
 
     return (
-        <div className="wishlist-container">
+        <main className="wishlist-container">
             <div className="wishlist-header">
                 <h2>Lists</h2>
                 {console.log(wishlists)}
@@ -42,7 +41,7 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
                 {wishlistContent}
             </div>
             <WishlistModal refreshWishlists={refreshWishlists}/>
-        </div>
+        </main>
     )
 }
 

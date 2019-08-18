@@ -39,7 +39,6 @@
     text-align: center;
     cursor: pointer;
 }
-
 @mixin basicLink {
     border-bottom: 0.6px solid #fff;
     transition: border 0.3s;
@@ -162,4 +161,13 @@
     font-size: 15px;
     font-weight: 600;
     transition: 0.3s;
+}
+@mixin blueGreenLink {
+    color: $lightBlueGreen;
+    transition: 0.3s;
+    border: 1.5px solid transparent;
+    &:hover {
+        border-bottom-color: lighten($color: $lightBlueGreen, $amount: 8);
+        color: lighten($color: $lightBlueGreen, $amount: 6)
+    }
 }

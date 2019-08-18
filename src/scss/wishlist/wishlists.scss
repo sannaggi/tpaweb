@@ -2,6 +2,7 @@
 
 .wishlists-container {
     margin-top: 2.5em;
+    width: 100%;
     .wishHeader {
         @include flexBetween;
         margin: 0 calc(10% / 6) 13px calc(10% / 6);
@@ -11,5 +12,6 @@
     }
     .cardsContainer {
         display: flex;
+        width: 100%;
     }
 }

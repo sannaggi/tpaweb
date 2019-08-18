@@ -1,4 +1,4 @@
-import { GET_ALL_WISHLISTS } from "./types";
+import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST } from "./types";
 import axios from "axios";
 
 export function getAllWishlists(id) {
@@ -14,4 +14,22 @@ export function getAllWishlists(id) {
             payload: data.data
         }))
     };
+}
+
+export function getWishlist(id) {
+    return function (dispatch){
+        axios.get("https://aivbnbapi.herokuapp.com/api/wishlist/" + id, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(data => {
+            console.log(data.data)
+            dispatch({
+                type: SET_CURRENT_WISHLIST,
+                payload: data.data
+            })
+        })
+    }
 }

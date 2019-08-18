@@ -108,7 +108,8 @@
     margin: 15px calc(5% / 2); } }
 
 .wishlists-container {
-  margin-top: 2.5em; }
+  margin-top: 2.5em;
+  width: 100%; }
   .wishlists-container .wishHeader {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -122,7 +123,8 @@
   .wishlists-container .cardsContainer {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    width: 100%; }
 
 .wishlist-container {
   padding: 3.5em 10vw; }
