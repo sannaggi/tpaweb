@@ -1,0 +1,100 @@
+@import '../mixins';
+@import '../variables';
+
+.experienceCard {
+    position: relative;
+    width: 13.4vw;
+    margin: 0 6px;
+    .btnFavorite {
+        color: #fff;
+        font-size: 35px !important;
+    }
+    .experience-image {
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 19vw;
+        border-radius: 4px;
+    }
+    .card-title {
+        @include card-name;
+        margin: 0.4em 0;
+    }
+    .card-category {
+        @include card-category;
+        margin-bottom: 0.2em;
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .card-rating, .star{
+        @include rating;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .card-review {
+        @include card-review;
+        font-size: 13px;
+    }
+}
+@include mQ(1200px) {
+    .experienceCard {
+        width: 16vw;
+        margin: 10px 5px;
+        .experience-image {
+            height: 22vw;
+        }
+        .card-title {
+            font-size: 17px;
+        }
+        .card-category {
+            font-size: 14px;
+        }
+        .card-rating, .star{
+            font-size: 12px;
+        }
+        .card-review {
+            @include card-review;
+            font-size: 12px;
+        }
+    }
+}
+@include mQ(1000px) {
+    .experienceCard {
+        width: 20vw;
+        .experience-image {
+            height: 26vw;
+        }
+        .card-title {
+            font-size: 19px;
+        }
+        .card-category {
+            font-size: 16px;
+        }
+        .card-rating, .star{
+            font-size: 14px;
+        }
+        .card-review {
+            font-size: 15px;
+        }
+    }
+}
+@include mQ(750px) {
+    .experienceCard {
+        width: 26vw;
+        .experience-image {
+            height: 33.5vw;
+        }
+        .card-title {
+            font-size: 15px;
+        }
+        .card-category {
+            font-size: 12.5px;
+        }
+        .card-rating, .star{
+            font-size: 12px;
+        }
+        .card-review {
+            font-size: 13px;
+        }
+    }
+}

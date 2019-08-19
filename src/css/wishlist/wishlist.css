@@ -64,11 +64,18 @@
 .wishlistCard {
   height: 235px;
   width: 30%;
+  border-radius: 5px;
   margin: 15px calc(10% / 6);
   background-color: #555555;
   background-position: center;
   background-size: cover;
-  position: relative; }
+  position: relative;
+  border: 3px solid #fff;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+  .wishlistCard:hover {
+    border-color: #008489; }
   .wishlistCard .cardDetail {
     width: 100%;
     height: 4em;
@@ -88,10 +95,11 @@
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
     padding: 0.6em;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); }
+    border-radius: 5px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.7)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); }
   .wishlistCard h4 {
     color: #fff; }
 

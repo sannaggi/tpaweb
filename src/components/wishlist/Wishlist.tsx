@@ -20,7 +20,7 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
     }
 
     useEffect(() => {
-        if(wishlists[0] !== undefined)
+        if(wishlists !== null && wishlists[0] !== undefined)
             setWishlistContent(<Wishlists wishlists={wishlists}/>)
         else
             setWishlistContent(<EmptyWishlist showModal={showModal}/>)

@@ -97,60 +97,10 @@
     width: 100%;
     font-size: 30px;
     text-align: center; }
-  .experienceContainer .experienceCard {
-    position: relative;
-    width: 13.4vw;
-    margin: 0 6px; }
-    .experienceContainer .experienceCard .btnFavorite {
-      color: #fff;
-      font-size: 35px !important; }
-    .experienceContainer .experienceCard .experience-image {
-      background-size: cover;
-      background-position: center;
-      width: 100%;
-      height: 19vw;
-      border-radius: 4px; }
-    .experienceContainer .experienceCard .card-title {
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      height: 1.3em;
-      font-size: 18px;
-      font-weight: 600;
-      margin: 0.4em 0; }
-    .experienceContainer .experienceCard .card-category {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 0.2em;
-      font-weight: 400;
-      font-size: 15px; }
-    .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
-      color: #0d848d;
-      font-size: 17px;
-      font-size: 14px;
-      font-weight: 600; }
-    .experienceContainer .experienceCard .card-review {
-      font-size: 15px;
-      font-size: 13px; }
 
 @media screen and (max-width: 1200px) {
   .filterBar {
-    top: 59.2px; }
-  .experienceContainer .experienceCard {
-    width: 16vw;
-    margin: 10px 5px; }
-    .experienceContainer .experienceCard .experience-image {
-      height: 22vw; }
-    .experienceContainer .experienceCard .card-title {
-      font-size: 17px; }
-    .experienceContainer .experienceCard .card-category {
-      font-size: 14px; }
-    .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
-      font-size: 12px; }
-    .experienceContainer .experienceCard .card-review {
-      font-size: 15px;
-      font-size: 12px; } }
+    top: 59.2px; } }
 
 @media screen and (max-width: 1000px) {
   .filterBar .priceFilterSummary {
@@ -164,42 +114,18 @@
   .filterBar .priceRange .currencySymbol {
     font-size: 13px !important; }
   .filterBar .priceRange input {
-    font-size: 13px; }
-  .experienceContainer .experienceCard {
-    width: 20vw; }
-    .experienceContainer .experienceCard .experience-image {
-      height: 26vw; }
-    .experienceContainer .experienceCard .card-title {
-      font-size: 19px; }
-    .experienceContainer .experienceCard .card-category {
-      font-size: 16px; }
-    .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
-      font-size: 14px; }
-    .experienceContainer .experienceCard .card-review {
-      font-size: 15px; } }
+    font-size: 13px; } }
 
 @media screen and (max-width: 750px) {
-  .filterBar {
-    padding: 8px 3vw; }
-    .filterBar .filter {
-      width: 280px !important; }
-    .filterBar button {
-      padding: 6px 8px;
-      font-size: 12px;
-      margin-right: 3px; }
-    .filterBar .filterCategory .guestInputContent {
-      width: 70vw; }
-  .experienceContainer {
-    padding: 15px 6vw; }
-    .experienceContainer .experienceCard {
-      width: 26vw; }
-      .experienceContainer .experienceCard .experience-image {
-        height: 33.5vw; }
-      .experienceContainer .experienceCard .card-title {
-        font-size: 15px; }
-      .experienceContainer .experienceCard .card-category {
-        font-size: 12.5px; }
-      .experienceContainer .experienceCard .card-rating, .experienceContainer .experienceCard .star {
-        font-size: 12px; }
-      .experienceContainer .experienceCard .card-review {
-        font-size: 13px; } }
+  .experienceCard {
+    width: 26vw; }
+    .experienceCard .experience-image {
+      height: 33.5vw; }
+    .experienceCard .card-title {
+      font-size: 15px; }
+    .experienceCard .card-category {
+      font-size: 12.5px; }
+    .experienceCard .card-rating, .experienceCard .star {
+      font-size: 12px; }
+    .experienceCard .card-review {
+      font-size: 13px; } }

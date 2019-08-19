@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import '../../css/experiences/experiences.css'
 import { fetchFilteredExperiences } from "../../actions/experienceActions";
 import { connect } from 'react-redux';
-import FavoriteButton from "../layouts/FavoriteButton";
-import { Link } from 'react-router-dom';
 import GuestCounter from '../layouts/GuestCounter';
 import '../../css/guestDropdown.css'
 import PriceFilter from "./PriceFilter";
 import LanguageFilter from "./LanguageFilter";
+import ExperienceCard from "./ExperienceCard";
 
-function Experiences({ experiences, fetchFilteredExperiences, currency } : { experiences:Array<any>, fetchFilteredExperiences:Function, currency:any}) {
+function Experiences({ experiences, fetchFilteredExperiences } : { experiences:Array<any>, fetchFilteredExperiences:Function}) {
     
     const [guests, setGuests] = useState({
         adults: 0,
@@ -36,16 +35,6 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
         }
         
     }, [fetchFilteredExperiences, guestsClick, priceClick, languageClick, guests, lowerPrice, upperPrice, languages])
-
-    function getCurrency(price:any) {
-        return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
-    }
-    
-    function getAmenities(amenities) {
-        let str = amenities[0].type;
-        if(amenities[1].type !== undefined) str += ", " + amenities[1].type;
-        return str
-    }
 
     function getGuestsVisible() {
         if(!guestsClick) {
@@ -163,15 +152,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
             return <div className="none">No experiences available with this criteria</div>
 
         return experiences.map((experience) => (
-            <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
-                <div className="experienceCard">
-                    <FavoriteButton />
-                    <div className="experience-image" style={{backgroundImage: "url(" + experience.headerimage + ")"}}></div>
-                    <div className="card-title">{experience.name}</div>
-                    <div className="card-category">From {getCurrency(experience.price)} /person &#183; {experience.duration} hours &#183; {getAmenities(experience.amenities)} included</div>
-                    <div><span className="card-rating">{experience.averagerating}</span><span className="star">&#9733;</span><span className="card-review"> ({experience.totalrating})</span></div>
-                </div>
-            </Link>
+            <ExperienceCard key={experience.id} experience={experience}/>
         ))
     }
     
@@ -208,8 +189,7 @@ function Experiences({ experiences, fetchFilteredExperiences, currency } : { exp
 }
 
 const mapStateToProps = (state: any) => ({
-    experiences: state.experiences.items,
-    currency: state.currency.item
+    experiences: state.experiences.items
 })
 
 export default connect(mapStateToProps, { fetchFilteredExperiences })(Experiences)

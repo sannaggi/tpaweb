@@ -81,33 +81,38 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
     document.getElementById(com).setAttribute("style", "display: block");
   }
 
+  function clickLink(cb: any) {
+    setClick(false)
+    if(cb) cb()
+  }
+
   function getMenus() {
       if(user.id === undefined)
         return (
             <React.Fragment>
-                <Link to="/">
+                <Link to="/" onClick={() => clickLink(null)}>
                   <div className="dropdown-link">Home</div>
                 </Link>
-                <div className="dropdown-link" onClick={() => showForm("loginModal")}>
+                <div className="dropdown-link" onClick={() => clickLink(showForm("loginModal"))}>
                     Login
                 </div>
-                <div className="dropdown-link" onClick={() => showForm("registerModal")}>
+                <div className="dropdown-link" onClick={() => clickLink(showForm("registerModal"))}>
                     Register
                 </div>
             </React.Fragment>
         )
       return (
         <React.Fragment>
-          <Link to="/">
+          <Link to="/" onClick={() => clickLink(null)}>
             <div className="dropdown-link">Home</div>
           </Link>
-          <Link to="/becomehost">
+          <Link to="/becomehost" onClick={() => clickLink(null)}>
             <div className="dropdown-link">Become a Host</div>
           </Link>
-          <Link to="/wishlist">
+          <Link to="/wishlist" onClick={() => clickLink(null)}>
             <div className="dropdown-link">Saved</div>
           </Link>
-          <div className="dropdown-link" onClick={() => logout()}>Logout</div>
+          <div className="dropdown-link" onClick={() => clickLink(logout())}>Logout</div>
         </React.Fragment>
       )
   }
@@ -118,7 +123,7 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
       <div>
         {returnLogo()}
         <nav className="dropdown-content" style={getStyle()}>
-        {getMenus()}
+          {getMenus()}
         </nav>
       </div>
     );

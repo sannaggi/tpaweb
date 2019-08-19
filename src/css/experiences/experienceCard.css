@@ -1,0 +1,80 @@
+.experienceCard {
+  position: relative;
+  width: 13.4vw;
+  margin: 0 6px; }
+  .experienceCard .btnFavorite {
+    color: #fff;
+    font-size: 35px !important; }
+  .experienceCard .experience-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 19vw;
+    border-radius: 4px; }
+  .experienceCard .card-title {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 1.3em;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0.4em 0; }
+  .experienceCard .card-category {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 0.2em;
+    font-weight: 400;
+    font-size: 15px; }
+  .experienceCard .card-rating, .experienceCard .star {
+    color: #0d848d;
+    font-size: 17px;
+    font-size: 14px;
+    font-weight: 600; }
+  .experienceCard .card-review {
+    font-size: 15px;
+    font-size: 13px; }
+
+@media screen and (max-width: 1200px) {
+  .experienceCard {
+    width: 16vw;
+    margin: 10px 5px; }
+    .experienceCard .experience-image {
+      height: 22vw; }
+    .experienceCard .card-title {
+      font-size: 17px; }
+    .experienceCard .card-category {
+      font-size: 14px; }
+    .experienceCard .card-rating, .experienceCard .star {
+      font-size: 12px; }
+    .experienceCard .card-review {
+      font-size: 15px;
+      font-size: 12px; } }
+
+@media screen and (max-width: 1000px) {
+  .experienceCard {
+    width: 20vw; }
+    .experienceCard .experience-image {
+      height: 26vw; }
+    .experienceCard .card-title {
+      font-size: 19px; }
+    .experienceCard .card-category {
+      font-size: 16px; }
+    .experienceCard .card-rating, .experienceCard .star {
+      font-size: 14px; }
+    .experienceCard .card-review {
+      font-size: 15px; } }
+
+@media screen and (max-width: 750px) {
+  .experienceCard {
+    width: 26vw; }
+    .experienceCard .experience-image {
+      height: 33.5vw; }
+    .experienceCard .card-title {
+      font-size: 15px; }
+    .experienceCard .card-category {
+      font-size: 12.5px; }
+    .experienceCard .card-rating, .experienceCard .star {
+      font-size: 12px; }
+    .experienceCard .card-review {
+      font-size: 13px; } }

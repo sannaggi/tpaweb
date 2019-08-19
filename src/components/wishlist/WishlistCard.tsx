@@ -23,7 +23,7 @@ function WishlistCard({wishlist} : {wishlist: any}) {
     }
 
     function getWishesCount() {
-        let string = ""
+        let string:any = ""
         let hasBackground = false;
         if(wishlist.stays !== null) {
             string += wishlist.stays.length + " stay" + getS(wishlist.stays)
@@ -31,7 +31,7 @@ function WishlistCard({wishlist} : {wishlist: any}) {
             hasBackground = true;
         }
         if(wishlist.experiences !== null) {
-            string += ((wishlist.stays !== null)? " &#183; " : "") + wishlist.experiences.length + " experience" + getS(wishlist.experiences)
+            string += ((wishlist.stays !== null)? ", " : null) + wishlist.experiences.length + " experience" + getS(wishlist.experiences)
             if(!hasBackground) getBackground("experiences", wishlist.experiences[0])
         }
         
