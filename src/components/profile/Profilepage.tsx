@@ -2,9 +2,7 @@ import React from "react"
 import ProfileCard from "./profile card/ProfileCard";
 import "../../css/profilepage/profilePage.css"
 import { USERINFORMATION } from "../Specification";
-import { Route } from "react-router";
 import ProfilepageEdit from "./ProfilepageEdit";
-import ProfilepageInformation from "./ProfilepageInformation";
 
 export default function Profilepage(){
     return (

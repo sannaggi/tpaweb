@@ -1,4 +1,4 @@
-import { FETCH_RECOMMENDED_EXPERIENCE, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES, FETCH_LIMITED_EXPERIENCES, SET_CURRENT_EXPERIENCE } from "./types";
+import { FETCH_RECOMMENDED_EXPERIENCES, FETCH_ALL_EXPERIENCES, FETCH_FILTERED_EXPERIENCES, FETCH_LIMITED_EXPERIENCES, SET_CURRENT_EXPERIENCE } from "./types";
 import axios from 'axios'
 
 async function takeData(data) {
@@ -7,9 +7,9 @@ async function takeData(data) {
     })
 }
 
-export function fetchRecomExperience() {
+export function fetchRecommendedExperience() {
     return function (dispatch) {
-        axios.get("https://aivbnbapi.herokuapp.com/api/experiences", {
+        axios.get("https://aivbnbapi.herokuapp.com/api/experiences/recommended", {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -17,7 +17,7 @@ export function fetchRecomExperience() {
         })
         .then(takeData)
         .then(data => dispatch({
-            type: FETCH_RECOMMENDED_EXPERIENCE,
+            type: FETCH_RECOMMENDED_EXPERIENCES,
             payload: data
         }))
     }

@@ -1,0 +1,37 @@
+@import "../mixins";
+@import "../variables";
+@import "./emptyWishlist";
+@import "./wishlistModal";
+
+.wishlist-container {
+    padding: 3.5em 10vw;
+    .wish-button {
+        @include wishlistButton;
+    }
+    .white-button {
+        background-color: #fff;
+        color: $blueGreen;
+        &:active {
+            background-color: $blueGreen;
+            color: #fff;
+        }
+    }
+    .green-button {
+        background-color: $blueGreen;
+        color: #fff;
+        &:active {
+            background-color: #fff;
+            color: $blueGreen;
+        }
+    }
+    .wishlist-header {
+        @include flexBetween;
+    }
+    .wishlist-detail-container {
+    }
+}
+@include mQ(1100px) {
+    .wishlist-container {
+        padding: 2em;
+    }
+}

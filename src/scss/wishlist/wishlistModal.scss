@@ -1,0 +1,31 @@
+#wishlistModal {
+    .modal-content {
+        >h2 {
+            margin: 0.6em 0 2em 0;
+        }
+        .inputField {
+            margin: 1.5em 0;
+            >label {
+                color: initial;
+                font-size: 15px;
+                font-weight: 700;
+            }
+            input, select {
+                padding: 0.7em 0.4em;
+                border: 1px solid $superLightGrey;
+                font-size: 17px;
+                margin-top: 7px;
+                border-radius: 4px;
+            }
+            select {
+                width: 100%;
+                &:focus {
+                    border-color: $blueGreen;
+                }
+                option {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

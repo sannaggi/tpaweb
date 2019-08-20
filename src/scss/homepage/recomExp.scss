@@ -9,7 +9,7 @@
     }
 }
 .recomTitleContainer { 
-    margin: 3em 0  1em 0 !important;
+    margin: 3em 0 1em 0 !important;
 }
 .expCard {
     width: 100%;
@@ -59,6 +59,11 @@
     }
 }
 @include mQ(750px) {
+    .recomTitleContainer {
+        p {
+            display: none !important;
+        }
+    }
     .expCard {
         .cardImage {
             margin-bottom: 0.30em;

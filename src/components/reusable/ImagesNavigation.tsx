@@ -20,7 +20,7 @@ export default function ImagesNavigation({fullImageSrc, handleImageClick, images
     function getFullPath(x){
         if(images === undefined) return ""
         let i = getSrc()
-        i = ((i + x) == 0 ? images.length : (i + x) > images.length ? 1 : (i + x))
+        i = ((i + x) === 0 ? images.length : (i + x) > images.length ? 1 : (i + x))
         let path = "" + getPath() + i + ".jpg"
         return path;
     }

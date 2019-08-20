@@ -18,11 +18,17 @@ function QuickCard({guestCount} : {guestCount:Object}) {
         }
     })
 
+    const [dateToday, setDateToday] = useState()
     const [searchResult, setSearchResult] = useState([])
+    const [checkoutMinDate, setCheckoutMinDate] = useState()
 
     useEffect(() => {
         newBooking.guests = guestCount
     }, [guestCount, newBooking.guests])
+
+    useEffect(() => {
+        getDateToday()
+    }, [])
 
     function onChange(e:any) {
         setNewBooking({...newBooking, [e.target.name] : e.target.value});
@@ -68,6 +74,27 @@ function QuickCard({guestCount} : {guestCount:Object}) {
         })
     }
 
+    function getDateToday() {
+        var today:any = new Date();
+        var dd:any = today.getDate();
+        var mm:any = (today.getMonth()+1);
+        var yyyy = today.getFullYear();
+        if(dd<10){
+                dd = '0' + dd
+            } 
+            if(mm<10){
+                mm = '0' + mm
+            } 
+        today = yyyy + '-' + mm + '-' + dd;
+        setDateToday(today)
+        setCheckoutMinDate(today)
+    }
+
+    function onCheckinChange(e) {
+        setCheckoutMinDate(e.target.value)
+        onChange(e)
+    }
+
     return (
         <div className="quickCard">
             <div className="quickCardTitle">Book unique places to stay and things to do.</div>
@@ -81,11 +108,11 @@ function QuickCard({guestCount} : {guestCount:Object}) {
                 </div>
                 <div className="input half">
                     <div className="title">CHECK-IN</div>
-                    <input type="date" name="checkIn" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkIn} onChange={onChange} placeholder="mm/dd/yy"/>
+                    <input type="date" name="checkIn" min={dateToday} onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkIn} onChange={onCheckinChange} placeholder="mm/dd/yy"/>
                 </div>
                 <div className="input half">
                     <div className="title">CHECK-OUT</div>
-                    <input type="date" name="checkOut" onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkOut} onChange={onChange} placeholder="mm/dd/yy"/>
+                    <input type="date" name="checkOut" min={checkoutMinDate} onKeyDown={(e) => {e.preventDefault()}} value={newBooking.checkOut} onChange={onChange} placeholder="mm/dd/yy"/>
                 </div>
                 <div className="input" id="quickcard-guest">
                     <div className="title">GUESTS</div>

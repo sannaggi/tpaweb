@@ -6,8 +6,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding-top: calc((100vh - 607.75px) / 2); }
+  background-color: rgba(0, 0, 0, 0.7); }
 
 .modal-content {
   position: relative;
@@ -15,9 +14,10 @@
   background-color: #fff;
   width: 560px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  transform: translate(-50%, -50%) !important;
   color: #868686; }
 
 @-webkit-keyframes glow {
@@ -177,7 +177,9 @@
       width: 100%;
       height: 100%;
       padding: 1em; }
-    .modal-content .inputField input[type="submit"] {
+      .modal-content .inputField input:not(#remember):focus {
+        border-color: #008489; }
+    .modal-content .inputField input[type="submit"], .modal-content .inputField input[type="button"] {
       cursor: pointer;
       background-color: #ff2f13;
       font-size: 18px;
@@ -200,3 +202,17 @@
     margin-top: 16px; }
     .modal-content .signUp span {
       font-weight: 600; }
+
+@media screen and (max-width: 750px) {
+  .modal .modal-content {
+    width: 92vw;
+    padding: 1em 1.5em; }
+  .modal .facebook-login {
+    padding: 0.5em 0; }
+  .modal .google-login {
+    padding: 0.5em 0; }
+  .modal .inputField {
+    margin-bottom: 9px; }
+    .modal .inputField input:not(#remember) {
+      padding: 0.7em;
+      font-size: 16px; } }
