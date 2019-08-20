@@ -17,7 +17,7 @@ function WishlistDetailCard({id, updateCardRendered} : {id: any, updateCardRende
             setPlace(
                 <Place place={data.data}/>
             )
-            updateCardRendered(data.data.location)
+            updateCardRendered(data.data.location, true)
         })
     }, [id])
 

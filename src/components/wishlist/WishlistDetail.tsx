@@ -11,16 +11,23 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
 
     const PLACE_PANE = 'PLACE_PANE'
     const EXPERIENCE_PANE = 'EXPERIENCE_PANE'
-
+    
     const [placeCounter, setPlaceCounter] = useState(0)
     const [experienceCounter, setExperienceCounter] = useState(0)
-    const [placeCardRendered, setplaceCardRendered] = useState(0)
     const [placeMapCenter, setplaceMapCenter] = useState()
+    const [experienceMapCenter, setexperienceMapCenter] = useState()
+    const [placeCardRendered, setplaceCardRendered] = useState(0)
     const [placeTotalPosition, setPlaceTotalPosition] = useState({
         lat: 0,
         lng: 0
     })
     const [placeMarkers, setPlaceMarkers] = useState([])
+    const [experienceCardRendered, setexperienceCardRendered] = useState(0)
+    const [experienceTotalPosition, setexperienceTotalPosition] = useState({
+        lat: 0,
+        lng: 0
+    })
+    const [experienceMarkers, setexperienceMarkers] = useState([])
     const [map, setmap] = useState(
         <div className="gmap-notice">Nothing to show here</div>
     )
@@ -33,15 +40,22 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
         stay: null,
         experience: null
     })
+
+    function updateRender(location: any, setMarker: any, setCardRendered: any, setTotalPosition: any) {
+        setMarker(p => [...p, location])
+        setCardRendered(p => p + 1)
+        setTotalPosition(p => ({
+            lat: p.lat + location.latitude, 
+            lng: p.lng + location.longitude
+        }))
+    }
     
     const updateCardRendered = useCallback(
-        (location) => {
-            setPlaceMarkers(p => [...p, location])
-            setplaceCardRendered(p => p + 1)
-            setPlaceTotalPosition(p => ({
-                lat: p.lat + location.latitude, 
-                lng: p.lng + location.longitude
-            }))
+        (location, isPlace) => {
+            if(isPlace) updateRender(location, setPlaceMarkers, setplaceCardRendered, setPlaceTotalPosition)
+            else {
+                updateRender(location, setexperienceMarkers, setexperienceCardRendered, setexperienceTotalPosition)
+            }
         },
         [],
     )
@@ -54,6 +68,15 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
             })
         }
     }, [placeCardRendered, placeCounter, placeTotalPosition])
+
+    useEffect(() => {
+        if(experienceCardRendered === experienceCounter) {
+            setexperienceMapCenter({
+                lat: experienceTotalPosition.lat / experienceCounter,
+                lng: experienceTotalPosition.lng / experienceCounter
+            })
+        }
+    }, [experienceCardRendered, experienceCounter, experienceTotalPosition])
 
     useEffect(() => {
         getWishlist(match.params.id)
@@ -104,37 +127,67 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
         }
     }, [wishlist, updateCardRendered, wishlistContent, placeCounter, experienceCounter])
 
-    const Map = useCallback(
-        () => {
-            return (
-                <GoogleMap 
-                    defaultZoom={14}
-                    defaultCenter={{lat: placeMapCenter.lat, lng: placeMapCenter.lng}}
-                >
-                    {placeMarkers.map((marker: any) => (
-                        <Marker key={marker.latitude + marker.longitude} position={{lat: marker.latitude, lng: marker.longitude}}></Marker>
-                    ))}
-                </GoogleMap>
-            )
-        },
-        [placeMapCenter, placeMarkers],
-    )
+    function getMarkersMapping(markers: any) {
+        return markers.map((marker: any) => (
+            <Marker key={num++} position={{lat: marker.latitude, lng: marker.longitude}}></Marker>
+        ))
+    }
+
+    function getMarkers(): any {
+        if(paneStatus === PLACE_PANE) return getMarkersMapping(placeMarkers)
+        else return getMarkersMapping(experienceMarkers)
+    }
+
+    var num = 0;
+
+    function getLongLat(center) {
+        return {
+            lat: center.lat,
+            lng: center.lng
+        }
+    }
+
+    function getDefaultCenter() {
+        if(paneStatus === PLACE_PANE) return getLongLat(placeMapCenter)
+        return getLongLat(experienceMapCenter)
+    }
+
+    function getWrappedMap() {
+        const WrappedMap = withScriptjs(withGoogleMap(() => {return (
+            <GoogleMap 
+                defaultZoom={14}
+                defaultCenter={getDefaultCenter()}
+            >
+                {getMarkers()}
+            </GoogleMap>
+        )}))
+        return <WrappedMap 
+            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" 
+            loadingElement={<div style={{height: "100%"}}/>}
+            containerElement={<div style={{height: "100%"}}/>}
+            mapElement={<div style={{height: "100%"}}/>}
+        />
+    }
 
     useEffect(() => {
         if(placeMapCenter === undefined) return
         if(isNaN(placeMapCenter.lat)) return
         if(placeMarkers.length === 0) return
 
-        const WrappedMap = withScriptjs(withGoogleMap(Map))
         setmap(
-            <WrappedMap 
-                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" 
-                loadingElement={<div style={{height: "100%"}}/>}
-                containerElement={<div style={{height: "100%"}}/>}
-                mapElement={<div style={{height: "100%"}}/>}
-            />
+            getWrappedMap()
         )
     }, [placeMapCenter, Map, placeMarkers])
+    
+    useEffect(() => {
+        if(experienceMapCenter === undefined) return
+        if(isNaN(experienceMapCenter.lat)) return
+        if(experienceMarkers.length === 0) return
+
+        setmap(
+            getWrappedMap()
+        )
+    }, [experienceMapCenter, Map, experienceMarkers])
 
     function changePane(pane) {
         if(pane === PLACE_PANE) {

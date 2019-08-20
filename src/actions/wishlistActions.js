@@ -25,7 +25,6 @@ export function getWishlist(id) {
             }
         })
         .then(data => {
-            console.log(data.data)
             dispatch({
                 type: SET_CURRENT_WISHLIST,
                 payload: data.data

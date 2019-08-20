@@ -3,7 +3,7 @@ import axios from 'axios'
 import ExperienceCard from "../experiences/ExperienceCard";
 
 function WishlistDetailExperienceCard({id, updateCardRendered} : {id: any, updateCardRendered: any}) {
-    const [place, setPlace] = useState()
+    const [experience, setExperience] = useState()
     
     useEffect(() => {
         axios.get("https://aivbnbapi.herokuapp.com/api/experiences/" + id, {
@@ -13,16 +13,16 @@ function WishlistDetailExperienceCard({id, updateCardRendered} : {id: any, updat
             }
         })
         .then(data => {
-            setPlace(
+            setExperience(
                 <ExperienceCard experience={data.data}/>
             )
-            // updateCardRendered(data.data.location)
+            updateCardRendered(data.data.location, false)
         })
     }, [id])
 
     return (
         <React.Fragment>
-            {place}
+            {experience}
         </React.Fragment>
     )
 }

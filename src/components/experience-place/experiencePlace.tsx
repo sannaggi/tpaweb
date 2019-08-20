@@ -143,7 +143,7 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
                             {experience.name}
                         </div>
                         <div id="expBasicInfo">
-                            <div>{experience.location}</div>
+                            <div>{experience.geolocation}</div>
                             <div>{experience.duration} hours total</div>
                             <div>{getTopAmenities()}</div>
                             <div>Offered in {getLanguages()}</div>
