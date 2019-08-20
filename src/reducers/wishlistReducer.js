@@ -1,7 +1,7 @@
 import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST } from "../actions/types";
 
 const initialState = {
-  items: {},
+  items: [],
   item: {}
 };
 

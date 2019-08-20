@@ -11,7 +11,7 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
 
     const PLACE_PANE = 'PLACE_PANE'
     const EXPERIENCE_PANE = 'EXPERIENCE_PANE'
-    
+
     const [placeCounter, setPlaceCounter] = useState(0)
     const [experienceCounter, setExperienceCounter] = useState(0)
     const [placeMapCenter, setplaceMapCenter] = useState()
@@ -102,6 +102,7 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
             setwishlistContent(p => ({
                 ...p, stay: <div className="notice">No stays saved yet</div>
             }))
+            setPlaceMarkers([])
         }
         if(wishlist.experiences !== null) {
             setExperienceCounter(wishlist.experiences.length)
@@ -124,6 +125,7 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
             setwishlistContent(p => ({
                 ...p, experience: <div className="notice">No experiences saved yet</div>
             }))
+            setexperienceMarkers([])
         }
     }, [wishlist, updateCardRendered, wishlistContent, placeCounter, experienceCounter])
 

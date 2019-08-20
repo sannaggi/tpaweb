@@ -14,6 +14,10 @@
       height: calc(100vh - 83px);
       position: -webkit-sticky;
       position: sticky; }
+      @media screen and (max-width: 1100px) {
+        .wishlist-detail-container .wishlist-map .map-container {
+          top: 59px;
+          height: calc(100vh - 59px); } }
       .wishlist-detail-container .wishlist-map .map-container .container {
         height: 100%;
         position: relative; }

@@ -19,7 +19,7 @@ function place({place, currency, setHoveredCard} : {place:any, currency:any, set
             </div>
             <Link to={"/places/" + place.id} target="_blank">
                 <div className="placeDetailContainer">
-                    <FavoriteButton />
+                    <FavoriteButton id={place.id} isPlace={true}/>
                     <div className="upperDetail">
                         <h4>{place.category.toUpperCase()}</h4>
                         <h3>{place.name}</h3>

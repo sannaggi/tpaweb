@@ -19,7 +19,7 @@ function ExperienceCard({experience, currency} : {experience: any, currency: any
     return (
         <Link key={experience.id} to={`/experiences/${experience.id}`} target="_blank">
             <div className="experienceCard">
-                <FavoriteButton />
+                <FavoriteButton id={experience.id} isPlace={false}/>
                 <div className="experience-image" style={{backgroundImage: "url(" + experience.headerimage + ")"}}></div>
                 <div className="card-title">{experience.name}</div>
                 <div className="card-category">From {getCurrency(experience.price)} /person &#183; {experience.duration} hours &#183; {getAmenities(experience.amenities)} included</div>

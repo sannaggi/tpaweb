@@ -10,11 +10,6 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
 
     const [wishlistContent, setWishlistContent] = useState()
 
-    useEffect(() => {
-        if(user.id === undefined) return
-        getAllWishlists(user.id)
-    }, [getAllWishlists, user.id])
-
     function refreshWishlists() {
         getAllWishlists(user.id)
     }
@@ -34,7 +29,6 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
         <main className="wishlist-container">
             <div className="wishlist-header">
                 <h2>Lists</h2>
-                {console.log(wishlists)}
                 <button className="wish-button white-button" onClick={showModal}>Create a list</button>
             </div>
             <div className="wishlist-detail-container">

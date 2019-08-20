@@ -11,6 +11,10 @@
             height: 100%;
             top: 83px;
             height: calc(100vh - 83px);
+            @include mQ(1100px) { 
+                top: 59px;
+                height: calc(100vh - 59px);
+            }
             position: sticky;
             .container {
                 height: 100%;
