@@ -12,6 +12,7 @@ import CurrencySelect from "./CurrencySelect";
 import { setGeoLocation } from "../../../actions/locationActions";
 import { connect } from "react-redux";
 import { logout } from "../../../actions/userActions";
+import FavoriteModal from "../../reusable/FavoriteModal";
 
 function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: any, logout: any }) {
   const [click, setClick] = useState(false);
@@ -143,6 +144,7 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
       </div>
       <LoginModal />
       <RegisterModal />
+      <FavoriteModal />
     </header>
   );
 }

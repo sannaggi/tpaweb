@@ -3,6 +3,7 @@ import { decode } from "jsonwebtoken";
 import { connect } from 'react-redux';
 import { cookieLogin } from "../../actions/userActions";
 import { getAllWishlists } from "../../actions/wishlistActions";
+import WishlistModal from "../wishlist/WishlistModal";
 
 function Global({cookieLogin, getAllWishlists, user} : {cookieLogin: any, getAllWishlists: any, user: any}) {
 
@@ -18,7 +19,9 @@ function Global({cookieLogin, getAllWishlists, user} : {cookieLogin: any, getAll
     }, [getAllWishlists, user.id])
 
     return (
-        <React.Fragment></React.Fragment>
+        <React.Fragment>
+            <WishlistModal/>
+        </React.Fragment>
     )
 }
 

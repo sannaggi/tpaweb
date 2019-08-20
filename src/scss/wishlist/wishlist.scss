@@ -28,8 +28,6 @@
     .wishlist-header {
         @include flexBetween;
     }
-    .wishlist-detail-container {
-    }
 }
 @include mQ(1100px) {
     .wishlist-container {

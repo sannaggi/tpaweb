@@ -39,6 +39,30 @@
       width: 90vw;
       height: 90vw; } }
 
+#wishlistModal .wish-button {
+  padding: 0.9em 1.5em;
+  border: 2px solid #008489;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+
+#wishlistModal .white-button {
+  background-color: #fff;
+  color: #008489; }
+  #wishlistModal .white-button:active {
+    background-color: #008489;
+    color: #fff; }
+
+#wishlistModal .green-button {
+  background-color: #008489;
+  color: #fff; }
+  #wishlistModal .green-button:active {
+    background-color: #fff;
+    color: #008489; }
+
 #wishlistModal .modal-content > h2 {
   margin: 0.6em 0 2em 0; }
 

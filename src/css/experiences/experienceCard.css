@@ -1,10 +1,17 @@
+.experienceCardContainer {
+  position: relative; }
+  .experienceCardContainer a {
+    width: 100%; }
+  .experienceCardContainer .btnFavorite {
+    color: #fff;
+    font-size: 35px !important; }
+  .experienceCardContainer .red-heart {
+    font-size: 28px !important; }
+
 .experienceCard {
   position: relative;
   width: 13.4vw;
   margin: 0 6px; }
-  .experienceCard .btnFavorite {
-    color: #fff;
-    font-size: 35px !important; }
   .experienceCard .experience-image {
     background-size: cover;
     background-position: center;

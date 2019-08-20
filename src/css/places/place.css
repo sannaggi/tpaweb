@@ -69,11 +69,13 @@
       background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
       background: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
       background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); }
-  .placeContainer a {
+  .placeContainer .placeCardContainer {
+    position: relative;
     width: calc(100% - 21vw); }
+  .placeContainer a {
+    width: 100%; }
     .placeContainer a .placeDetailContainer {
       padding: 1em;
-      position: relative;
       width: 100%;
       height: 100%;
       display: -webkit-box;

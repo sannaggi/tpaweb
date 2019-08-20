@@ -11,8 +11,6 @@ function Places({location, fetchAllPlace, places, currCard} : {location:any, fet
     // const [currCard, setCurrCard] = useState(null)
 
     useEffect(() => {
-        let header = document.getElementsByTagName("header")[0]
-        header.setAttribute("style", "position: fixed")
         fetchAllPlace()
     }, [fetchAllPlace])
 

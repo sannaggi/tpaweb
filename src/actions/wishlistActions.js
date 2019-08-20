@@ -1,4 +1,4 @@
-import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST } from "./types";
+import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST, SET_ACTIVE_WISHLIST_MODAL } from "./types";
 import axios from "axios";
 
 export function getAllWishlists(id) {
@@ -29,6 +29,15 @@ export function getWishlist(id) {
                 type: SET_CURRENT_WISHLIST,
                 payload: data.data
             })
+        })
+    }
+}
+
+export function setActiveWishlistModal(data) {
+    return function (dispatch){
+        dispatch({
+            type: SET_ACTIVE_WISHLIST_MODAL,
+            payload: data
         })
     }
 }

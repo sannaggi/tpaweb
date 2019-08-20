@@ -69,14 +69,18 @@
             }
             .experienceDetailContainer {
                 display: flex;
-                >a {
+                .experienceCardContainer { 
                     margin: 10px 7px;
                     width: calc(50% - 14px);
+                }
+                a {
+                    width: 100% !important;
+                    margin: 0 !important;
                     .experienceCard {
                         width: 100%;
                         margin: 0;
                         .experience-image {
-                            height: 21vw;
+                            width: 100%;
                         }
                     }
                     @include mQ(750px) {
@@ -100,6 +104,9 @@
             .placeContainer {
                 flex-direction: column;
                 margin: 1.2em 0;
+                .placeCardContainer { 
+                    width: 100%;
+                }
                 .sliderContainer{
                     width: 100%;
                     .imageSlider {

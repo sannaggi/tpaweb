@@ -1,14 +1,23 @@
 @import '../mixins';
 @import '../variables';
 
-.experienceCard {
+.experienceCardContainer {
     position: relative;
-    width: 13.4vw;
-    margin: 0 6px;
+    a {
+        width: 100%;
+    }
     .btnFavorite {
         color: #fff;
         font-size: 35px !important;
     }
+    .red-heart {
+        font-size: 28px !important;
+    }
+}
+.experienceCard {
+    position: relative;
+    width: 13.4vw;
+    margin: 0 6px;
     .experience-image {
         background-size: cover;
         background-position: center;

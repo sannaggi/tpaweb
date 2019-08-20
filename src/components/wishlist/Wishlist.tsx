@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import EmptyWishlist from "./EmptyWishlist";
 import '../../css/wishlist/wishlist.css'
-import WishlistModal from "./WishlistModal";
 import { getAllWishlists } from "../../actions/wishlistActions";
 import { connect } from 'react-redux';
 import Wishlists from "./Wishlists";
 
-function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getAllWishlists: any, user: any }) {
+function Wishlist({ wishlists} :  { wishlists: any}) {
 
     const [wishlistContent, setWishlistContent] = useState()
-
-    function refreshWishlists() {
-        getAllWishlists(user.id)
-    }
 
     useEffect(() => {
         if(wishlists !== null && wishlists[0] !== undefined)
@@ -34,14 +29,12 @@ function Wishlist({ wishlists, getAllWishlists, user } :  { wishlists: any, getA
             <div className="wishlist-detail-container">
                 {wishlistContent}
             </div>
-            <WishlistModal refreshWishlists={refreshWishlists}/>
         </main>
     )
 }
 
 const mapStateToProps = (state: any) => ({
     wishlists: state.wishlist.items,
-    user: state.user.item
 })
 
 export default connect(mapStateToProps, { getAllWishlists })(Wishlist)

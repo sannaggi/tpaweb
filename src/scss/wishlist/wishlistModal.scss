@@ -1,4 +1,23 @@
 #wishlistModal {
+    .wish-button {
+        @include wishlistButton;
+    }
+    .white-button {
+        background-color: #fff;
+        color: $blueGreen;
+        &:active {
+            background-color: $blueGreen;
+            color: #fff;
+        }
+    }
+    .green-button {
+        background-color: $blueGreen;
+        color: #fff;
+        &:active {
+            background-color: #fff;
+            color: $blueGreen;
+        }
+    }
     .modal-content {
         >h2 {
             margin: 0.6em 0 2em 0;

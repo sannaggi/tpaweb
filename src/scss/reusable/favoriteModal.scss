@@ -1,0 +1,32 @@
+@import '../mixins';
+@import '../variables';
+
+.favorite-modal-content {
+    >h2 {
+        margin-top: 10px;
+    }
+    .create-list {
+        color: $blueGreen;
+        margin: 2em 0;
+        font-weight: 700;
+        display: inline-block;
+        border-bottom: 1px solid transparent;
+        transition: 0.3s;
+        &:hover {
+            cursor: pointer;
+            border-color: $blueGreen;
+        }
+    }
+    .fav-wishlist-container {
+        @include flexBetween;
+        align-items: center;
+        padding: 8px 0;
+        .btnFavorite {
+            position: relative;
+            right: 0;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

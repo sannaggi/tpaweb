@@ -5,7 +5,6 @@ header {
     width: 100%;
 }
 .placesContainer {
-    margin-top: 83px;
     display: flex;
     .detail-container {
         width: 55vw;
@@ -27,8 +26,7 @@ header {
 }
 
 @include mQ(1200px) {
-    .placesContainer { 
-        margin-top: 59.2px;
+    .placesContainer {
         .map-container {
             .container {
                 top: 59.2px;

@@ -1,0 +1,32 @@
+.favorite-modal-content > h2 {
+  margin-top: 10px; }
+
+.favorite-modal-content .create-list {
+  color: #008489;
+  margin: 2em 0;
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+  .favorite-modal-content .create-list:hover {
+    cursor: pointer;
+    border-color: #008489; }
+
+.favorite-modal-content .fav-wishlist-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px 0; }
+  .favorite-modal-content .fav-wishlist-container .btnFavorite {
+    position: relative;
+    right: 0; }
+  .favorite-modal-content .fav-wishlist-container:hover {
+    cursor: pointer; }

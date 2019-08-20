@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sharing from "../reusable/sharing";
 import "../../css/experience-place/experiencePlace.css";
 import GoogleMapReact from "google-map-react";
-// import Stories from 'react-insta-stories'
+import Stories from 'react-insta-stories'
 import StarReview from "../reusable/StarReview";
 import ReactPaginate from "react-paginate";
 import GuestComment from "../reusable/GuestComment";
@@ -128,11 +128,11 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
                 <div className="section" id="first-sec">
                     <div className="left">
                         <div>
-                            {/* <Stories 
+                            <Stories 
                                 stories={stories}
                                 defaultInterval={8000}
                                 loop={true}
-                            /> */}
+                            />
                         </div>
                     </div>
                     <div className="right">

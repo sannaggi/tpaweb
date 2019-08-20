@@ -73,20 +73,23 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
-      .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer > a {
+      .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer .experienceCardContainer {
         margin: 10px 7px;
         width: calc(50% - 14px); }
-        .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer > a .experienceCard {
+      .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer a {
+        width: 100% !important;
+        margin: 0 !important; }
+        .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer a .experienceCard {
           width: 100%;
           margin: 0; }
-          .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer > a .experienceCard .experience-image {
-            height: 21vw; }
+          .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer a .experienceCard .experience-image {
+            width: 100%; }
         @media screen and (max-width: 750px) {
-          .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer > a {
+          .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer a {
             margin: 10px 2vw;
             width: calc(50% - 4vw); } }
   @media screen and (max-width: 750px) and (max-width: 750px) {
-    .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer > a .experienceCard .experience-image {
+    .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer a .experienceCard .experience-image {
       height: 55vw; } }
     .wishlist-detail-container .wishlist-detail .wishlist-content .content-header {
       font-size: 20px;
@@ -98,6 +101,8 @@
       -ms-flex-direction: column;
       flex-direction: column;
       margin: 1.2em 0; }
+      .wishlist-detail-container .wishlist-detail .wishlist-content .placeContainer .placeCardContainer {
+        width: 100%; }
       .wishlist-detail-container .wishlist-detail .wishlist-content .placeContainer .sliderContainer {
         width: 100%; }
         .wishlist-detail-container .wishlist-detail .wishlist-content .placeContainer .sliderContainer .imageSlider {

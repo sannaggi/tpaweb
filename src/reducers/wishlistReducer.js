@@ -1,8 +1,9 @@
-import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST } from "../actions/types";
+import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST, SET_ACTIVE_WISHLIST_MODAL } from "../actions/types";
 
 const initialState = {
   items: [],
-  item: {}
+  item: {},
+  active: {}
 };
 
 export default function(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         item: action.payload
+      };
+    case SET_ACTIVE_WISHLIST_MODAL:
+      return {
+        ...state,
+        active: action.payload
       };
     default:
       return state;

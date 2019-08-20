@@ -14,7 +14,8 @@ function WishlistCard({wishlist} : {wishlist: any}) {
             }
         })
         .then(data => {
-            setbackgroundImage(data.data.images[0])
+            if(type === "places") setbackgroundImage(data.data.images[0])
+            else setbackgroundImage(data.data.headerimage)
         })
     }
 
@@ -25,13 +26,13 @@ function WishlistCard({wishlist} : {wishlist: any}) {
     function getWishesCount() {
         let string:any = ""
         let hasBackground = false;
-        if(wishlist.stays !== null) {
+        if(wishlist.stays !== null && wishlist.stays.length !== 0) {
             string += wishlist.stays.length + " stay" + getS(wishlist.stays)
             getBackground("places", wishlist.stays[0])
             hasBackground = true;
         }
-        if(wishlist.experiences !== null) {
-            string += ((wishlist.stays !== null)? ", " : null) + wishlist.experiences.length + " experience" + getS(wishlist.experiences)
+        if(wishlist.experiences !== null && wishlist.experiences.length !== 0) {
+            string += ((wishlist.stays !== null && wishlist.stays.length !== 0 )? ", " : null) + wishlist.experiences.length + " experience" + getS(wishlist.experiences)
             if(!hasBackground) getBackground("experiences", wishlist.experiences[0])
         }
         

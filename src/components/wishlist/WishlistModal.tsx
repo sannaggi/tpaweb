@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import axios from "axios";
+import { getAllWishlists } from "../../actions/wishlistActions";
 
-function WishlistModal({user, refreshWishlists} : {user: any, refreshWishlists: any}) {
+function WishlistModal({user, getAllWishlists} : {user: any, getAllWishlists: any}) {
     
     const [newWishlist, setNewWishlist] = useState({
         name: "",
@@ -43,7 +44,7 @@ function WishlistModal({user, refreshWishlists} : {user: any, refreshWishlists: 
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         })
-        .then(_ => refreshWishlists())
+        .then(_ => getAllWishlists(user.id))
     }
 
     function onSubmit(e) {
@@ -81,4 +82,4 @@ const mapStateToProps = (state: any) => ({
     user: state.user.item
 })
 
-export default connect(mapStateToProps, {})(WishlistModal)
+export default connect(mapStateToProps, {getAllWishlists})(WishlistModal)

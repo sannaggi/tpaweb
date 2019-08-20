@@ -179,7 +179,7 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
         setmap(
             getWrappedMap()
         )
-    }, [placeMapCenter, Map, placeMarkers])
+    }, [placeMapCenter, placeMarkers])
     
     useEffect(() => {
         if(experienceMapCenter === undefined) return
@@ -189,7 +189,7 @@ function WishlistDetail({ match, getWishlist, wishlist } : { match: any, getWish
         setmap(
             getWrappedMap()
         )
-    }, [experienceMapCenter, Map, experienceMarkers])
+    }, [experienceMapCenter, experienceMarkers])
 
     function changePane(pane) {
         if(pane === PLACE_PANE) {

@@ -2,7 +2,6 @@ header {
   width: 100%; }
 
 .placesContainer {
-  margin-top: 83px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -22,8 +21,6 @@ header {
         height: 100%; }
 
 @media screen and (max-width: 1200px) {
-  .placesContainer {
-    margin-top: 59.2px; }
-    .placesContainer .map-container .container {
-      top: 59.2px;
-      height: calc(100vh - 60px); } }
+  .placesContainer .map-container .container {
+    top: 59.2px;
+    height: calc(100vh - 60px); } }
