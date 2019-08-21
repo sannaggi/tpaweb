@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER_STATUS, LOGOUT } from "./types";
+import { LOGIN, REGISTER_STATUS, LOGOUT, SET_USER_PROFILE } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 
@@ -141,4 +141,19 @@ export function logout() {
     })
     clearCookie()
   };
+}
+
+export function setUserProfile(id){
+  return function (dispatch){
+      axios.get("https://aivbnbapi.herokuapp.com/api/users/" + id, {
+          method: 'GET',
+          headers: {
+              'content-type': 'application/json'
+          }
+      })
+      .then(data => dispatch({
+          type: SET_USER_PROFILE,
+          payload: data.data
+      }))
+  }
 }

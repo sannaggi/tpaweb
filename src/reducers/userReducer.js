@@ -1,7 +1,8 @@
-import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT } from "../actions/types";
+import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT, SET_USER_PROFILE } from "../actions/types";
 
 const initialState = {
   item: {},
+  userProfile: {},
   newItem: {},
   registerStatus: false
 };
@@ -27,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         item: {}
+      }
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        userProfile: action.payload
       }
     default:
       return state;

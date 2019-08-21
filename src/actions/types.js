@@ -17,6 +17,7 @@ export const LOGIN = "LOGIN";
 export const REGISTER_STATUS = "REGISTER_STATUS";
 export const SET_REGISTER_END = "SET_REGISTER_END";
 export const LOGOUT = "LOGOUT";
+export const SET_USER_PROFILE = "SET_USER_PROFILE"
 
 export const NEW_WISHLIST = "NEW_WISHLIST";
 
