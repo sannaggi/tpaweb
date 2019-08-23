@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER_STATUS, LOGOUT, SET_USER_PROFILE } from "./types";
+import { LOGIN, REGISTER_STATUS, LOGOUT, SET_USER_PROFILE, SET_EDITED_PROFILE } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 
@@ -155,5 +155,14 @@ export function setUserProfile(id){
           type: SET_USER_PROFILE,
           payload: data.data
       }))
+  }
+}
+
+export function setEditedProfile(user){
+  return function(dispatch){
+    dispatch({
+      type: SET_EDITED_PROFILE,
+      payload: user
+    })
   }
 }

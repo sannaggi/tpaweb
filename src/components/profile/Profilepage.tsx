@@ -1,12 +1,11 @@
 import React, { useEffect } from "react"
 import ProfileCard from "./profile card/ProfileCard";
 import "../../css/profilepage/profilePage.css"
-import { USERINFORMATION } from "../Specification";
 import ProfilepageEdit from "./ProfilepageEdit";
 import { setUserProfile } from "../../actions/userActions";
 import { connect } from 'react-redux';
 
-function Profilepage({userProfile, setUserProfile, match} : {userProfile: any, setUserProfile: any, match: any}){
+function Profilepage({user, userProfile, setUserProfile, match} : {user: any, userProfile: any, setUserProfile: any, match: any}){
     
     useEffect(() => {
         setUserProfile(match.params.id)
@@ -15,11 +14,10 @@ function Profilepage({userProfile, setUserProfile, match} : {userProfile: any, s
     function userProfileRender(){
         if(userProfile.firstname === undefined){
             return(
-                " "
+                ""
             )
         }
         else{
-            console.log(userProfile)
             return(
                 "" + userProfile.firstname + " " + userProfile.lastname
             )
@@ -34,22 +32,25 @@ function Profilepage({userProfile, setUserProfile, match} : {userProfile: any, s
         }
         else{
             return(
-                <ProfilepageEdit user={userProfile}/>
+                <ProfilepageEdit user={userProfile} loggedUser={user}/>
             )
         }
     }
 
     function getProfileCard(){if(userProfile.firstname === undefined){
         return(
-                <div></div>
+                ""
             )
         }
         else{
             return(
-                <ProfileCard user={userProfile}/>
+                <ProfileCard user={userProfile} loggedUser={user}/>
             )
         }
     }
+
+    
+    // setInterval(() => console.log(user), 1000)
 
     return (
         <div className="profilePage">
@@ -63,7 +64,9 @@ function Profilepage({userProfile, setUserProfile, match} : {userProfile: any, s
 }
 
 const mapStateToProps = (state: any) => ({
-    userProfile: state.user.userProfile
+    userProfile: state.user.userProfile,
+    user: state.user.item,
+    setUserProfile: setUserProfile
 })
 
 export default connect(

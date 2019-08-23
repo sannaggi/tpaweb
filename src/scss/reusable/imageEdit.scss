@@ -1,0 +1,213 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+#imageEdit{
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .6);
+    top: 0;
+    left: 0;
+    z-index: 1111;
+    margin: 0;
+    #header{
+        font-size: 20pt;
+    }
+    div{
+        color: white !important;
+    }
+    input[type="file"]{
+        color: white;
+        font-size: 8pt;
+        &::-webkit-file-upload-button{
+            @include basicButton($darkGrey, transparent);
+            transition: all 0.15s ease-in-out;
+            padding: 6px 8px;
+            color: white;
+            margin: 0;
+            font-size: 8pt;
+    
+            &:hover{
+                background-color: $darkGrey
+            }
+        }
+    }
+    >div{
+        position: relative;
+        .close-modal{
+            margin: 0 !important;
+            float: right;
+            width: fit-content;
+            height: fit-content;
+            cursor: pointer;
+            transition: color .15s ease-in-out;
+            color: $lightGrey !important;
+            font-size: 16pt;
+            &:hover{
+                color: white !important;
+            }
+        }
+        background-color: #000000;
+        padding: 1em;
+        transform: translateY(+10%);
+        width: 80%;
+        height: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        >div{
+            width: 48%;
+            height: 100%;
+        }
+        .left{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            >canvas{
+                position: absolute;
+                transform: translateY(+50%);
+            }
+        }
+        .right{
+            >div{
+                margin: 1em 0 0.3em 0;
+            }
+        }
+    }
+    #editHeader{
+        display: flex;
+        justify-content: space-evenly;
+        .active{
+            color: white !important;
+            border-bottom: white 2px solid;
+        }
+        >div{
+            cursor: pointer;
+            color: $lightGrey !important;
+            transition: all 0.5s ease-in-out;
+            width: fit-content;
+            justify-content: center;
+            text-align: center;
+            border-bottom: #000000 2px solid;
+            &:hover{
+                color: white !important;
+                border-bottom: white 2px solid;
+            }
+        }
+    }
+    .hr{
+        margin: 0 !important;
+        width: 100%;
+        height: 2px;
+        background-color: $lightGrey;
+    }
+    #commitButton{
+        position: absolute;
+        bottom: .7em;
+        right: 1.7em;
+        display: flex;
+        #saveRep{
+            background-color: $darkBlueGreen;
+            border-color: $darkBlueGreen;
+            margin-right: .5em;
+            &:hover{
+                background-color: $blueGreen;
+                border-color: $blueGreen;
+            }
+        }
+    }
+    input[type="button"]{
+        @include basicButton($darkGrey, transparent);
+        transition: all 0.15s ease-in-out;
+        padding: 10px 25px;
+        color: white;
+        margin: 0;
+        font-size: 10pt;
+
+        &:hover{
+            background-color: $darkGrey
+        }
+    }
+    #editor{
+        height: 50%;
+        position: relative;
+        .editActive{
+            opacity: 1;
+            pointer-events: all;
+            z-index: 1;
+        }
+        >div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        div{
+            font-size: 16pt;
+            margin-top: 0.5em;
+        }
+        #rotateBtn{
+            display: flex;
+            width: 60%;
+            justify-content: space-between;
+        }
+        input[type="button"]{
+            @include basicButton($darkGrey, transparent);
+            padding: 5px;
+            color: white;
+            margin: 0;
+            width: 48%;
+
+            &:hover{
+                background-color: $darkGrey
+            }
+        }
+        input[type="range"] {
+            outline: 0;
+            border: 0;
+            border-radius: 500px;
+            width: 100%;
+            max-width: 100%;
+            // height: 15px;
+            padding: 0;
+            height: 15px;
+            transition: box-shadow 0.2s ease-in-out;
+            // Chrome
+            @media screen and (-webkit-min-device-pixel-ratio:0) {
+                & {
+                    overflow: hidden;
+                    height: 20px;
+                    -webkit-appearance: none;
+                    background-color: $darkGrey;
+                }
+                &::-webkit-slider-runnable-track {
+                    height: 20px;
+                    -webkit-appearance: none;
+                    // color: #444;
+                    margin-top: -1px;
+                    transition: box-shadow 0.2s ease-in-out;
+                }
+                &::-webkit-slider-thumb {
+                    width: 20px;
+                    -webkit-appearance: none;
+                    height: 20px;
+                    cursor: ew-resize;
+                    background: lightGrey;
+                    border: none;
+                    box-shadow: -325px 0 0 315px white, inset 0 0 0 25px white;
+                    border-radius: 50%;
+                    transition: box-shadow 0.2s ease-in-out;
+                    position: relative;
+                    // top: 1px;
+                }
+                &:active::-webkit-slider-thumb {
+                    background: lightGrey;
+                    box-shadow: -325px 0 0 315px white, inset 0 0 0 3px white;
+                }
+            }
+        }
+    }
+}
