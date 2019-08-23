@@ -1,6 +1,12 @@
 .chat-card-container {
     height: 90px;
     padding: 1em 20vw;
+    @include mQ(1100px) {
+        padding: 1em 15vw;
+    }
+    @include mQ(750px) {
+        padding: 1em 3vw;
+    }
     border-top: 1px solid $superDuperLightGrey;
     border-bottom: 1px solid $superDuperLightGrey;
     cursor: pointer;
@@ -62,5 +68,24 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+    }
+    @include mQ(1100px) {
+        .content-section {
+            font-size: 20px;
+        }
+    }
+    @include mQ(750px) {
+        .content-section {
+            font-size: 16px;
+            img {
+                margin-right: 4px;
+            }
+        }
+        .name-date {
+            width: 70px;
+        }
+        .chat>div {
+            width: 60px;
+        }
     }
 }

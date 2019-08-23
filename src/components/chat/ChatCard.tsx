@@ -40,7 +40,7 @@ function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, 
             }
 
             axios({
-                url: "http://localhost/api/chat/" + chat.id,
+                url: "https://aivbnbapi.herokuapp.com/api/chat/" + chat.id,
                 method: "POST",
                 data: {status: s, value: s === "starred"? !status.starred : !status.archived},
                 headers: {
