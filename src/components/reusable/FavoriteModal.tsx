@@ -18,6 +18,13 @@ function FavoriteModal({wishlists} : {wishlists: any}) {
         document.getElementById("wishlistModal").setAttribute("style", "display: block")
     }
 
+    function getWishlist() {
+        if(wishlists == null) return
+        return wishlists.map((wishlist: any) => (
+            <FavoriteModalItem key={wishlist.id} wishlist={wishlist}/>
+        ))
+    }
+
     return (
         <div className="modal" id="favoriteModal">
             <div className="modal-content login-content">
@@ -26,9 +33,7 @@ function FavoriteModal({wishlists} : {wishlists: any}) {
                     <h2>Save to list</h2>
                     <div className="create-list" onClick={showModal}>Create New List</div>
                     <hr/>
-                    {wishlists.map((wishlist: any) => (
-                        <FavoriteModalItem key={wishlist.id} wishlist={wishlist}/>
-                    ))}
+                    {getWishlist()}
                 </div>
             </div>
         </div>

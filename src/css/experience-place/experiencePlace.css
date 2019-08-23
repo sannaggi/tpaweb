@@ -1,3 +1,15 @@
+.profile-image {
+  border-radius: 50%; }
+
+.info-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .info-profile .host-profile {
+    margin-left: 35px; }
+    .info-profile .host-profile .contact {
+      color: #008489; }
+
 #expPlace #expContainer {
   padding: 5vw; }
   #expPlace #expContainer #section-reviews > .left > #rating {

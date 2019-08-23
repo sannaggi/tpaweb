@@ -28,10 +28,9 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
 
     return(
         <div className="placeDetail">
-            <Sharing />
+            <Sharing id={place.id} isPlace={true}/>
             <div className="placePhoto">
                 {images.map((obj : any) => <div key={obj.key} id={obj.key} className="bannerImage"> {obj.banner}</div>)}
-            
             </div>
             <div className="placeInformation">
                 <div className="left">

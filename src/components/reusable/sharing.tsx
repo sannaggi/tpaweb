@@ -1,8 +1,10 @@
 import React from 'react'
 import {FacebookShareButton, EmailShareButton} from 'react-share';
 import "../../css/reusable/sharing.css";
+import { setActiveWishlistModal } from "../../actions/wishlistActions";
+import { connect } from 'react-redux';
 
-export default function Sharing(){
+function Sharing({id, isPlace, setActiveWishlistModal} : {id: any, isPlace: any, setActiveWishlistModal: any}){
     function clipBoard(){
         var dummy = document.createElement("textarea");
         document.body.appendChild(dummy);dummy.value = window.location.href;
@@ -11,6 +13,15 @@ export default function Sharing(){
         document.body.removeChild(dummy);
         document.getElementById("urlCopied").setAttribute("style", "opacity: 1");
     }
+
+    function onClick() {
+        setActiveWishlistModal({
+            id: id,
+            isPlace: isPlace
+        })
+        document.getElementById("favoriteModal").setAttribute("style", "display: block")
+    }
+
     return(
         <div id="btn">
             <div id="shareBtn">
@@ -23,7 +34,9 @@ export default function Sharing(){
                 <div className="shareChild" id="secondSC"><FacebookShareButton url={window.location.href}/></div>
                 <div className="shareChild" id="thirdSC"><EmailShareButton url={window.location.href} /></div>
             </div>
-            <div id="saveBtn"></div>
+            <div id="saveBtn" onClick={onClick}></div>
         </div>
     )
 }
+
+export default connect(null, { setActiveWishlistModal })(Sharing)

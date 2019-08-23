@@ -8,6 +8,7 @@ import ReactPaginate from "react-paginate";
 import GuestComment from "../reusable/GuestComment";
 import { connect } from "react-redux";
 import { setCurrentExperience } from "../../actions/experienceActions";
+import ExperienceHost from "./ExperienceHost";
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>
 
@@ -123,7 +124,7 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
 
     return(
         <div id="expPlace">
-            <Sharing />
+            <Sharing id={experience.id} isPlace={false}/>
             <div id="expContainer">
                 <div className="section" id="first-sec">
                     <div className="left">
@@ -150,14 +151,16 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
                         </div>
                         <div className="hr"></div>
                         <div className="info-sec">
-                            <div className="left">
-                                <div className="info-sec-head">About your host</div>
-                                <div className="info-sec-desc">
-                                    {experience.abouthost}
+                            <div className="info-profile">
+                                <div className="left">
+                                    <div className="info-sec-head">About your host</div>
+                                    <div className="info-sec-desc">
+                                        {experience.abouthost}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="right">
-
+                                <div className="right">
+                                    <ExperienceHost id={experience.hostid}/>
+                                </div>
                             </div>
                         </div>
                         <div className="hr"></div>

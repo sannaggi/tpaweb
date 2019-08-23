@@ -1,0 +1,66 @@
+.chat-card-container {
+    height: 90px;
+    padding: 1em 20vw;
+    border-top: 1px solid $superDuperLightGrey;
+    border-bottom: 1px solid $superDuperLightGrey;
+    cursor: pointer;
+    @include flexBetween;
+    &:hover {
+        .chat-status {
+            opacity: 1;
+        }
+    }
+    >div {
+        display: flex;
+        align-items: center;
+    }
+    .content-section {
+        height: 100%;
+        margin: 0 1vw;
+        img {
+            height: 100%;
+            width: 58px;
+            margin-right: 10px;
+        }
+        .status {
+            font-weight: 600;
+        }
+        .inquiry {
+            color: rgb(238, 182, 0);
+        }
+    }
+    .chat {
+        > div{
+            width: 95px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+    .chat-status {
+        opacity: 0;
+        transition: 0.2s;
+        width: 95px;
+        .icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+        }
+        .star {
+            font-size: 20px;
+        }
+        .archive {
+            font-size: 15px;
+        }
+    }
+    .name-date {
+        width: 100px;
+        #name {
+            @include ellipsis;
+        }
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

@@ -1,6 +1,19 @@
 @import "../variables.scss";
 @import "../mixins.scss";
 
+.profile-image {
+    border-radius: 50%;
+}
+
+.info-profile {
+    display: flex;
+    .host-profile {
+        margin-left: 35px;
+        .contact {
+            color: $blueGreen;
+        }
+    }
+}
 #expPlace{
     #expContainer{
         padding: 5vw;

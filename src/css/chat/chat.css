@@ -1,0 +1,83 @@
+.chat-card-container {
+  height: 90px;
+  padding: 1em 20vw;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .chat-card-container:hover .chat-status {
+    opacity: 1; }
+  .chat-card-container > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .chat-card-container .content-section {
+    height: 100%;
+    margin: 0 1vw; }
+    .chat-card-container .content-section img {
+      height: 100%;
+      width: 58px;
+      margin-right: 10px; }
+    .chat-card-container .content-section .status {
+      font-weight: 600; }
+    .chat-card-container .content-section .inquiry {
+      color: #eeb600; }
+  .chat-card-container .chat > div {
+    width: 95px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .chat-card-container .chat-status {
+    opacity: 0;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    width: 95px; }
+    .chat-card-container .chat-status .icon {
+      display: inline-block;
+      width: 20px;
+      text-align: center; }
+    .chat-card-container .chat-status .star {
+      font-size: 20px; }
+    .chat-card-container .chat-status .archive {
+      font-size: 15px; }
+  .chat-card-container .name-date {
+    width: 100px; }
+    .chat-card-container .name-date #name {
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+  .chat-card-container .center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+
+.chat-container {
+  padding: 2em 0; }
+  .chat-container .title {
+    font-size: 23px;
+    text-align: center;
+    padding: 2em 0; }
+  .chat-container .filter-container {
+    padding: 0 19vw;
+    height: 53px;
+    margin-bottom: 8px; }
+    .chat-container .filter-container #chat-filter {
+      float: right;
+      padding: 0.7em 2.5em 0.7em 0.5em;
+      font-size: 16px; }
