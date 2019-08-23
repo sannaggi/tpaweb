@@ -3,11 +3,14 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import ChatCard from "./ChatCard";
 import "../../css/chat/chat.css";
+import { ALL, STARRED, ARCHIVED, UNREAD } from "./filterTypes";
 
 function Chat({user} : {user: any}) {
 
+
     const [chats, setChats] = useState([])
     const [allChat, setallChat] = useState()
+    const [filter, setFilter] = useState(ALL)
 
     useEffect(() => {
         if(chats.length === 0) return
@@ -35,19 +38,32 @@ function Chat({user} : {user: any}) {
         getAllChat()
     }
 
+    useEffect(() => {
+        getAllChat()
+    }, [filter])
+
     function getAllChat() {
-        setallChat(chats.map((chat) => (<ChatCard callback={changeStatus} key={chat.id} chat={chat}/>)))
+        let c: any;
+        if(filter === ALL) c = chats.filter((chat) => {return chat.archived === false})
+        else if(filter === ARCHIVED) c = chats.filter((chat) => {return chat.archived === true})
+        else if(filter === STARRED) c = chats.filter((chat) => {return chat.starred === true && chat.archived === false})
+        else if(filter === UNREAD) c = chats.filter((chat) => {return chat.unread === true && chat.archived === false})
+        setallChat(c.map((chat: any) => (<ChatCard callback={changeStatus} key={chat.id} chat={chat}/>)))
+    }
+
+    function onChange(e: any) {
+        setFilter(e.target.value)
     }
 
     return (
         <main className="chat-container">
             <div className="title"><h1>Your Chats</h1></div>
             <div className="filter-container">
-                <select name="" id="chat-filter">
-                    <option value="all">All Messages</option>
-                    <option value="starred">Starred</option>
-                    <option value="unread">Unread</option>
-                    <option value="archived">Archived</option>
+                <select onChange={onChange} name="" id="chat-filter">
+                    <option value={ALL}>All Messages</option>
+                    <option value={STARRED}>Starred</option>
+                    <option value={UNREAD}>Unread</option>
+                    <option value={ARCHIVED}>Archived</option>
                 </select>
             </div>
             {allChat}

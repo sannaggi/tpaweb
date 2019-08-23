@@ -25,7 +25,7 @@ function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, 
     }, [chat, status, firstRender])
 
     const onClick = useCallback(
-        (s, callCallback) => {
+        (s) => {
             let value: any
             let statusType: string
             if(s === "starred") {
@@ -48,23 +48,23 @@ function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, 
                 }
             })
 
-            if(callCallback) callback(chat.id, statusType, value)
+            callback(chat.id, statusType, value)
         },
         [chat.id, status, callback],
     )
 
     const getStar = useCallback(
         () => {
-            if(status.starred === false) return <div onClick={() => onClick("starred", false)}><span className="icon star">&#9733;</span> Star</div>
-            return <div onClick={() => onClick("starred", false)}><span className="icon star" style={{color: "rgb(238, 182, 0)"}}>&#9733;</span> Unstar</div>
+            if(status.starred === false) return <div onClick={() => onClick("starred")}><span className="icon star">&#9733;</span> Star</div>
+            return <div onClick={() => onClick("starred")}><span className="icon star" style={{color: "rgb(238, 182, 0)"}}>&#9733;</span> Unstar</div>
         },
         [status.starred, onClick],
     )
 
     const getArchive = useCallback(
         () => {
-            if(status.archived === false) return <div onClick={() => onClick("archived", true)}><span className="icon archive"><i className="fa fa-archive"></i></span> Archive</div>
-            return <div onClick={() => onClick("archived", true)}><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Unarchive</div>
+            if(status.archived === false) return <div onClick={() => onClick("archived")}><span className="icon archive"><i className="fa fa-archive"></i></span> Archive</div>
+            return <div onClick={() => onClick("archived")}><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Unarchive</div>
         },
         [status.archived, onClick],
     )
