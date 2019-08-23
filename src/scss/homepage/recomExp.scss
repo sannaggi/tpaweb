@@ -59,6 +59,12 @@
     }
 }
 @include mQ(750px) {
+    .expContainer {
+        a{
+            margin: 0 2px;
+            width: calc((100% - 12px) / 3);
+        }
+    }
     .recomTitleContainer {
         p {
             display: none !important;
@@ -69,19 +75,20 @@
             margin-bottom: 0.30em;
         }
         .card-category {
-            font-size: 11px;
-            height: 27px;
+            font-size: 12px;
+            height: 13px;
+            @include ellipsis
         }
         .card-name {
-            font-size: 12.5px;
+            font-size: 14.5px;
         }
         .card-price {
-            font-size: 13px;
+            font-size: 15px;
         }
         .card-review {
-            font-size: 11px;
+            font-size: 13px;
             span {
-                font-size: 11px;
+                font-size: 13px;
             }
         }
     }

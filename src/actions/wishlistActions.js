@@ -1,4 +1,4 @@
-import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST, SET_ACTIVE_WISHLIST_MODAL } from "./types";
+import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST, SET_ACTIVE_WISHLIST_MODAL, SET_ISCREATING } from "./types";
 import axios from "axios";
 
 export function getAllWishlists(id) {
@@ -38,6 +38,15 @@ export function setActiveWishlistModal(data) {
         dispatch({
             type: SET_ACTIVE_WISHLIST_MODAL,
             payload: data
+        })
+    }
+}
+
+export function setIsCreating(isCreating) {
+    return function (dispatch){
+        dispatch({
+            type: SET_ISCREATING,
+            payload: isCreating
         })
     }
 }

@@ -1,9 +1,10 @@
-import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST, SET_ACTIVE_WISHLIST_MODAL } from "../actions/types";
+import { GET_ALL_WISHLISTS, SET_CURRENT_WISHLIST, SET_ACTIVE_WISHLIST_MODAL, SET_ISCREATING } from "../actions/types";
 
 const initialState = {
   items: [],
   item: {},
-  active: {}
+  active: {},
+  isCreating: false
 };
 
 export default function(state = initialState, action) {
@@ -12,6 +13,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: action.payload
+      };
+    case SET_ISCREATING:
+      return {
+        ...state,
+        isCreating: action.payload
       };
     case SET_CURRENT_WISHLIST:
       return {

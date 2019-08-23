@@ -60,7 +60,7 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
     if (click) {
       if (screen.width <= MOBILEWIDTH) {
         if(user.id === undefined) return {height: "161px"}
-        return {height: "340px"}
+        return {height: "270px"}
       }
       if(user.id === undefined) return {height: "210px"}
       return {height: "350px"}

@@ -43,18 +43,24 @@
     height: 30vw; } }
 
 @media screen and (max-width: 750px) {
+  .expContainer a {
+    margin: 0 2px;
+    width: calc((100% - 12px) / 3); }
   .recomTitleContainer p {
     display: none !important; }
   .expCard .cardImage {
     margin-bottom: 0.30em; }
   .expCard .card-category {
-    font-size: 11px;
-    height: 27px; }
+    font-size: 12px;
+    height: 13px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden; }
   .expCard .card-name {
-    font-size: 12.5px; }
+    font-size: 14.5px; }
   .expCard .card-price {
-    font-size: 13px; }
+    font-size: 15px; }
   .expCard .card-review {
-    font-size: 11px; }
+    font-size: 13px; }
     .expCard .card-review span {
-      font-size: 11px; } }
+      font-size: 13px; } }

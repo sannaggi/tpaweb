@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux';
 import axios from "axios";
 import { getAllWishlists } from "../../actions/wishlistActions";
+import { setIsCreating } from "../../actions/wishlistActions";
 
-function WishlistModal({user, getAllWishlists} : {user: any, getAllWishlists: any}) {
+function WishlistModal({user, getAllWishlists, setIsCreating} : {user: any, getAllWishlists: any, setIsCreating: any}) {
     
     const [newWishlist, setNewWishlist] = useState({
         name: "",
         privacy: "public"
     })
 
+    const onClick = useCallback(
+        (e) => {
+            if (e.target.className === "modal" || e.target.className === "close-modal"){
+                setIsCreating(false)
+                document.getElementById("wishlistModal").setAttribute("style", "display: none");
+            }
+        },
+        [],
+    )
+    
     useEffect(() => {
         document.getElementById("wishlistModal").addEventListener("click", onClick);
-    }, []);
+    }, [onClick]);
 
     function closeModal() {
-        document.getElementById("wishlistModal").setAttribute("style", "display: none");
-    }
-
-    function onClick(e) {
-        if (e.target.className === "modal" || e.target.className === "close-modal")
+        setIsCreating(false)
         document.getElementById("wishlistModal").setAttribute("style", "display: none");
     }
 
@@ -82,4 +89,4 @@ const mapStateToProps = (state: any) => ({
     user: state.user.item
 })
 
-export default connect(mapStateToProps, {getAllWishlists})(WishlistModal)
+export default connect(mapStateToProps, {getAllWishlists, setIsCreating})(WishlistModal)

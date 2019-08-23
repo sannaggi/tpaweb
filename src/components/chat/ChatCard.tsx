@@ -3,10 +3,80 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import { TEXT, IMAGE } from "./chatTypes";
 
-function ChatCard({chat, user, currency} : {chat: any, user: any, currency: any}) {
+function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, user: any, currency: any}) {
 
     const [otherUser, setOtherUser] = useState()
     const [content, setContent] = useState()
+    const [statusContent, setstatusContent] = useState()
+    const [firstRender, setfirstRender] = useState(true)
+    const [status, setStatus] = useState({
+        starred: false,
+        archived: false,
+        unread: false
+    })
+
+    useEffect(() => {
+        setfirstRender(false)
+    }, [])
+
+    useEffect(() => {
+        if(!firstRender) return
+        setStatus({...status, starred: chat.starred, archived: chat.archived})
+    }, [chat, status, firstRender])
+
+    const onClick = useCallback(
+        (s, callCallback) => {
+            let value: any
+            let statusType: string
+            if(s === "starred") {
+                value = !status.starred
+                statusType = "starred"
+                setStatus({...status, starred: value})
+            }
+            else if(s === "archived") {
+                value = !status.archived
+                statusType = "archived"
+                setStatus({...status, archived: value})
+            }
+
+            axios({
+                url: "http://localhost/api/chat/" + chat.id,
+                method: "POST",
+                data: {status: s, value: s === "starred"? !status.starred : !status.archived},
+                headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+
+            if(callCallback) callback(chat.id, statusType, value)
+        },
+        [chat.id, status, callback],
+    )
+
+    const getStar = useCallback(
+        () => {
+            if(status.starred === false) return <div onClick={() => onClick("starred", false)}><span className="icon star">&#9733;</span> Star</div>
+            return <div onClick={() => onClick("starred", false)}><span className="icon star" style={{color: "rgb(238, 182, 0)"}}>&#9733;</span> Unstar</div>
+        },
+        [status.starred, onClick],
+    )
+
+    const getArchive = useCallback(
+        () => {
+            if(status.archived === false) return <div onClick={() => onClick("archived", true)}><span className="icon archive"><i className="fa fa-archive"></i></span> Archive</div>
+            return <div onClick={() => onClick("archived", true)}><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Unarchive</div>
+        },
+        [status.archived, onClick],
+    )
+
+    useEffect(() => {
+        setstatusContent(
+            <React.Fragment>
+                {getStar()}
+                {getArchive()}
+            </React.Fragment>
+        )
+    }, [status, getStar, getArchive])
     
     const getCurrency = useCallback(
         (price) => {
@@ -73,22 +143,6 @@ function ChatCard({chat, user, currency} : {chat: any, user: any, currency: any}
         [chat, getCurrency],
     )
 
-    const getStar = useCallback(
-        () => {
-            if(chat.starred === false) return <div><span className="icon star">&#9733;</span> Star</div>
-            return <div><span className="icon star" style={{color: "rgb(238, 182, 0)"}}>&#9733;</span> Unstar</div>
-        },
-        [chat.starred],
-    )
-
-    const getArchive = useCallback(
-        () => {
-            if(chat.archived === false) return <div><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Archive</div>
-            return <div><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Unarchive</div>
-        },
-        [chat.archived],
-    )
-
     useEffect(() => {
         if(otherUser === undefined) return
         setContent(
@@ -106,13 +160,12 @@ function ChatCard({chat, user, currency} : {chat: any, user: any, currency: any}
                         {getStatus()}
                     </div>
                     <div className="content-section center chat-status">
-                        {getStar()}
-                        {getArchive()}
+                        {statusContent}
                     </div>
                 </div>
             </React.Fragment>
         )
-    }, [otherUser, getLastChatTime, getLastChat, getStatus, getStar, getArchive])
+    }, [otherUser, getLastChatTime, getLastChat, getStatus, getStar, getArchive, statusContent])
 
 
     return (

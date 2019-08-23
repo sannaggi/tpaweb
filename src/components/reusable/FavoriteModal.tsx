@@ -1,13 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../css/reusable/favoriteModal.css'
 import { connect } from 'react-redux';
 import FavoriteModalItem from "./FavoriteModalItem";
+import { setIsCreating } from "../../actions/wishlistActions";
 
-function FavoriteModal({wishlists} : {wishlists: any}) {
+function FavoriteModal({wishlists, setIsCreating, isCreating} : {wishlists: any, setIsCreating: any, isCreating: any}) {
+
+    const [firstRender, setFirstRender] = useState(true)
 
     useEffect(() => {
         document.getElementById("favoriteModal").addEventListener("click", onClick);
+        setFirstRender(false)
     }, [])
+
+    useEffect(() => {
+        if(firstRender) return
+        if(isCreating === false) {
+            document.getElementById("favoriteModal").setAttribute("style", "display: block")
+        }
+    }, [isCreating])
 
     function onClick(e) {   
         if(e.target.className === 'modal' || e.target.className === 'close-modal')
@@ -15,6 +26,8 @@ function FavoriteModal({wishlists} : {wishlists: any}) {
     }
 
     function showModal() {
+        setIsCreating(true)
+        document.getElementById("favoriteModal").setAttribute("style", "display: none")
         document.getElementById("wishlistModal").setAttribute("style", "display: block")
     }
 
@@ -42,7 +55,8 @@ function FavoriteModal({wishlists} : {wishlists: any}) {
 
 const mapStateToProps = (state: any) => ({
     wishlists: state.wishlist.items,
-    current: state.wishlist.active
+    current: state.wishlist.active,
+    isCreating: state.wishlist.isCreating
 })
 
-export default connect(mapStateToProps, {})(FavoriteModal)
+export default connect(mapStateToProps, { setIsCreating })(FavoriteModal)

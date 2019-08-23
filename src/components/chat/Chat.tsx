@@ -7,6 +7,12 @@ import "../../css/chat/chat.css";
 function Chat({user} : {user: any}) {
 
     const [chats, setChats] = useState([])
+    const [allChat, setallChat] = useState()
+
+    useEffect(() => {
+        if(chats.length === 0) return
+        getAllChat()
+    }, [chats])
 
     useEffect(() => {
         if(user.id === undefined) return
@@ -19,6 +25,20 @@ function Chat({user} : {user: any}) {
         .then(data => setChats(data.data))
     }, [user])
 
+    function changeStatus(id: any, status: string, value: boolean) {
+        chats.forEach((chat) => {
+            if(chat.id === id) {
+                if(status === "starred") chat.starred = value
+                else if(status === "archived") chat.archived = value
+            }
+        })
+        getAllChat()
+    }
+
+    function getAllChat() {
+        setallChat(chats.map((chat) => (<ChatCard callback={changeStatus} key={chat.id} chat={chat}/>)))
+    }
+
     return (
         <main className="chat-container">
             <div className="title"><h1>Your Chats</h1></div>
@@ -30,7 +50,7 @@ function Chat({user} : {user: any}) {
                     <option value="archived">Archived</option>
                 </select>
             </div>
-            {chats.map((chat) => (<ChatCard key={chat.id} chat={chat}/>))}
+            {allChat}
         </main>
     )
 }
