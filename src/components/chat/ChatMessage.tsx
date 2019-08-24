@@ -7,7 +7,7 @@ function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, m
     const [messageKey, setmessageKey] = useState(0)
 
     useEffect(() => {
-        const port = process.env.PORT + 1 || 6969
+        const port = process.env.PORT || 6969
         const socket = io("/")
         socket.on('connect', () => {
             console.log(socket.id)
