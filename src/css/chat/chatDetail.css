@@ -10,16 +10,32 @@
   -ms-flex-pack: end;
   justify-content: flex-end; }
   .chats-container .messages-container {
+    width: 100%;
     overflow: scroll;
     overflow-x: hidden; }
     .chats-container .messages-container .message-container {
+      width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      margin: 1.5em; }
+      margin: 1.5em;
+      -webkit-animation: fadeIn 0.5s;
+      animation: fadeIn 0.5s; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
       .chats-container .messages-container .message-container > div {
         width: 100%; }
         .chats-container .messages-container .message-container > div small {
@@ -28,18 +44,22 @@
         width: 70px;
         margin-right: 20px; }
       .chats-container .messages-container .message-container .message-content {
-        width: -webkit-min-content;
-        width: -moz-min-content;
-        width: min-content;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        max-width: calc(100% - 120px);
         border: 1px solid #868686;
         border-radius: 10px;
         padding: 0.7em;
-        border-top-left-radius: 0; }
+        border-top-left-radius: 0;
+        line-break: auto;
+        word-wrap: break-word; }
     .chats-container .messages-container .theirs {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
-      flex-direction: row-reverse; }
+      flex-direction: row-reverse;
+      padding-right: 35px; }
       .chats-container .messages-container .theirs > div {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -81,10 +101,12 @@
     .chat-detail-container {
       padding: 1.5em 1em; } }
   @media screen and (max-width: 750px) {
-    .chat-detail-container .chats-container {
-      width: 100% !important; }
-    .chat-detail-container .details {
-      display: none !important; } }
+    .chat-detail-container {
+      padding: 0; }
+      .chat-detail-container .chats-container {
+        width: 100% !important; }
+      .chat-detail-container .details {
+        display: none !important; } }
   .chat-detail-container .chats-container {
     width: calc((100% - 7vw) * 3 / 5);
     height: 694px; }

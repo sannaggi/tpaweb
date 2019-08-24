@@ -9,6 +9,7 @@
         padding: 1.5em 1em;
     }
     @include mQ(750px) {
+        padding: 0;
         .chats-container {
             width: 100% !important;
         }
