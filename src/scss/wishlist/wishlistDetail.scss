@@ -69,6 +69,7 @@
             }
             .experienceDetailContainer {
                 display: flex;
+                flex-wrap: wrap;
                 .experienceCardContainer { 
                     margin: 10px 7px;
                     width: calc(50% - 14px);

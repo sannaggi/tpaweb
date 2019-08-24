@@ -1,0 +1,69 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+@import './chatMessage.scss';
+
+.chat-detail-container {
+    padding: 2.5em 4em;
+    display: flex;
+    .chats-container { 
+        width: calc((100% - 7vw) * 2 / 3);
+        height: 694px;
+    }
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc((100% - 7vw) / 3);
+        padding: 2em;
+        border: 3px solid $superLightGrey;
+        margin-right: 7vw;
+        .section {
+            padding: 8px 0;
+            width: 100%;
+            .title {
+                color: $lightGrey;
+            }
+            .address {
+                height: 3em;
+                @include ellipsis;
+            }
+        }
+        .host-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                margin: 5px 0;
+                width: 100px;
+            }
+            .small-detail {
+                font-size: 14px;
+            }
+        }
+        .check-in-out {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px solid $superLightGrey;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+            .big-more-than {
+                width: 45px;
+                font-size: 30px;
+                color: $superLightGrey;
+                @include flexFullCenter;
+            }
+        }
+        .payment {
+            .payment-title {
+                margin-bottom: 20px;
+            }
+            .payment-detail {
+                @include flexBetween;
+                padding: 2px 0;
+            }
+            hr {
+                border-width: 2px;
+            }
+        }
+    }
+}

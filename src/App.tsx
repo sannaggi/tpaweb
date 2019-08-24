@@ -16,6 +16,7 @@ import Global from "./components/layouts/Global";
 import Wishlist from "./components/wishlist/Wishlist";
 import WishlistDetail from "./components/wishlist/WishlistDetail";
 import Chat from "./components/chat/Chat";
+import ChatDetail from "./components/chat/ChatDetail";
 
 const App: React.FC = () => {
   return (
@@ -33,7 +34,7 @@ const App: React.FC = () => {
           <Route path="/register/:auth/:firstname/:lastname/:email" component={RegisterForm} />
           <Route exact path="/wishlist" component={Wishlist} />
           <Route path="/wishlist/:id" component={WishlistDetail} />  
-          <Route path="/chat" component={Chat} />  
+          <Route exact path="/chat" component={Chat} />   
           <Footer />
         </div>
       </Router>

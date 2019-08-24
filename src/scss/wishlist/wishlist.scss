@@ -4,26 +4,28 @@
 @import "./wishlistModal";
 @import "./wishlists";
 
+.green-button {
+    background-color: $blueGreen;
+    color: #fff;
+    transition: 0.3s;
+    &:active {
+        background-color: #fff;
+        color: $blueGreen;
+    }
+}
+.white-button {
+    background-color: #fff;
+    color: $blueGreen;
+    transition: 0.3s;
+    &:active {
+        background-color: $blueGreen;
+        color: #fff;
+    }
+}
 .wishlist-container {
     padding: 3.5em 10vw;
     .wish-button {
         @include wishlistButton;
-    }
-    .white-button {
-        background-color: #fff;
-        color: $blueGreen;
-        &:active {
-            background-color: $blueGreen;
-            color: #fff;
-        }
-    }
-    .green-button {
-        background-color: $blueGreen;
-        color: #fff;
-        &:active {
-            background-color: #fff;
-            color: $blueGreen;
-        }
     }
     .wishlist-header {
         @include flexBetween;

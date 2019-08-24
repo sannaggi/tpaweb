@@ -158,6 +158,26 @@
     display: flex;
     width: 100%; }
 
+.green-button {
+  background-color: #008489;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+  .green-button:active {
+    background-color: #fff;
+    color: #008489; }
+
+.white-button {
+  background-color: #fff;
+  color: #008489;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+  .white-button:active {
+    background-color: #008489;
+    color: #fff; }
+
 .wishlist-container {
   padding: 3.5em 10vw; }
   .wishlist-container .wish-button {
@@ -169,18 +189,6 @@
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s; }
-  .wishlist-container .white-button {
-    background-color: #fff;
-    color: #008489; }
-    .wishlist-container .white-button:active {
-      background-color: #008489;
-      color: #fff; }
-  .wishlist-container .green-button {
-    background-color: #008489;
-    color: #fff; }
-    .wishlist-container .green-button:active {
-      background-color: #fff;
-      color: #008489; }
   .wishlist-container .wishlist-header {
     display: -webkit-box;
     display: -ms-flexbox;

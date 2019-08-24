@@ -18,7 +18,7 @@ function WishlistModal({user, getAllWishlists, setIsCreating} : {user: any, getA
                 document.getElementById("wishlistModal").setAttribute("style", "display: none");
             }
         },
-        [],
+        [setIsCreating],
     )
     
     useEffect(() => {

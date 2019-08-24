@@ -31,3 +31,6 @@ button {
 button:hover {
     cursor: pointer;
 }
+textarea {
+    resize: none;
+}

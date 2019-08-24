@@ -72,7 +72,9 @@
     .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer {
       display: -webkit-box;
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
       .wishlist-detail-container .wishlist-detail .wishlist-content .experienceDetailContainer .experienceCardContainer {
         margin: 10px 7px;
         width: calc(50% - 14px); }

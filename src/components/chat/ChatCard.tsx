@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import { TEXT, IMAGE } from "./chatTypes";
 
-function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, user: any, currency: any}) {
+function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback: any, chat: any, user: any, currency: any, chatCardCallback: any}) {
 
     const [otherUser, setOtherUser] = useState()
     const [content, setContent] = useState()
@@ -55,16 +55,16 @@ function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, 
 
     const getStar = useCallback(
         () => {
-            if(status.starred === false) return <div onClick={() => onClick("starred")}><span className="icon star">&#9733;</span> Star</div>
-            return <div onClick={() => onClick("starred")}><span className="icon star" style={{color: "rgb(238, 182, 0)"}}>&#9733;</span> Unstar</div>
+            if(status.starred === false) return <div className="status-type" onClick={() => onClick("starred")}><span className="icon star">&#9733;</span> Star</div>
+            return <div className="status-type" onClick={() => onClick("starred")}><span className="icon star" style={{color: "rgb(238, 182, 0)"}}>&#9733;</span> Unstar</div>
         },
         [status.starred, onClick],
     )
 
     const getArchive = useCallback(
         () => {
-            if(status.archived === false) return <div onClick={() => onClick("archived")}><span className="icon archive"><i className="fa fa-archive"></i></span> Archive</div>
-            return <div onClick={() => onClick("archived")}><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Unarchive</div>
+            if(status.archived === false) return <div className="status-type" onClick={() => onClick("archived")}><span className="icon archive"><i className="fa fa-archive"></i></span> Archive</div>
+            return <div className="status-type" onClick={() => onClick("archived")}><span className="icon archive"><i className="fa fa-archive"  style={{color: "rgb(238, 182, 0)"}}></i></span> Unarchive</div>
         },
         [status.archived, onClick],
     )
@@ -167,9 +167,13 @@ function ChatCard({callback, chat, user, currency} : {callback: any, chat: any, 
         )
     }, [otherUser, getLastChatTime, getLastChat, getStatus, getStar, getArchive, statusContent])
 
+    function redirectClick(e) {
+        if(e.target.className === "status-type") return
+        chatCardCallback(otherUser, chat.messages)
+    }
 
     return (
-        <div className="chat-card-container">
+        <div className="chat-card-container" onClick={redirectClick}>
             {content}
         </div>
     )

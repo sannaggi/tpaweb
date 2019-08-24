@@ -1,0 +1,129 @@
+.chats-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+  .chats-container .messages-container .message-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 1.5em; }
+    .chats-container .messages-container .message-container img {
+      width: 70px; }
+    .chats-container .messages-container .message-container .message-content {
+      width: 100%;
+      border: 1px solid #868686;
+      border-radius: 10px;
+      padding: 0.7em; }
+  .chats-container .messages-container .theirs {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+    .chats-container .messages-container .theirs img {
+      margin-left: 20px;
+      margin-right: 0; }
+    .chats-container .messages-container .theirs .message-content {
+      background-color: #e6e6e6; }
+  .chats-container .input-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .chats-container .input-container textarea {
+      width: 100%;
+      padding: 9px;
+      font-family: sans-serif;
+      font-size: 16px; }
+    .chats-container .input-container button {
+      font-size: 18px;
+      padding: 0.3em 0.5em; }
+
+.chat-detail-container {
+  padding: 2.5em 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .chat-detail-container .chats-container {
+    width: calc((100% - 7vw) * 2 / 3);
+    height: 694px; }
+  .chat-detail-container .details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: calc((100% - 7vw) / 3);
+    padding: 2em;
+    border: 3px solid #bdbdbd;
+    margin-right: 7vw; }
+    .chat-detail-container .details .section {
+      padding: 8px 0;
+      width: 100%; }
+      .chat-detail-container .details .section .title {
+        color: #868686; }
+      .chat-detail-container .details .section .address {
+        height: 3em;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden; }
+    .chat-detail-container .details .host-profile {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .chat-detail-container .details .host-profile img {
+        margin: 5px 0;
+        width: 100px; }
+      .chat-detail-container .details .host-profile .small-detail {
+        font-size: 14px; }
+    .chat-detail-container .details .check-in-out {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      border-bottom: 2px solid #bdbdbd;
+      padding-bottom: 15px;
+      margin-bottom: 10px; }
+      .chat-detail-container .details .check-in-out .big-more-than {
+        width: 45px;
+        font-size: 30px;
+        color: #bdbdbd;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+    .chat-detail-container .details .payment .payment-title {
+      margin-bottom: 20px; }
+    .chat-detail-container .details .payment .payment-detail {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 2px 0; }
+    .chat-detail-container .details .payment hr {
+      border-width: 2px; }
