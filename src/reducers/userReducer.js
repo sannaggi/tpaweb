@@ -1,9 +1,10 @@
-import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT } from "../actions/types";
+import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT, SET_SOCKET } from "../actions/types";
 
 const initialState = {
   item: {},
   newItem: {},
-  registerStatus: false
+  registerStatus: false,
+  socket: null
 };
 
 export default function(state = initialState, action) {
@@ -27,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         item: {}
+      }
+    case SET_SOCKET:
+      return {
+        ...state,
+        socket: action.payload
       }
     default:
       return state;

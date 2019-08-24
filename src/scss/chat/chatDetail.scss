@@ -5,15 +5,26 @@
 .chat-detail-container {
     padding: 2.5em 4em;
     display: flex;
+    @include mQ(1100px) {
+        padding: 1.5em 1em;
+    }
+    @include mQ(750px) {
+        .chats-container {
+            width: 100% !important;
+        }
+        .details {
+            display: none !important;
+        }
+    }
     .chats-container { 
-        width: calc((100% - 7vw) * 2 / 3);
+        width: calc((100% - 7vw) * 3 / 5);
         height: 694px;
     }
     .details {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: calc((100% - 7vw) / 3);
+        width: calc((100% - 7vw) * 2 / 5);
         padding: 2em;
         border: 3px solid $superLightGrey;
         margin-right: 7vw;

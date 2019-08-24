@@ -4,19 +4,35 @@ import { connect } from 'react-redux';
 import { cookieLogin } from "../../actions/userActions";
 import { getAllWishlists } from "../../actions/wishlistActions";
 import WishlistModal from "../wishlist/WishlistModal";
+import { setSocket } from "../../actions/userActions";
+import io from "socket.io-client";
 
-function Global({cookieLogin, getAllWishlists, user} : {cookieLogin: any, getAllWishlists: any, user: any}) {
+function Global({cookieLogin, getAllWishlists, user, setSocket} : {setSocket: any, cookieLogin: any, getAllWishlists: any, user: any}) {
 
     useEffect(() => {
         if(localStorage.getItem("aiv-token") === null) return
+
         const token: any = decode(localStorage.getItem("aiv-token"))
         cookieLogin(token.data.id)
-    }, [cookieLogin])
+    }, [cookieLogin, setSocket])
     
     useEffect(() => {
         if(user.id === undefined) return
         getAllWishlists(user.id)
     }, [getAllWishlists, user.id])
+
+    useEffect(() => {
+        if(user.id === undefined) return
+
+        const port = process.env.PORT || 6969
+        const url = "http://localhost:" + port
+        const socket = io(url)
+        setSocket(socket)
+        
+        socket.on('connect', () => {
+            socket.emit('new user', user.id)
+        })
+    }, [user.id])
 
     return (
         <React.Fragment>
@@ -30,4 +46,4 @@ const mapStateToProps = (state: any) => ({
     user: state.user.item
 })
 
-export default connect(mapStateToProps, { cookieLogin, getAllWishlists })(Global)
+export default connect(mapStateToProps, { cookieLogin, getAllWishlists, setSocket })(Global)

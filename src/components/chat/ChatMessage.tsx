@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import io from "socket.io-client";
+import { connect } from 'react-redux';
+import { v4 } from "uuid";
 
-function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, messages: any}) {
+function ChatMessage({user, otherUser, messages, socket} : {user: any, otherUser: any, messages: any, socket: any}) {
 
     const [messageContent, setmessageContent] = useState("")
-    const [messageKey, setmessageKey] = useState(0)
 
     useEffect(() => {
-        const port = process.env.PORT || 6969
-        const socket = io("/")
-        socket.on('connect', () => {
-            console.log(socket.id)
-            socket.emit('new user', user.id)
-        }) 
+        if(socket === undefined) return
 
         const messageInput = document.getElementById('message-content')
         const messageForm = document.getElementById('message-form')
@@ -26,6 +21,7 @@ function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, m
                 type: "text",
                 content: messageInput.getAttribute("value")
             }
+            // console.log(socket.id)
             socket.emit('send message', data)
         }
 
@@ -42,9 +38,9 @@ function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, m
                 <div class="message-content">${data.content}</div>
             </div>`
         })
-    }, [])
+    }, [socket, otherUser, user])
 
-    function differentianteMessage(message: any, key: number) {
+    function differentianteMessage(message: any) {
         let c = "ours"
         let image = user.profileimage;
         if(message.senderid !== user.id) {
@@ -53,14 +49,14 @@ function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, m
         }
 
         return <div className={"message-container " + c}>
-            <img src={image} className="profile-image"/>
+            <img src={image} className="profile-image" alt=""/>
             <div className="message-content">{message.content}</div>
         </div>
     }
 
     function getMessages() {
         return messages.map((message: any) => (
-            differentianteMessage(message, messageKey)
+            differentianteMessage(message)
         ))
     }
 
@@ -83,4 +79,8 @@ function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, m
     )
 }
 
-export default ChatMessage
+const mapStateToProps = (state:any) => ({
+    socket: state.user.socket,
+})
+
+export default connect(mapStateToProps, {})(ChatMessage)

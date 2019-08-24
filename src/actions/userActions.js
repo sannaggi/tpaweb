@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER_STATUS, LOGOUT } from "./types";
+import { LOGIN, REGISTER_STATUS, LOGOUT, SET_SOCKET } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 
@@ -141,4 +141,13 @@ export function logout() {
     })
     clearCookie()
   };
+}
+
+export function setSocket(socket) {
+  return function(dispatch) {
+    dispatch({
+      type: SET_SOCKET,
+      payload: socket
+    })
+  }
 }

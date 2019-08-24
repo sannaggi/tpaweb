@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import "../../css/chat/chatDetail.css";
 import ChatMessage from "./ChatMessage";
@@ -10,7 +10,7 @@ function ChatDetail({currency, user, otherUser, messages} : {currency:any, user:
     }
 
     function getHostProfile() {
-        {/* TODO: validate which user is host */}
+        // TODO: validate which user is host
         const host = otherUser
         return <div className="host-profile section">
             <img src={host.profileimage} className="profile-image" alt=""/>
@@ -24,14 +24,14 @@ function ChatDetail({currency, user, otherUser, messages} : {currency:any, user:
         return <div className="check-in-out section">
             <div>
                 <div className="title">Check in</div>
-                <div><strong>date_placeholder</strong></div>
+                <div><strong>09/08/2019</strong></div>
             </div>
             <div className="big-more-than">
                 >
             </div>
             <div>
                 <div className="title">Check out</div>
-                <div><strong>date_placeholder</strong></div>
+                <div><strong>11/08/2019</strong></div>
             </div>
         </div>
     }

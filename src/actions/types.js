@@ -17,6 +17,7 @@ export const LOGIN = "LOGIN";
 export const REGISTER_STATUS = "REGISTER_STATUS";
 export const SET_REGISTER_END = "SET_REGISTER_END";
 export const LOGOUT = "LOGOUT";
+export const SET_SOCKET = "SET_SOCKET";
 
 export const GET_ALL_WISHLISTS = "GET_ALL_WISHLIST";
 export const SET_CURRENT_WISHLIST = 'SET_CURRENT_WISHLIST';
