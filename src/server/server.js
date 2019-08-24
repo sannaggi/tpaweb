@@ -24,18 +24,20 @@ io.on('connection', (socket) => {
 
     socket.on('new user', (user) => {
         console.log(user)
-        if(users.includes(user)) return
         users.push(user)
         console.log('users: %s users connected', users.length)   
     })
 
     socket.on('send message', (data) => {
-        let receiverIndex = users.indexOf(data.receiver);
         console.log(data.receiver)
         console.log(...users)
-        console.log(receiverIndex)
-        if(receiverIndex === -1) return
-        socket.to(connections[receiverIndex]).emit('new message', data)
+        for (let index = 0; index < users.length; index++) {
+            const e = users[index];
+            if((e === data.receiver || e === data.sender) && connections[index] !== socket.id) {
+                console.log(index)
+                socket.to(connections[index]).emit('new message', data)
+            }
+        }
         socket.emit('new message', data)
     })
 })

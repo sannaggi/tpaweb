@@ -16,12 +16,21 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
       margin: 1.5em; }
+      .chats-container .messages-container .message-container > div {
+        width: 100%; }
+        .chats-container .messages-container .message-container > div small {
+          font-size: 12px; }
       .chats-container .messages-container .message-container img {
         width: 70px;
         margin-right: 20px; }
       .chats-container .messages-container .message-container .message-content {
-        width: 100%;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
         border: 1px solid #868686;
         border-radius: 10px;
         padding: 0.7em;
@@ -31,6 +40,17 @@
       -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
       flex-direction: row-reverse; }
+      .chats-container .messages-container .theirs > div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end; }
       .chats-container .messages-container .theirs img {
         margin-left: 20px;
         margin-right: 0; }

@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import "../../css/chat/chatDetail.css";
 import ChatMessage from "./ChatMessage";
 
-function ChatDetail({currency, user, otherUser, messages} : {currency:any, user: any, otherUser: any, messages:any}) {
+function ChatDetail({chat, currency, user, otherUser, messages} : {chat: any, currency:any, user: any, otherUser: any, messages:any}) {
 
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
     }
 
     function getHostProfile() {
-        // TODO: validate which user is host
-        const host = otherUser
+        let host = otherUser
+        if(chat.host === user.id) host = user
         return <div className="host-profile section">
             <img src={host.profileimage} className="profile-image" alt=""/>
             <div><strong>{host.firstname}</strong></div>
@@ -95,7 +95,7 @@ function ChatDetail({currency, user, otherUser, messages} : {currency:any, user:
     return (
         <main className="chat-detail-container">
             {getDetails()}
-            <ChatMessage user={user} otherUser={otherUser} messages={messages}/>
+            <ChatMessage chat={chat} user={user} otherUser={otherUser} messages={messages}/>
         </main>
     )
 }

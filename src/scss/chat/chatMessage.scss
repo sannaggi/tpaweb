@@ -7,13 +7,20 @@
         overflow-x: hidden;
         .message-container {
             display: flex;
+            align-items: center;
             margin: 1.5em;
+            >div {
+                width: 100%;
+                small {
+                    font-size: 12px;
+                }
+            }
             img { 
                 width: 70px;
                 margin-right: 20px;
             }
             .message-content {
-                width: 100%;
+                width: min-content;
                 border: 1px solid $lightGrey;
                 border-radius: 10px;
                 padding: 0.7em;
@@ -22,6 +29,11 @@
         }
         .theirs {
             flex-direction: row-reverse;
+            >div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
             img {   
                 margin-left: 20px;
                 margin-right: 0;

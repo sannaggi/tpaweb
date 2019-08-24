@@ -14,6 +14,7 @@ function Chat({user} : {user: any}) {
     const [chats, setChats] = useState([])
     const [allChat, setallChat] = useState()
     const [filter, setFilter] = useState(ALL)
+    const [chat, setchat] = useState()
     const [content, setContent] = useState(
         <main className="chat-container">
             <div className="title"><h1>Your Chats</h1></div>
@@ -31,7 +32,7 @@ function Chat({user} : {user: any}) {
 
     useEffect(() => {
         if(redirectToDetail === true) {
-            setContent(<ChatDetail messages={messages} otherUser={otherUser}/>)
+            setContent(<ChatDetail chat={chat} messages={messages} otherUser={otherUser}/>)
             return
         }
         setContent(<main className="chat-container">
@@ -81,9 +82,10 @@ function Chat({user} : {user: any}) {
         getAllChat()
     }, [filter])
 
-    function chatCardCallback(otherUser: any, messages: any) {
+    function chatCardCallback(otherUser: any, messages: any, chat: any) {
         setotherUser(otherUser)
         setMessages(messages)
+        setchat(chat)
         setredirectToDetail(true)
     }
 

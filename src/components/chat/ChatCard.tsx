@@ -105,8 +105,8 @@ function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback
     const getMonthYear = useCallback(
         (date) => {
             let el = date.split("/")
-            let monthNames = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-            return monthNames[el[1]] + " " + el[2]
+            let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+            return monthNames[parseInt(el[1]) - 1] + " " + el[2]
         },
         [],
     )
@@ -122,6 +122,8 @@ function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback
     const getLastChat = useCallback(
         () => {
             let messages = chat.messages
+            if(messages.length === 0) return ""
+            
             let lastMessage = messages[messages.length - 1]
             
             if(lastMessage.type === TEXT) return lastMessage.content
@@ -169,7 +171,7 @@ function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback
 
     function redirectClick(e) {
         if(e.target.className === "status-type") return
-        chatCardCallback(otherUser, chat.messages)
+        chatCardCallback(otherUser, chat.messages, chat)
     }
 
     return (
