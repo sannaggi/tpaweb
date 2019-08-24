@@ -17,7 +17,7 @@
                 border: 1px solid $lightGrey;
                 border-radius: 10px;
                 padding: 0.7em;
-                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
             }
         }
         .theirs {
@@ -28,8 +28,8 @@
             }
             .message-content {
                 background-color: $superDuperLightGrey;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 10px;
+                border-top-right-radius: 0;
+                border-top-left-radius: 10px;
             }
         }
     }
