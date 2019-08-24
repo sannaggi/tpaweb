@@ -1,8 +1,12 @@
-var server = require('http').createServer()
-var io = require('socket.io').listen(server)
+const express = require('express')
+const app = express()
+const server = require('http').Server(app)
+const io = require('socket.io').listen(server)
 
 var connections = []
 var users = []
+
+app.use(express.static(__dirname + '/../../build'))
 
 io.on('connection', (socket) => {
     

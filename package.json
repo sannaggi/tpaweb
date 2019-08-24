@@ -60,7 +60,8 @@
     "nodemon": "^1.19.1"
   },
   "scripts": {
-    "start": "concurrently \"npm run react\" \"npm run server\"",
+    "start": "node src/server/server.js",
+    "dev": "concurrently \"npm run react\" \"npm run server\"",
     "react": "react-scripts start",
     "server": "nodemon src/server/server.js",
     "build": "react-scripts build",
