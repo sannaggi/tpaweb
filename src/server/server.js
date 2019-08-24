@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
     })
 })
 
-const PORT = process.env.PORT || 6969
+const PORT = process.env.PORT + 1 || 6969
 
 server.listen(PORT, () => {
     console.log("connected to port " + PORT)
