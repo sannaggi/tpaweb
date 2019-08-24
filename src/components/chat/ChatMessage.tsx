@@ -8,7 +8,7 @@ function ChatMessage({user, otherUser, messages} : {user: any, otherUser: any, m
 
     useEffect(() => {
         const port = process.env.PORT + 1 || 6969
-        const socket = io("http://localhost:" + port)
+        const socket = io("/")
         socket.on('connect', () => {
             console.log(socket.id)
             socket.emit('new user', user.id)
