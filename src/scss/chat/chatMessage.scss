@@ -3,17 +3,21 @@
     flex-direction: column;
     justify-content: flex-end;
     .messages-container {
+        overflow: scroll;
+        overflow-x: hidden;
         .message-container {
             display: flex;
             margin: 1.5em;
             img { 
                 width: 70px;
+                margin-right: 20px;
             }
             .message-content {
                 width: 100%;
                 border: 1px solid $lightGrey;
                 border-radius: 10px;
                 padding: 0.7em;
+                border-bottom-left-radius: 0;
             }
         }
         .theirs {
@@ -24,20 +28,23 @@
             }
             .message-content {
                 background-color: $superDuperLightGrey;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 10px;
             }
         }
     }
     .input-container {
         display: flex;
-        textarea {
+        input[type="text"] {
             width: 100%;
             padding: 9px;
             font-family: sans-serif;
             font-size: 16px;
         }
-        button {
+        input[type="submit"] {
             font-size: 18px;
-            padding: 0.3em 0.5em;
+            width: auto;
+            padding: 0.6em 1em;
         }
     }
 }

@@ -9,40 +9,48 @@
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end; }
-  .chats-container .messages-container .message-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 1.5em; }
-    .chats-container .messages-container .message-container img {
-      width: 70px; }
-    .chats-container .messages-container .message-container .message-content {
-      width: 100%;
-      border: 1px solid #868686;
-      border-radius: 10px;
-      padding: 0.7em; }
-  .chats-container .messages-container .theirs {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse; }
-    .chats-container .messages-container .theirs img {
-      margin-left: 20px;
-      margin-right: 0; }
-    .chats-container .messages-container .theirs .message-content {
-      background-color: #e6e6e6; }
+  .chats-container .messages-container {
+    overflow: scroll;
+    overflow-x: hidden; }
+    .chats-container .messages-container .message-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 1.5em; }
+      .chats-container .messages-container .message-container img {
+        width: 70px;
+        margin-right: 20px; }
+      .chats-container .messages-container .message-container .message-content {
+        width: 100%;
+        border: 1px solid #868686;
+        border-radius: 10px;
+        padding: 0.7em;
+        border-bottom-left-radius: 0; }
+    .chats-container .messages-container .theirs {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse; }
+      .chats-container .messages-container .theirs img {
+        margin-left: 20px;
+        margin-right: 0; }
+      .chats-container .messages-container .theirs .message-content {
+        background-color: #e6e6e6;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 10px; }
   .chats-container .input-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    .chats-container .input-container textarea {
+    .chats-container .input-container input[type="text"] {
       width: 100%;
       padding: 9px;
       font-family: sans-serif;
       font-size: 16px; }
-    .chats-container .input-container button {
+    .chats-container .input-container input[type="submit"] {
       font-size: 18px;
-      padding: 0.3em 0.5em; }
+      width: auto;
+      padding: 0.6em 1em; }
 
 .chat-detail-container {
   padding: 2.5em 4em;
