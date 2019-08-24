@@ -58,6 +58,23 @@
     }
     .input-container {
         display: flex;
+        position: relative;
+        .emoji-picker {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            transform: translateY(-100%);
+            display: none;
+            .emoji-mart {
+                width: 100% !important;
+            }
+        }
+        .emoji {
+            @include flexFullCenter;
+            padding: 0 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
         input[type="text"] {
             width: 100%;
             padding: 9px;

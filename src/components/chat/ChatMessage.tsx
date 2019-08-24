@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import axios from "axios";
 import { TEXT } from "./chatTypes";
+import { Picker } from "emoji-mart";
+import 'emoji-mart/css/emoji-mart.css'
 
 function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, user: any, otherUser: any, messages: any, socket: any}) {
 
@@ -110,6 +112,17 @@ function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, use
         setmessageContent(e.target.value)
     }
 
+    function onSelect(e) {
+        let emoji = e.native;
+        setmessageContent(m => m + emoji)
+    }
+
+    function onClick() {
+        const emoji = document.getElementsByClassName("emoji-picker")[0]
+        if(emoji.getAttribute("style") === null || emoji.getAttribute("style") === "display: none") emoji.setAttribute("style", "display: block")
+        else emoji.setAttribute("style", "display: none")
+    }
+
     return (
         <div className="chats-container">
             <div className="messages-container" id="messages-container">
@@ -117,7 +130,9 @@ function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, use
             </div>
             <form id="message-form" autoComplete="off">
                 <div className="input-container">
+                    <div className="emoji-picker"><Picker onSelect={onSelect} /></div>
                     <input autoComplete="off" type="text" id="message-content" onChange={onChange} value={messageContent}/>
+                    <span className="emoji" onClick={onClick}>😀</span>
                     <input type="submit" className="green-button" value="Send"/>
                 </div>
             </form>

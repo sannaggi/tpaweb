@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/emoji-mart": "^2.8.4",
     "@types/express": "^4.17.1",
     "@types/google-map-react": "^0.23.12",
     "@types/jest": "24.0.15",
@@ -30,6 +31,7 @@
     "@types/uuid": "^3.4.5",
     "axios": "^0.19.0",
     "concurrently": "^4.1.2",
+    "emoji-mart": "^2.11.1",
     "express": "^4.17.1",
     "google-map-react": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
