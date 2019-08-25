@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
-
-function ExperienceHost({id} : {id: any}) {
+function ExperienceHost({id, user} : {id: any, user: any}) {
 
     const [host, setHost] = useState()
     const [content, setContent] = useState()
@@ -37,4 +37,8 @@ function ExperienceHost({id} : {id: any}) {
     )
 }
 
-export default ExperienceHost
+const mapStateToProps = (state:any) => ({
+    user: state.user.item,
+})
+
+export default connect(mapStateToProps, {})(ExperienceHost)

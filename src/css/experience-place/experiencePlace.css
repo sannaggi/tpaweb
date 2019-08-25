@@ -1,3 +1,54 @@
+.pagination {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .pagination .disabled {
+    display: none; }
+  .pagination .active {
+    pointer-events: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #008489; }
+    .pagination .active > a {
+      color: white; }
+  .pagination .break-me {
+    pointer-events: none; }
+  .pagination .next, .pagination .previous {
+    border: 1px solid #008489; }
+  .pagination > li {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 7px; }
+    .pagination > li > a {
+      cursor: pointer;
+      -webkit-transition: all 0.15s ease;
+      -o-transition: all 0.15s ease;
+      transition: all 0.15s ease;
+      color: #008489;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+
 .profile-image {
   border-radius: 50%; }
 
@@ -25,53 +76,6 @@
     font-size: 20px; }
     #expPlace #expContainer #section-reviews > .left > #rating .reviews {
       height: 20px; }
-  #expPlace #expContainer #section-reviews > .right .pagination {
-    overflow: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
-    #expPlace #expContainer #section-reviews > .right .pagination .disabled {
-      display: none; }
-    #expPlace #expContainer #section-reviews > .right .pagination .active {
-      pointer-events: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #008489; }
-      #expPlace #expContainer #section-reviews > .right .pagination .active > a {
-        color: white; }
-    #expPlace #expContainer #section-reviews > .right .pagination .break-me {
-      pointer-events: none; }
-    #expPlace #expContainer #section-reviews > .right .pagination .next, #expPlace #expContainer #section-reviews > .right .pagination .previous {
-      border: 1px solid #008489; }
-    #expPlace #expContainer #section-reviews > .right .pagination > li {
-      text-align: center;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 7px; }
-      #expPlace #expContainer #section-reviews > .right .pagination > li > a {
-        cursor: pointer;
-        -webkit-transition: all 0.15s ease;
-        -o-transition: all 0.15s ease;
-        transition: all 0.15s ease;
-        color: #008489;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%; }
   #expPlace #expContainer .section {
     margin-bottom: 5vw;
     display: -webkit-box;

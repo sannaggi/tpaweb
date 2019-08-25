@@ -1,6 +1,43 @@
 @import "../variables.scss";
 @import "../mixins.scss";
 
+.pagination{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    .disabled{
+        display: none;
+    }
+    .active{
+        pointer-events: none;
+        @include circle(32px);
+        background-color: $blueGreen;
+        >a{
+            color: white;
+        }
+    }
+    .break-me{
+        pointer-events: none;
+    }
+    .next, .previous{
+        border: 1px solid $blueGreen;
+    }
+    >li{
+        text-align: center;
+        display: flex;
+        @include circle(32px);
+        overflow: hidden;
+        margin: 0 7px;
+        >a{
+            cursor: pointer;
+            transition: all 0.15s ease;
+            color: $blueGreen;
+            @include flexFullCenter;
+            @include circle(100%);
+        }
+    }
+}
+
 .profile-image {
     border-radius: 50%;
 }
@@ -27,43 +64,6 @@
                     }
                 }
                 
-            }
-            >.right{
-                .pagination{
-                    overflow: hidden;
-                    display: flex;
-                    .disabled{
-                        display: none;
-                    }
-                    .active{
-                        pointer-events: none;
-                        @include circle(32px);
-                        background-color: $blueGreen;
-                        >a{
-                            color: white;
-                        }
-                    }
-                    .break-me{
-                        pointer-events: none;
-                    }
-                    .next, .previous{
-                        border: 1px solid $blueGreen;
-                    }
-                    >li{
-                        text-align: center;
-                        display: flex;
-                        @include circle(32px);
-                        overflow: hidden;
-                        margin: 0 7px;
-                        >a{
-                            cursor: pointer;
-                            transition: all 0.15s ease;
-                            color: $blueGreen;
-                            @include flexFullCenter;
-                            @include circle(100%);
-                        }
-                    }
-                }
             }
         }
         .section{

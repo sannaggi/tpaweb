@@ -4,17 +4,12 @@ import { connect } from 'react-redux';
 import ChatCard from "./ChatCard";
 import "../../css/chat/chat.css";
 import { ALL, STARRED, ARCHIVED, UNREAD } from "./filterTypes";
-import ChatDetail from "./ChatDetail";
 
 function Chat({user} : {user: any}) {
 
-    const [otherUser, setotherUser] = useState()
-    const [messages, setMessages] = useState()
-    const [redirectToDetail, setredirectToDetail] = useState(false)
     const [chats, setChats] = useState([])
     const [allChat, setallChat] = useState()
     const [filter, setFilter] = useState(ALL)
-    const [chat, setchat] = useState()
     const [content, setContent] = useState(
         <main className="chat-container">
             <div className="title"><h1>Your Chats</h1></div>
@@ -31,10 +26,6 @@ function Chat({user} : {user: any}) {
     )
 
     useEffect(() => {
-        if(redirectToDetail === true) {
-            setContent(<ChatDetail chat={chat} messages={messages} otherUser={otherUser}/>)
-            return
-        }
         setContent(<main className="chat-container">
             <div className="title"><h1>Your Chats</h1></div>
             <div className="filter-container">
@@ -47,7 +38,7 @@ function Chat({user} : {user: any}) {
             </div>
             {allChat}
         </main>)
-    }, [allChat, redirectToDetail, otherUser, messages])
+    }, [allChat])
 
     useEffect(() => {
         if(chats == null || chats.length === 0) {
@@ -82,13 +73,6 @@ function Chat({user} : {user: any}) {
         getAllChat()
     }, [filter])
 
-    function chatCardCallback(otherUser: any, messages: any, chat: any) {
-        setotherUser(otherUser)
-        setMessages(messages)
-        setchat(chat)
-        setredirectToDetail(true)
-    }
-
     function getAllChat() {
         if(chats === null) return
         let c: any;
@@ -96,7 +80,7 @@ function Chat({user} : {user: any}) {
         else if(filter === ARCHIVED) c = chats.filter((chat) => {return chat.archived === true})
         else if(filter === STARRED) c = chats.filter((chat) => {return chat.starred === true && chat.archived === false})
         else if(filter === UNREAD) c = chats.filter((chat) => {return chat.unread === true && chat.archived === false})
-        setallChat(c.map((chat: any) => (<ChatCard chatCardCallback={chatCardCallback} callback={changeStatus} key={chat.id} chat={chat}/>)))
+        setallChat(c.map((chat: any) => (<ChatCard callback={changeStatus} key={chat.id} chat={chat}/>)))
     }
 
     function onChange(e: any) {
@@ -114,4 +98,4 @@ const mapStateToProps = (state:any) => ({
     user: state.user.item,
 })
 
-export default connect(mapStateToProps, {})(Chat)
+export default connect(mapStateToProps, { })(Chat)

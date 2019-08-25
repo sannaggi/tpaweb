@@ -27,3 +27,5 @@ export const SET_ISCREATING = 'SET_ISCREATING';
 export const SET_GEO_LOCATION = "SET_GEO_LOCATION";
 
 export const SET_CURRENCY = "SET_CURRENCY";
+
+export const SET_CHAT_DETAIL = 'SET_CHAT_DETAIL';

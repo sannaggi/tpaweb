@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import "../../css/chat/chatDetail.css";
 import ChatMessage from "./ChatMessage";
+import { Redirect } from "react-router-dom";
 
-function ChatDetail({chat, currency, user, otherUser, messages} : {chat: any, currency:any, user: any, otherUser: any, messages:any}) {
+function ChatDetail({chat, currency, user, otherUser } : {chat: any, currency:any, user: any, otherUser: any}) {
+
+    const [content, setcontent] = useState()
+
+    useEffect(() => {
+        if(user.id === undefined) setcontent(<Redirect to="/chat"/>)
+        else setcontent(
+            <React.Fragment>
+                {getDetails()}
+                <ChatMessage/>
+            </React.Fragment>
+        )
+    }, [user.id])
 
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
@@ -94,15 +107,16 @@ function ChatDetail({chat, currency, user, otherUser, messages} : {chat: any, cu
 
     return (
         <main className="chat-detail-container">
-            {getDetails()}
-            <ChatMessage chat={chat} user={user} otherUser={otherUser} messages={messages}/>
+            {content}
         </main>
     )
 }
 
 const mapStateToProps = (state:any) => ({
     user: state.user.item,
-    currency: state.currency.item
+    currency: state.currency.item,
+    otherUser: state.chat.otherUser,
+    chat: state.chat.chat
 })
 
 export default connect(mapStateToProps, {})(ChatDetail)

@@ -1,39 +1,68 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux';
 import axios from "axios";
 import { TEXT } from "./chatTypes";
 import { Picker } from "emoji-mart";
 import 'emoji-mart/css/emoji-mart.css'
 
-function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, user: any, otherUser: any, messages: any, socket: any}) {
+function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: any, user: any, socket: any}) {
 
     const [messageContent, setmessageContent] = useState("")
+    const [messages, setmessages] = useState([])
+
+    useEffect(() => {
+        axios.get("https://aivbnbapi.herokuapp.com/api/chat/" + chat.id, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(data => setmessages(data.data.messages))
+    }, [chat.id])
+
+    setTimeout(() => {
+        scrollToBottom(document.getElementById("messages-container"))
+    }, 50);
 
     function getDate() {
         const d = new Date()
         return d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
     }
 
-    function addNewMessage(msg: String) {
-        getDate()
-        axios({
-            url: "https://aivbnbapi.herokuapp.com/api/chat/m/" + chat.id,
-            method: "POST",
-            data: {
-                "senderid": user.id,
-                "type": TEXT,
-                "content": msg,
-                "time": getDate()
-            },
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        })
-    }
+    const addNewMessage = useCallback(
+        (msg: string) => {
+            getDate()
+            axios({
+                url: "https://aivbnbapi.herokuapp.com/api/chat/m/" + chat.id,
+                method: "POST",
+                data: {
+                    "senderid": user.id,
+                    "type": TEXT,
+                    "content": msg,
+                    "time": getDate()
+                },
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+        },
+        [chat.id, user.id],
+    )
 
     function scrollToBottom(el: any) {
         el.scrollTop = el.scrollHeight
     }
+
+    const getMessageTime = useCallback(
+        (message) => {
+            let time = message.time
+            if(time === undefined) time = getDate()
+            let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+            let el = time.split("/")
+            return `${monthNames[parseInt(el[1]) - 1]} ${el[0]}, ${el[2]}`
+        },
+        [],
+    )
 
     useEffect(() => {
         if(socket === undefined) return
@@ -54,9 +83,11 @@ function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, use
             }
             socket.emit('send message', data, addNewMessage(messageInput.getAttribute("value")))
             setmessageContent("")
+            document.getElementsByClassName("emoji-picker")[0].setAttribute("style", "display: none")
         }
 
         socket.on('new message', function(data) {
+            console.log("asd")
             let c = "ours"
             let image = user.profileimage;
             if(data.sender !== user.id) {
@@ -75,14 +106,6 @@ function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, use
             scrollToBottom(messagesContainer)
         })
     }, [socket, otherUser, user])
-
-    function getMessageTime(message: any) {
-        let time = message.time
-        if(time === undefined) time = getDate()
-        let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let el = time.split("/")
-        return `${monthNames[parseInt(el[1]) - 1]} ${el[0]}, ${el[2]}`
-    }
 
     function differentianteMessage(message: any) {
         let c = "ours"
@@ -132,7 +155,7 @@ function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, use
                 <div className="input-container">
                     <div className="emoji-picker"><Picker onSelect={onSelect} /></div>
                     <input autoComplete="off" type="text" id="message-content" onChange={onChange} value={messageContent}/>
-                    <span className="emoji" onClick={onClick}>😀</span>
+                    <span className="emoji" role="img" aria-label="emoji" onClick={onClick}>😀</span>
                     <input type="submit" className="green-button" value="Send"/>
                 </div>
             </form>
@@ -142,6 +165,9 @@ function ChatMessage({chat, user, otherUser, messages, socket} : {chat: any, use
 
 const mapStateToProps = (state:any) => ({
     socket: state.user.socket,
+    chat: state.chat.chat,
+    otherUser: state.chat.otherUser,
+    user: state.user.item
 })
 
 export default connect(mapStateToProps, {})(ChatMessage)

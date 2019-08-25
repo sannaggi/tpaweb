@@ -7,7 +7,7 @@ async function takeData(data) {
     })
 }
 
-var logos = {
+const logos = {
     "USD": "$",
     "JPY": "¥",
     "IDR": "Rp. ",

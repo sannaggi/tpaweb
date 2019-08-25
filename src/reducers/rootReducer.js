@@ -7,6 +7,7 @@ import currencyReducer from "./currencyReducer";
 import LocationReducer from "./locationReducer";
 import UserReducer from "./userReducer";
 import WishlistReducer from "./wishlistReducer";
+import ChatReducer from "./chatReducer";
 
 export default combineReducers({
   bookings: bookingReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   currency: currencyReducer,
   location: LocationReducer,
   user: UserReducer,
-  wishlist: WishlistReducer
+  wishlist: WishlistReducer,
+  chat: ChatReducer
 });

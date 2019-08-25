@@ -32,7 +32,7 @@ function Global({cookieLogin, getAllWishlists, user, setSocket} : {setSocket: an
         socket.on('connect', () => {
             socket.emit('new user', user.id)
         })
-    }, [user.id])
+    }, [user.id, setSocket])
 
     return (
         <React.Fragment>

@@ -2,13 +2,16 @@ import React, { useEffect, useState, useCallback } from 'react'
 import axios from "axios";
 import { connect } from 'react-redux';
 import { TEXT, IMAGE } from "./chatTypes";
+import { setChatDetail } from "../../actions/chatActions";
+import { Redirect } from "react-router-dom";
 
-function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback: any, chat: any, user: any, currency: any, chatCardCallback: any}) {
+function ChatCard({callback, chat, user, currency, setChatDetail} : {callback: any, chat: any, user: any, currency: any, setChatDetail: any}) {
 
     const [otherUser, setOtherUser] = useState()
     const [content, setContent] = useState()
     const [statusContent, setstatusContent] = useState()
     const [firstRender, setfirstRender] = useState(true)
+    const [redirect, setredirect] = useState()
     const [status, setStatus] = useState({
         starred: false,
         archived: false,
@@ -114,6 +117,7 @@ function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback
     const getLastChatTime = useCallback(
         () => {
             let messages = chat.messages
+            if(messages.length === 0) return ""
             return getMonthYear(messages[messages.length - 1].time)
         },
         [getMonthYear, chat.messages],
@@ -171,11 +175,16 @@ function ChatCard({callback, chat, user, currency, chatCardCallback} : {callback
 
     function redirectClick(e) {
         if(e.target.className === "status-type") return
-        chatCardCallback(otherUser, chat.messages, chat)
+        setChatDetail({
+            chat: chat,
+            otherUser: otherUser
+        })
+        setredirect(<Redirect to="/chat/detail"/>)
     }
 
     return (
         <div className="chat-card-container" onClick={redirectClick}>
+            {redirect}
             {content}
         </div>
     )
@@ -186,4 +195,4 @@ const mapStateToProps = (state:any) => ({
     currency: state.currency.item,
 })
 
-export default connect(mapStateToProps, {})(ChatCard)
+export default connect(mapStateToProps, { setChatDetail })(ChatCard)
