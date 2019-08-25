@@ -3,20 +3,41 @@ import { connect } from 'react-redux';
 import "../../css/chat/chatDetail.css";
 import ChatMessage from "./ChatMessage";
 import { Redirect } from "react-router-dom";
+import axios from "axios";
 
-function ChatDetail({chat, currency, user, otherUser } : {chat: any, currency:any, user: any, otherUser: any}) {
+function ChatDetail({currency, user, otherUser } : {currency:any, user: any, otherUser: any}) {
 
     const [content, setcontent] = useState()
+    const [chat, setchat] = useState()
 
     useEffect(() => {
+        if(user.id === undefined) {
+            setcontent(<Redirect to="/chat"/>)
+            return
+        }
+        axios({
+            url: "https://aivbnbapi.herokuapp.com/api/chat/s/spec",
+            method: "POST",
+            data: [user.id, otherUser.id],
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+        .then(data => {
+            setchat(data.data)
+        })
+    }, [])
+
+    useEffect(() => {
+        if(chat === undefined) return
         if(user.id === undefined) setcontent(<Redirect to="/chat"/>)
         else setcontent(
             <React.Fragment>
                 {getDetails()}
-                <ChatMessage/>
+                <ChatMessage chat={chat}/>
             </React.Fragment>
         )
-    }, [user.id])
+    }, [user.id, chat])
 
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)

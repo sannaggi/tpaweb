@@ -4,25 +4,26 @@ import axios from "axios";
 import { TEXT } from "./chatTypes";
 import { Picker } from "emoji-mart";
 import 'emoji-mart/css/emoji-mart.css'
+import { Redirect } from "react-router-dom";
 
 function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: any, user: any, socket: any}) {
 
     const [messageContent, setmessageContent] = useState("")
     const [messages, setmessages] = useState([])
+    const [scroll, setscroll] = useState(false)
 
     useEffect(() => {
-        axios.get("https://aivbnbapi.herokuapp.com/api/chat/" + chat.id, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-        .then(data => setmessages(data.data.messages))
-    }, [chat.id])
+        setmessages(chat.messages)
+        setscroll(true)
+        document.getElementsByClassName("emoji-picker")[0].setAttribute("style", "display: none")
+    }, [chat.messages])
 
-    setTimeout(() => {
-        scrollToBottom(document.getElementById("messages-container"))
-    }, 50);
+    useEffect(() => {
+        if(!scroll) return
+        setTimeout(() => {
+            scrollToBottom(document.getElementById("messages-container"))
+        }, 50);
+    }, [scroll])
 
     function getDate() {
         const d = new Date()
@@ -138,6 +139,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
     function onSelect(e) {
         let emoji = e.native;
         setmessageContent(m => m + emoji)
+        document.getElementById("message-content").focus()
     }
 
     function onClick() {
@@ -151,10 +153,10 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
             <div className="messages-container" id="messages-container">
                 {getMessages()}
             </div>
-            <form id="message-form" autoComplete="off">
+            <span className="emoji-picker"><Picker onSelect={onSelect} /></span>
+            <form id="message-form" autoComplete="off" method="">
                 <div className="input-container">
-                    <div className="emoji-picker"><Picker onSelect={onSelect} /></div>
-                    <input autoComplete="off" type="text" id="message-content" onChange={onChange} value={messageContent}/>
+                    <input type="text" id="message-content" onChange={onChange} value={messageContent}/>
                     <span className="emoji" role="img" aria-label="emoji" onClick={onClick}>😀</span>
                     <input type="submit" className="green-button" value="Send"/>
                 </div>
@@ -165,7 +167,6 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
 
 const mapStateToProps = (state:any) => ({
     socket: state.user.socket,
-    chat: state.chat.chat,
     otherUser: state.chat.otherUser,
     user: state.user.item
 })

@@ -78,21 +78,13 @@
         background-color: #e6e6e6;
         border-top-right-radius: 0;
         border-top-left-radius: 10px; }
+  .chats-container .emoji-mart {
+    width: 100% !important; }
   .chats-container .input-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     position: relative; }
-    .chats-container .input-container .emoji-picker {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      -webkit-transform: translateY(-100%);
-      -ms-transform: translateY(-100%);
-      transform: translateY(-100%);
-      display: none; }
-      .chats-container .input-container .emoji-picker .emoji-mart {
-        width: 100% !important; }
     .chats-container .input-container .emoji {
       display: -webkit-box;
       display: -ms-flexbox;
