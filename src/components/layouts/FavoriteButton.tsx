@@ -15,6 +15,8 @@ function FavoriteButton({setIsInWishlist, id, wishlists, isPlace, onClick, forCa
     }
 
     function isInWishlists() {
+        if(!wishlists) return false
+
         let isInWishlists = false;
         for (const wishlist of wishlists) {
             isInWishlists = checkWishlist(isInWishlists, wishlist)

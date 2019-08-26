@@ -26,6 +26,7 @@ function Global({cookieLogin, getAllWishlists, user, setSocket} : {setSocket: an
 
         const port = process.env.PORT || 6969
         const url = "http://localhost:" + port
+        // const url = "/"
         const socket = io(url)
         setSocket(socket)
         

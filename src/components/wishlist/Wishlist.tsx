@@ -4,6 +4,7 @@ import '../../css/wishlist/wishlist.css'
 import { getAllWishlists } from "../../actions/wishlistActions";
 import { connect } from 'react-redux';
 import Wishlists from "./Wishlists";
+import PublicWishlists from "./PublicWishlists";
 
 function Wishlist({ wishlists} :  { wishlists: any}) {
 
@@ -28,6 +29,9 @@ function Wishlist({ wishlists} :  { wishlists: any}) {
             </div>
             <div className="wishlist-detail-container">
                 {wishlistContent}
+            </div>
+            <div className="wishlist-detail-container">
+                <PublicWishlists />
             </div>
         </main>
     )
