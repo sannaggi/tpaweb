@@ -18,6 +18,7 @@ function FavoriteModal({wishlists, setIsCreating, isCreating} : {wishlists: any,
         if(isCreating === false) {
             document.getElementById("favoriteModal").setAttribute("style", "display: block")
         }
+        // eslint-disable-next-line
     }, [isCreating])
 
     function onClick(e) {   

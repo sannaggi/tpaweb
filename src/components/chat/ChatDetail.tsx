@@ -26,6 +26,7 @@ function ChatDetail({currency, user, otherUser } : {currency:any, user: any, oth
         .then(data => {
             setchat(data.data)
         })
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
@@ -37,6 +38,7 @@ function ChatDetail({currency, user, otherUser } : {currency:any, user: any, oth
                 <ChatMessage chat={chat}/>
             </React.Fragment>
         )
+        // eslint-disable-next-line
     }, [user.id, chat])
 
     function getCurrency(price:any) {

@@ -25,6 +25,9 @@
             img { 
                 width: 70px;
                 margin-right: 20px;
+                @include mQ(750px) {
+                    width: 55px;
+                }
             }
             .message-content {
                 width: fit-content;

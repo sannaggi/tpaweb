@@ -86,10 +86,10 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
     function getAmenities() {
         if(experience.amenities === undefined) return
         return experience.amenities.map((amenity:any) => (
-            <React.Fragment key={amenity.type}>
-                <div>{amenity.type}</div>
+            <div key={amenity.type} className="amenity">
+                <div className="title"><strong>{amenity.type}</strong></div>
                 <div>{amenity.detail}</div>
-            </React.Fragment>
+            </div>
         ))
     }
 

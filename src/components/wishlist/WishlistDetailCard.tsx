@@ -19,6 +19,7 @@ function WishlistDetailCard({id, updateCardRendered} : {id: any, updateCardRende
             )
             updateCardRendered(data.data.location, true)
         })
+        // eslint-disable-next-line
     }, [id])
 
     return (

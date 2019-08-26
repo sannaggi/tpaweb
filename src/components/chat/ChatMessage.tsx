@@ -4,7 +4,6 @@ import axios from "axios";
 import { TEXT } from "./chatTypes";
 import { Picker } from "emoji-mart";
 import 'emoji-mart/css/emoji-mart.css'
-import { Redirect } from "react-router-dom";
 
 function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: any, user: any, socket: any}) {
 
@@ -88,7 +87,6 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         }
 
         socket.on('new message', function(data) {
-            console.log("asd")
             let c = "ours"
             let image = user.profileimage;
             if(data.sender !== user.id) {
@@ -106,6 +104,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
             
             scrollToBottom(messagesContainer)
         })
+        // eslint-disable-next-line
     }, [socket, otherUser, user])
 
     function differentianteMessage(message: any) {

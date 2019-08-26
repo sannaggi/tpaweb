@@ -117,6 +117,17 @@
     font-size: 13px; } }
 
 @media screen and (max-width: 750px) {
+  .filterBar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .filterBar > * {
+      margin-top: 5px; }
   .experienceCard {
     width: 26vw; }
     .experienceCard .experience-image {

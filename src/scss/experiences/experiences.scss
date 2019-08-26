@@ -114,6 +114,14 @@
     }
 }
 @include mQ(750px) {
+    .filterBar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        >*{
+            margin-top: 5px;
+        }
+    }
     .experienceCard {
         width: 26vw;
         .experience-image {

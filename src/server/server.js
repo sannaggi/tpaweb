@@ -30,7 +30,6 @@ io.on('connection', (socket) => {
 
     socket.on('send message', (data) => {
         console.log(data.receiver)
-        console.log(...users)
         for (let index = 0; index < users.length; index++) {
             const e = users[index];
             if((e === data.receiver || e === data.sender) && connections[index] !== socket.id) {

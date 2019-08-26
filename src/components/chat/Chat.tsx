@@ -46,6 +46,7 @@ function Chat({user} : {user: any}) {
             return
         }
         getAllChat()
+        // eslint-disable-next-line
     }, [chats])
 
     useEffect(() => {
@@ -71,6 +72,7 @@ function Chat({user} : {user: any}) {
 
     useEffect(() => {
         getAllChat()
+        // eslint-disable-next-line
     }, [filter])
 
     function getAllChat() {

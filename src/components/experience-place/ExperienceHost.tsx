@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setChatDetail } from "../../actions/chatActions";
 
@@ -46,6 +46,7 @@ function ExperienceHost({id, user, setChatDetail} : {id: any, user: any, setChat
                 <Link to="/chat/detail" className="contact" onClick={onClick}>Contact host</Link>
             </React.Fragment>
         )
+        // eslint-disable-next-line
     }, [host])
     
     return (

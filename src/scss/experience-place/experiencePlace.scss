@@ -44,8 +44,22 @@
 
 .info-profile {
     display: flex;
+    @include mQ(750px) {
+        flex-direction: column-reverse;
+        .host-profile {
+            width: 100% !important;
+            margin-bottom: 20px;
+        }
+    }
     .host-profile {
-        margin-left: 35px;
+        text-align: center;
+        width: 150px;
+        >img {
+            width: 80px;
+            @include mQ(750px) {
+                width: 55px;
+            }
+        }
         .contact {
             color: $blueGreen;
         }
@@ -99,6 +113,9 @@
             height: 1px;
             margin: 50px 0;
             background-color: $superLightGrey;
+            @include mQ(750px) {
+                margin: 30px 0;
+            }
         }
         #first-sec{
             >div{
@@ -139,12 +156,21 @@
                     width: 100%;
                 }
                 .info-sec{
+                    .amenity {
+                        margin: 9px 0;
+                        .title {
+                            margin-bottom: 4px;
+                        }
+                    }
                     .info-sec-head{
                         font-weight: 500;
                         font-size: 14pt;
                     }
                     >.left{
                         width: 70%;
+                        @include mQ(750px) {
+                            width: 100%;
+                        }
                     }
                     >.right{
                         width: 30%;
