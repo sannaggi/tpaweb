@@ -13,10 +13,7 @@ function PublicWishlists() {
                 'content-type': 'application/json'
             }
         })
-        .then(data => {
-            console.log(data.data)
-            setwishlists(data.data)
-        })
+        .then(data => setwishlists(data.data))
     }, [])
 
     return (

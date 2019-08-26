@@ -3,9 +3,14 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 
 function ProtectedRoute({component: Component, user, ...rest}) {
+
+    function getRedirected() {
+        return <Redirect to="/" />
+    }
+
     return (
         <Route {...rest} render={(props) => (
-            user.id !== undefined? <Component {...props}/> : <Redirect to="/"/>
+            user.id !== undefined? <Component {...props}/> : getRedirected()
         )}/>
     )
 }
