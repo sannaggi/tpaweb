@@ -7,13 +7,17 @@ import { setHoveredCard } from "../../actions/placeActions";
 import FavoriteButton from "../layouts/FavoriteButton";
 import { setActiveWishlistModal } from "../../actions/wishlistActions";
 
-function place({place, currency, setHoveredCard, setActiveWishlistModal} : {place:any, currency:any, setHoveredCard:Function, setActiveWishlistModal: any}) {
+function place({place, currency, setHoveredCard, setActiveWishlistModal, user} : {user: any, place:any, currency:any, setHoveredCard:Function, setActiveWishlistModal: any}) {
 
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
     }
 
     function onClick() {
+        if(user.id === undefined) {
+            document.getElementById("loginModal").setAttribute("style", "display: block")
+            return
+        }
         setActiveWishlistModal({
             id: place.id,
             isPlace: true
@@ -48,7 +52,8 @@ function place({place, currency, setHoveredCard, setActiveWishlistModal} : {plac
 }
 
 const mapStateToProps = (state: any) => ({
-    currency: state.currency.item
+    currency: state.currency.item,
+    user: state.user.item
 })
 
 export default connect(mapStateToProps, { setHoveredCard, setActiveWishlistModal })(place)

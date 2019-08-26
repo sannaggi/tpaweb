@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import '../../css/experiences/experienceCard.css'
 import { setActiveWishlistModal } from "../../actions/wishlistActions";
 
-function ExperienceCard({experience, currency, setActiveWishlistModal} : {experience: any, currency: any, setActiveWishlistModal: any}) {
+function ExperienceCard({experience, currency, setActiveWishlistModal, user} : {user: any, experience: any, currency: any, setActiveWishlistModal: any}) {
     
     function getCurrency(price:any) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
@@ -18,6 +18,10 @@ function ExperienceCard({experience, currency, setActiveWishlistModal} : {experi
     }
 
     function onClick() {
+        if(user.id === undefined) {
+            document.getElementById("loginModal").setAttribute("style", "display: block")
+            return
+        }
         setActiveWishlistModal({
             id: experience.id,
             isPlace: false
@@ -41,7 +45,8 @@ function ExperienceCard({experience, currency, setActiveWishlistModal} : {experi
 }
 
 const mapStateToProps = (state: any) => ({
-    currency: state.currency.item
+    currency: state.currency.item,
+    user: state.user.item
 })
 
 export default connect(mapStateToProps, {setActiveWishlistModal})(ExperienceCard)

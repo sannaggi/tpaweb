@@ -4,7 +4,7 @@ import "../../css/reusable/sharing.css";
 import { setActiveWishlistModal } from "../../actions/wishlistActions";
 import { connect } from 'react-redux';
 
-function Sharing({id, isPlace, setActiveWishlistModal} : {id: any, isPlace: any, setActiveWishlistModal: any}){
+function Sharing({id, isPlace, setActiveWishlistModal, user} : {id: any, isPlace: any, setActiveWishlistModal: any, user:any}){
     function clipBoard(){
         var dummy = document.createElement("textarea");
         document.body.appendChild(dummy);dummy.value = window.location.href;
@@ -15,6 +15,10 @@ function Sharing({id, isPlace, setActiveWishlistModal} : {id: any, isPlace: any,
     }
 
     function onClick() {
+        if(user.id === undefined) {
+            document.getElementById("loginModal").setAttribute("style", "display: block")
+            return
+        }
         setActiveWishlistModal({
             id: id,
             isPlace: isPlace
@@ -39,4 +43,8 @@ function Sharing({id, isPlace, setActiveWishlistModal} : {id: any, isPlace: any,
     )
 }
 
-export default connect(null, { setActiveWishlistModal })(Sharing)
+const mapStateToProps = (state:any) => ({
+    user: state.user.item,
+})
+
+export default connect(mapStateToProps, { setActiveWishlistModal })(Sharing)
