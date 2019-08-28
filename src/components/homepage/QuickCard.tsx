@@ -99,7 +99,6 @@ function QuickCard({book} : {book: any}) {
     }
 
     function onSubmit(e) {
-        // TODO go to booking
         e.preventDefault()
         newBooking.guests = guests
         book(newBooking)

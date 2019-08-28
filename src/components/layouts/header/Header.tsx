@@ -60,10 +60,10 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
     if (click) {
       if (screen.width <= MOBILEWIDTH) {
         if(user.id === undefined) return {height: "161px"}
-        return {height: "270px"}
+        return {height: "324px"}
       }
       if(user.id === undefined) return {height: "210px"}
-      return {height: "350px"}
+      return {height: "420px"}
     }
   }
 
@@ -112,6 +112,9 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
           </Link>
           <Link to="/wishlist" onClick={() => clickLink(null)}>
             <div className="dropdown-link">Saved</div>
+          </Link>
+          <Link to="/booking" onClick={() => clickLink(null)}>
+            <div className="dropdown-link">Bookings</div>
           </Link>
           <Link to="/chat" onClick={() => clickLink(null)}>
             <div className="dropdown-link">Chats</div>

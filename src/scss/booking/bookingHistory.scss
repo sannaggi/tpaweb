@@ -1,0 +1,42 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.history-container {
+    padding: 2.5em 4.5em;
+    .title {
+        text-align: center;
+    }
+    .bookings-container {
+        margin-top: 2.5em;
+    }
+    .booking-card {
+        &:hover {
+            box-shadow: 0px 0px 15px -7.5px rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+            .top {
+                .red>span {
+                    opacity: 1;
+                }
+            }
+        }
+        .top {
+            display: flex;
+            align-items: center;
+            .icon {
+                font-size: 40px;
+                width: 60px;
+                text-align: center;
+            }
+            .col {
+                width: calc((100% - 60px) / 5);
+            }
+            .red>span {
+                cursor: pointer;
+                color: red;
+                opacity: 0;
+                transition: 0.3s;
+                font-weight: 600;
+            }
+        }
+    }
+}
