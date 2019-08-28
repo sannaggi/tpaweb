@@ -1,17 +1,83 @@
 @import '../mixins';
+@import '../variables.scss';
 
 .profilePage{
-    h1{
-        color: rgb(59, 59, 59)
+    #profileHead{
+        #profileInformation{
+            width: 800px;
+        }
+        padding-top: 3em;
     }
-    display: flex;
-    justify-content: center;
-    padding: 3em;
     >div{
-        margin: 2em;
+        display: flex;
+        justify-content: center;
+        padding: .2em 3em;
+        h1{
+            color: rgb(59, 59, 59)
+        }
+        >div{
+            margin: 2em;
+        }
     }
-    #profileInformation{
-        width: 800px;
+    #searchDiv{
+        display: flex;
+        border: 1px solid $lightGrey;
+        border-radius: 3px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >input{
+            border: none;
+            font-size: 12pt;
+            padding: 2px 5px;
+        }
+    }
+    #profileHead~div{
+        .l{
+            min-width: 320px;
+        }
+        .r{
+            border-top: solid 1px;
+            border-top-width: var(--border-rule-border-width, 1px) !important;
+            border-top-color: var(--color-divider, $superLightGrey) !important;
+            width: 800px
+        }
+    }
+    .pagination{
+        overflow: hidden;
+        display: flex;
+        .disabled{
+            display: none;
+        }
+        .active{
+            pointer-events: none;
+            @include circle(32px);
+            background-color: $blueGreen;
+            >a{
+                color: white;
+            }
+        }
+        .break-me{
+            pointer-events: none;
+        }
+        .next, .previous{
+            border: 1px solid $blueGreen;
+        }
+        >li{
+            text-align: center;
+            display: flex;
+            @include circle(32px);
+            overflow: hidden;
+            margin: 0 7px;
+            >a{
+                cursor: pointer;
+                transition: all 0.15s ease;
+                color: $blueGreen;
+                @include flexFullCenter;
+                @include circle(100%);
+            }
+        }
     }
 }
 
@@ -20,7 +86,9 @@
         display: none;
     }
     .profilePage{
-        flex-direction: column;
+        >div{
+            flex-direction: column;
+        }
     }
     #divCard{
         display: flex;

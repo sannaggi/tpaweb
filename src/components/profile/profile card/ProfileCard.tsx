@@ -30,7 +30,9 @@ function ProfileCard({user, loggedUser, setEditedProfile} : {user: any, loggedUs
     }
 
     const handleSaveChange = (img: any) => {
-        user.profileimage = img
+        let change = Object.assign({}, user)
+        change.profileimage = img
+        setEditedProfile(change)
         setProfilePhoto(img)
     }
     

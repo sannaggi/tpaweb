@@ -8,34 +8,17 @@ import ReactPaginate from "react-paginate";
 import GuestComment from "../reusable/GuestComment";
 import { connect } from "react-redux";
 import { setCurrentExperience } from "../../actions/experienceActions";
-// const fs = require('fs')
-
-// const AnyReactComponent = ({ text }) => <div>{text}</div>
+import ImagesNavigation from "../reusable/ImagesNavigation";
+import { Link } from "react-router-dom";
+import BannerImage from "../place detail/BannerImage";
 
 function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurrentExperience: any, match: any, experience: any }){
-    var storiesRef
+    // var storiesRef
     useEffect(() => {
         setCurrentExperience(match.params.id)
     }, [setCurrentExperience, match.params.id])
 
     var perPage = 5
-    // var fetchComment = [
-    //     {comment: "This place is fucking awesome"},
-    //     {comment: "This place is fucking awesome"},
-    //     {comment: "This place is fucking awesome"},
-    //     {comment: "This place is fucking awesome"},
-    //     {comment: "This place is fucking awesome"},
-    //     {comment: "This place is fucking great"},
-    //     {comment: "This place is fucking great"},
-    //     {comment: "This place is fucking great"},
-    //     {comment: "This place is fucking great"},
-    //     {comment: "This place is fucking great"},
-    //     {comment: "This place is fucking cool"},
-    //     {comment: "This place is fucking cool"},
-    //     {comment: "This place is fucking cool"},
-    //     {comment: "This place is fucking cool"},
-    //     {comment: "This place is fucking cool"},
-    // ]
     const [sentComments, setsentComments] = useState([])
     const [commentSection, setCommentSection] = useState()
 
@@ -44,18 +27,15 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
         setsentComments(experience.rating.slice(0, 1 * perPage + perPage))
         setCommentSection(true)
         
-        // setTimeout(() => {
-        //     console.log(storiesRef)
-        //     storiesRef.pause()
-        // }, 5000)
     }, [experience.rating, setsentComments, perPage])
     
     var stories = []
-    // const stories = [{ url: 'https://picsum.photos/1080/1920' }, { url: 'https://fsa.zobj.net/crop.php?r=dyJ08vhfPsUL3UkJ2aFaLo1LK5lhjA_5o6qEmWe7CW6P4bdk5Se2tYqxc8M3tcgYCwKp0IAyf0cmw9yCmOviFYb5JteeZgYClrug_bvSGgQxKGEUjH9H3s7PS9fQa3rpK3DN3nx-qA-mf6XN' }, { url: 'https://media.idownloadblog.com/wp-content/uploads/2016/04/iPhone-wallpaper-abstract-portrait-stars-macinmac.jpg' }, { url: 'https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4', type: 'video', duration: 1000 }, { url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', type: 'video'}, { url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', type: 'video' }, 'https://images.unsplash.com/photo-1534856966153-c86d43d53fe0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80']
     var greenStar = {
         width: "calc(20px * " + experience.averagerating + ")",
         overflow: "hidden",
     }
+
+    const storyRef = React.createRef<Stories>()
 
     function getStories(){
         if(experience.rating === undefined) return (<div></div>)
@@ -76,8 +56,7 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
             }
             stories.push(obj)
         })
-        storiesRef = <Stories stories={stories} loop={true}/>
-        return(storiesRef)
+        return <Stories ref={storyRef} stories={stories} loop={true}/>
     }
 
     function handlePageChange(data){
@@ -152,14 +131,114 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
         }
     }
 
+    //images/experiences/1/gallery
+    
+    const [fullImageSrc, setFullImageSrc] = useState("")
+    const [gallery, setGallery] = useState([])
+    const [images, setImages] = useState([])
+
+    const handleImageClick = e => {
+        setFullImageSrc(e.target.src)
+    }
+
+    function getRandomImage(){
+        if(experience.gallery === undefined) return
+
+        let images1 = []
+        let img = experience.gallery.concat()
+        let outImg = []
+        for(let i = 0 ; i < 6; i++){
+            let rand = (Math.random() * 10) % img.length
+            let tem = img.splice(rand, 1)
+            outImg.push(tem)
+        }
+
+        while(img.length > 0){
+            let tem = img.splice(0, 1)
+            outImg.push(tem.toString())
+        }
+
+        for(let i = 0 ; i < 6; i++){
+            var obj = {
+                imgNum: i,
+                banner: <BannerImage handleImageClick={handleImageClick} url={outImg[i][0]} id={"id" + i} alt="uhuy"/>,
+                key: "id" + i,
+            }
+            images1.push(obj)
+        }
+        
+        return {
+            images1,
+            outImg
+        }
+    }
+
+    function showImgNav(e){
+        document.getElementById("imagesNavigation").setAttribute("style", "display: block")
+        setTimeout(() => {
+            document.getElementById("imgNavContent").setAttribute("style", "opacity: 1; transition: opacity 0.5s ease-in-out !important;")
+            
+        }, 150)
+    }
+
+    function getImages(){
+        if(experience === undefined)return(<div></div>)
+        return images.map((obj : any) => <div onClick={showImgNav} key={obj.key} id={obj.key} className="bannerImage"> {obj.banner}</div>)
+    }
+
+    const getNav = () => {
+        if(gallery === [])return (<div></div>)
+        return <ImagesNavigation handleImageClick={handleImageClick} fullImageSrc={fullImageSrc} images={gallery}/>
+    }
+
+    const getAllPhotos = () => {
+        if(gallery === []) return ""
+        return <Link to="#" onClick={showImgNav}>Show All Photos</Link>
+    }
+
+    useEffect(() => {
+        if(experience.rating === undefined) return
+        const obj = getRandomImage()
+        setImages(obj.images1)
+        setGallery(obj.outImg)
+        setFullImageSrc(obj.outImg[0])
+    }, [experience])
+
+    var storyPlaying = true
+    const pausePlayClick = (e) => {
+        if(storyPlaying){
+            storyRef.current.pause(true)
+            document.getElementById('stopBtn').setAttribute("style", "display: none")
+            document.getElementById('playBtn').setAttribute("style", "display: block")
+        }
+        else{
+            storyRef.current.play()
+            document.getElementById('playBtn').setAttribute("style", "display: none")
+            document.getElementById('stopBtn').setAttribute("style", "display: block")
+        }
+        storyPlaying = !storyPlaying
+    }
+
+    const getPausePlay = () => {
+        if(experience.story === undefined) return ""
+        return (
+        <div id="pausePlay" onClick={pausePlayClick}>
+            <div id="stopBtn">■</div>
+            <div id="playBtn" style={{display: "none"}}>►</div>
+        </div>
+        )
+    }
+
     return(
         <div id="expPlace">
+            {getNav()}
             <Sharing />
             <div id="expContainer">
                 <div className="section" id="first-sec">
                     <div className="left">
                         <div id="storiess">
                             {getStories()}
+                            {getPausePlay()}
                         </div>
                     </div>
                     <div className="right">
@@ -170,7 +249,7 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
                             {experience.name}
                         </div>
                         <div id="expBasicInfo">
-                            <div>{experience.location}</div>
+                            <div>{experience.geolocation}</div>
                             <div>{experience.duration} hours total</div>
                             <div>{getTopAmenities()}</div>
                             <div>Offered in {getLanguages()}</div>
@@ -230,12 +309,16 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
                         <div className="section-head">Guest photos</div>
                     </div>
                     <div className="right">
-                        <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
-                        <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
-                        <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
-                        <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
-                        <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
-                        <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
+                        <div>
+                            {getImages()}
+                            {/* <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
+                            <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
+                            <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
+                            <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
+                            <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/>
+                            <img src="https://a0.muscache.com/im/pictures/f4cf0e67-5ccc-44f6-9b06-384aed09ad20.jpg?aki_policy=large" alt=""/> */}
+                        </div>
+                        {getAllPhotos()}
                     </div>
                 </div>
                 <div className="section" id="section-reviews">

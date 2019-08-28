@@ -23,7 +23,7 @@ function Navbar({ user } : { user: any }) {
         )
         return (
             <React.Fragment>
-                <div className="navbar-link"><div>Become a Host</div></div>
+                <div className="navbar-link"><div><Link to={'/experience-host'}>Become a Host</Link></div></div>
                 <div className="navbar-link"><div id="profileImage"><Link to={'/users/'+user.id}><img src={user.profileimage} alt=""/></Link></div></div>
             </React.Fragment>
         )

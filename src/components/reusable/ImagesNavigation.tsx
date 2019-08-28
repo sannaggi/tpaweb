@@ -4,24 +4,18 @@ import '../../css/reusable/ImagesNavigation.css'
 
 export default function ImagesNavigation({fullImageSrc, handleImageClick, images} : {fullImageSrc: any, handleImageClick: any, images: any}){
 
-    function getSrc(){
-        let temp = fullImageSrc.split('/')
-        let i = parseInt(temp[temp.length - 1].split('.')[0])
-        return i
-    }
-
-    function getPath(){
-        let temp = fullImageSrc.split('/')
-        let str = ""
-        for(let i = 0; i < temp.length - 1; i++) str += temp[i] + "/"
-        return str
+    function getI(){
+        for(let i = 0; i < images.length; i++){
+            if((fullImageSrc + "").includes(images[i])) return i
+        }
     }
 
     function getFullPath(x){
         if(images === undefined) return ""
-        let i = getSrc()
-        i = ((i + x) === 0 ? images.length : (i + x) > images.length ? 1 : (i + x))
-        let path = "" + getPath() + i + ".jpg"
+        let i = getI()
+        i = (i + x) % images.length
+        i = i < 0 ? images.length - 1 : i
+        let path = images[i]
         return path;
     }
 
@@ -36,11 +30,11 @@ export default function ImagesNavigation({fullImageSrc, handleImageClick, images
                             }
                         }>&#10005;</div>
                     <div id="imageHolder">
-                        <div id="l"><img src={getFullPath(-1)} alt={getFullPath(-1)} onClick={handleImageClick}></img>&lt;</div>
+                        <div id="l"><img src={getFullPath(-1)} alt={"lul"} onClick={handleImageClick}></img>&lt;</div>
                         <div id="mid">
                             <BannerImage handleImageClick={handleImageClick} id="fullScreen" url={fullImageSrc} alt="images"/>
                         </div>
-                        <div id="r"><img src={getFullPath(1)} alt={getFullPath(1)} onClick={handleImageClick}></img>&gt;</div>
+                        <div id="r"><img src={getFullPath(1)} alt={"lul"} onClick={handleImageClick}></img>&gt;</div>
                     </div>
                 </div>
             </div>

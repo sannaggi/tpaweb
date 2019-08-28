@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
-import BannerImage from "./BannerImage";
-import { connect } from 'react-redux';
-import "../../css/place detail/placeDetail.css";
+import BannerImage from "./BannerImage"
+import { connect } from 'react-redux'
+import "../../css/place detail/placeDetail.css"
 import { setCurrentPlace } from '../../actions/placeActions'
-import Sharing from "../reusable/sharing";
-import StarReview from "../reusable/StarReview";
-import ImagesNavigation from "../reusable/ImagesNavigation";
+import Sharing from "../reusable/sharing"
+import StarReview from "../reusable/StarReview"
+import ImagesNavigation from "../reusable/ImagesNavigation"
 
 function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPlace:any, match:any}){
 
@@ -14,6 +14,11 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
     }, [setCurrentPlace, match.params.id])
 
     const [fullImageSrc, setFullImageSrc] = useState("/images/places/" + place.id + "/1.jpg")
+
+    useEffect(() => {
+        if(place.images === undefined) return
+        setFullImageSrc(place.images[0])
+    }, [place])
 
     const handleImageClick = e => {
         // e.target.setAttribute("style", "opacity: 0; transition: opacity 0.15s ease-in-out")
@@ -51,13 +56,23 @@ function PlaceDetail({place, setCurrentPlace, match} : {place:any, setCurrentPla
         overflow: "hidden",
     }
 
+    const getNav = () => {
+        if(place.images === undefined) return <div></div>
+        return (<ImagesNavigation handleImageClick={handleImageClick} fullImageSrc={fullImageSrc} images={place.images}/>)
+    }
+
+    const getShowBtn = () => {
+        if(place.images === undefined) return ""
+        return <button id="viewPhotosBtn" onClick={showImgNav}>View Photos</button>
+    }
 
     return(
         <div className="placeDetail">
-            <ImagesNavigation handleImageClick={handleImageClick} fullImageSrc={fullImageSrc} images={place.images}/>
+            {getNav()}
             <Sharing />
             <div className="placePhoto">
                 {getImages()}
+                {getShowBtn()}
             </div>
             <div className="placeInformation">
                 <div className="left">

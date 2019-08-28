@@ -1,8 +1,9 @@
 import React from "react"
 import "../../css/experience-host/EHFirstStarted.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function EHFirstStarted(){
+function EHFirstStarted({user}: {user: any}){
     function onLoad(){
         document.getElementById("EHFirstStarted").setAttribute("style", "opacity: 1");
     }
@@ -17,7 +18,7 @@ export default function EHFirstStarted(){
     return(
         <div id="EHFirstStarted" onLoad={onLoad}>
             <div className="left">
-                <div><h1>Welcome [user.name]!</h1></div>
+                <div><h1>Welcome {user.firstname} {user.lastname}!</h1></div>
                 <div>    
                     We’re excited to learn about the experience you’d like to host on Airbnb.
                 </div>
@@ -38,3 +39,9 @@ export default function EHFirstStarted(){
         </div>
     )
 }
+
+const mapStateToProps = (state: any) => ({
+    user: state.user.item
+})
+
+export default connect(mapStateToProps, {})(EHFirstStarted)

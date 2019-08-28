@@ -106,10 +106,10 @@ function Header({ setGeoLocation, user }: { setGeoLocation: any, user: any }) {
           <Link to="/">
             <div className="dropdown-link">Home</div>
           </Link>
-          <Link to="/users/:id">
+          <Link to={'/users/' + user.id}>
             <div className="dropdown-link">Profile</div>
           </Link>
-          <Link to="/becomehost">
+          <Link to="/experience-host">
             <div className="dropdown-link">Become a Host</div>
           </Link>
         </React.Fragment>

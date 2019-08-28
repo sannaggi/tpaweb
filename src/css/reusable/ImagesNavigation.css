@@ -26,11 +26,26 @@
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
-      text-align: center; }
-      #imagesNavigation > div #imageHolder #mid > img {
-        border-radius: 10px;
-        max-width: calc(100% * (2 / 3));
-        max-height: calc(100% * (4 / 5)); }
+      text-align: center;
+      height: 100%; }
+      #imagesNavigation > div #imageHolder #mid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        vertical-align: middle;
+        height: 100%; }
+        #imagesNavigation > div #imageHolder #mid > img {
+          border-radius: 10px;
+          max-width: calc(100% * (2 / 3));
+          max-height: calc(100% * (4 / 5)); }
       #imagesNavigation > div #imageHolder #l, #imagesNavigation > div #imageHolder #r {
         cursor: pointer;
         display: -webkit-box;

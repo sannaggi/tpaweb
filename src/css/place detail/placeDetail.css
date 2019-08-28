@@ -1,7 +1,8 @@
 .placeDetail {
   width: 100vw; }
   .placeDetail .placePhoto {
-    width: 100%;
+    width: 100vw;
+    position: relative;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
@@ -32,6 +33,23 @@
       -webkit-animation: fade-in 0.5s;
       animation: fade-in 0.5s;
       opacity: 0.6; }
+    .placeDetail .placePhoto > #viewPhotosBtn {
+      position: absolute;
+      padding: 1em .5em;
+      border: 3px solid black;
+      border-radius: 5px;
+      right: 3em;
+      bottom: 1.5em;
+      border: none;
+      font-weight: 600;
+      -webkit-transition: all .15s ease;
+      -o-transition: all .15s ease;
+      transition: all .15s ease;
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.66);
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.66), 0 2px 10px 0 rgba(0, 0, 0, 0.66); }
+      .placeDetail .placePhoto > #viewPhotosBtn:hover {
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.88), 0 2px 10px 0 rgba(0, 0, 0, 0.88);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.88), 0 2px 10px 0 rgba(0, 0, 0, 0.88); }
   .placeDetail .placeInformation {
     display: -webkit-box;
     display: -ms-flexbox;

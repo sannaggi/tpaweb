@@ -57,6 +57,7 @@ export default function ImageEdit({src, setProfilePhoto}: {src: any, setProfileP
             // document.getElementById('outi').append(c)
 
             setProfilePhoto(imgUrl)
+            document.getElementById("submitBtn").removeAttribute("disabled")
             closeEdit()
         }
     }
