@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import '../../css/homepage/quickcard.css'
 import { connect } from 'react-redux';
-import { newPost } from '../../actions/bookingActions'
+import { book } from '../../actions/bookingActions'
 import GuestDropdown from '../layouts/GuestDropdown'
 import axios from 'axios'
 import SearchResult from './SearchResult'
+import { Redirect } from "react-router-dom";
 
-function QuickCard({guestCount} : {guestCount:Object}) {
+function QuickCard({book} : {book: any}) {
 
     const [newBooking, setNewBooking] = useState({
-        place: "",
         checkIn: "",
         checkOut: "",
         guests: {},
         booking: {
             name: ""
-        }
+        },
+    })
+
+    const [guests, setGuests] = useState({
+        adults: 0,
+        children: 0,
+        infants: 0
     })
 
     const [dateToday, setDateToday] = useState()
     const [searchResult, setSearchResult] = useState([])
     const [checkoutMinDate, setCheckoutMinDate] = useState()
-
-    useEffect(() => {
-        newBooking.guests = guestCount
-    }, [guestCount, newBooking.guests])
+    const [redirect, setredirect] = useState()
 
     useEffect(() => {
         getDateToday()
@@ -95,13 +98,30 @@ function QuickCard({guestCount} : {guestCount:Object}) {
         onChange(e)
     }
 
+    function onSubmit(e) {
+        // TODO go to booking
+        e.preventDefault()
+        newBooking.guests = guests
+        book(newBooking)
+        if(newBooking.booking.name === "") {
+            alert("Please search for proper location")
+            return
+        }
+        if(newBooking.checkIn === "" || newBooking.checkOut === "") {
+            alert("Please insert booking dates")
+            return
+        }
+        setredirect(<Redirect push to="/booking/new"/>)
+    }
+
     return (
         <div className="quickCard">
+            {redirect}
             <div className="quickCardTitle">Book unique places to stay and things to do.</div>
-            <form action="">
+            <form autoComplete='off' action="" onSubmit={onSubmit}>
                 <div className="input">
                     <div className="title">WHERE</div>
-                    <input type="search" id="searchBox" name="place" value={newBooking.booking.name} onChange={search} placeholder="Anywhere"/>
+                    <input autoComplete="off" autoFocus type="search" id="searchBox" name="place" value={newBooking.booking.name} onChange={search} placeholder="Anywhere"/>
                     <ul className="search-container">
                         {searchResult}
                     </ul>
@@ -116,16 +136,12 @@ function QuickCard({guestCount} : {guestCount:Object}) {
                 </div>
                 <div className="input" id="quickcard-guest">
                     <div className="title">GUESTS</div>
-                    <GuestDropdown />
+                    <GuestDropdown guests={guests} setGuests={setGuests}/>
                 </div>
-                <input type="button" value="Search"/>
+                <input type="submit" value="Search"/>
             </form>
         </div>
     )
 }
 
-const mapStateToProps = (state:any) => ({
-    guestCount: state.guestCount.item
-})
-
-export default connect(mapStateToProps, { newPost })(QuickCard);
+export default connect(null, { book })(QuickCard);

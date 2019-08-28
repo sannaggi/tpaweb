@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux';
-import { setGuestCount } from "../../actions/guestCountActions";
 import GuestCounter from "./GuestCounter";
 
-function GuestDropdown({setGuestCount} : {setGuestCount:any}) {
-
-    const [guests, setGuests] = useState({
-        adults: 0,
-        children: 0,
-        infants: 0
-    })
-
-    useEffect(() => {
-        setGuestCount(guests);
-    }, [guests, setGuestCount])
+function GuestDropdown({guests, setGuests} : {guests:any, setGuests: any}) {
 
     const [click, setClick] = useState(false)
 
@@ -94,4 +83,4 @@ function GuestDropdown({setGuestCount} : {setGuestCount:any}) {
     )
 }
 
-export default connect(null, { setGuestCount })(GuestDropdown)
+export default connect(null, { })(GuestDropdown)

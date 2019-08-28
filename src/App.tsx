@@ -18,6 +18,7 @@ import WishlistDetail from "./components/wishlist/WishlistDetail";
 import Chat from "./components/chat/Chat";
 import ChatDetail from "./components/chat/ChatDetail";
 import ProtectedRoute from "./components/routes/ProtectedRoute";
+import BookingPage from "./components/booking/BookingPage";
 
 const App: React.FC = () => {
   return (
@@ -36,7 +37,8 @@ const App: React.FC = () => {
           <ProtectedRoute exact path="/wishlist" component={Wishlist} />
           <ProtectedRoute path="/wishlist/:id" component={WishlistDetail} />  
           <ProtectedRoute exact path="/chat" component={Chat} />   
-          <ProtectedRoute exact path="/chat/detail" component={ChatDetail} />   
+          <ProtectedRoute exact path="/chat/detail" component={ChatDetail} />
+          <ProtectedRoute path="/booking/new" component={BookingPage} />
           <Footer />
         </div>
       </Router>

@@ -21,9 +21,22 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
         setNewUser({...newUser, [e.target.name]: e.target.value})
     }
 
+    function checkContainsNumber(str: string) {
+        for (let index = 0; index < str.length; index++) {
+            const c = str[index];
+            if(!isNaN(parseInt(c))) {
+                return true
+            }
+        }
+        return false
+    }
+
     function onSubmit(e) {
         e.preventDefault()
-        newDefaultUser({...newUser, password: sha(newUser.password)})
+        if(newUser.firstname === "") alert("First name cannot be empty")
+        else if(checkContainsNumber(newUser.firstname) || checkContainsNumber(newUser.lastname)) alert("Name cannot contains number")
+        else if(newUser.password.length < 4) alert("Password must be more than 3 characters long")
+        else newDefaultUser({...newUser, password: sha(newUser.password)})
     }
 
     return (

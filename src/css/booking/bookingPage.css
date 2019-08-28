@@ -1,0 +1,108 @@
+.booking-page-container {
+  padding: 2.5em 6.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .booking-page-container .left {
+    width: calc((100% - 2vw) * 0.6); }
+    .booking-page-container .left .header {
+      margin-bottom: 15px; }
+      .booking-page-container .left .header h1 {
+        margin-bottom: 10px; }
+      .booking-page-container .left .header .add-more {
+        border: 2px solid #e6e6e6;
+        padding: 0.6em 1em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content; }
+        .booking-page-container .left .header .add-more img {
+          width: 50px;
+          height: auto;
+          margin-right: 10px; }
+    .booking-page-container .left .coming {
+      width: 100%;
+      max-width: 400px; }
+      .booking-page-container .left .coming h2 {
+        margin-bottom: 15px; }
+      .booking-page-container .left .coming h4 {
+        margin-bottom: 7px; }
+      .booking-page-container .left .coming .guestContainer {
+        position: relative; }
+        .booking-page-container .left .coming .guestContainer .guestInput > input {
+          margin: 2px 0 !important; }
+        .booking-page-container .left .coming .guestContainer .guestInputContent {
+          width: 100%; }
+    .booking-page-container .left .confirmation {
+      margin-top: 2em;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .booking-page-container .left .confirmation > button {
+        padding: 1em 1.5em;
+        font-size: 16px;
+        font-weight: 600;
+        border: 1px solid #098e97;
+        margin-right: 10px; }
+      .booking-page-container .left .confirmation > div {
+        color: #098e97;
+        cursor: pointer; }
+  .booking-page-container .right {
+    width: calc((100% - 2vw) * 0.4);
+    border: 1.5px solid #e6e6e6;
+    padding: 0 1em; }
+    .booking-page-container .right .section {
+      padding: 1em 0;
+      border-top: 0.25px solid #e6e6e6;
+      border-bottom: 0.25px solid #e6e6e6; }
+    .booking-page-container .right .header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .booking-page-container .right .header .detail {
+        width: calc(100% - 100px); }
+        .booking-page-container .right .header .detail h4 {
+          margin-bottom: 5px; }
+        .booking-page-container .right .header .detail > div {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; }
+        .booking-page-container .right .header .detail .reviews {
+          height: 12px;
+          margin-right: 5px; }
+          .booking-page-container .right .header .detail .reviews #star-container {
+            width: calc(12px * 5); }
+      .booking-page-container .right .header .image {
+        width: 140px;
+        height: 100px;
+        background-position: center;
+        background-size: cover;
+        margin-left: 10px; }
+    .booking-page-container .right .row {
+      margin: 10px 0; }
+    .booking-page-container .right .booking-details .icon {
+      margin-right: 6px; }
+    .booking-page-container .right .price-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }

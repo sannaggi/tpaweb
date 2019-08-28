@@ -1,0 +1,112 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.booking-page-container {
+    padding: 2.5em 6.5em;
+    @include flexBetween;
+    .left {
+        width: calc((100% - 2vw) * 0.6);
+        .header {
+            margin-bottom: 15px;
+            h1 {
+                margin-bottom: 10px;
+            }
+            .add-more {
+                border: 2px solid $superDuperLightGrey;
+                padding: 0.6em 1em;
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                img {
+                    width: 50px;
+                    height: auto;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .coming {
+            width: 100%;
+            max-width: 400px;
+            h2 {
+                margin-bottom: 15px;
+            }
+            h4 {
+                margin-bottom: 7px;
+            }
+            .guestContainer {
+                position: relative;
+                .guestInput>input {
+                    margin: 2px 0 !important;
+                }
+                .guestInputContent {
+                    width: 100%;
+                }
+            }
+        }
+        .confirmation {
+            margin-top: 2em;
+            display: flex;
+            align-items: center;
+            >button {
+                padding: 1em 1.5em;
+                font-size: 16px;
+                font-weight: 600;
+                border: 1px solid $lightBlueGreen;
+                margin-right: 10px;
+            }
+            >div {
+                color: $lightBlueGreen;
+                cursor: pointer;
+            }
+        }
+    }
+    .right {
+        width: calc((100% - 2vw) * 0.4);
+        border: 1.5px solid $superDuperLightGrey;
+        padding: 0 1em;
+        .section {
+            padding: 1em 0;
+            border-top: 0.25px solid $superDuperLightGrey;
+            border-bottom: 0.25px solid $superDuperLightGrey;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            .detail {
+                width: calc(100% - 100px);
+                h4 {
+                    margin-bottom: 5px;
+                }
+                >div {
+                    display: flex;
+                    align-items: center;
+                }
+                .reviews {
+                    height: 12px;
+                    margin-right: 5px;
+                    #star-container {
+                        width: calc(12px * 5)
+                    }
+                }
+            }
+            .image {
+                width: 140px;
+                height: 100px;
+                background-position: center;
+                background-size: cover;
+                margin-left: 10px;
+            }
+        }
+        .row {
+            margin: 10px 0;
+        }
+        .booking-details {
+            .icon {
+                margin-right: 6px;
+            }
+        }
+        .price-row {
+            @include flexBetween;
+        }
+    }
+}

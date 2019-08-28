@@ -176,7 +176,7 @@ function ChatCard({callback, chat, user, currency, setChatDetail} : {callback: a
     function redirectClick(e) {
         if(e.target.className === "status-type") return
         setChatDetail(otherUser)
-        setredirect(<Redirect to="/chat/detail"/>)
+        setredirect(<Redirect push to="/chat/detail"/>)
     }
 
     return (

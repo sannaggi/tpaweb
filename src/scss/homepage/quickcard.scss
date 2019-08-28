@@ -34,7 +34,7 @@
         width: 95%;
         border: none;
     }
-    input[type="button"] {
+    input[type="submit"] {
         @include titleText;        
         width: auto;
         background: $lightRed;

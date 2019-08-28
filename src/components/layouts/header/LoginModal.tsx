@@ -49,8 +49,11 @@ function LoginModal({ oauthLogin, emailLogin }: { oauthLogin: any, emailLogin: a
 
   function onSubmit(e) {
     e.preventDefault()
-    document.getElementById("loginModal").setAttribute("style", "display: hidden");
-    emailLogin(login.email, sha(login.password), login.rememberMe)
+    if(login.password.length < 4) alert("Password must be longer than 3 characters long")
+    else {
+      document.getElementById("loginModal").setAttribute("style", "display: hidden");
+      emailLogin(login.email, sha(login.password), login.rememberMe)
+    }
   }
 
   return (
