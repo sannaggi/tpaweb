@@ -130,12 +130,37 @@
                         >div{
                             width: 100% !important;
                             >div{
+                                bottom: 0 !important;
                                 width: 100% !important;
                                 >div{
+                                    opacity: 0 !important;
                                     width: 100% !important;
+                                }
+                                >.styles_autoHide__83H_q{
+                                    opacity: 1 !important;
                                 }
                             }
                         }
+                    }
+                }
+                >#storiess{
+                    position: relative;
+                    >#pausePlay{
+                        background-color: white;
+                        border-radius: 5px;
+                        text-align: center;
+                        vertical-align: middle;
+                        align-content: center;
+                        align-items: center;
+                        justify-content: center;
+                        display: flex;
+                        padding: .3em .5em;
+                        width: fit-content !important;
+                        position: absolute;
+                        top: .5em;
+                        right: .5em;
+                        z-index: 1000;
+                        color: black;
                     }
                 }
             }
@@ -182,10 +207,25 @@
             >.right{
                 flex-direction: row;
                 flex-wrap: wrap;
-                >img{
+                >div{
                     display: flex;
-                    width: calc(100% / 3);
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    >div{
+                        display: flex;
+                        width: calc(100% / 3);
+                        padding: 5px;
+                    }
+                }
+                img{
+                    display: flex;
+                    width: 100%;
+                }
+                a{
                     padding: 5px;
+                    &:hover{
+                        color: $blueGreen;
+                    }
                 }
             }
         }

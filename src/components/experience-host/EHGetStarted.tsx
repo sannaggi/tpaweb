@@ -1,8 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import "../../css/experience-host/EHGetStarted.css";
+import EHGSSection from "./EHGSSection";
+import EHGSPhotos from "./EHGSPhotos";
+// import {  } from 
 
 export default function EHGetStarted(){
-
     useEffect(() => {
         document.getElementById("EHFirstStarted").setAttribute("style", "opacity: 0");
         document.getElementById("EHFirstStarted").setAttribute("style", "position: absolute");
@@ -20,20 +22,163 @@ export default function EHGetStarted(){
         setTimeout(EHdel, 800);
     })
 
+    const handleInput = (e) =>{
+        let checkbox: HTMLInputElement = document.getElementById(e.target.id + 'Check') as HTMLInputElement;
+        checkbox.checked = e.target.value !== "";
+        console.log(e.target.value)
+    }
+
+    const [count, setCount] = useState(0)
+    const [images, setImages] = useState([])
+    const [imageContent, setimageContent] = useState(
+        images.map(i => (
+            i.out
+        ))
+    )
+    
+    useEffect(() => {
+    }, [images])
+
+    const delImage = (e) => {
+        let img = images
+        console.log(img)
+
+        let remove = -1
+        console.log(e.target.id)
+        console.log(img.length)
+        for(let i = 0; i < images.length; i++){
+            // console.log(img[i].id, e.target.id)
+            if("" + img[i].id === e.target.id){
+                remove = i
+                break
+            }
+        }
+        if(remove === -1) return
+
+        img.splice(remove, 1)
+
+        setImages(img)
+        setimageContent(img.map(i => (
+            i.out
+        )))
+    }
+
+    function onInputFile (e) {
+        let reader = new FileReader()
+        reader.onload = function(){
+            //reader.result
+            let img = images
+            img.push({
+                out: <EHGSPhotos imageURL={reader.result} idx={count} delImage={delImage}/>,
+                id: count
+            })
+
+            setCount(count + 1)
+            setImages(img)
+            setimageContent(img.map(i => (
+                i.out
+            )))
+            // alert(images.length)
+            img.forEach(e => {console.log(e)})
+        }
+        // for(let i = 0; i < e.target.files.length; i++){
+            reader.readAsDataURL(e.target.files[0])
+        // }
+    }
+
     return(
         <div id="EHGetStarted">
             <div className="left">
-                <div className="section">
-                    <input type="checkbox" name="" id="check"/>
-                    <label htmlFor="check">
-                        <div className="coolCheck">
-                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style={{height: "fit-content", width: "fit-content", display: "block", fill: "rgb(0, 132, 137)", transform: 'scale(1)'}}><path d="m12 3c4.675 0 8.5 3.825 8.5 8.5s-3.825 8.5-8.5 8.5-8.5-3.825-8.5-8.5 3.825-8.5 8.5-8.5zm-4.20954717 8.0542068c-.34328861-.3676077-.91958389-.3873221-1.28719154-.0440335s-.38732213.9195839-.04403352 1.2871915l3.00196483 3.2146282c.35564582.3808402.9577342.3861852 1.3200851.0117188l6.6278415-6.84944861c.3497607-.36145525.3402805-.9380097-.0211748-1.28777042-.3614552-.34976072-.9380097-.34028043-1.2877704.02117481l-5.961635 6.16096702z"></path></svg>
-                        </div>
-                    </label>
+                <div id="basicInfo" className="head-sec">
+                    <p>Basic Information</p>
+                    <EHGSSection headName={"Experience Location City Name"} id={"locName"}/>
+                    <EHGSSection headName={"Primary Language"} id={"primLang"}/>
+                    <EHGSSection headName={"Spoken Language"} id={"spokeLang"}/>
+                    <EHGSSection headName={"Experience Category"} id={"expCat"}/>
+                </div>
+                <div id="experiencePage" className="head-sec">
+                    <p>Experience Page</p>
+                    <EHGSSection headName={"Title"} id={"title"}/>
+                    <EHGSSection headName={"About you"} id={"aboutyou"}/>
+                    <EHGSSection headName={"What we'll do"} id={"wedo"}/>
+                    <EHGSSection headName={"What we'll be"} id={"webe"}/>
+                    <EHGSSection headName={"Photos"} id={"photos"}/>
+                </div>
+                <div id="settings" className="head-sec">
+                    <p>Settings</p>
+                    <EHGSSection headName={"Group size"} id={"groupSize"}/>
+                    <EHGSSection headName={"Schedule"} id={"schedule"}/>
+                    <EHGSSection headName={"Price"} id={"price"}/>
+                    <EHGSSection headName={"Meeting location"} id={"meetingloc"}/>
                 </div>
             </div>
             <div className="right">
-                
+                <div id="basicInfoInput" className="input-section">
+                    <h2>Basic Information</h2>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="locName" onBlur={handleInput}/>
+                        <div className="label">Experience Location Name</div>
+                    </div>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="primLang" onBlur={handleInput}/>
+                        <div className="label">Primary Language</div>
+                    </div>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="spokeLang" onBlur={handleInput}/>
+                        <div className="label">Spoken Language</div>
+                    </div>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="expCat" onBlur={handleInput}/>
+                        <div className="label">Experience Category</div>
+                    </div>
+                </div>
+                <div id="experiencePageInput" className="input-section">
+                    <h2>Experience Page</h2>
+                    <div className="input">
+                        <input type="text" placeholder=" " name="" id="title" onBlur={handleInput}/>
+                        <div className="label">Title</div>
+                    </div>
+                    <div className="input">
+                        <textarea name=""  placeholder=" " id="aboutyou" rows={6} onBlur={handleInput}></textarea>
+                        <div className="label">About You</div>
+                    </div>
+                    <div className="input">
+                        <textarea name=""  placeholder=" " id="wedo" rows={10} onBlur={handleInput}></textarea>
+                        <div className="label">What we'll do</div>
+                    </div>
+                    <div className="input">
+                        <textarea name=""  placeholder=" " id="webe" rows={10} onBlur={handleInput}></textarea>
+                        <div className="label">What we'll be</div>
+                    </div>
+                    <div className="input">
+                        <div className="photosInput">
+                            <h4>Photos</h4>
+                            <div>
+                            {imageContent}
+                            </div>
+                            <input type="file" name="" accept="image/x-png,image/jpeg,image/jpg" id="" onChange={onInputFile}/>
+                        </div>
+                    </div>
+                </div>
+                <div id="settingsInput" className="input-section">
+                    <h2>Settings</h2>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="groupSize" onBlur={handleInput}/>
+                        <div className="label">Group Size</div>
+                    </div>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="schedule" onBlur={handleInput}/>
+                        <div className="label">Schedule</div>
+                    </div>
+                    <div className="input">
+                        <input type="number"  placeholder=" " name="" id="price" onBlur={handleInput}/>
+                        <div className="label">Price</div>
+                    </div>
+                    <div className="input">
+                        <input type="text"  placeholder=" " name="" id="meetingloc" onBlur={handleInput}/>
+                        <div className="label">Meeting Location</div>
+                    </div>
+                </div>
             </div>
         </div>
     )

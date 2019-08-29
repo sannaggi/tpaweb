@@ -33,6 +33,10 @@ function QuickCard({book} : {book: any}) {
         getDateToday()
     }, [])
 
+    useEffect(() => {
+        getDateToday()
+    }, [])
+
     function onChange(e:any) {
         setNewBooking({...newBooking, [e.target.name] : e.target.value});
     }

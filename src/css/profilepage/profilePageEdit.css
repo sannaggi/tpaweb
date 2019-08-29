@@ -1,3 +1,16 @@
+#profileEdit #submitBtn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75em;
+  float: right; }
+  #profileEdit #submitBtn:hover {
+    color: #008489;
+    background-color: #e6e6e6; }
+  #profileEdit #submitBtn:active {
+    color: #008489;
+    background-color: #bdbdbd; }
+
 #profileEdit > div {
   margin: 15px 0; }
 
@@ -67,7 +80,7 @@ ul input::-webkit-input-placeholder, ul textarea::-webkit-input-placeholder {
 ul input:focus::-webkit-input-placeholder, ul textarea:focus::-webkit-input-placeholder {
   color: #868686; }
 
-ul input, ul select, ul #address {
+ul input, ul select, ul #address, ul input[disabled] {
   -webkit-appearance: none;
   width: 100%;
   font-family: inherit;
@@ -81,18 +94,18 @@ ul input, ul select, ul #address {
   -webkit-transition: all .15s ease;
   -o-transition: all .15s ease;
   transition: all .15s ease; }
-  ul input:focus + div, ul select:focus + div, ul #address:focus + div {
+  ul input:focus + div, ul select:focus + div, ul #address:focus + div, ul input[disabled]:focus + div {
     -webkit-transform: translateY(-17px) scale(0.75);
     -ms-transform: translateY(-17px) scale(0.75);
     transform: translateY(-17px) scale(0.75); }
-  ul input:not(:placeholder-shown) + div, ul select:not(:placeholder-shown) + div, ul #address:not(:placeholder-shown) + div {
+  ul input:not(:placeholder-shown) + div, ul select:not(:placeholder-shown) + div, ul #address:not(:placeholder-shown) + div, ul input[disabled]:not(:placeholder-shown) + div {
     color: #008489;
     -webkit-transform: translateY(-17px) scale(0.75);
     -ms-transform: translateY(-17px) scale(0.75);
     transform: translateY(-17px) scale(0.75); }
-  ul input:hover, ul select:hover, ul #address:hover {
+  ul input:hover, ul select:hover, ul #address:hover, ul input[disabled]:hover {
     border-color: #008489; }
-    ul input:hover + div, ul select:hover + div, ul #address:hover + div {
+    ul input:hover + div, ul select:hover + div, ul #address:hover + div, ul input[disabled]:hover + div {
       color: #008489; }
 
 @media screen and (max-width: 1100px) {

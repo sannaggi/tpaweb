@@ -1,11 +1,10 @@
 import React from "react"
-import {PROFILEPHOTO} from "../Specification.js"
 import "../../css/photoHolder/photoHolder.css"
 
-function PhotoHolder(){
+function PhotoHolder(props){
     return(
         <div className="photoHolder">
-            <img src={PROFILEPHOTO} alt="Hai"/>
+            <img src={props.url} alt="Hai"/>
         </div>
     )
 }

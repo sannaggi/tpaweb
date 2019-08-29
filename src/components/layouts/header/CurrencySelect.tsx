@@ -8,7 +8,7 @@ function CurrencySelect({currency, setCurrency} : {currency:any, setCurrency:any
     const [visible, setVisible] = useState(false)
 
     function getStyle() {
-        if(visible) return {height: "370px"}
+        if(visible) return {height: "376px"}
         return {height: "0px"}
     }
 

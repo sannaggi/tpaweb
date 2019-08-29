@@ -80,6 +80,12 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
 
   function showForm(com) {
     document.getElementById(com).setAttribute("style", "display: block");
+    document.getElementById("register-content").setAttribute("style", "opacity: 0");
+    document.getElementById("login-content").setAttribute("style", "opacity: 0");
+    setTimeout(() => {
+      document.getElementById("register-content").setAttribute("style", "opacity: 1; transition: 0.5s ease-in-out;");
+      document.getElementById("login-content").setAttribute("style", "opacity: 1; transition: 0.5s ease-in-out;");
+    }, 150)
   }
 
   function clickLink(cb: any) {
@@ -107,7 +113,10 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
           <Link to="/" onClick={() => clickLink(null)}>
             <div className="dropdown-link">Home</div>
           </Link>
-          <Link to="/becomehost" onClick={() => clickLink(null)}>
+          <Link to={'/users/' + user.id}>
+            <div className="dropdown-link">Profile</div>
+          </Link>
+          <Link to="/experience-host">
             <div className="dropdown-link">Become a Host</div>
           </Link>
           <Link to="/wishlist" onClick={() => clickLink(null)}>
