@@ -58,7 +58,7 @@ function BookingPage({booking, currency, user, history} : {booking: any, currenc
             type: b.type,
             hostid: b.hostid
         })
-    }, [])
+    }, [booking.booking])
 
     function multiply(a: number, b: number) {
         return a * b
