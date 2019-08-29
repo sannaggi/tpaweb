@@ -13,48 +13,174 @@
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s; }
+  #EHGetStarted .coolCheck > svg {
+    height: "fit-content";
+    width: "fit-content";
+    display: "block";
+    fill: #008489;
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5); }
   #EHGetStarted > .left {
-    padding: 10px;
-    height: 80vh;
+    padding: 1.2em;
+    height: 90vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    overflow: scroll;
+    overflow-y: scroll;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 25%; }
-    #EHGetStarted > .left > .section input[type="checkbox"] {
-      position: absolute;
-      opacity: 0;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center; }
-      #EHGetStarted > .left > .section input[type="checkbox"]:checked + label > .coolCheck {
-        background-color: #098e97; }
-    #EHGetStarted > .left > .section label > .coolCheck {
-      width: 24px;
-      height: 24px;
-      border: 3px solid #098e97;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      border-radius: 50%;
-      -webkit-transform: scale(1.5);
-      -ms-transform: scale(1.5);
-      transform: scale(1.5); }
+    width: 20%; }
+    #EHGetStarted > .left > .head-sec {
+      width: 100%; }
+      #EHGetStarted > .left > .head-sec > p {
+        margin: .5em 0; }
+      #EHGetStarted > .left > .head-sec > .section {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        padding: 0 1em;
+        margin: 2em 0; }
+        #EHGetStarted > .left > .head-sec > .section > .head {
+          width: 80%;
+          min-height: 24px;
+          padding: 0 .2em; }
+        #EHGetStarted > .left > .head-sec > .section > .checkbox {
+          width: 20%;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; }
+          #EHGetStarted > .left > .head-sec > .section > .checkbox input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center; }
+            #EHGetStarted > .left > .head-sec > .section > .checkbox input[type="checkbox"]:not(:checked) + div {
+              background-color: #008489; }
+            #EHGetStarted > .left > .head-sec > .section > .checkbox input[type="checkbox"]:not(:checked) + div {
+              display: none; }
+          #EHGetStarted > .left > .head-sec > .section > .checkbox .coolCheck {
+            width: 24px;
+            height: 24px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border-radius: 50%;
+            -webkit-transform: scale(0.75);
+            -ms-transform: scale(0.75);
+            transform: scale(0.75); }
   #EHGetStarted > .right {
-    width: 75%; }
+    height: 90vh;
+    overflow-y: scroll;
+    width: 80%; }
+    #EHGetStarted > .right > .input-section {
+      padding: 0 2em; }
+      #EHGetStarted > .right > .input-section > * {
+        margin: 1.5em 0; }
+      #EHGetStarted > .right > .input-section textarea {
+        width: 100%; }
+      #EHGetStarted > .right > .input-section .photosInput {
+        border: 1px solid #bdbdbd;
+        border-radius: 5px;
+        padding: .3em .5em;
+        font-size: 20px;
+        min-height: 50vh; }
+        #EHGetStarted > .right > .input-section .photosInput > h4 {
+          color: #008489;
+          top: -.65em;
+          left: 3.4em;
+          position: absolute;
+          background-color: white;
+          padding: 0 .25em; }
+        #EHGetStarted > .right > .input-section .photosInput > div {
+          min-height: 45vh;
+          padding: 1.5em 1em;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-flow: wrap;
+          flex-flow: wrap; }
+        #EHGetStarted > .right > .input-section .photosInput > input[type="file"] {
+          color: black;
+          font-size: 0pt;
+          padding: 6px 8px; }
+          #EHGetStarted > .right > .input-section .photosInput > input[type="file"]::-webkit-file-upload-button {
+            width: -webkit-fit-content;
+            width: fit-content;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            border: 1x solid #3b3b3b;
+            background-color: transparent;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all 0.15s ease-in-out;
+            -o-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+            padding: 6px 8px;
+            color: black;
+            margin: 0;
+            font-size: 8pt; }
+            #EHGetStarted > .right > .input-section .photosInput > input[type="file"]::-webkit-file-upload-button:hover {
+              background-color: #bdbdbd; }
+      #EHGetStarted > .right > .input-section input[type="text"], #EHGetStarted > .right > .input-section input[type="number"], #EHGetStarted > .right > .input-section textarea {
+        border-radius: 5px;
+        padding: .3em .5em;
+        font-size: 20px;
+        resize: none;
+        -webkit-transition: all .15s linear;
+        -o-transition: all .15s linear;
+        transition: all .15s linear; }
+        #EHGetStarted > .right > .input-section input[type="text"] + div, #EHGetStarted > .right > .input-section input[type="number"] + div, #EHGetStarted > .right > .input-section textarea + div {
+          position: absolute;
+          top: .15em;
+          left: 2.8em;
+          pointer-events: none;
+          font-size: 20px;
+          color: #868686;
+          -webkit-transition: all .15s linear;
+          -o-transition: all .15s linear;
+          transition: all .15s linear;
+          background-color: white;
+          padding: 2px 5px;
+          -webkit-transform-origin: left;
+          -ms-transform-origin: left;
+          transform-origin: left; }
+        #EHGetStarted > .right > .input-section input[type="text"]:hover, #EHGetStarted > .right > .input-section input[type="number"]:hover, #EHGetStarted > .right > .input-section textarea:hover {
+          border-color: #008489; }
+          #EHGetStarted > .right > .input-section input[type="text"]:hover + div, #EHGetStarted > .right > .input-section input[type="number"]:hover + div, #EHGetStarted > .right > .input-section textarea:hover + div {
+            color: #008489; }
+        #EHGetStarted > .right > .input-section input[type="text"]:focus, #EHGetStarted > .right > .input-section input[type="text"]:not(:placeholder-shown), #EHGetStarted > .right > .input-section input[type="number"]:focus, #EHGetStarted > .right > .input-section input[type="number"]:not(:placeholder-shown), #EHGetStarted > .right > .input-section textarea:focus, #EHGetStarted > .right > .input-section textarea:not(:placeholder-shown) {
+          border-color: #008489; }
+          #EHGetStarted > .right > .input-section input[type="text"]:focus + div, #EHGetStarted > .right > .input-section input[type="text"]:not(:placeholder-shown) + div, #EHGetStarted > .right > .input-section input[type="number"]:focus + div, #EHGetStarted > .right > .input-section input[type="number"]:not(:placeholder-shown) + div, #EHGetStarted > .right > .input-section textarea:focus + div, #EHGetStarted > .right > .input-section textarea:not(:placeholder-shown) + div {
+            color: #008489;
+            -webkit-transform: translateY(-1em) scale(0.5);
+            -ms-transform: translateY(-1em) scale(0.5);
+            transform: translateY(-1em) scale(0.5); }
+      #EHGetStarted > .right > .input-section > .input {
+        position: relative;
+        padding: 0 3em; }

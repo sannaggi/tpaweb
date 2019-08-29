@@ -6,7 +6,7 @@ import AvatarEditor from 'react-avatar-editor'
 
 export default function ImageEdit({src, setProfilePhoto}: {src: any, setProfilePhoto: any}){
     const editor = React.createRef<AvatarEditor>()
-
+    var ref = React.createRef<HTMLDivElement>();
     const [defStyle, setDef] = useState()
     useEffect(() => {
         setDef(document.querySelector(".left>canvas").getAttribute("style"))
@@ -38,7 +38,7 @@ export default function ImageEdit({src, setProfilePhoto}: {src: any, setProfileP
     })
 
     function closeEdit() {
-        document.getElementById("imageEdit").setAttribute("style", "display: none !important")
+        ref.current.setAttribute("style", "display: none !important")
     }
 
     const handleExit = (e) => {
@@ -57,7 +57,7 @@ export default function ImageEdit({src, setProfilePhoto}: {src: any, setProfileP
             // document.getElementById('outi').append(c)
 
             setProfilePhoto(imgUrl)
-            document.getElementById("submitBtn").removeAttribute("disabled")
+            // document.getElementById("submitBtn").removeAttribute("disabled")
             closeEdit()
         }
     }
@@ -106,7 +106,7 @@ export default function ImageEdit({src, setProfilePhoto}: {src: any, setProfileP
     }
     
     return (
-        <div id="imageEdit">
+        <div id="imageEdit" ref={ref}>
             <div>
                 <div className="left">
                     <AvatarEditor

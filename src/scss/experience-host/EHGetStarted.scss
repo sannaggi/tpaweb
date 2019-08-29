@@ -6,36 +6,162 @@
     width: 100vw;
     @include flexFullCenter;
     transition: all 0.5s;
+    .coolCheck{
+        >svg{
+            height: "fit-content";
+            width: "fit-content";
+            display: "block";
+            fill: $blueGreen;
+            transform: scale(1.5);
+        }
+        
+    }
     >.left{
-        padding: 10px;
-        height: 80vh;
+        padding: 1.2em;
+        height: 90vh;
         display: flex;
-        overflow: scroll;
+        overflow-y: scroll;
         flex-direction: column;
-        width: 25%;
-        >.section{
-            input[type="checkbox"]{
-                position: absolute;
-                opacity: 0;
-                @include flexFullCenter;
-                &:checked + label>.coolCheck{
-                    background-color: $lightBlueGreen;
-                }
+        width: 20%;
+        >.head-sec{
+            width: 100%;
+            >p{
+                margin: .5em 0;
             }
-            label>.coolCheck{
-                width: 24px;
-                height: 24px;
-                border: 3px solid $lightBlueGreen;
+            >.section{
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                // background-color: $lightBlueGreen;
-                transform: scale(1.5)
+                width: 100%;
+                padding: 0 1em;
+                margin: 2em 0;
+                >.head{
+                    width: 80%;
+                    min-height: 24px;
+                    padding: 0 .2em;
+                }
+                >.checkbox{
+                    width: 20%;
+                    align-items: center;
+                    display: flex;
+                    input[type="checkbox"]{
+                        position: absolute;
+                        opacity: 0;
+                        pointer-events: none;
+                        @include flexFullCenter;
+                        &:not(:checked) + div{
+                            background-color: $blueGreen;
+                        }
+                        &:not(:checked) + div{
+                            display: none;
+                        }
+                        // &:checked + div{
+                        //     background-color: $blueGreen;
+                        // }
+                        // &:checked + div{
+                        //     display: none;
+                        // }
+                    }
+                    .coolCheck{
+                        width: 24px;
+                        height: 24px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        // background-color: $lightBlueGreen;
+                        transform: scale(0.75);
+                    }
+                }
             }
         }
     }
     >.right{
-        width: 75%;
+        height: 90vh;
+        overflow-y: scroll;
+        width: 80%;
+        >.input-section{
+            padding: 0 2em;
+            >*{
+                margin: 1.5em 0;
+            }
+            textarea{
+                width: 100%;
+            }
+            .photosInput{
+                border: 1px solid $superLightGrey;
+                border-radius: 5px;
+                padding: .3em .5em;
+                font-size: 20px;
+                min-height: 50vh;
+                >h4{
+                    color: $blueGreen;
+                    top: -.65em;
+                    left: 3.4em;
+                    position: absolute;
+                    background-color: white;
+                    padding: 0 .25em;
+                }
+                >div{
+                    min-height: 45vh;
+                    padding: 1.5em 1em;
+                    display: flex;
+                    flex-flow: wrap;
+                    // justify-content: space-between;
+                }
+                >input[type="file"]{
+                    color: black;
+                    font-size: 0pt;
+                    padding: 6px 8px;
+                    &::-webkit-file-upload-button{
+                        @include basicButton($darkGrey, transparent);
+                        transition: all 0.15s ease-in-out;
+                        padding: 6px 8px;
+                        color: black;
+                        margin: 0;
+                        font-size: 8pt;
+                
+                        &:hover{
+                            background-color: $superLightGrey;  
+                        }
+                    }
+                }
+            }
+            input[type="text"],input[type="number"], textarea{
+                border-radius: 5px;
+                padding: .3em .5em;
+                font-size: 20px;
+                resize: none;
+                transition: all .15s linear;
+                +div{
+                    position: absolute;
+                    top: .15em;
+                    left: 2.8em;
+                    pointer-events: none;
+                    font-size: 20px;
+                    color: $lightGrey;
+                    transition: all .15s linear;
+                    background-color: white;
+                    padding: 2px 5px;
+                    transform-origin: left;
+                }
+                &:hover{
+                    border-color: $blueGreen;
+                    +div{
+                        color: $blueGreen;
+                    }
+                }
+                &:focus, &:not(:placeholder-shown){
+                    border-color: $blueGreen;
+                    +div{
+                        color: $blueGreen;
+                        transform: translateY(-1em) scale(.5);
+                    }
+                }
+                
+            }
+            >.input{
+                position: relative;
+                padding: 0 3em;
+            }
+        }
     }
 }

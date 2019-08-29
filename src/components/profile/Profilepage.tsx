@@ -146,6 +146,11 @@ function Profilepage({user, userProfile, setUserProfile, match} : {user: any, us
         )
     }
 
+    const getReviewNum = () => {
+        if(userProfile.firstname === undefined) return ""
+        return userProfile.review.length
+    }
+
     return (
         <div className="profilePage">
             <div id="profileHead">
@@ -159,7 +164,7 @@ function Profilepage({user, userProfile, setUserProfile, match} : {user: any, us
                 <div className="l"></div>
                 <div className="r">
                     <div>
-                        <h1>{userProfile.firstname !== undefined ? userProfile.review.length : ""} reviews</h1>
+                        <h1> {getReviewNum()} reviews</h1>
                         <div style={{display: "flex", alignItems: "center"}}> <div>{avg().toFixed(2)}</div> <div style={{width: "20px"}}><StarReview greenStar={calcGreenStar()}/></div> </div>
                     </div>
                     {getReview()}

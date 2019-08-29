@@ -12,6 +12,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
+  #EHFirstStarted h1 {
+    color: #008489; }
   #EHFirstStarted > div {
     display: -webkit-box;
     display: -ms-flexbox;

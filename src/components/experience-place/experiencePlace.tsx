@@ -202,6 +202,7 @@ function ExperiencePlace({ setCurrentExperience, match, experience } : { setCurr
         setImages(obj.images1)
         setGallery(obj.outImg)
         setFullImageSrc(obj.outImg[0])
+        // eslint-disable-next-line
     }, [experience])
 
     var storyPlaying = true
