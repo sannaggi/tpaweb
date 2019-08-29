@@ -1,0 +1,267 @@
+#imageEdit {
+  position: fixed;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  z-index: 1111;
+  margin: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center; }
+  #imageEdit #header {
+    font-size: 20pt; }
+  #imageEdit div {
+    color: white !important; }
+  #imageEdit input[type="file"] {
+    color: white;
+    font-size: 8pt; }
+    #imageEdit input[type="file"]::-webkit-file-upload-button {
+      width: -webkit-fit-content;
+      width: fit-content;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      border: 1x solid #3b3b3b;
+      background-color: transparent;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      -webkit-transition: all 0.15s ease-in-out;
+      -o-transition: all 0.15s ease-in-out;
+      transition: all 0.15s ease-in-out;
+      padding: 6px 8px;
+      color: white;
+      margin: 0;
+      font-size: 8pt; }
+      #imageEdit input[type="file"]::-webkit-file-upload-button:hover {
+        background-color: #3b3b3b; }
+  #imageEdit > div {
+    position: relative;
+    background-color: #000000;
+    padding: 1em;
+    -webkit-transform: translateY(10%);
+    -ms-transform: translateY(10%);
+    transform: translateY(10%);
+    width: 80%;
+    height: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly; }
+    #imageEdit > div .close-modal {
+      margin: 0 !important;
+      float: right;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      cursor: pointer;
+      -webkit-transition: color .15s ease-in-out;
+      -o-transition: color .15s ease-in-out;
+      transition: color .15s ease-in-out;
+      color: #868686 !important;
+      font-size: 16pt; }
+      #imageEdit > div .close-modal:hover {
+        color: white !important; }
+    #imageEdit > div > div {
+      width: 48%;
+      height: 100%; }
+    #imageEdit > div .left {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center; }
+      #imageEdit > div .left > canvas {
+        position: absolute;
+        -webkit-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+        transform: translateY(50%); }
+    #imageEdit > div .right > div {
+      margin: 1em 0 0.3em 0; }
+  #imageEdit #editHeader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly; }
+    #imageEdit #editHeader .active {
+      color: white !important;
+      border-bottom: white 2px solid; }
+    #imageEdit #editHeader > div {
+      cursor: pointer;
+      color: #868686 !important;
+      -webkit-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: #000000 2px solid; }
+      #imageEdit #editHeader > div:hover {
+        color: white !important;
+        border-bottom: white 2px solid; }
+  #imageEdit .hr {
+    margin: 0 !important;
+    width: 100%;
+    height: 2px;
+    background-color: #868686; }
+  #imageEdit #commitButton {
+    position: absolute;
+    bottom: .7em;
+    right: 1.7em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    #imageEdit #commitButton #saveRep {
+      background-color: #0e6137;
+      border-color: #0e6137;
+      margin-right: .5em; }
+      #imageEdit #commitButton #saveRep:hover {
+        background-color: #008489;
+        border-color: #008489; }
+  #imageEdit input[type="button"] {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1x solid #3b3b3b;
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    padding: 10px 25px;
+    color: white;
+    margin: 0;
+    font-size: 10pt; }
+    #imageEdit input[type="button"]:hover {
+      background-color: #3b3b3b; }
+  #imageEdit #editor {
+    height: 50%;
+    position: relative; }
+    #imageEdit #editor .editActive {
+      opacity: 1;
+      pointer-events: all;
+      z-index: 1; }
+    #imageEdit #editor > div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: opacity 0.5s ease;
+      -o-transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1; }
+    #imageEdit #editor div {
+      font-size: 16pt;
+      margin-top: 0.5em; }
+    #imageEdit #editor #rotateBtn {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 60%;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+    #imageEdit #editor input[type="button"] {
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border: 1x solid #3b3b3b;
+      background-color: transparent;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      padding: 5px;
+      color: white;
+      margin: 0;
+      width: 48%; }
+      #imageEdit #editor input[type="button"]:hover {
+        background-color: #3b3b3b; }
+    #imageEdit #editor input[type="range"] {
+      outline: 0;
+      border: 0;
+      border-radius: 500px;
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+      height: 15px;
+      -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+      transition: -webkit-box-shadow 0.2s ease-in-out;
+      -o-transition: box-shadow 0.2s ease-in-out;
+      transition: box-shadow 0.2s ease-in-out;
+      transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out; }
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        #imageEdit #editor input[type="range"] {
+          overflow: hidden;
+          height: 20px;
+          -webkit-appearance: none;
+          background-color: #3b3b3b; }
+        #imageEdit #editor input[type="range"]::-webkit-slider-runnable-track {
+          height: 20px;
+          -webkit-appearance: none;
+          margin-top: -1px;
+          -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+          transition: -webkit-box-shadow 0.2s ease-in-out;
+          -o-transition: box-shadow 0.2s ease-in-out;
+          transition: box-shadow 0.2s ease-in-out;
+          transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out; }
+        #imageEdit #editor input[type="range"]::-webkit-slider-thumb {
+          width: 20px;
+          -webkit-appearance: none;
+          height: 20px;
+          cursor: ew-resize;
+          background: lightGrey;
+          border: none;
+          -webkit-box-shadow: -325px 0 0 315px white, inset 0 0 0 25px white;
+          box-shadow: -325px 0 0 315px white, inset 0 0 0 25px white;
+          border-radius: 50%;
+          -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+          transition: -webkit-box-shadow 0.2s ease-in-out;
+          -o-transition: box-shadow 0.2s ease-in-out;
+          transition: box-shadow 0.2s ease-in-out;
+          transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+          position: relative; }
+        #imageEdit #editor input[type="range"]:active::-webkit-slider-thumb {
+          background: lightGrey;
+          -webkit-box-shadow: -325px 0 0 315px white, inset 0 0 0 3px white;
+          box-shadow: -325px 0 0 315px white, inset 0 0 0 3px white; } }

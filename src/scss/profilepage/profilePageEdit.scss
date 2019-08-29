@@ -2,6 +2,19 @@
 @import '../mixins.scss';
 
 #profileEdit{
+    #submitBtn{
+        width: fit-content;
+        padding: 0.75em;
+        float: right;
+        &:hover{
+            color: $blueGreen;
+            background-color: $superDuperLightGrey
+        }
+        &:active{
+            color: $blueGreen;
+            background-color: $superLightGrey
+        }
+    }
     >div{
         margin: 15px 0;
     }
@@ -72,7 +85,7 @@ ul{
     input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder{
         color: $lightGrey;
     }
-    input, select, #address{
+    input, select, #address, input[disabled]{
         -webkit-appearance: none;
         width: 100%;
         font-family: inherit;

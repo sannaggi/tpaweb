@@ -23,7 +23,7 @@
       border-bottom-style: solid; }
     .profileCard a:active {
       color: #3b3b3b; }
-  .profileCard div {
+  .profileCard>div {
     margin: 6px;
     display: -webkit-box;
     display: -ms-flexbox;

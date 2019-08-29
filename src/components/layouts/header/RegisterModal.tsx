@@ -5,11 +5,11 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 import "../../../css/registerModal.css";
 import NewWindow from "react-new-window";
 import { connect } from 'react-redux';
-import { setNewOauthUser, setRegisterStatus, oauthLogin } from "../../../actions/userActions";
+import { setNewOauthUser, setRegisterStatus, oauth2Login } from "../../../actions/userActions";
 import axios from "axios";
 import RegisterEmailModal from "./RegisterEmailModal";
 
-function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauthLogin } : { setNewOauthUser: any, registerStatus: any, setRegisterStatus: any, oauthLogin: any }) {
+function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauth2Login } : { setNewOauthUser: any, registerStatus: any, setRegisterStatus: any, oauth2Login: any }) {
 
     const [window, setWindow] = useState(false)
     const [auth, setAuth] = useState("")
@@ -20,7 +20,7 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauthL
 
     function onClick(e) {   
         if(e.target.className === 'modal' || e.target.className === 'close-modal')
-            document.getElementById("registerModal").setAttribute("style", "display: none");
+        document.getElementById("registerModal").setAttribute("style", "display: none");
     }
     
     function showLogin() {
@@ -68,12 +68,12 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauthL
                     setNewOauthUser(data)
                 } else {
                     let user: any = data
-                    oauthLogin(user.email, "", "", "email")
+                    oauth2Login(user.email, "", "", "email")
                     document.getElementById("registerModal").setAttribute("style", "display: hidden");
                 }
             })
         },
-        [oauthLogin, setNewOauthUser],
+        [oauth2Login, setNewOauthUser],
     )
 
     const responseOAuth = useCallback(
@@ -107,12 +107,12 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauthL
                     setWindow(true);
                 } else {
                     let currToken: any = tempToken
-                    oauthLogin(currToken.id, currToken.expiration, currToken.accessToken, currToken.authenticator)
+                    oauth2Login(currToken.id, currToken.expiration, currToken.accessToken, currToken.authenticator)
                     document.getElementById("registerModal").setAttribute("style", "display: hidden");
                 }
             })
         },
-        [auth, oauthLogin],
+        [auth, oauth2Login],
     )
 
     const defaultRegisterModal = (
@@ -172,11 +172,11 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauthL
         if(registerStatus === true) {
             setRegisterStatus(false)
             setTimeout(() => {
-                oauthLogin(token.id, token.expiration, token.accessToken, token.authenticator)
+                oauth2Login(token.id, token.expiration, token.accessToken, token.authenticator)
                 document.getElementById("registerModal").setAttribute("style", "display: hidden"); 
             }, 500);
         }
-    }, [registerStatus, token, oauthLogin, setRegisterStatus])
+    }, [registerStatus, token, oauth2Login, setRegisterStatus])
 
     function setData(data, firstname, lastname, email, profileimage, googleid, facebookid, password) {
         data.firstname = firstname
@@ -197,7 +197,7 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauthL
 
     return (
         <div className="modal" id="registerModal">
-            <div className="modal-content login-content">
+            <div className="modal-content login-content" id="register-content">
                 <div className="close-modal">&#10005;</div>
                 {registerModal}
             </div>
@@ -209,4 +209,4 @@ const mapStateToProps = (state:any) => ({
     registerStatus: state.user.registerStatus
 })
 
-export default connect(mapStateToProps, { setNewOauthUser, setRegisterStatus, oauthLogin })(LoginModal)
+export default connect(mapStateToProps, { setNewOauthUser, setRegisterStatus, oauth2Login })(LoginModal)

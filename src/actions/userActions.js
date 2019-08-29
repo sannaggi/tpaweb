@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER_STATUS, LOGOUT, SET_SOCKET } from "./types";
+import { LOGIN, REGISTER_STATUS, LOGOUT, SET_USER_PROFILE, SET_EDITED_PROFILE, SET_SOCKET } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 
@@ -81,7 +81,7 @@ export function emailLogin(email, password, rememberMe) {
   };
 }
 
-export function oauthLogin(id, expiration, accessToken, authenticator) {
+export function oauth2Login(id, expiration, accessToken, authenticator) {
   return function(dispatch) {
     axios({
       url: "https://aivbnbapi.herokuapp.com/api/login/o",
@@ -148,6 +148,30 @@ export function setSocket(socket) {
     dispatch({
       type: SET_SOCKET,
       payload: socket
+    })
+  }
+}
+
+export function setUserProfile(id){
+  return function (dispatch){
+      axios.get("https://aivbnbapi.herokuapp.com/api/users/" + id, {
+          method: 'GET',
+          headers: {
+              'content-type': 'application/json'
+          }
+      })
+      .then(data => dispatch({
+          type: SET_USER_PROFILE,
+          payload: data.data
+      }))
+  }
+}
+
+export function setEditedProfile(user){
+  return function(dispatch){
+    dispatch({
+      type: SET_EDITED_PROFILE,
+      payload: user
     })
   }
 }

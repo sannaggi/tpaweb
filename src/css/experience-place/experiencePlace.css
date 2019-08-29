@@ -137,9 +137,40 @@
         #expPlace #expContainer #first-sec > .left > div > div > div {
           width: 100% !important; }
           #expPlace #expContainer #first-sec > .left > div > div > div > div {
+            bottom: 0 !important;
             width: 100% !important; }
             #expPlace #expContainer #first-sec > .left > div > div > div > div > div {
+              opacity: 0 !important;
               width: 100% !important; }
+            #expPlace #expContainer #first-sec > .left > div > div > div > div > .styles_autoHide__83H_q {
+              opacity: 1 !important; }
+    #expPlace #expContainer #first-sec > .left > #storiess {
+      position: relative; }
+      #expPlace #expContainer #first-sec > .left > #storiess > #pausePlay {
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+        vertical-align: middle;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: .3em .5em;
+        width: -webkit-fit-content !important;
+        width: -moz-fit-content !important;
+        width: fit-content !important;
+        position: absolute;
+        top: .5em;
+        right: .5em;
+        z-index: 1000;
+        color: black; }
   #expPlace #expContainer #first-sec > .right #expBasicInfo > div {
     margin: 5px 0; }
   #expPlace #expContainer #first-sec > .right #expCategory {
@@ -170,12 +201,31 @@
     flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    #expPlace #expContainer #second-sec > .right > img {
+    #expPlace #expContainer #second-sec > .right > div {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      width: calc(100% / 3);
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      #expPlace #expContainer #second-sec > .right > div > div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: calc(100% / 3);
+        padding: 5px; }
+    #expPlace #expContainer #second-sec > .right img {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%; }
+    #expPlace #expContainer #second-sec > .right a {
       padding: 5px; }
+      #expPlace #expContainer #second-sec > .right a:hover {
+        color: #008489; }
 
 @media screen and (max-width: 1100px) {
   #expPlace #expContainer .section > .left > .section-head {

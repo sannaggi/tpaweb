@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../../../css/loginModal.css";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-import { oauthLogin, emailLogin } from "../../../actions/userActions";
+import { oauth2Login, emailLogin } from "../../../actions/userActions";
 import { connect } from "react-redux";
 import sha from "sha256";
 
-function LoginModal({ oauthLogin, emailLogin }: { oauthLogin: any, emailLogin: any }) {
+function LoginModal({ oauth2Login, emailLogin }: { oauth2Login: any, emailLogin: any }) {
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState({
     email: "",
@@ -42,7 +42,7 @@ function LoginModal({ oauthLogin, emailLogin }: { oauthLogin: any, emailLogin: a
   function responseOAuth(res) {
     if (!res.accessToken) return;
     if (res.googleId !== undefined) {
-      oauthLogin(res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid");
+      oauth2Login(res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid");
       document.getElementById("loginModal").setAttribute("style", "display: hidden");
     }
   }
@@ -58,7 +58,7 @@ function LoginModal({ oauthLogin, emailLogin }: { oauthLogin: any, emailLogin: a
 
   return (
     <div className="modal" id="loginModal">
-      <div className="modal-content login-content">
+      <div className="modal-content login-content" id="login-content">
         <div className="close-modal">&#10005;</div>
 
         <FacebookLogin
@@ -158,5 +158,5 @@ function LoginModal({ oauthLogin, emailLogin }: { oauthLogin: any, emailLogin: a
 
 export default connect(
   null,
-  { oauthLogin, emailLogin }
+  { oauth2Login, emailLogin }
 )(LoginModal);
