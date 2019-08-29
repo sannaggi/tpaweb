@@ -24,7 +24,7 @@ function Global({cookieLogin, getAllWishlists, user, setSocket} : {setSocket: an
     useEffect(() => {
         if(user.id === undefined) return
 
-        const port = process.env.PORT || 6969
+        const port = process.env.PORT || 7120
         const url = "http://localhost:" + port
         // const url = "/"
         const socket = io(url)
