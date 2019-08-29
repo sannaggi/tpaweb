@@ -12,7 +12,7 @@ export default function EHGSPhotos({imageURL, idx, delImage} : {imageURL: any, i
     }, [imageURL])
 
     const onClick = (e) => {
-        ref.current.children[0].setAttribute("style", "display: flex")
+        ref.current.children[1].setAttribute("style", "display: flex")
     }
 
     function getImageEdit(){

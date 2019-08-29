@@ -36,7 +36,7 @@ function Header({ setGeoLocation, user, logout }: { setGeoLocation: any, user: a
       if (window.innerWidth > MOBILEWIDTH) setVisible(true);
       if (window.innerWidth > TABLETWIDTH) setClick(false);
     });
-  }, []);
+  }, [setScreen]);
 
   function onClick() {
     if (screen.width <= TABLETWIDTH) {
