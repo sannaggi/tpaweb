@@ -66,7 +66,7 @@ function Profilepage({user, userProfile, setUserProfile, match} : {user: any, us
     const [commentSection, setCommentSection] = useState()
 
     useEffect(() => {
-        if(userProfile.review === undefined) return
+        if(userProfile.review === undefined || userProfile.review === null) return
         setsentComments(userProfile.review.slice(0, 1 * perPage + perPage))
         setCommentSection(true)
         
@@ -110,7 +110,7 @@ function Profilepage({user, userProfile, setUserProfile, match} : {user: any, us
     }
 
     const avg = () => {
-        if(userProfile.review === undefined) return 0
+        if(userProfile.review === undefined || userProfile.review === null) return 0
         let i = 0
         userProfile.review.forEach(element => {
             i += element.rating
@@ -148,6 +148,7 @@ function Profilepage({user, userProfile, setUserProfile, match} : {user: any, us
 
     const getReviewNum = () => {
         if(userProfile.firstname === undefined) return ""
+        if(userProfile.review === null) return ""
         return userProfile.review.length
     }
 

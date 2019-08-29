@@ -32,11 +32,11 @@ const App: React.FC = () => {
           <Route exact path="/" component={Homepage}/>
           <Route exact path="/places" component={Places}/>
           <Route exact path="/experiences" component={Experiences}/>
-          <Route path="/experience-host" component={ExperienceHost} />
-          <Route path="/experiences/:id" component={ExperiencePlace} />
           <Route path="/places/:id" component={PlaceDetail} />
           <Route path="/users/:id/" component={Profilepage} />
           <Route path="/register/:auth/:firstname/:lastname/:email" component={RegisterForm} />
+          <Route path="/experiences/:id" component={ExperiencePlace} />
+          <ProtectedRoute path="/experience-host" component={ExperienceHost} />
           <ProtectedRoute exact path="/wishlist" component={Wishlist} />
           <ProtectedRoute path="/wishlist/:id" component={WishlistDetail} />  
           <ProtectedRoute exact path="/chat" component={Chat} />   

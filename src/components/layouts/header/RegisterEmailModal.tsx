@@ -21,7 +21,6 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
         setNewUser({...newUser, [e.target.name]: e.target.value})
     }
 
-<<<<<<< HEAD
     function checkContainsNumber(str: string) {
         for (let index = 0; index < str.length; index++) {
             const c = str[index];
@@ -38,11 +37,6 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
         else if(checkContainsNumber(newUser.firstname) || checkContainsNumber(newUser.lastname)) alert("Name cannot contains number")
         else if(newUser.password.length < 4) alert("Password must be more than 3 characters long")
         else newDefaultUser({...newUser, password: sha(newUser.password)})
-=======
-    function onSubmit(e) {
-        e.preventDefault()
-        newDefaultUser({...newUser, password: sha(newUser.password)})
->>>>>>> origin/df-branch
     }
 
     return (

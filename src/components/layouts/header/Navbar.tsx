@@ -24,17 +24,12 @@ function Navbar({ user, logout } : { user: any, logout: any }) {
         )
         return (
             <React.Fragment>
-<<<<<<< HEAD
-                <div className="navbar-link"><div>Become a Host</div></div>
+                <Link to={'/experience-host'}><div className="navbar-link"><div>Become a Host</div></div></Link>
                 <Link to="/wishlist"><div className="navbar-link"><div>Saved</div></div></Link>
                 <Link to="/booking"><div className="navbar-link"><div>Bookings</div></div></Link>
                 <Link to="/chat"><div className="navbar-link"><div>Chats</div></div></Link>
                 <div className="navbar-link" onClick={() => logout()}><div>Logout</div></div>
-                <div className="navbar-link" id="nav-profile-icon"><div id="profileImage"><Link to={`users/${user.id}`}><img src={user.profileimage} alt=""/></Link></div></div>
-=======
-                <div className="navbar-link"><div><Link to={'/experience-host'}>Become a Host</Link></div></div>
-                <div className="navbar-link"><div id="profileImage"><Link to={'/users/'+user.id}><img src={user.profileimage} alt=""/></Link></div></div>
->>>>>>> origin/df-branch
+                <div className="navbar-link" id="nav-profile-icon"><div id="profileImage"><Link to={'/users/'+user.id}><img src={user.profileimage} alt=""/></Link></div></div>
             </React.Fragment>
         )
     }

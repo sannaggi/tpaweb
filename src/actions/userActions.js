@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER_STATUS, LOGOUT, SET_USER_PROFILE, SET_EDITED_PROFILE } from "./types";
+import { LOGIN, REGISTER_STATUS, LOGOUT, SET_USER_PROFILE, SET_EDITED_PROFILE, SET_SOCKET } from "./types";
 import axios from "axios";
 import { decode, sign } from "jsonwebtoken";
 

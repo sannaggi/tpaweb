@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT, SET_USER_PROFILE, SET_EDITED_PROFILE } from "../actions/types";
+import { LOGIN, REGISTER_STATUS, SET_REGISTER_END, LOGOUT, SET_USER_PROFILE, SET_EDITED_PROFILE, SET_SOCKET } from "../actions/types";
 
 const initialState = {
   item: {},
