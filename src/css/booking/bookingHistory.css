@@ -4,32 +4,101 @@
     text-align: center; }
   .history-container .bookings-container {
     margin-top: 2.5em; }
-  .history-container .booking-card:hover {
-    -webkit-box-shadow: 0px 0px 15px -7.5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 15px -7.5px rgba(0, 0, 0, 0.5);
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s; }
-    .history-container .booking-card:hover .top .red > span {
-      opacity: 1; }
-  .history-container .booking-card .top {
+  .history-container .booking-card {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-    .history-container .booking-card .top .icon {
+    .history-container .booking-card:hover {
+      -webkit-box-shadow: 0px 0px 15px -7.5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 0px 15px -7.5px rgba(0, 0, 0, 0.5);
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s; }
+      .history-container .booking-card:hover .top .red > span {
+        opacity: 1; }
+    .history-container .booking-card .icon {
       font-size: 40px;
       width: 60px;
       text-align: center; }
-    .history-container .booking-card .top .col {
-      width: calc((100% - 60px) / 5); }
-    .history-container .booking-card .top .red > span {
-      cursor: pointer;
-      color: red;
-      opacity: 0;
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
-      transition: 0.3s;
-      font-weight: 600; }
+    .history-container .booking-card .detail {
+      width: calc(100% - 60px); }
+    .history-container .booking-card .row {
+      height: 35px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    .history-container .booking-card .top {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .history-container .booking-card .top .col {
+        width: calc(100% / 5); }
+      .history-container .booking-card .top .red > span {
+        cursor: pointer;
+        color: red;
+        opacity: 0;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        font-weight: 600; }
+    .history-container .booking-card .bottom {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: calc(100% * 4 / 5); }
+      .history-container .booking-card .bottom .rating-container {
+        width: 50%;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        .history-container .booking-card .bottom .rating-container .grid {
+          width: 50%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; }
+          .history-container .booking-card .bottom .rating-container .grid .star {
+            cursor: pointer;
+            font-size: 18px;
+            -webkit-transition: 0.4s;
+            -o-transition: 0.4s;
+            transition: 0.4s; }
+        .history-container .booking-card .bottom .rating-container .star-grid:not(.static) {
+          direction: rtl;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: end;
+          -ms-flex-pack: end;
+          justify-content: flex-end; }
+          .history-container .booking-card .bottom .rating-container .star-grid:not(.static) .star:hover {
+            color: #eeb600; }
+            .history-container .booking-card .bottom .rating-container .star-grid:not(.static) .star:hover ~ .star {
+              color: #eeb600; }
+  @media screen and (max-width: 750px) {
+    .history-container {
+      padding: 0.5em 0; }
+      .history-container .title > h1 {
+        display: block; }
+      .history-container .bookings-container {
+        margin-top: 0.5em; }
+      .history-container .booking-card .icon {
+        font-size: 25px;
+        width: 40px; }
+      .history-container .booking-card .detail {
+        width: calc(100% - 40px); }
+      .history-container .booking-card .top .col {
+        font-size: 11px;
+        width: calc(100% / 5); } }

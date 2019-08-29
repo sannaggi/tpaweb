@@ -10,6 +10,8 @@
         margin-top: 2.5em;
     }
     .booking-card {
+        display: flex;
+        align-items: center;
         &:hover {
             box-shadow: 0px 0px 15px -7.5px rgba(0, 0, 0, 0.5);
             transition: 0.5s;
@@ -19,16 +21,24 @@
                 }
             }
         }
+        .icon {
+            font-size: 40px;
+            width: 60px;
+            text-align: center;
+        }
+        .detail {
+            width: calc(100% - 60px);
+        }
+        .row {
+            height: 35px;            
+            display: flex;
+            align-items: center;
+        }
         .top {
             display: flex;
             align-items: center;
-            .icon {
-                font-size: 40px;
-                width: 60px;
-                text-align: center;
-            }
             .col {
-                width: calc((100% - 60px) / 5);
+                width: calc(100% / 5);
             }
             .red>span {
                 cursor: pointer;
@@ -36,6 +46,62 @@
                 opacity: 0;
                 transition: 0.3s;
                 font-weight: 600;
+            }
+        }
+        .bottom {
+            display: flex;
+            width: calc(100% * 4 / 5);
+            .rating-container {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                .grid {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    .star {
+                        cursor: pointer;
+                        font-size: 18px;
+                        transition: 0.4s;
+                    }
+                }
+                .star-grid:not(.static){
+                    direction: rtl;
+                    display: flex;
+                    justify-content: flex-end;
+                    .star {
+                        &:hover {
+                            color: rgb(238, 182, 0);
+                            ~.star {
+                                color: rgb(238, 182, 0);                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include mQ(750px) {
+        padding: 0.5em 0;
+        .title>h1 {
+            display: block;
+        }
+        .bookings-container {
+            margin-top: 0.5em;
+        }
+        .booking-card {
+            .icon {
+                font-size: 25px;
+                width: 40px;
+            }
+            .detail {
+                width: calc(100% - 40px);
+            }
+            .top {
+                .col {
+                    font-size: 11px;
+                    width: calc(100% / 5);
+                }
             }
         }
     }

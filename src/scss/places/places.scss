@@ -6,6 +6,7 @@ header {
 }
 .placesContainer {
     display: flex;
+    align-items: stretch;
     .detail-container {
         width: 55vw;
         padding: 1.2em 1.5em;
@@ -15,7 +16,7 @@ header {
         .container {
             top: 83px;
             width: 100%;
-            height: calc(100vh - 83px);
+            height: 100%;
             position: sticky;
             img {
                 width: 100%;
@@ -30,8 +31,18 @@ header {
         .map-container {
             .container {
                 top: 59.2px;
-                height: calc(100vh - 60px)
             }
+        }
+    }
+}
+@include mQ(750px) {
+    .placesContainer {
+        .detail-container {
+            width: 100%;
+            padding: 0.3em 0.75em 1.2em 0.75em;
+        }
+        .map-container {
+            width: 0;
         }
     }
 }

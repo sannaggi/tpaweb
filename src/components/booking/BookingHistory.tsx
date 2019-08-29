@@ -18,10 +18,15 @@ function BookingHistory({user} : {user: any}) {
         .then(data => setbookings(data.data))
     }, [])
 
+    function getBookings() {
+        if(bookings === null || bookings.length === 0) return <div style={{textAlign: "center", marginTop: "80px"}}><h2>You have no bookings history yet</h2></div>
+        return <Bookings bookings={bookings}/>
+    }
+
     return (
         <main className="history-container">
             <div className="title"><h1>Booking History</h1></div>
-            <Bookings bookings={bookings}/>
+            {getBookings()}
         </main>
     )
 }

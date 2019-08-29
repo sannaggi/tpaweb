@@ -5,6 +5,8 @@ import axios from "axios";
 function Booking({booking, currency} : {booking: any, currency: any}) {
 
     const [status, setstatus] = useState(booking.status)
+    const [rating, setrating] = useState(booking.rating)
+    const [hostrating, sethostrating] = useState(booking.hostrating)
 
     function uppercase(string) {
         return string[0].toUpperCase() + string.slice(1)
@@ -57,18 +59,74 @@ function Booking({booking, currency} : {booking: any, currency: any}) {
         return <div className="col red"><span onClick={onClick}>Cancel</span></div>
     }
 
+    function setStar(data: any) {
+        axios({
+            url: "https://aivbnbapi.herokuapp.com/api/booking/" + booking.id,
+            method: "POST",
+            data: data,
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+    }
+
+    function onStarClick(isHost: boolean, val: number) {
+        if(isHost && hostrating === 0){
+            sethostrating(val)
+            setStar({
+                type: "hostrating",
+                rating: val
+            })
+        } 
+        else if(!isHost && rating === 0){
+            setrating(val)
+            setStar({
+                type: "rating",
+                rating: val
+            })
+        }
+    }
+
+    function getStatic(isHost: boolean) {
+        if(isHost && hostrating !== 0) return "static"
+        if(!isHost && rating !== 0) return "static"
+        return ""
+    }
+
+    function getStars(isHost: boolean) {
+        let t = [];
+        for(let i = 1; i <= 5; i++) {
+            if((isHost && i <= hostrating) || (!isHost && i <= rating)) t.push(<span className="star" onClick={() => {}} style={{color: "rgb(238, 182, 0)"}}>&#9733;</span>)
+            else t.push(<span className="star" onClick={() => onStarClick(isHost, 6-i)} key={i}>&#9733;</span>)
+        }
+        return t
+    }
+
     return (
         <div className="booking-card">
-            <div className="top">
-                {getIcon()}
-                {getDate()}
-                {getTotal()}
-                {getType()}
-                {getStatus()}
-                {getCancel()}
-            </div>
-            <div className="bottom">
-                
+            {getIcon()}
+            <div className="detail">
+                <div className="row top">
+                    {getDate()}
+                    {getTotal()}
+                    {getType()}
+                    {getStatus()}
+                    {getCancel()}
+                </div>
+                <div className="row bottom">
+                    <div className="rating-container">
+                        <div className="grid">Rating:</div>
+                        <div className={"grid star-grid " + getStatic(false)}>
+                            {getStars(false)}
+                        </div>
+                    </div>
+                    <div className="rating-container">
+                        <div className="grid">Host Rating:</div>
+                        <div className={"grid star-grid " + getStatic(true)}>
+                            {getStars(true)}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

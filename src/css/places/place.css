@@ -9,6 +9,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   margin: 0.5em 0; }
   .placeContainer:hover .sliderContainer .arrow {
     display: -webkit-box;
@@ -16,11 +19,12 @@
     display: flex; }
   .placeContainer .sliderContainer {
     width: 21vw;
-    height: 100%;
     position: relative; }
     .placeContainer .sliderContainer .imageSlider {
       width: 100%;
       height: 200px; }
+      .placeContainer .sliderContainer .imageSlider > a {
+        width: 100%; }
       .placeContainer .sliderContainer .imageSlider .currImage {
         width: 100%;
         height: 100%;
@@ -99,22 +103,50 @@
         height: 1.3em;
         font-size: 18px;
         font-weight: 600;
+        text-overflow: ellipsis;
+        overflow: hidden;
         font-size: 20%vw; }
       .placeContainer a .placeDetailContainer .upperDetail .detail {
         font-size: 15px;
         margin: 3px 0; }
-      .placeContainer a .placeDetailContainer .lowerDetail .rating {
-        font-size: 13px; }
-        .placeContainer a .placeDetailContainer .lowerDetail .rating span {
-          color: #0d848d;
-          font-size: 17px;
-          font-size: 14px; }
-        .placeContainer a .placeDetailContainer .lowerDetail .rating strong {
+      .placeContainer a .placeDetailContainer .lowerDetail {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .placeContainer a .placeDetailContainer .lowerDetail .rating {
           font-size: 13px; }
-      .placeContainer a .placeDetailContainer .lowerDetail .price {
-        float: right;
-        font-weight: 600;
-        font-size: 18px; }
+          .placeContainer a .placeDetailContainer .lowerDetail .rating span {
+            color: #0d848d;
+            font-size: 17px;
+            font-size: 14px; }
+          .placeContainer a .placeDetailContainer .lowerDetail .rating strong {
+            font-size: 13px; }
+        .placeContainer a .placeDetailContainer .lowerDetail .price {
+          font-weight: 600;
+          font-size: 18px; }
+  @media screen and (max-width: 750px) {
+    .placeContainer .sliderContainer {
+      width: 45%; }
+      .placeContainer .sliderContainer .imageSlider {
+        height: 100%; }
+      .placeContainer .sliderContainer .arrow {
+        width: 20px; }
+    .placeContainer .placeCardContainer {
+      width: 55%; }
+      .placeContainer .placeCardContainer .placeDetailContainer .upperDetail h4 {
+        font-size: 9px; }
+      .placeContainer .placeCardContainer .placeDetailContainer .upperDetail h3 {
+        font-size: 14px; }
+      .placeContainer .placeCardContainer .placeDetailContainer .upperDetail .detail {
+        font-size: 12px; }
+      .placeContainer .placeCardContainer .placeDetailContainer .lowerDetail .price {
+        font-size: 11px; } }
 
 @media screen and (max-width: 1200px) {
   .placeContainer .placeDetailContainer .upperDetail h4 {
