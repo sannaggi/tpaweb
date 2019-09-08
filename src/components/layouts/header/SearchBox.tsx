@@ -36,7 +36,7 @@ function SearchBox() {
             setSearchResult([])
             return
         }
-        axios.get("https://aivbnbapi.herokuapp.com/api/search/" + e.target.value, {
+        axios.get("http://localhost/api/search/" + e.target.value, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
