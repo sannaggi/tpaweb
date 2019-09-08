@@ -101,6 +101,24 @@ function Booking({booking, currency} : {booking: any, currency: any}) {
         }
         return t
     }
+    
+    function getRating() {
+        if(status === 'canceled') return null
+        return <React.Fragment>
+            <div className="rating-container">
+            <div className="grid">Rating:</div>
+            <div className={"grid star-grid " + getStatic(false)}>
+                {getStars(false)}
+            </div>
+            </div>
+            <div className="rating-container">
+                <div className="grid">Host Rating:</div>
+                <div className={"grid star-grid " + getStatic(true)}>
+                    {getStars(true)}
+                </div>
+            </div>
+        </React.Fragment>
+    }
 
     return (
         <div className="booking-card">
@@ -114,18 +132,7 @@ function Booking({booking, currency} : {booking: any, currency: any}) {
                     {getCancel()}
                 </div>
                 <div className="row bottom">
-                    <div className="rating-container">
-                        <div className="grid">Rating:</div>
-                        <div className={"grid star-grid " + getStatic(false)}>
-                            {getStars(false)}
-                        </div>
-                    </div>
-                    <div className="rating-container">
-                        <div className="grid">Host Rating:</div>
-                        <div className={"grid star-grid " + getStatic(true)}>
-                            {getStars(true)}
-                        </div>
-                    </div>
+                    {getRating()}
                 </div>
             </div>
         </div>

@@ -1,11 +1,12 @@
 .chats-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     .messages-container {
         width: 100%;
         overflow: scroll;
         overflow-x: hidden;
+        display: flex;
+        flex-direction: column-reverse;
         .message-container {
             width: 100%;
             display: flex;

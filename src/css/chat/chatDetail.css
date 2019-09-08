@@ -5,14 +5,18 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end; }
+  flex-direction: column; }
   .chats-container .messages-container {
     width: 100%;
     overflow: scroll;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
     .chats-container .messages-container .message-container {
       width: 100%;
       display: -webkit-box;
