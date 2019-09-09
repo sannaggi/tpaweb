@@ -9,20 +9,11 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
 
     const [messageContent, setmessageContent] = useState("")
     const [messages, setmessages] = useState([])
-    const [scroll, setscroll] = useState(false)
 
     useEffect(() => {
         setmessages(chat.messages)
-        setscroll(true)
         document.getElementsByClassName("emoji-picker")[0].setAttribute("style", "display: none")
     }, [chat.messages])
-
-    useEffect(() => {
-        if(!scroll) return
-        setTimeout(() => {
-            scrollToBottom(document.getElementById("messages-container"))
-        }, 50);
-    }, [scroll])
 
     function getDate() {
         const d = new Date()
@@ -49,10 +40,6 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         [chat.id, user.id],
     )
 
-    function scrollToBottom(el: any) {
-        el.scrollTop = el.scrollHeight
-    }
-
     const getMessageTime = useCallback(
         (message) => {
             let time = message.time
@@ -71,10 +58,9 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         const messageForm = document.getElementById('message-form')
         const messagesContainer = document.getElementById("messages-container")
 
-        scrollToBottom(messagesContainer)
-
         messageForm.onsubmit = function(e) {
             e.preventDefault()
+            if(messageInput.getAttribute("value") === "") return
             const data = {
                 sender: user.id,
                 receiver: otherUser.id,
@@ -101,8 +87,6 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
                     <small>${getMessageTime({})}</small>
                 </div>
             </div>`
-            
-            scrollToBottom(messagesContainer)
         })
         // eslint-disable-next-line
     }, [socket, otherUser, user])

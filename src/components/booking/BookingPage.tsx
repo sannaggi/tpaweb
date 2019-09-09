@@ -16,8 +16,11 @@ function BookingPage({booking, currency, user, history} : {booking: any, currenc
         averageRating: null,
         price: null,
         type: null,
-        hostid: null
+        hostid: null,
+        amenities: null,
+        duration: null
     })
+    const [hostName, sethostName] = useState(null)
 
     function getCurrency(price: number) {
         return currency.icon + Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(price * currency.rate)
@@ -50,13 +53,16 @@ function BookingPage({booking, currency, user, history} : {booking: any, currenc
 
     useEffect(() => {
         let b: any = booking.booking
+        console.log(booking.booking)
         setdetails({
             name: b.name,
             image: b.image,
             averageRating: b.averagerating ,
             price: b.price,
             type: b.type,
-            hostid: b.hostid
+            hostid: b.hostid,
+            amenities: b.amenities,
+            duration: b.duration
         })
     }, [booking.booking])
 
@@ -108,10 +114,64 @@ function BookingPage({booking, currency, user, history} : {booking: any, currenc
         })
     }
 
+    useEffect(() => {
+        const hostid = booking.booking.hostid
+        axios.get("https://aivbnbapi.herokuapp.com/api/users/" + hostid, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(data => {
+            const user = data.data
+            sethostName(user.firstname + " " + user.lastname)
+        })
+    }, [booking.booking.hostid])
+
     function getTotalDetail() {
         if(details.type === "place") 
             return `(${getCurrency(booking.booking.price)} x ${getGuestCount()} + ${getCurrency(booking.booking.price / 2)} x ${getInfantsCount()}) x ${getTotalDaysStayed()} night(s)`
         return `${getCurrency(booking.booking.price)} x ${getGuestCount()} + ${getCurrency(booking.booking.price / 2)} x ${getInfantsCount()}`
+    }
+
+    function getPlaceDetails() {
+        return <React.Fragment>
+            <div className="row"><span className="icon"><i className='fa fa-users'></i></span>{getGuestCount()}</div>
+            <div className="row"><span className="icon"><i className='fa fa-calendar'></i></span>{getCheckInOut()}</div>                    
+        </React.Fragment>
+    }
+
+    function getAmenities() {
+        let amenities = "Provided "
+        let comma = false
+        if(details.amenities === null) {
+            amenities += "Nothing"
+            return amenities
+        }
+        for (let index = 0; index < (details.amenities.length < 3? details.amenities.length : 3); index++) {
+            const element = details.amenities[index].type;
+            if(comma === false) {
+                amenities += element
+                comma = true
+                continue
+            }
+            amenities += ", " + element
+        }
+        return amenities
+    }
+
+    function getExperienceDetail() {
+        return <React.Fragment>
+            <div className="row"><span className="icon"><i className='fa fa-clock-o'></i></span>{details.duration} hour(s)</div>
+            <div className="row"><span className="icon"><i className='fa fa-users'></i></span>Hosted by {hostName}</div>
+            <div className="row"><span className="icon"><i className='fa fa-calendar'></i></span>{getCheckInOut()}</div>       
+            <div className="row"><span className="icon"><i className='fa fa-coffee'></i></span>{getAmenities()}</div>             
+        </React.Fragment>
+    }
+
+    function getDetails() {
+        if(details.type === 'place') return getPlaceDetails()
+        return getExperienceDetail()
     }
 
     return (
@@ -151,8 +211,7 @@ function BookingPage({booking, currency, user, history} : {booking: any, currenc
                     <div className="image" style={{backgroundImage: `url(${details.image})`}}></div>
                 </div>
                 <div className="section booking-details">
-                    <div className="row"><span className="icon"><i className='fa fa-users'></i></span>{getGuestCount()}</div>
-                    <div className="row"><span className="icon"><i className='fa fa-calendar'></i></span>{getCheckInOut()}</div>                    
+                    {getDetails()}
                 </div>
                 <div className="section">
                     <div className="row price-row">

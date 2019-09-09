@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import SharingModal from './SharingModal'
 
 function Sharing({id, isPlace, setActiveWishlistModal, user} : {id: any, isPlace: any, setActiveWishlistModal: any, user:any}){
-    function clipBoard(){
-        var dummy = document.createElement("textarea");
-        document.body.appendChild(dummy);dummy.value = window.location.href;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-        document.getElementById("urlCopied").setAttribute("style", "opacity: 1");
-    }
+    // function clipBoard(){
+    //     var dummy = document.createElement("textarea");
+    //     document.body.appendChild(dummy);dummy.value = window.location.href;
+    //     dummy.select();
+    //     document.execCommand("copy");
+    //     document.body.removeChild(dummy);
+    //     document.getElementById("urlCopied").setAttribute("style", "opacity: 1");
+    // }
 
     function showForm(com) {
         document.getElementById(com).setAttribute("style", "display: block;");
