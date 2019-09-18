@@ -28,7 +28,7 @@ function LoginModal({ oauth2Login, emailLogin }: { oauth2Login: any, emailLogin:
 
   useEffect(() => {
     document.getElementById("loginModal").addEventListener("click", onClick);
-  }, []);
+  }, [onClick]);
 
   function onChange(e) {
     setLogin({ ...login, [e.target.name]: e.target.value });

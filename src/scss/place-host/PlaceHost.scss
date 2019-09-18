@@ -1,0 +1,14 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+#placeHost{
+    position: relative;
+    width: 300vw;
+    height: 100vh;
+    display: flex;
+    >div{
+        position: relative;
+        width: calc(100% / 3);
+        height: inherit;
+    }
+}

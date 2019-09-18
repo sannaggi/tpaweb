@@ -1,0 +1,67 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+#PHBasicSection{
+    padding: 3em 2em;
+    >div{
+        margin: 1em 0;
+        >div{
+            margin: 2em 1.5em;
+        }
+    }
+    select, input[type="text"]{
+        -webkit-appearance: none;
+        width: 20%;
+        font-family: inherit;
+        padding: 8px;
+        font-size: 12pt;
+        font-weight: 500;
+        border: 1px solid $darkGrey;
+        border-radius: 5px;
+        background: none;
+        color: $darkGrey;
+        transition: all .15s ease;
+        &:focus{
+            + div{
+                transform: translateY(-20px);
+                font-size: 8pt;
+                padding: 0 5px;
+            }
+        }
+        &:not(:placeholder-shown){
+            + div{
+                color: $blueGreen;
+                font-size: 8pt;
+                transform: translateY(-20px);
+                padding: 0 5px;
+            }
+        }
+        &:hover{
+            border-color: $blueGreen;
+            + div{
+                color: $blueGreen;
+                font-size: 8pt;
+                transform: translateY(-20px);
+                padding: 0 5px;
+            }
+        }
+    }
+    #guestHave{
+        
+    }
+    input[type="radio"]{
+        width: fit-content;
+    }
+    .input{
+        position: relative;
+        margin: 1em 0;
+        display: flex;
+        align-items: center;
+        >.label{
+            transition: all 0.3s ease;
+            margin: 0 9px;
+            background-color: white;
+            position: absolute;
+        }
+    }
+}

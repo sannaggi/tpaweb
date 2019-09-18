@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux';
 import axios from "axios";
-import { TEXT } from "./chatTypes";
+import { TEXT, IMAGE } from "./chatTypes";
 import { Picker } from "emoji-mart";
 import 'emoji-mart/css/emoji-mart.css'
+import '@fortawesome/fontawesome-free'
+import ChatImage from './ChatImage';
 
 function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: any, user: any, socket: any}) {
 
@@ -28,7 +30,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
                 method: "POST",
                 data: {
                     "senderid": user.id,
-                    "type": TEXT,
+                    "type": msg.split("base64").length > 1 ? IMAGE : TEXT,
                     "content": msg,
                     "time": getDate()
                 },
@@ -50,6 +52,11 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         },
         [],
     )
+
+    function differentiateMessageContent(message){
+        if(message.content.split("base64").length > 1 || message.type === "image") return <ChatImage src={message.content} />
+        else return message.content
+    }
 
     useEffect(() => {
         if(socket === undefined) return
@@ -83,7 +90,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
             messagesContainer.innerHTML += `<div class= "message-container ${c}">
                 <img src=${image} class="profile-image"/>
                 <div>
-                    <div class="message-content">${data.content}</div>
+                    <div class="message-content">${differentiateMessageContent(data)}</div>
                     <small>${getMessageTime({})}</small>
                 </div>
             </div>`
@@ -102,15 +109,36 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         return <div className={"message-container " + c}>
             <img src={image} className="profile-image" alt=""/>
             <div>
-                <div className="message-content">{message.content}</div>
+                <div className="message-content">{differentiateMessageContent(message)}</div>
                 <small>{getMessageTime(message)}</small>
             </div>
         </div>
     }
 
+    const onInputFile = (e) => {
+        let reader = new FileReader()
+        reader.onload = function(){
+            let str = (reader.result + "")
+            const data = {
+                sender: user.id,
+                receiver: otherUser.id,
+                type: "image",
+                content: str
+            }
+            socket.emit('send message', data, addNewMessage(str))
+            setmessageContent("")
+            document.getElementsByClassName("emoji-picker")[0].setAttribute("style", "display: none")
+        }
+        reader.readAsDataURL(e.target.files[0])
+    }
+
     function getMessages() {
         if(messages.length === 0) return ""
-        return messages.map((message: any) => (
+        let rev = []
+        messages.forEach(element => {
+            rev.push(element)
+        });
+        return rev.map((message: any) => (
             differentianteMessage(message)
         ))
     }
@@ -141,6 +169,10 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
                 <div className="input-container">
                     <input type="text" id="message-content" onChange={onChange} value={messageContent}/>
                     <span className="emoji" role="img" aria-label="emoji" onClick={onClick}>😀</span>
+                    <span className="emoji" >
+                        <input type="file" accept="image/*" name="" id="picUp" onChange={onInputFile} style={{display: "none", cursor: "pointer"}}/>
+                        <label htmlFor="picUp" style={{cursor: "pointer"}}><i className="fa fa-image"></i></label>
+                    </span>
                     <input type="submit" className="green-button" value="Send"/>
                 </div>
             </form>

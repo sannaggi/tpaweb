@@ -34,6 +34,7 @@ function ProfileCard({user, loggedUser, setEditedProfile} : {user: any, loggedUs
         change.profileimage = img
         setEditedProfile(change)
         setProfilePhoto(img)
+        
     }
     
     return(

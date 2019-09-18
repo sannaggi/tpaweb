@@ -1,0 +1,9 @@
+#placeHost {
+  position: relative;
+  width: 300vw;
+  height: 100vh;
+  display: flex; }
+  #placeHost > div {
+    position: relative;
+    width: calc(100% / 3);
+    height: inherit; }

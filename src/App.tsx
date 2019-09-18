@@ -36,7 +36,7 @@ const App: React.FC = () => {
           <Route path="/users/:id/" component={Profilepage} />
           <Route path="/register/:auth/:firstname/:lastname/:email" component={RegisterForm} />
           <Route path="/experiences/:id" component={ExperiencePlace} />
-          <ProtectedRoute path="/experience-host" component={ExperienceHost} />
+          <ProtectedRoute path="/become-host" component={ExperienceHost} />
           <ProtectedRoute exact path="/wishlist" component={Wishlist} />
           <ProtectedRoute path="/wishlist/:id" component={WishlistDetail} />  
           <ProtectedRoute exact path="/chat" component={Chat} />   

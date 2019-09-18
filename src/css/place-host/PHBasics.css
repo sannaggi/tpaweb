@@ -1,0 +1,46 @@
+#PHBasicSection {
+  padding: 3em 2em; }
+  #PHBasicSection > div {
+    margin: 1em 0; }
+    #PHBasicSection > div > div {
+      margin: 2em 1.5em; }
+  #PHBasicSection select, #PHBasicSection input[type="text"] {
+    -webkit-appearance: none;
+    width: 20%;
+    font-family: inherit;
+    padding: 8px;
+    font-size: 12pt;
+    font-weight: 500;
+    border: 1px solid #3b3b3b;
+    border-radius: 5px;
+    background: none;
+    color: #3b3b3b;
+    transition: all .15s ease; }
+    #PHBasicSection select:focus + div, #PHBasicSection input[type="text"]:focus + div {
+      transform: translateY(-20px);
+      font-size: 8pt;
+      padding: 0 5px; }
+    #PHBasicSection select:not(:placeholder-shown) + div, #PHBasicSection input[type="text"]:not(:placeholder-shown) + div {
+      color: #008489;
+      font-size: 8pt;
+      transform: translateY(-20px);
+      padding: 0 5px; }
+    #PHBasicSection select:hover, #PHBasicSection input[type="text"]:hover {
+      border-color: #008489; }
+      #PHBasicSection select:hover + div, #PHBasicSection input[type="text"]:hover + div {
+        color: #008489;
+        font-size: 8pt;
+        transform: translateY(-20px);
+        padding: 0 5px; }
+  #PHBasicSection input[type="radio"] {
+    width: fit-content; }
+  #PHBasicSection .input {
+    position: relative;
+    margin: 1em 0;
+    display: flex;
+    align-items: center; }
+    #PHBasicSection .input > .label {
+      transition: all 0.3s ease;
+      margin: 0 9px;
+      background-color: white;
+      position: absolute; }

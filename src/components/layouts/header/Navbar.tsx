@@ -24,7 +24,7 @@ function Navbar({ user, logout } : { user: any, logout: any }) {
         )
         return (
             <React.Fragment>
-                <Link to={'/experience-host'}><div className="navbar-link"><div>Become a Host</div></div></Link>
+                <Link to={'/become-host'}><div className="navbar-link"><div>Become a Host</div></div></Link>
                 <Link to="/wishlist"><div className="navbar-link"><div>Saved</div></div></Link>
                 <Link to="/booking"><div className="navbar-link"><div>Bookings</div></div></Link>
                 <Link to="/chat"><div className="navbar-link"><div>Chats</div></div></Link>

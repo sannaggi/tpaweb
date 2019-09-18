@@ -1,0 +1,27 @@
+.chatImgModal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 99999; }
+  .chatImgModal > img {
+    min-height: 50%;
+    min-width: 25%; }
+
+.chatImgdl {
+  cursor: pointer;
+  border-radius: 5px;
+  color: #098e97;
+  background-color: #e6e6e6;
+  transition: all 0.15s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .chatImgdl:hover {
+    background-color: #bdbdbd; }

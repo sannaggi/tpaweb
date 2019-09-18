@@ -23,6 +23,12 @@
             color: white;
             @include basicButton($blueGreen, $blueGreen);
         }
+        .buttonContainer{
+            display: flex;
+            >div{
+                margin-right: 10px;
+            }
+        }
     }
     .right{
         width: 40%;

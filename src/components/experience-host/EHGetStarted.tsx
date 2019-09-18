@@ -25,6 +25,21 @@ export default function EHGetStarted(){
     const handleInput = (e) =>{
         let checkbox: HTMLInputElement = document.getElementById(e.target.id + 'Check') as HTMLInputElement;
         checkbox.checked = e.target.value !== "";
+        switch(e.target.id){
+            case "groupSize":
+                e.target.value = e.target.value > 10 ? 10 : e.target.value
+                break
+            case "price":
+                e.target.value = e.target.value > 14000000 ? 14000000 : e.target.value
+                break
+            case "wedo":
+            case "webe":
+                if((e.target.value).split(' ').length < 5){
+                    checkbox.checked = false
+                    alert('Must atleast 5 words')
+                }
+                break
+        }
         console.log(e.target.value)
     }
 
@@ -156,14 +171,15 @@ export default function EHGetStarted(){
                             <div>
                             {imageContent}
                             </div>
-                            <input type="file" name="" accept="image/x-png,image/jpeg,image/jpg" id="" onChange={onInputFile}/>
+                            <input type="file" name="" accept="image/*, video/*" id="fileUp" onChange={onInputFile}/>
+                            <label htmlFor="fileUp">uhuy</label>
                         </div>
                     </div>
                 </div>
                 <div id="settingsInput" className="input-section">
                     <h2>Settings</h2>
                     <div className="input">
-                        <input type="text"  placeholder=" " name="" id="groupSize" onBlur={handleInput}/>
+                        <input type="number"  placeholder=" " name="" id="groupSize" onBlur={handleInput}/>
                         <div className="label">Group Size</div>
                     </div>
                     <div className="input">

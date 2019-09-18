@@ -20,17 +20,26 @@ function EHFirstStarted({user}: {user: any}){
             <div className="left">
                 <div><h1>Welcome {user.firstname} {user.lastname}!</h1></div>
                 <div>    
-                    We’re excited to learn about the experience you’d like to host on Airbnb.
+                    We’re excited to learn about what you’d like to host on Airbnb.
                 </div>
                 <div>
-                    In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Aivbnb.
+                    In just a few minutes, you’ll start to create your own host page, then you’ll submit it to be reviewed by Aivbnb.
                 </div>
-                <div>
-                    <Link to={"/experience-host/get-started"}>
-                        <div className="nextBtn" onClick={onClick}>
-                            Get started!
-                        </div>
-                    </Link>
+                <div className="buttonContainer">
+                    <div>
+                        <Link to={"/become-host/experience-get-started"}>
+                            <div className="nextBtn" onClick={onClick}>
+                                Become an Experience Host!
+                            </div>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to={"/become-host/place-get-started"}>
+                            <div className="nextBtn" onClick={onClick}>
+                                Become an Place Host!
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div className="right">
