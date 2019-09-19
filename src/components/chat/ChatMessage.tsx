@@ -54,6 +54,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
     )
 
     function differentiateMessageContent(message){
+        console.log(message)
         if(message.content.split("base64").length > 1 || message.type === "image") return <ChatImage src={message.content} />
         else return message.content
     }
@@ -69,7 +70,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
             e.preventDefault()
             if(messageInput.getAttribute("value") === "") return
             const data = {
-                sender: user.id,
+                senderid: user.id,
                 receiver: otherUser.id,
                 type: "text",
                 content: messageInput.getAttribute("value")
@@ -80,20 +81,7 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         }
 
         socket.on('new message', function(data) {
-            let c = "ours"
-            let image = user.profileimage;
-            if(data.sender !== user.id) {
-                c = "theirs"
-                image = otherUser.profileimage
-            }
-
-            messagesContainer.innerHTML += `<div class= "message-container ${c}">
-                <img src=${image} class="profile-image"/>
-                <div>
-                    <div class="message-content">${differentiateMessageContent(data)}</div>
-                    <small>${getMessageTime({})}</small>
-                </div>
-            </div>`
+            setmessages(m => [...m, data]);
         })
         // eslint-disable-next-line
     }, [socket, otherUser, user])
@@ -120,11 +108,12 @@ function ChatMessage({chat, otherUser, user, socket} : {chat: any, otherUser: an
         reader.onload = function(){
             let str = (reader.result + "")
             const data = {
-                sender: user.id,
+                senderid: user.id,
                 receiver: otherUser.id,
                 type: "image",
                 content: str
             }
+
             socket.emit('send message', data, addNewMessage(str))
             setmessageContent("")
             document.getElementsByClassName("emoji-picker")[0].setAttribute("style", "display: none")
