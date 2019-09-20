@@ -2,8 +2,13 @@
   position: relative;
   width: 300vw;
   height: 100vh;
-  display: flex; }
+  display: flex;
+  transition: all .75s ease-in-out; }
+  #placeHost > div:first-child {
+    transform: scale(1); }
   #placeHost > div {
+    transform: scale(0.35);
+    transition: all 0.5s ease-in-out;
     position: relative;
     width: calc(100% / 3);
     height: inherit; }

@@ -1,0 +1,113 @@
+#PHGuestSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position-x: 200px; }
+  #PHGuestSection > div {
+    width: 50%;
+    height: 100%; }
+  #PHGuestSection > div:first-child {
+    padding: 3em 2em;
+    overflow-y: scroll;
+    background-color: white; }
+    #PHGuestSection > div:first-child .input {
+      position: relative;
+      padding: 0 3em; }
+    #PHGuestSection > div:first-child > div {
+      width: 100%;
+      margin: 1em 0; }
+      #PHGuestSection > div:first-child > div > div {
+        margin: 2em 1.5em; }
+    #PHGuestSection > div:first-child .input {
+      position: relative;
+      margin: 1em 0;
+      display: flex;
+      align-items: center; }
+      #PHGuestSection > div:first-child .input > .label {
+        transition: all 0.3s ease;
+        margin: 0 9px;
+        background-color: white;
+        position: absolute;
+        pointer-events: none; }
+    #PHGuestSection > div:first-child select, #PHGuestSection > div:first-child input[type="text"], #PHGuestSection > div:first-child input[type="number"], #PHGuestSection > div:first-child input[type="button"] {
+      -webkit-appearance: none;
+      width: 100%;
+      font-family: inherit;
+      padding: 8px;
+      font-size: 12pt;
+      font-weight: 500;
+      border: 1px solid #3b3b3b;
+      border-radius: 5px;
+      background: none;
+      color: #3b3b3b;
+      transition: all .15s ease; }
+      #PHGuestSection > div:first-child select:focus + div, #PHGuestSection > div:first-child input[type="text"]:focus + div, #PHGuestSection > div:first-child input[type="number"]:focus + div, #PHGuestSection > div:first-child input[type="button"]:focus + div {
+        transform: translateY(-20px);
+        font-size: 8pt;
+        padding: 0 5px; }
+      #PHGuestSection > div:first-child select:not(:placeholder-shown) + div, #PHGuestSection > div:first-child input[type="text"]:not(:placeholder-shown) + div, #PHGuestSection > div:first-child input[type="number"]:not(:placeholder-shown) + div, #PHGuestSection > div:first-child input[type="button"]:not(:placeholder-shown) + div {
+        color: #008489;
+        font-size: 8pt;
+        transform: translateY(-20px);
+        padding: 0 5px; }
+      #PHGuestSection > div:first-child select:hover, #PHGuestSection > div:first-child input[type="text"]:hover, #PHGuestSection > div:first-child input[type="number"]:hover, #PHGuestSection > div:first-child input[type="button"]:hover {
+        border-color: #008489; }
+        #PHGuestSection > div:first-child select:hover + div, #PHGuestSection > div:first-child input[type="text"]:hover + div, #PHGuestSection > div:first-child input[type="number"]:hover + div, #PHGuestSection > div:first-child input[type="button"]:hover + div {
+          color: #008489;
+          font-size: 8pt;
+          transform: translateY(-20px);
+          padding: 0 5px; }
+    #PHGuestSection > div:first-child input[type="button"] {
+      cursor: pointer;
+      background-color: #098e97;
+      color: white;
+      border: none; }
+      #PHGuestSection > div:first-child input[type="button"]:hover {
+        background-color: #008489; }
+    #PHGuestSection > div:first-child .photosInput {
+      border: 1px solid #bdbdbd;
+      border-radius: 5px;
+      padding: .3em .5em;
+      font-size: 20px;
+      min-height: 50vh; }
+      #PHGuestSection > div:first-child .photosInput > h4 {
+        color: #008489;
+        top: -.65em;
+        left: 4.4em;
+        position: absolute;
+        background-color: white;
+        padding: 0 .25em; }
+      #PHGuestSection > div:first-child .photosInput > div {
+        min-height: 45vh;
+        padding: 1.5em 1em;
+        display: flex;
+        flex-flow: wrap; }
+      #PHGuestSection > div:first-child .photosInput > input[type="file"] {
+        color: black;
+        font-size: 0pt;
+        padding: 6px 8px; }
+        #PHGuestSection > div:first-child .photosInput > input[type="file"]::-webkit-file-upload-button {
+          width: fit-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1x solid #3b3b3b;
+          background-color: transparent;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.15s ease-in-out;
+          padding: 6px 8px;
+          color: black;
+          margin: 0;
+          font-size: 8pt; }
+          #PHGuestSection > div:first-child .photosInput > input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #bdbdbd; }
+
+@media screen and (max-width: 750px) {
+  #PHSceneSection > div:first-child {
+    width: 100%; }
+  #PHSceneSection > div:last-child {
+    display: none; }
+  #PHSceneSection .input {
+    padding: 0 .25em !important; } }

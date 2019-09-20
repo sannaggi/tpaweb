@@ -172,7 +172,6 @@ export default function EHGetStarted(){
                             {imageContent}
                             </div>
                             <input type="file" name="" accept="image/*, video/*" id="fileUp" onChange={onInputFile}/>
-                            <label htmlFor="fileUp">uhuy</label>
                         </div>
                     </div>
                 </div>

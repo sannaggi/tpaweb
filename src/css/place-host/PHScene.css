@@ -1,0 +1,157 @@
+#PHSceneSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover; }
+  #PHSceneSection > div {
+    width: 50%;
+    height: 100%; }
+  #PHSceneSection > div:first-child {
+    padding: 3em 2em;
+    overflow-y: scroll;
+    background-color: white; }
+    #PHSceneSection > div:first-child .input {
+      position: relative;
+      padding: 0 3em; }
+    #PHSceneSection > div:first-child > div {
+      width: 100%;
+      margin: 1em 0; }
+      #PHSceneSection > div:first-child > div > div {
+        margin: 2em 1.5em; }
+    #PHSceneSection > div:first-child .label {
+      margin: 0; }
+    #PHSceneSection > div:first-child .input {
+      position: relative;
+      margin: 1em 0;
+      display: flex;
+      align-items: center; }
+      #PHSceneSection > div:first-child .input > .label {
+        transition: all 0.3s ease;
+        margin: 0 9px;
+        background-color: white;
+        position: absolute;
+        pointer-events: none; }
+    #PHSceneSection > div:first-child select, #PHSceneSection > div:first-child input[type="text"], #PHSceneSection > div:first-child input[type="number"], #PHSceneSection > div:first-child input[type="button"] {
+      -webkit-appearance: none;
+      width: 100%;
+      font-family: inherit;
+      padding: 8px;
+      font-size: 12pt;
+      font-weight: 500;
+      border: 1px solid #3b3b3b;
+      border-radius: 5px;
+      background: none;
+      color: #3b3b3b;
+      transition: all .15s ease; }
+      #PHSceneSection > div:first-child select:focus + div, #PHSceneSection > div:first-child input[type="text"]:focus + div, #PHSceneSection > div:first-child input[type="number"]:focus + div, #PHSceneSection > div:first-child input[type="button"]:focus + div {
+        transform: translateY(-20px);
+        font-size: 8pt;
+        padding: 0 5px; }
+      #PHSceneSection > div:first-child select:not(:placeholder-shown) + div, #PHSceneSection > div:first-child input[type="text"]:not(:placeholder-shown) + div, #PHSceneSection > div:first-child input[type="number"]:not(:placeholder-shown) + div, #PHSceneSection > div:first-child input[type="button"]:not(:placeholder-shown) + div {
+        color: #008489;
+        font-size: 8pt;
+        transform: translateY(-20px);
+        padding: 0 5px; }
+      #PHSceneSection > div:first-child select:hover, #PHSceneSection > div:first-child input[type="text"]:hover, #PHSceneSection > div:first-child input[type="number"]:hover, #PHSceneSection > div:first-child input[type="button"]:hover {
+        border-color: #008489; }
+        #PHSceneSection > div:first-child select:hover + div, #PHSceneSection > div:first-child input[type="text"]:hover + div, #PHSceneSection > div:first-child input[type="number"]:hover + div, #PHSceneSection > div:first-child input[type="button"]:hover + div {
+          color: #008489;
+          font-size: 8pt;
+          transform: translateY(-20px);
+          padding: 0 5px; }
+    #PHSceneSection > div:first-child textarea {
+      -webkit-appearance: none;
+      width: 100%;
+      font-family: inherit;
+      padding: 8px;
+      font-size: 12pt;
+      font-weight: 500;
+      border: 1px solid #3b3b3b;
+      border-radius: 5px;
+      background: none;
+      color: #3b3b3b;
+      transition: all .15s ease; }
+      #PHSceneSection > div:first-child textarea + div {
+        position: absolute;
+        top: .35em;
+        left: 3.2em;
+        margin: 0;
+        pointer-events: none;
+        font-size: 12pt;
+        color: #868686;
+        transition: all .15s linear;
+        background-color: white;
+        padding: 2px 5px;
+        transform-origin: left; }
+      #PHSceneSection > div:first-child textarea:focus + div {
+        transform: translateY(-12px) translateX(24px);
+        font-size: 8pt;
+        padding: 0 5px; }
+      #PHSceneSection > div:first-child textarea:not(:placeholder-shown) + div {
+        color: #008489;
+        font-size: 8pt;
+        transform: translateY(-12px) translateX(24px);
+        padding: 0 5px; }
+      #PHSceneSection > div:first-child textarea:hover {
+        border-color: #008489; }
+        #PHSceneSection > div:first-child textarea:hover + div {
+          color: #008489;
+          font-size: 8pt;
+          transform: translateY(-12px) translateX(24px);
+          padding: 0 5px; }
+    #PHSceneSection > div:first-child input[type="button"] {
+      cursor: pointer;
+      background-color: #098e97;
+      color: white;
+      border: none; }
+      #PHSceneSection > div:first-child input[type="button"]:hover {
+        background-color: #008489; }
+    #PHSceneSection > div:first-child .photosInput {
+      border: 1px solid #bdbdbd;
+      border-radius: 5px;
+      padding: .3em .5em;
+      font-size: 20px;
+      margin: 0;
+      min-height: 50vh;
+      width: 100%; }
+      #PHSceneSection > div:first-child .photosInput > h4 {
+        color: #008489;
+        top: -.65em;
+        left: 4.4em;
+        position: absolute;
+        background-color: white;
+        padding: 0 .25em; }
+      #PHSceneSection > div:first-child .photosInput > div {
+        min-height: 45vh;
+        padding: 1.5em 1em;
+        display: flex;
+        flex-flow: wrap; }
+      #PHSceneSection > div:first-child .photosInput > input[type="file"] {
+        color: black;
+        font-size: 0pt;
+        padding: 6px 8px; }
+        #PHSceneSection > div:first-child .photosInput > input[type="file"]::-webkit-file-upload-button {
+          width: fit-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1x solid #3b3b3b;
+          background-color: transparent;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.15s ease-in-out;
+          padding: 6px 8px;
+          color: black;
+          margin: 0;
+          font-size: 8pt; }
+          #PHSceneSection > div:first-child .photosInput > input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #bdbdbd; }
+
+@media screen and (max-width: 750px) {
+  #PHSceneSection > div:first-child {
+    width: 100%; }
+  #PHSceneSection > div:last-child {
+    display: none; }
+  #PHSceneSection .input {
+    padding: 0 .25em !important; } }

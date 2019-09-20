@@ -1,12 +1,30 @@
+#outerBasics {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #outerBasics > div {
+    width: 50%;
+    height: 100%; }
+  #outerBasics > div:first-child {
+    background-color: white; }
+
 #PHBasicSection {
-  padding: 3em 2em; }
+  padding: 3em 2em;
+  overflow-y: scroll;
+  background-size: cover; }
+  #PHBasicSection #map img {
+    width: 100%;
+    height: 100%; }
   #PHBasicSection > div {
+    width: 100%;
     margin: 1em 0; }
     #PHBasicSection > div > div {
       margin: 2em 1.5em; }
-  #PHBasicSection select, #PHBasicSection input[type="text"] {
+  #PHBasicSection select, #PHBasicSection input[type="text"], #PHBasicSection input[type="number"], #PHBasicSection input[type="button"] {
     -webkit-appearance: none;
-    width: 20%;
+    width: 100%;
     font-family: inherit;
     padding: 8px;
     font-size: 12pt;
@@ -16,22 +34,33 @@
     background: none;
     color: #3b3b3b;
     transition: all .15s ease; }
-    #PHBasicSection select:focus + div, #PHBasicSection input[type="text"]:focus + div {
+    #PHBasicSection select:focus + div, #PHBasicSection input[type="text"]:focus + div, #PHBasicSection input[type="number"]:focus + div, #PHBasicSection input[type="button"]:focus + div {
       transform: translateY(-20px);
       font-size: 8pt;
       padding: 0 5px; }
-    #PHBasicSection select:not(:placeholder-shown) + div, #PHBasicSection input[type="text"]:not(:placeholder-shown) + div {
+    #PHBasicSection select:not(:placeholder-shown) + div, #PHBasicSection input[type="text"]:not(:placeholder-shown) + div, #PHBasicSection input[type="number"]:not(:placeholder-shown) + div, #PHBasicSection input[type="button"]:not(:placeholder-shown) + div {
       color: #008489;
       font-size: 8pt;
       transform: translateY(-20px);
       padding: 0 5px; }
-    #PHBasicSection select:hover, #PHBasicSection input[type="text"]:hover {
+    #PHBasicSection select:hover, #PHBasicSection input[type="text"]:hover, #PHBasicSection input[type="number"]:hover, #PHBasicSection input[type="button"]:hover {
       border-color: #008489; }
-      #PHBasicSection select:hover + div, #PHBasicSection input[type="text"]:hover + div {
+      #PHBasicSection select:hover + div, #PHBasicSection input[type="text"]:hover + div, #PHBasicSection input[type="number"]:hover + div, #PHBasicSection input[type="button"]:hover + div {
         color: #008489;
         font-size: 8pt;
         transform: translateY(-20px);
         padding: 0 5px; }
+  #PHBasicSection input[type="button"] {
+    cursor: pointer;
+    background-color: #098e97;
+    color: white;
+    border: none; }
+    #PHBasicSection input[type="button"]:hover {
+      background-color: #008489; }
+  #PHBasicSection #guestHave {
+    margin: 0 2em; }
+    #PHBasicSection #guestHave > div > * {
+      margin-right: 1em; }
   #PHBasicSection input[type="radio"] {
     width: fit-content; }
   #PHBasicSection .input {
@@ -43,4 +72,11 @@
       transition: all 0.3s ease;
       margin: 0 9px;
       background-color: white;
-      position: absolute; }
+      position: absolute;
+      pointer-events: none; }
+
+@media screen and (max-width: 750px) {
+  #outerBasics > div:first-child {
+    width: 100%; }
+  #outerBasics > div:last-child {
+    display: none; } }

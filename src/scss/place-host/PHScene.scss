@@ -1,2 +1,197 @@
 @import '../variables.scss';
 @import '../mixins.scss';
+
+#PHSceneSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    >div{
+        width: 50%;
+        height: 100%;
+    }
+    >div:first-child{
+        padding: 3em 2em;
+        overflow-y: scroll;
+        background-color: white;
+        .input{
+            position: relative;
+            padding: 0 3em;
+        }
+        >div{
+            width: 100%;
+            margin: 1em 0;
+            >div{
+                margin: 2em 1.5em;
+            }
+        }
+        .label{
+            margin: 0;
+        }
+        .input{
+            position: relative;
+            margin: 1em 0;
+            display: flex;
+            align-items: center;
+            >.label{
+                transition: all 0.3s ease;
+                margin: 0 9px;
+                background-color: white;
+                position: absolute;
+                pointer-events: none;
+            }
+        }
+        select, input[type="text"], input[type="number"], input[type="button"]{
+            -webkit-appearance: none;
+            width: 100%;
+            font-family: inherit;
+            padding: 8px;
+            font-size: 12pt;
+            font-weight: 500;
+            border: 1px solid $darkGrey;
+            border-radius: 5px;
+            background: none;
+            color: $darkGrey;
+            transition: all .15s ease;
+            &:focus{
+                + div{
+                    transform: translateY(-20px);
+                    font-size: 8pt;
+                    padding: 0 5px;
+                }
+            }
+            &:not(:placeholder-shown){
+                + div{
+                    color: $blueGreen;
+                    font-size: 8pt;
+                    transform: translateY(-20px);
+                    padding: 0 5px;
+                }
+            }
+            &:hover{
+                border-color: $blueGreen;
+                + div{
+                    color: $blueGreen;
+                    font-size: 8pt;
+                    transform: translateY(-20px);
+                    padding: 0 5px;
+                }
+            }
+        }
+        textarea{
+            -webkit-appearance: none;
+            width: 100%;
+            font-family: inherit;
+            padding: 8px;
+            font-size: 12pt;
+            font-weight: 500;
+            border: 1px solid $darkGrey;
+            border-radius: 5px;
+            background: none;
+            color: $darkGrey;
+            transition: all .15s ease;
+            +div{
+                position: absolute;
+                top: .35em;
+                left: 3.2em;
+                margin:0;
+                pointer-events: none;
+                font-size: 12pt;
+                color: $lightGrey;
+                transition: all .15s linear;
+                background-color: white;
+                padding: 2px 5px;
+                transform-origin: left;
+            }
+            &:focus{
+                + div{
+                    transform: translateY(-12px) translateX(+24px);
+                    font-size: 8pt;
+                    padding: 0 5px;
+                }
+            }
+            &:not(:placeholder-shown){
+                + div{
+                    color: $blueGreen;
+                    font-size: 8pt;
+                    transform: translateY(-12px) translateX(+24px);
+                    padding: 0 5px;
+                }
+            }
+            &:hover{
+                border-color: $blueGreen;
+                + div{
+                    color: $blueGreen;
+                    font-size: 8pt;
+                    transform: translateY(-12px) translateX(+24px);
+                    padding: 0 5px;
+                }
+            }
+        }
+        input[type="button"]{
+            cursor: pointer;
+            background-color: $lightBlueGreen;
+            color: white;
+            border: none;
+            &:hover{
+                background-color: $blueGreen;
+            }
+        }
+        .photosInput{
+            border: 1px solid $superLightGrey;
+            border-radius: 5px;
+            padding: .3em .5em;
+            font-size: 20px;
+            margin: 0;
+            min-height: 50vh;
+            width: 100%;
+            >h4{
+                color: $blueGreen;
+                top: -.65em;
+                left: 4.4em;
+                position: absolute;
+                background-color: white;
+                padding: 0 .25em;
+            }
+            >div{
+                min-height: 45vh;
+                padding: 1.5em 1em;
+                display: flex;
+                flex-flow: wrap;
+                // justify-content: space-between;
+            }
+            >input[type="file"]{
+                color: black;
+                font-size: 0pt;
+                padding: 6px 8px;
+                &::-webkit-file-upload-button{
+                    @include basicButton($darkGrey, transparent);
+                    transition: all 0.15s ease-in-out;
+                    padding: 6px 8px;
+                    color: black;
+                    margin: 0;
+                    font-size: 8pt;
+            
+                    &:hover{
+                        background-color: $superLightGrey;  
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+@include mQ(750px){
+    #PHSceneSection{
+        >div:first-child{
+            width: 100%;
+        }
+        >div:last-child{
+            display: none;
+        }
+        .input{
+            padding: 0 .25em !important;
+        }
+    }
+}
