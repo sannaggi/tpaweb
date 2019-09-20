@@ -40,11 +40,13 @@ function LoginModal({ oauth2Login, emailLogin }: { oauth2Login: any, emailLogin:
   }
 
   function responseOAuth(res) {
+    console.log(res)
     if (!res.accessToken) return;
     if (res.googleId !== undefined) {
       oauth2Login(res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid");
       document.getElementById("loginModal").setAttribute("style", "display: hidden");
     }
+    
   }
 
   function onSubmit(e) {

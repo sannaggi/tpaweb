@@ -74,7 +74,6 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
                             <input
                                 type="email"
                                 onChange={onChange}
-                                value={newUser.email}
                                 name="email"
                                 placeholder="Email address"
                             />
@@ -88,7 +87,6 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
                             <input
                                 type="text"
                                 onChange={onChange}
-                                value={newUser.firstname}
                                 name="firstname"
                                 placeholder="First name"
                             />
@@ -102,7 +100,6 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
                             <input
                                 type="text"
                                 onChange={onChange}
-                                value={newUser.lastname}
                                 name="lastname"
                                 placeholder="Last name"
                             />
@@ -116,7 +113,6 @@ function RegisterEmailModal({setAuth, responseOAuth, newDefaultUser} : {setAuth:
                             <input
                                 type="password"
                                 onChange={onChange}
-                                value={newUser.password}
                                 name="password"
                                 placeholder="Create a password"
                             />

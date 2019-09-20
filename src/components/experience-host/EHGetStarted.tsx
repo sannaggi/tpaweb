@@ -117,6 +117,7 @@ export default function EHGetStarted(){
                     <EHGSSection headName={"About you"} id={"aboutyou"}/>
                     <EHGSSection headName={"What we'll do"} id={"wedo"}/>
                     <EHGSSection headName={"What we'll be"} id={"webe"}/>
+                    <EHGSSection headName={"Provided Amenities"} id={"amenities"}/>
                     <EHGSSection headName={"Photos"} id={"photos"}/>
                 </div>
                 <div id="settings" className="head-sec">
@@ -164,6 +165,10 @@ export default function EHGetStarted(){
                     <div className="input">
                         <textarea name=""  placeholder=" " id="webe" rows={10} onBlur={handleInput}></textarea>
                         <div className="label">What we'll be</div>
+                    </div>
+                    <div className="input">
+                        <textarea name=""  placeholder=" " id="amenities" rows={10} onBlur={handleInput}></textarea>
+                        <div className="label">Amenities</div>
                     </div>
                     <div className="input">
                         <div className="photosInput">

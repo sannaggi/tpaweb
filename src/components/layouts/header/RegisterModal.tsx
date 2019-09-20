@@ -98,7 +98,7 @@ function LoginModal({ setNewOauthUser, registerStatus, setRegisterStatus, oauth2
                 method: "POST",
                 data: data,
                 headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": "application/x-www-form-urlencoded"
                 }
             })
             .then(res => {
