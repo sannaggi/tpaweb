@@ -45,8 +45,10 @@ function LoginModal({ oauth2Login, emailLogin }: { oauth2Login: any, emailLogin:
     if (res.googleId !== undefined) {
       oauth2Login(res.googleId, res.tokenObj.expires_at, res.accessToken, "googleid");
       document.getElementById("loginModal").setAttribute("style", "display: hidden");
+      return;
     }
-    
+    oauth2Login(res.userID, res.expiresIn, res.accessToken, "facebookid")
+    document.getElementById("loginModal").setAttribute("style", "display: hidden")
   }
 
   function onSubmit(e) {
