@@ -82,6 +82,12 @@ export default function PHBasics(){
     }
 
     function nextClick(){
+        let radioBtn = document.querySelector("input[name='guestHave']:checked")
+        console.log(radioBtn)
+        if(radioBtn === undefined || radioBtn === null){
+            alert('Please select what guest will have')
+            return
+        }
         if(location.city === "" || location.country === "" || location.street === "" || location.postal_code === "") return
         document.getElementById("outerBasics").style.transform = "scale(0.35)"
         setTimeout(() => {
@@ -94,6 +100,22 @@ export default function PHBasics(){
         }, 1300)
     }
 
+    function comboBoxValidation(e){
+        if(e.target.value === "-") alert('please select a type!')
+    }
+
+    function numberValidation(e){
+        if(e.target.value < 0){
+            e.target.value = 0
+            alert('cannot be lowered than 0')
+        }
+    }
+
+    function placeLocFormat(e){
+        if((e.target.value + "").split(',').length > 1) return
+        alert('must be on City, Country format') 
+    }
+
     return(
         <div id="outerBasics"  style={{backgroundImage: "url(" + process.env.PUBLIC_URL + "/images/host-wallpaper/basics.jpg)" }}>
             <div id="PHBasicSection">
@@ -101,7 +123,7 @@ export default function PHBasics(){
                 <h2>Basics</h2>
                     <div>
                         <div className="input">
-                            <select name="" id="" placeholder=" ">
+                            <select name="" id="" placeholder=" " onChange={comboBoxValidation}>
                                 <option value="-">--Place Type--</option>
                                 <option value="House">House</option>
                                 <option value="Apartemen">Apartement</option>
@@ -112,11 +134,11 @@ export default function PHBasics(){
                             <div className="label">Place Type</div>
                         </div>
                         <div className="input">
-                            <input type="text" name="" id="" placeholder="City, Country"/>
+                            <input type="text" name="" id="" placeholder="City, Country" onBlur={placeLocFormat}/>
                             <div className="label">Place Location</div>
                         </div>
                         <div className="input">
-                            <select name="" id="" placeholder=" ">
+                            <select name="" id="" placeholder=" " onChange={comboBoxValidation}>
                                 <option value="-">--Property Type--</option>
                                 <option value="A">Class A</option>
                                 <option value="B">Class B</option>
@@ -142,15 +164,15 @@ export default function PHBasics(){
                             </div>
                         </div>
                         <div className="input">
-                            <input type="number"  placeholder=" " name="" id="bedrooms"/>
+                            <input type="number"  placeholder=" " name="" id="bedrooms" onChange={numberValidation}/>
                             <div className="label">Bedrooms</div>
                         </div>
                         <div className="input">
-                            <input type="number"  placeholder=" " name="" id="beds"/>
+                            <input type="number"  placeholder=" " name="" id="beds" onChange={numberValidation}/>
                             <div className="label">Beds</div>
                         </div>
                         <div className="input">
-                            <input type="number"  placeholder=" " name="" id="bathrooms"/>
+                            <input type="number"  placeholder=" " name="" id="bathrooms" onChange={numberValidation}/>
                             <div className="label">Bathrooms</div>
                         </div>
                         <div id="map" style={{height: '50vh',width: '100%' }}>

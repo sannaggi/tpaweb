@@ -56,7 +56,25 @@ export default function PHScene(){
         // }
     }
 
+    function cannotEmpty(e){
+        if(e.target.value !== "") return
+        alert('Cannot be empty')
+        e.target.focus()
+    }
+
+    function validation(){
+        if(imageContent.length < 1){
+            alert('please insert some photo first')
+            return true
+        }
+
+        return false
+    }
+
     function nextClick(){
+        if(validation()) return
+
+
         document.getElementById("PHSceneSection").style.transform = "scale(0.35)"
         setTimeout(() => {
             
@@ -82,11 +100,11 @@ export default function PHScene(){
                     </div>
                 </div>
                 <div className="input">
-                    <textarea name=""  placeholder=" " id="amenities" rows={10}></textarea>
+                    <textarea name=""  placeholder=" " id="amenities" rows={10} onBlur={cannotEmpty}></textarea>
                     <div className="label">Amenities</div>
                 </div>
                 <div className="input">
-                    <input type="text" name="" id="title"/>
+                    <input type="text" name="" id="title" onBlur={cannotEmpty}/>
                     <div className="label">Title</div>
                 </div>
                 <div className="input">

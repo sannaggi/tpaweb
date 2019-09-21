@@ -27,6 +27,7 @@ export default function EHGetStarted(){
         checkbox.checked = e.target.value !== "";
         switch(e.target.id){
             case "groupSize":
+                e.target.value = e.target.value < 0 ? 0 : e.target.value
                 e.target.value = e.target.value > 10 ? 10 : e.target.value
                 break
             case "price":
@@ -39,8 +40,13 @@ export default function EHGetStarted(){
                     alert('Must atleast 5 words')
                 }
                 break
+            default:
+                if(e.target.value === ""){
+                    let a = document.querySelector(`#${e.target.id} + div`) as HTMLDivElement
+                    console.log(a.innerHTML + " cannot be empty")
+                }
+                break
         }
-        console.log(e.target.value)
     }
 
     const [count, setCount] = useState(0)
@@ -76,6 +82,8 @@ export default function EHGetStarted(){
         setimageContent(img.map(i => (
             i.out
         )))
+        let a = document.getElementById('photosCheck') as HTMLInputElement
+        a.checked = img.length <= 0
     }
 
     function onInputFile (e) {
@@ -95,10 +103,33 @@ export default function EHGetStarted(){
             )))
             // alert(images.length)
             img.forEach(e => {console.log(e)})
+            let a = document.getElementById('photosCheck') as HTMLInputElement
+            a.checked = true
         }
         // for(let i = 0; i < e.target.files.length; i++){
             reader.readAsDataURL(e.target.files[0])
         // }
+    }
+
+    function giveMeetingLocCheck(){
+        let a = document.getElementById('meetinglocCheck') as HTMLInputElement
+
+        let arr=['country', 'street', 'city', 'state', 'zip_code', 'loc_name']
+        a.checked = true
+        for(let i = 0; i < arr.length; i++){
+            let e = arr[i]
+            let el = document.getElementById(e) as HTMLInputElement
+            if(el.value === ""){
+                a.checked = false
+                break
+            }
+        }
+    }
+
+    function cannotEmpty(e){
+        giveMeetingLocCheck()
+        if(e.target.value !== "") return
+        alert('cannot be empty')
     }
 
     return(
@@ -195,8 +226,28 @@ export default function EHGetStarted(){
                         <div className="label">Price</div>
                     </div>
                     <div className="input">
-                        <input type="text"  placeholder=" " name="" id="meetingloc" onBlur={handleInput}/>
-                        <div className="label">Meeting Location</div>
+                        <input type="text" name="" id="country" onChange={cannotEmpty} placeholder=" "/>
+                        <div className="label">Country</div>
+                    </div>
+                    <div className="input">
+                        <input type="text" name="" id="street" onChange={cannotEmpty} placeholder=" "/>
+                        <div className="label">Street Address</div>
+                    </div>
+                    <div className="input">
+                        <input type="text" name="" id="city" onChange={cannotEmpty} placeholder=" "/>
+                        <div className="label">City</div>
+                    </div>
+                    <div className="input">
+                        <input type="text" name="" id="state" onChange={cannotEmpty} placeholder=" "/>
+                        <div className="label">State</div>
+                    </div>
+                    <div className="input">
+                        <input type="text" name="" id="zip_code" onChange={cannotEmpty} placeholder=" "/>
+                        <div className="label">Zip Code</div>
+                    </div>
+                    <div className="input">
+                        <input type="text" name="" id="loc_name" onChange={cannotEmpty} placeholder=" "/>
+                        <div className="label">Location name</div>
                     </div>
                 </div>
             </div>
