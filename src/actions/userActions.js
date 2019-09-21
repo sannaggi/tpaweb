@@ -82,6 +82,7 @@ export function emailLogin(email, password, rememberMe) {
 }
 
 export function oauth2Login(id, expiration, accessToken, authenticator) {
+  console.log(authenticator)
   return function(dispatch) {
     axios({
       url: "https://aivbnbapi.herokuapp.com/api/login/o",

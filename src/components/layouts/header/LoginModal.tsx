@@ -47,6 +47,7 @@ function LoginModal({ oauth2Login, emailLogin }: { oauth2Login: any, emailLogin:
       document.getElementById("loginModal").setAttribute("style", "display: hidden");
       return;
     }
+    console.log("uuu")
     oauth2Login(res.userID, res.expiresIn, res.accessToken, "facebookid")
     document.getElementById("loginModal").setAttribute("style", "display: hidden")
   }
